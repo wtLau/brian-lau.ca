@@ -21,12 +21,12 @@ app.use(customerRoute)
 app.use(express.static('public'))
 
 // Middleware: 404- Resource not Found
-app.use((req, res, next) => {
+app.use((req, res) => {
     res.status(404).send('You are lost!')
 })
 
 // Middleware: 500- Internal Server Error
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
     console.error(err.stack)
     res.sendFile(path.join(__dirname, '../public/500.html'))
 })

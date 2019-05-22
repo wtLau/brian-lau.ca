@@ -19,8 +19,8 @@ router.post('/customer', (req, res) => {
         })
         .catch(err => {
             res.status(500).json(err)
-        });
-});
+        })
+})
 
 // GET
 router.get('/customer', (req, res) => {
@@ -29,8 +29,8 @@ router.get('/customer', (req, res) => {
         return res.status(400).send('Missing URL parameter: email')
     }
     CustomerModel.findOne(({
-            email: req.query.email
-        }))
+        email: req.query.email
+    }))
         .then(doc => {
             res.json(doc)
         })
@@ -45,10 +45,8 @@ router.put('/customer', (req, res) => {
         return res.status(400).send('Missing URL parameter: email')
     }
     CustomerModel.findOneAndUpdate({
-            email: req.query.email
-        }, req.body, {
-            new: true
-        })
+        email: req.query.email
+    }, req.body, {new: true})
         .then(doc => {
             res.json(doc)
         })
@@ -63,8 +61,8 @@ router.delete('/customer', (req, res) => {
         return res.status(400).send('Missing URL parameter: email')
     }
     CustomerModel.findOneAndRemove({
-            email: req.query.email
-        })
+        email: req.query.email
+    })
         .then(doc => {
             res.json(doc)
         })
@@ -72,4 +70,5 @@ router.delete('/customer', (req, res) => {
             res.status(500).json(err)
         })
 })
+
 module.exports = router
