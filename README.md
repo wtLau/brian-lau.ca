@@ -1,68 +1,85 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Personal Porfolio Web App
 
-## Available Scripts
+## An App for learning new technology and demo
 
-In the project directory, you can run:
+This is an app to help me to learn new skill and mondern technology, also acting as a demo websites where people can take a look at what I have been doing.
 
-### `npm start`
+[Website Link](https://node-express-mongo-app.lauwangtatbrian.now.sh/public/)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Screen-Shots
 
-### `npm test`
+## Prerequisites
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 1. Download or Clone from Github
 
-### `npm run build`
+Go into the file directory and
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+run `cd Portfolio-App/`
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+#### 2. Install the dev dependencies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Run `npm install`; install the node modules you'll need for the application
 
-### `npm run eject`
+### Starting the Project
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```npm run```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Features
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- SPA App, powered by React
+- Server Rendering
+- ES6
+- Mongo DB Cloud atlas database
+- Server-side render using Express
+- AirBnb eslint
 
-## Learn More
+## TODO List
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Mobile and desktop sfriendly
+- Landing Page
+- Contact Page
+- Login Page
+- Restful API with CRUD operation
+- Authention for login system
+        - Firebase
+        - Auth0
+- Flow; serve as a form of documentation for code and improves the readability
+- Package management
+        - Yarn
+- Host Domain
+- Continuous Integration Pipeline
+        - Travis CI
+        - Jenkin
+- Hosting- Amazon S3 or Google
+- Progressive web app
+- Lazy loading
+- GraphQL?
+- Test Driven Development: Write test first
+        - Jest
+        - Enzyme
+- State management with Redux
+- CSS module
+- CSS sylelint
+- Deployment
+        - Ansible Tower
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Built With
 
-### Code Splitting
+- [React](https://facebook.github.io/react/) - A javaScript library for building user interfaces
+- [Redux](http://redux.js.org/) - Redux is a predictable state container for JavaScript apps.
+- [Meteor](https://www.meteor.com/) - Meteor is a complete platform for building web and mobile apps in pure JavaScript.
+- [MongoDB](https://www.mongodb.com/) - MongoDB is a free and open-source cross-platform document-oriented database program.
+- [Visual Studio Code](https://code.visualstudio.com/) - A code editor redefined and optimized for building and debugging modern web and cloud applications.
+- [Moment](https://momentjs.com/) - Parse, validate, manipulate, and display dates and times in JavaScript.
+- [Material-UI](http://www.material-ui.com/#/) - A Set of React Components that Implement Google's Material Design
+- [mLab](https://mlab.com/) - A mLab is a fully managed cloud database service that hosts MongoDB databases
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+---
 
-### Analyzing the Bundle Size
+## Developed and Owned By
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Brian Lau [GitHub](https://github.com/wtLau)
