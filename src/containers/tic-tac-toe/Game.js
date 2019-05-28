@@ -1,4 +1,3 @@
-
 import React from 'react'
 import Board from './Board'
 import './style.css'
@@ -34,7 +33,7 @@ export default class Game extends React.Component {
         })
     }
 
-    jumpTo(step) {
+    jumpTo = (step) => {
         this.setState({
             stepNumber: step,
             xIsNext: (step % 2) === 0
