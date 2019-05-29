@@ -20,7 +20,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "./node_modules/.bin/eslint src",
-    "lint-fixup": "./node_modules/.bin/eslint src --ext .js,.jsx --fix"
+    "lint-fixup": "./node_modules/.bin/eslint src --ext .js,.jsx --fix",
+    "flow": "flow"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -45,6 +46,7 @@
     "eslint-plugin-babel": "^5.3.0",
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-react": "^7.13.0",
+    "flow-bin": "^0.98.1",
     "nodemon": "^1.19.0",
     "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6"
