@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-export default class index extends Component {
+class Footer extends Component {
     static propTypes = {
-        prop: PropTypes
+        value: PropTypes.string
     }
 
     render() {
@@ -16,3 +16,6 @@ export default class index extends Component {
         )
     }
 }
+
+
+export default Footer

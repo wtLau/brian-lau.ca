@@ -3,9 +3,16 @@ import ReactDOM from 'react-dom'
 import './index.css'
 // import App from './App'
 import Game from './containers/tic-tac-toe'
+import Layout from './containers/Layout'
 import * as serviceWorker from './serviceWorker'
 
-ReactDOM.render(<Game />, document.getElementById('root'))
+const App = () => {
+    <Layout>
+        <Game />
+    </Layout>
+}
+
+ReactDOM.render(<App />, document.getElementById('root'))
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
