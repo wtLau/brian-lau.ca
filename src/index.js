@@ -1,15 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
+import Routes from './routes'
+
 import './index.css'
-// import App from './App'
-import Game from './containers/tic-tac-toe'
 import Layout from './containers/Layout'
 import * as serviceWorker from './serviceWorker'
 
 const App = () => {
-    <Layout>
-        <Game />
-    </Layout>
+    return (
+        < Router >
+            <Layout>
+                <Routes />
+            </Layout>
+        </Router >
+    )
 }
 
 ReactDOM.render(<App />, document.getElementById('root'))

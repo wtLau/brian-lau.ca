@@ -1,21 +1,8 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
+import './styles.css'
 
-class Footer extends Component {
-    static propTypes = {
-        value: PropTypes.string
-    }
-
-    render() {
-        return (
-            <div>
-                <button className="square">
-                    {this.props.value}
-                </button>
-            </div>
-        )
-    }
-}
-
+const Footer = () => (
+    <p className="copyright">© 2019 Brian Lau All Rights Reserved</p>
+)
 
 export default Footer
