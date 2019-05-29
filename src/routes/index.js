@@ -3,11 +3,14 @@ import { Route, Switch } from 'react-router-dom'
 
 // import all components
 import Game from '../containers/Tic-Tac-Toe'
-// import SignUp from '../containers/SignUp/'
+import Error404 from '../containers/Error404'
 
 const Routes = () => (
     <Switch>
+        <Route exact path="/" component={Game} />
         <Route exact path="/game" component={Game} />
+        <Route component={Error404} />
+
     </Switch>
 )
 

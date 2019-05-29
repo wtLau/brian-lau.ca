@@ -13,9 +13,13 @@
 }
 
 
-
 .logo {
     height: 36px;
     width: auto;
     margin: 0 30px;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
 }
