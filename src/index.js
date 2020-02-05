@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import Routes from './routes'
 
 import './reset.css'
-import Layout from './containers/Layout'
+import Layout from './Layout'
 import * as serviceWorker from './serviceWorker'
 
 const App = () => {
