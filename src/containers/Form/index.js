@@ -12,18 +12,10 @@ class Form extends React.Component {
         password2: ''
       }
     }
-
-    // this.handleUsernameChange = this.handleUsernameChange.bind(this)
-    // this.handleEmailChange = this.handleEmailChange.bind(this)
-    // this.handlePasswordChange = this.handlePasswordChange.bind(this)
-    // this.handlePassword2Change = this.handlePassword2Change.bind(this)
-    // this.handleSubmit = this.handleSubmit.bind(this)
-
-    // this.usernameRef = React.createRef()
   }
 
   // Show Error Message
-  showError(input, message) {
+  showError = (input, message) => {
     const formControl = input
     formControl.className = 'form-control error'
     const small = formControl.querySelector('small')
@@ -42,7 +34,7 @@ class Form extends React.Component {
       }
     })
   }
-  handleSubmit(event) {
+  handleSubmit = event => {
     if (this.state.username === '') {
       this.showError(this.state.username, 'Username is required')
     }
