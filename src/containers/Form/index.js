@@ -5,20 +5,24 @@ class Form extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      username: '',
-      email: '',
-      password: '',
-      password2: ''
+      formControls: {
+        username: '',
+        email: '',
+        password: '',
+        password2: ''
+      }
     }
-    this.handleUsernameChange = this.handleUsernameChange.bind(this)
-    this.handleEmailChange = this.handleEmailChange.bind(this)
-    this.handlePasswordChange = this.handlePasswordChange.bind(this)
-    this.handlePassword2Change = this.handlePassword2Change.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+
+    // this.handleUsernameChange = this.handleUsernameChange.bind(this)
+    // this.handleEmailChange = this.handleEmailChange.bind(this)
+    // this.handlePasswordChange = this.handlePasswordChange.bind(this)
+    // this.handlePassword2Change = this.handlePassword2Change.bind(this)
+    // this.handleSubmit = this.handleSubmit.bind(this)
+
+    // this.usernameRef = React.createRef()
   }
 
   // Show Error Message
-
   showError(input, message) {
     const formControl = input
     formControl.className = 'form-control error'
@@ -27,20 +31,16 @@ class Form extends React.Component {
   }
 
   // Event Listeners
-  handleUsernameChange(event) {
-    this.setState({ username: event.target.value })
-  }
+  changeHandler = event => {
+    const name = event.target.name
+    const value = event.target.value
 
-  handleEmailChange(event) {
-    this.setState({ email: event.target.value })
-  }
-
-  handlePasswordChange(event) {
-    this.setState({ password: event.target.value })
-  }
-
-  handlePassword2Change(event) {
-    this.setState({ password2: event.target.value })
+    this.setState({
+      formControls: {
+        ...this.state.formControls,
+        [name]: value
+      }
+    })
   }
   handleSubmit(event) {
     if (this.state.username === '') {
@@ -59,10 +59,10 @@ class Form extends React.Component {
             <label htmlFor='username'>Username</label>
             <input
               type='text'
-              id='username'
+              name='username'
               placeholder='Enter Username'
-              value={this.state.username}
-              onChange={this.handleUsernameChange}
+              value={this.state.formControls.username}
+              onChange={this.changeHandler}
             />
             <small>Error Message</small>
           </div>
@@ -70,10 +70,10 @@ class Form extends React.Component {
             <label htmlFor='email'>Email</label>
             <input
               type='text'
-              id='email'
+              name='email'
               placeholder='Enter email'
-              value={this.state.email}
-              onChange={this.handleEmailChange}
+              value={this.state.formControls.email}
+              onChange={this.changeHandler}
             />
             <small>Error Message</small>
           </div>
@@ -81,10 +81,10 @@ class Form extends React.Component {
             <label htmlFor='password'>Password</label>
             <input
               type='password'
-              id='password'
+              name='password'
               placeholder='Enter password'
-              value={this.state.password}
-              onChange={this.handlePasswordChange}
+              value={this.state.formControls.password}
+              onChange={this.changeHandler}
             />
             <small>Error Message</small>
           </div>
@@ -92,10 +92,10 @@ class Form extends React.Component {
             <label htmlFor='password2'>Confirm Password</label>
             <input
               type='password'
-              id='password2'
+              name='password2'
               placeholder='Enter password again'
-              value={this.state.password2}
-              onChange={this.handlePassword2Change}
+              value={this.state.formControls.password2}
+              onChange={this.changeHandler}
             />
             <small>Error Message</small>
           </div>
