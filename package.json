@@ -15,7 +15,7 @@
     "redux": "^4.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start react-scripts --inspect-brk --runInBand",
     "build": "react-scripts build",
     "start-server": "PORT=5000 node server/index.js",
     "start-watch": "nodemon server/index.js",
