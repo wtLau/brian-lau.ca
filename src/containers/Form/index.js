@@ -1,96 +1,133 @@
 import React from 'react'
 import './styles.css'
 
+import TextInput from '../../componenets/TextInput'
+import validate from './validation'
+
 class Form extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      formIsValid: false,
       formControls: {
-        username: '',
-        email: '',
-        password: '',
-        password2: ''
+        username: {
+          label: 'Username',
+          name: 'username',
+          type: 'text',
+          className: 'form-control',
+          value: '',
+          valid: false,
+          touched: false,
+          placeholder: 'Enter Username',
+          validationRules: {
+            isRequired: true,
+            minLength: 3
+          }
+        },
+        email: {
+          label: 'Email',
+          name: 'email',
+          type: 'text',
+          className: 'form-control',
+          value: '',
+          valid: false,
+          touched: false,
+          placeholder: 'Enter Email',
+          validationRules: {
+            isEmail: true,
+            isRequired: true
+          }
+        },
+        password: {
+          label: 'Password',
+          name: 'password',
+          type: 'password',
+          value: '',
+          className: 'form-control',
+          valid: false,
+          touched: false,
+          placeholder: 'Enter password',
+          validationRules: {
+            isRequired: true
+          }
+        },
+        password2: {
+          label: 'Confirm Password',
+          name: 'password2',
+          type: 'password',
+          className: 'form-control',
+          value: '',
+          valid: false,
+          touched: false,
+          placeholder: 'Enter password again',
+          validationRules: {
+            isRequired: true
+          }
+        }
       }
     }
   }
 
-  // Show Error Message
-  showError = (input, message) => {
-    const formControl = input
-    formControl.className = 'form-control error'
-    const small = formControl.querySelector('small')
-    small.innerText = message
-  }
-
   // Event Listeners
   changeHandler = event => {
-    const name = event.target.name
+    const name = event.target.name.toLowerCase()
     const value = event.target.value
 
+    const updatedControls = {
+      ...this.state.formControls
+    }
+    const updatedFormElement = {
+      ...updatedControls[name]
+    }
+    updatedFormElement.value = value
+    updatedFormElement.touched = true
+    updatedFormElement.valid = validate(
+      value,
+      updatedFormElement.validationRules
+    )
+
+    if (updatedFormElement.touched && !updatedFormElement.valid) {
+      updatedFormElement.className = 'form-control error'
+    } else {
+      updatedFormElement.className = 'form-control'
+    }
+
+    updatedControls[name] = updatedFormElement
+
     this.setState({
-      formControls: {
-        ...this.state.formControls,
-        [name]: value
-      }
+      formControls: updatedControls
     })
   }
   handleSubmit = event => {
-    if (this.state.username === '') {
-      this.showError(this.state.username, 'Username is required')
+    if (event.target.value === '') {
+      this.showError(event.target.value, 'Username is required')
     }
     alert('Submitted')
     event.preventDefault()
   }
 
   render() {
+    let textInput = this.state.formControls
+    let elements = []
+    for (let item in textInput)
+      elements.push(
+        <TextInput
+          type={textInput[item].type}
+          label={textInput[item].label}
+          name={textInput[item].name}
+          key={textInput[item].name}
+          placeholder={textInput[item].placeholder}
+          value={textInput[item].value}
+          onChange={this.changeHandler}
+          className={textInput[item].className}
+        />
+      )
+
     return (
       <div className='formContainer'>
         <form id='form' className='form' onSubmit={this.handleSubmit}>
           <h2>Register With Us</h2>
-          <div className='form-control'>
-            <label htmlFor='username'>Username</label>
-            <input
-              type='text'
-              name='username'
-              placeholder='Enter Username'
-              value={this.state.formControls.username}
-              onChange={this.changeHandler}
-            />
-            <small>Error Message</small>
-          </div>
-          <div className='form-control'>
-            <label htmlFor='email'>Email</label>
-            <input
-              type='text'
-              name='email'
-              placeholder='Enter email'
-              value={this.state.formControls.email}
-              onChange={this.changeHandler}
-            />
-            <small>Error Message</small>
-          </div>
-          <div className='form-control'>
-            <label htmlFor='password'>Password</label>
-            <input
-              type='password'
-              name='password'
-              placeholder='Enter password'
-              value={this.state.formControls.password}
-              onChange={this.changeHandler}
-            />
-            <small>Error Message</small>
-          </div>
-          <div className='form-control'>
-            <label htmlFor='password2'>Confirm Password</label>
-            <input
-              type='password'
-              name='password2'
-              placeholder='Enter password again'
-              value={this.state.formControls.password2}
-              onChange={this.changeHandler}
-            />
-            <small>Error Message</small>
-          </div>
+          {elements}
           <button type='submit'>Submit</button>
         </form>
       </div>

@@ -26,8 +26,8 @@ module.exports = {
   },
   plugins: ['babel', 'react'],
   rules: {
-    indent: ['error', 2],
-    'linebreak-style': ['error', 'unix'],
+    // indent: ['error', 2],
+    // 'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
     semi: ['error', 'never'],
     'react/jsx-boolean-value': 0,

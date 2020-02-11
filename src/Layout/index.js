@@ -5,17 +5,17 @@ import { Button, Avatar } from '@material-ui/core'
 
 import './styles.css'
 
-// import AvatarImage from '../images/brian_square.jpg'
+import AvatarImage from '../images/brian_square.jpg'
 
 const Layout = ({ children }) => (
   <div className='appContentWrapper'>
     <div className='appHeader'>
       <div className='header'>
         <Link to='/'>
-          {/* <div className="logo_menu">
-                        <Avatar alt="Brian Lau" src={AvatarImage} /> */}
-          <h1>Brian Lau</h1>
-          {/* </div> */}
+          <div className='logo_menu'>
+            <Avatar alt='Brian Lau' src={AvatarImage} />
+            {/* <h1>Brian Lau</h1> */}
+          </div>
         </Link>
         <div className='buttons'>
           <Link to='/form'>
