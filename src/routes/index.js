@@ -1,12 +1,13 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
-import Error404 from '../containers/Error404'
-import Form from '../containers/Form'
+import Error404 from '../Pages/Error404'
+import Form from '../components/Form'
+import Landing from '../Pages/Landing'
 
 const Routes = () => (
   <Switch>
-    <Route exact path='/' />
+    <Route exact path='/' component={Landing} />
     <Route exact path='/form' component={Form} />
     <Route component={Error404} />
   </Switch>
