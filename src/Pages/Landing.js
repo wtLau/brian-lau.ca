@@ -12,17 +12,36 @@ import FitnessCenterOutlinedIcon from '@material-ui/icons/FitnessCenterOutlined'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
 
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemText from '@material-ui/core/ListItemText'
+
+import Menu from '../routes/Menu'
+
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: '60vh',
+    height: '80vh',
+    margin: '1em',
   },
   buttonGroup: {
     minHeight: 200,
+    marginTop: '1em',
   },
 }))
 
+function generate(element) {
+  return Menu.map((value) =>
+    React.cloneElement(element, {
+      key: value,
+    })
+  )
+}
+
 export default function Landing() {
   const classes = useStyles()
+  const [dense, setDense] = React.useState(false)
+  const [secondary, setSecondary] = React.useState(false)
+
   return (
     <Grid
       container
@@ -32,8 +51,10 @@ export default function Landing() {
       justify='center'
       className={classes.root}
     >
-      <Typography variant='h1'>Hi! I'm Brian</Typography>
-      <Typography justify='center' variant='h4'>
+      <Typography variant='h1' align='center' gutterBottom>
+        Hi! I'm Brian
+      </Typography>
+      <Typography justify='center' align='center' variant='h4' gutterBottom>
         Front-end Developer based in Vancouver, BC
       </Typography>
       <ButtonGroup
@@ -41,19 +62,38 @@ export default function Landing() {
         justify='center'
         alignItems='center'
       >
-        <Grid spacing={4} container justify='center'>
-          <Grid item container xs={12} sm={3} justify='center'>
-            <Link to='/'></Link>
-            <Button startIcon={<CodeOutlinedIcon />} variant='text'>
+        <Grid spacing={4} container justify='center' alignItems='center'>
+          <Grid item container xs={12} sm={3} justify='left'>
+            <div className={classes.demo}>
+              <List dense={dense}>
+                {generate(
+                  <ListItem>
+                    <ListItemText
+                      primary={dense}
+                      secondary={secondary ? 'Secondary text' : null}
+                    />
+                  </ListItem>
+                )}
+              </List>
+            </div>
+
+            <ListItem
+              to={Menu.map((item) =>
+                item.label == 'Development' ? item.pathname : null
+              )}
+              component='Button'
+              startIcon={<CodeOutlinedIcon />}
+              variant='text'
+            >
               Developer
-            </Button>
+            </ListItem>
           </Grid>
-          <Grid item container xs={12} sm={3} justify='center'>
+          <Grid item container xs={12} sm={3} justify='left'>
             <Button disabled startIcon={<PhotoCameraIcon />} variant='text'>
               Photographer
             </Button>
           </Grid>
-          <Grid item container xs={12} sm={3} justify='center'>
+          <Grid item container xs={12} sm={3} justify='left'>
             <Button
               disabled
               startIcon={<FitnessCenterOutlinedIcon />}
@@ -62,7 +102,7 @@ export default function Landing() {
               Bodybuilder
             </Button>
           </Grid>
-          <Grid item container xs={12} sm={3} justify='center'>
+          <Grid item container xs={12} sm={3} justify='left'>
             <Button disabled startIcon={<ExploreOutlinedIcon />} variant='text'>
               Traveller
             </Button>

@@ -14,25 +14,26 @@ const Menu = [
     label: 'Resume',
     pathname: '/resume',
   },
+  { id: 4, label: 'Development', pathname: '/dev' },
   {
-    id: 4,
-    label: 'PhotoGrapher',
+    id: 5,
+    label: 'PhotomoGrapher',
     pathname: '/photo',
   },
   {
-    id: 5,
+    id: 6,
     label: 'BodyBuilder',
     pathname: '/workout',
   },
   {
-    id: 6,
+    id: 7,
     label: 'Traveller',
     pathname: '/travel',
   },
   {
-    id: 7,
+    id: 8,
     label: 'Github',
-    pathname: 'https://github.com/',
+    pathname: 'https://github.com/wtlau',
     external: true,
   },
 ]
