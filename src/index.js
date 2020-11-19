@@ -1,27 +1,35 @@
+import './reset.css'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
 import Routes from './routes'
 
-import './reset.css'
-import './base.css'
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import { orange, yellow } from '@material-ui/core/colors'
+import 'fontsource-roboto'
+
 import Layout from './Layout'
 import * as serviceWorker from './serviceWorker'
 
-if (process.env.NODE_ENV === 'development') {
-  const whyDidYouRender = require('@welldone-software/why-did-you-render')
-  whyDidYouRender(React, {
-    trackAllPureComponents: true
-  })
-}
-
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: orange[300],
+    },
+    secondary: {
+      main: yellow[900],
+    },
+  },
+})
 const App = () => {
   return (
-    <Router>
-      <Layout>
-        <Routes />
-      </Layout>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <Layout>
+          <Routes />
+        </Layout>
+      </Router>
+    </ThemeProvider>
   )
 }
 

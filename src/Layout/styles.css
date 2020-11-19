@@ -28,6 +28,13 @@
   margin: 0 30px;
 }
 
+.logo-wordmark {
+  color: #f76c6c;
+  font-weight: 900;
+  font-size: 20px;
+  width: 4.5em;
+}
+
 /*************** NAV ************/
 
 .header {
@@ -40,9 +47,10 @@
   padding: 0;
   position: fixed;
   width: 100%;
-  z-index: 9999;
-  padding-left: 24px;
-  padding-right: 24px;
+}
+
+a {
+  text-decoration: none;
 }
 
 .logo_menu {

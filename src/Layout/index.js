@@ -1,51 +1,55 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
-import { Button, Avatar } from '@material-ui/core'
 
-import './styles.css'
-
+import { makeStyles } from '@material-ui/core/styles'
+import NavBar from '../components/Navbar'
 import AvatarImage from '../images/brian_square.jpg'
+import Grid from '@material-ui/core/Grid'
+import Box from '@material-ui/core/Box'
+import Typography from '@material-ui/core/Typography'
 
-const Layout = ({ children }) => (
-  <div className='appContentWrapper'>
-    <div className='appHeader'>
-      <div className='header'>
-        <Link to='/'>
-          <div className='logo_menu'>
-            <Avatar alt='Brian Lau' src={AvatarImage} />
-            {/* <h1>Brian Lau</h1> */}
-          </div>
-        </Link>
-        <div className='buttons'>
-          <Link to='/form'>
-            <Button color='secondary'>Form</Button>
-          </Link>
-          <Link to='/photo'>
-            <Button color='secondary'>Photo</Button>
-          </Link>
-          <Link to='/resume'>
-            <Button color='secondary'>Resume</Button>
-          </Link>
-          <Link to='/projects'>
-            <Button color='secondary'>Projects</Button>
-          </Link>
-        </div>
-      </div>
-    </div>
-    <div className='appContent'>{children}</div>
-    <section className='footer'>
-      <p className='copyright'>© 2019 Brian Lau All Rights Reserved</p>
-    </section>
-  </div>
-)
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+    height: '100vh',
+  },
+  paper: {
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  },
+}))
+const Layout = ({ children }) => {
+  const classes = useStyles()
+
+  return (
+    <Grid
+      spacing={0}
+      alignItems='center'
+      justify='center'
+      className={classes.root}
+    >
+      <Grid item xs={12}>
+        <NavBar />
+      </Grid>
+      <Grid item container xs={12} className={classes.main}>
+        {children}
+      </Grid>
+      {/* <Grid item xs={12}>
+        <Box className='footer'>
+          <Typography>© 2019 Brian Lau All Rights Reserved</Typography>
+        </Box>
+      </Grid> */}
+    </Grid>
+  )
+}
 
 Layout.defaultProps = {
-  children: null
+  children: null,
 }
 
 Layout.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 }
 
 export default Layout
