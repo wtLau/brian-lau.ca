@@ -91,17 +91,14 @@ const NavBar = () => {
     if (location.pathname === '/home') {
       return 0
     }
-    if (location.pathname === '/dev') {
+    if (location.pathname === '/about') {
       return 1
     }
-    if (location.pathname === '/photo') {
+    if (location.pathname === '/resume') {
       return 2
     }
-    if (location.pathname === '/workout') {
+    if (location.pathname === '/dev') {
       return 3
-    }
-    if (location.pathname === '/travel') {
-      return 4
     }
   }
 
