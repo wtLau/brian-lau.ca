@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import {} from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
@@ -16,7 +15,7 @@ import Tab from '@material-ui/core/Tab'
 import Avatar from '@material-ui/core/Avatar'
 import AvatarImage from '../../images/brian_square.jpg'
 
-import { Link, withRouter, useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import Menu from '../../routes/Menu'
 
 const useStyles = makeStyles((theme) => ({
@@ -78,39 +77,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-// class NavBar extends Component {
 const NavBar = () => {
   const [value, setvalue] = useState(0)
   const [menuDrawer, setmenuDrawer] = useState(false)
-  // const { classes } = this.props
   const classes = useStyles()
   let location = useLocation()
 
-  // state = {
-  //   value: 0,
-  //   menuDrawer: false,
-  // }
-
-  //   const handle    setState({ value })
-  //  = (event, value) => {
-  //     setState({ value })
-  //   }
-
-  // const mobileMenuOpen = (event) => {
-  //   this.setState({ menuDrawer: true })
-  // }
-
-  // const mobileMenuClose = (event) => {
-  //   this.setState({ menuDrawer: false })
-  // }
-
-  // componentDidMount() {
-  //   window.scrollTo(0, 0)
-  // }
-
-  // Similar to componentDidMount and componentDidUpdate:
   useEffect(() => {
-    // Update the document title using the browser API
     window.scrollTo(0, 0)
   })
 
@@ -131,10 +104,6 @@ const NavBar = () => {
       return 4
     }
   }
-
-  // render() {
-
-  // const [pageName, setpageName] = useState(null)
 
   return (
     <AppBar position='absolute' className={classes.appBar}>
@@ -218,6 +187,4 @@ const NavBar = () => {
     </AppBar>
   )
 }
-// }
-
-export default withRouter(NavBar)
+export default NavBar
