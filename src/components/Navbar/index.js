@@ -87,6 +87,10 @@ const NavBar = () => {
     window.scrollTo(0, 0)
   })
 
+  const setDrawer = (bool) => {
+    setmenuDrawer(bool)
+  }
+
   const current = () => {
     if (location.pathname === '/home') {
       return 0
@@ -110,7 +114,7 @@ const NavBar = () => {
         </Link>
 
         <Typography variant='h6' color='secondary' className={classes.title}>
-          Brian's Website
+          Brian&apos;s Website
         </Typography>
 
         <React.Fragment>
@@ -120,7 +124,7 @@ const NavBar = () => {
               className={classes.menuButton}
               color='inherit'
               aria-label='menu'
-              onClick={() => setmenuDrawer(true)}
+              onClick={setDrawer(true)}
             >
               <MenuIcon />
             </IconButton>
@@ -129,12 +133,12 @@ const NavBar = () => {
             <SwipeableDrawer
               anchor='right'
               open={menuDrawer}
-              onClose={() => setmenuDrawer(false)}
-              onOpen={() => setmenuDrawer(true)}
+              onClose={setDrawer(false)}
+              onOpen={setDrawer(true)}
             >
               <AppBar title='Menu' />
               <List>
-                {Menu.map((item, index) => (
+                {Menu.map((item) => (
                   <ListItem
                     component={item.external ? MaterialLink : Link}
                     href={item.external ? item.pathname : null}

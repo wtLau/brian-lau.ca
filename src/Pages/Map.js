@@ -4,13 +4,15 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 
+import axios from 'axios'
+
 import GoogleMap from '../components/Map/GoogleMap'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Box from '@material-ui/core/Box'
 import CircularProgress from '@material-ui/core/CircularProgress'
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     display: 'flex',
     justifyContent: 'center',
@@ -27,17 +29,21 @@ const Map = () => {
   const [eventData, setEventData] = useState([])
   const [loading, setLoading] = useState(false)
 
-  useEffect(() => {
-    const fetchEvents = async () => {
-      setLoading(true)
-      const res = await fetch('https://eonet.sci.gsfc.nasa.gov/api/v2.1/events')
-      const { events } = await res.json()
+  const nasaAPI = 'https://eonet.sci.gsfc.nasa.gov/api/v2.1/events'
+  setLoading(true)
 
-      setEventData(events)
+  useEffect(() => {
+    const fetchNasaAPI = async () => {
+      const result = await axios(nasaAPI)
+      // .then((events) => setEventData(events))
+      // const res = await fetch()
+      // const { events } = await res.json()
+
+      setEventData(result.data)
+
       setLoading(false)
     }
-
-    fetchEvents()
+    fetchNasaAPI()
   }, [])
 
   return (
