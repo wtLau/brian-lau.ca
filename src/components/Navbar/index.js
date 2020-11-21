@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import { withStyles } from '@material-ui/core/styles'
+import React, { useState, useEffect } from 'react'
+import {} from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
-import { Link as MaterialLink } from '@material-ui/core'
+import { Link as MaterialLink, makeStyles } from '@material-ui/core'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
@@ -16,10 +16,10 @@ import Tab from '@material-ui/core/Tab'
 import Avatar from '@material-ui/core/Avatar'
 import AvatarImage from '../../images/brian_square.jpg'
 
-import { Link, withRouter } from 'react-router-dom'
+import { Link, withRouter, useLocation } from 'react-router-dom'
 import Menu from '../../routes/Menu'
 
-const useStyles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
   appBar: {
     position: 'relative',
     boxShadow: 'none',
@@ -76,139 +76,148 @@ const useStyles = (theme) => ({
     paddingBottom: 20,
     minWidth: 'auto',
   },
-})
+}))
 
-class NavBar extends Component {
-  state = {
-    value: 0,
-    menuDrawer: false,
-  }
+// class NavBar extends Component {
+const NavBar = () => {
+  const [value, setvalue] = useState(0)
+  const [menuDrawer, setmenuDrawer] = useState(false)
+  // const { classes } = this.props
+  const classes = useStyles()
+  let location = useLocation()
 
-  handleChange = (event, value) => {
-    this.setState({ value })
-  }
+  // state = {
+  //   value: 0,
+  //   menuDrawer: false,
+  // }
 
-  mobileMenuOpen = (event) => {
-    this.setState({ menuDrawer: true })
-  }
+  //   const handle    setState({ value })
+  //  = (event, value) => {
+  //     setState({ value })
+  //   }
 
-  mobileMenuClose = (event) => {
-    this.setState({ menuDrawer: false })
-  }
+  // const mobileMenuOpen = (event) => {
+  //   this.setState({ menuDrawer: true })
+  // }
 
-  componentDidMount() {
+  // const mobileMenuClose = (event) => {
+  //   this.setState({ menuDrawer: false })
+  // }
+
+  // componentDidMount() {
+  //   window.scrollTo(0, 0)
+  // }
+
+  // Similar to componentDidMount and componentDidUpdate:
+  useEffect(() => {
+    // Update the document title using the browser API
     window.scrollTo(0, 0)
-  }
+  })
 
-  current = () => {
-    if (this.props.currentPath === '/home') {
+  const current = () => {
+    if (location.pathname === '/home') {
       return 0
     }
-    if (this.props.currentPath === '/dev') {
+    if (location.pathname === '/dev') {
       return 1
     }
-    if (this.props.currentPath === '/photo') {
+    if (location.pathname === '/photo') {
       return 2
     }
-    if (this.props.currentPath === '/workout') {
+    if (location.pathname === '/workout') {
       return 3
     }
-    if (this.props.currentPath === '/travel') {
+    if (location.pathname === '/travel') {
       return 4
     }
   }
 
-  render() {
-    const { classes } = this.props
+  // render() {
 
-    return (
-      <AppBar position='absolute' className={classes.appBar}>
-        <Toolbar>
-          <Link to='/'>
-            <Avatar
-              className={classes.logo}
-              alt='Brian Lau'
-              src={AvatarImage}
-            />
-          </Link>
+  // const [pageName, setpageName] = useState(null)
 
-          <Typography variant='h6' color='secondary' className={classes.title}>
-            Brian's Website
-          </Typography>
+  return (
+    <AppBar position='absolute' className={classes.appBar}>
+      <Toolbar>
+        <Link to='/'>
+          <Avatar className={classes.logo} alt='Brian Lau' src={AvatarImage} />
+        </Link>
 
-          {!this.props.noTabs && (
-            <React.Fragment>
-              <div className={classes.iconContainer}>
-                <IconButton
-                  edge='start'
-                  className={classes.menuButton}
-                  color='inherit'
-                  aria-label='menu'
-                  onClick={this.mobileMenuOpen}
-                >
-                  <MenuIcon />
-                </IconButton>
-              </div>
-              <div className={classes.tabContainer}>
-                <SwipeableDrawer
-                  anchor='right'
-                  open={this.state.menuDrawer}
-                  onClose={this.mobileMenuClose}
-                  onOpen={this.mobileMenuOpen}
-                >
-                  <AppBar title='Menu' />
-                  <List>
-                    {Menu.map((item, index) => (
-                      <ListItem
-                        component={item.external ? MaterialLink : Link}
-                        href={item.external ? item.pathname : null}
-                        to={
-                          item.external
-                            ? null
-                            : {
-                                pathname: item.pathname,
-                                search: this.props.location.search,
-                              }
+        <Typography variant='h6' color='secondary' className={classes.title}>
+          Brian's Website
+        </Typography>
+
+        <React.Fragment>
+          <div className={classes.iconContainer}>
+            <IconButton
+              edge='start'
+              className={classes.menuButton}
+              color='inherit'
+              aria-label='menu'
+              onClick={() => setmenuDrawer(true)}
+            >
+              <MenuIcon />
+            </IconButton>
+          </div>
+          <div className={classes.tabContainer}>
+            <SwipeableDrawer
+              anchor='right'
+              open={menuDrawer}
+              onClose={() => setmenuDrawer(false)}
+              onOpen={() => setmenuDrawer(true)}
+            >
+              <AppBar title='Menu' />
+              <List>
+                {Menu.map((item, index) => (
+                  <ListItem
+                    component={item.external ? MaterialLink : Link}
+                    href={item.external ? item.pathname : null}
+                    to={
+                      item.external
+                        ? null
+                        : {
+                            pathname: item.pathname,
+                            search: location.search,
+                          }
+                    }
+                    button
+                    key={item.label}
+                  >
+                    <ListItemText primary={item.label} />
+                  </ListItem>
+                ))}
+              </List>
+            </SwipeableDrawer>
+            <Tabs
+              value={current() || value}
+              indicatorColor='secondary'
+              textColor='secondary'
+              onChange={() => setvalue({ value })}
+            >
+              {Menu.map((item, index) => (
+                <Tab
+                  key={index}
+                  component={item.external ? MaterialLink : Link}
+                  href={item.external ? item.pathname : null}
+                  to={
+                    item.external
+                      ? null
+                      : {
+                          pathname: item.pathname,
+                          search: location.search,
                         }
-                        button
-                        key={item.label}
-                      >
-                        <ListItemText primary={item.label} />
-                      </ListItem>
-                    ))}
-                  </List>
-                </SwipeableDrawer>
-                <Tabs
-                  value={this.current() || this.state.value}
-                  indicatorColor='secondary'
-                  textColor='secondary'
-                  onChange={this.handleChange}
-                >
-                  {Menu.map((item, index) => (
-                    <Tab
-                      key={index}
-                      component={item.external ? MaterialLink : Link}
-                      href={item.external ? item.pathname : null}
-                      to={
-                        item.external
-                          ? null
-                          : {
-                              pathname: item.pathname,
-                              search: this.props.location.search,
-                            }
-                      }
-                      classes={{ root: classes.tabItem }}
-                      label={item.label}
-                    />
-                  ))}
-                </Tabs>
-              </div>
-            </React.Fragment>
-          )}
-        </Toolbar>
-      </AppBar>
-    )
-  }
+                  }
+                  classes={{ root: classes.tabItem }}
+                  label={item.label}
+                />
+              ))}
+            </Tabs>
+          </div>
+        </React.Fragment>
+      </Toolbar>
+    </AppBar>
+  )
 }
+// }
 
-export default withRouter(withStyles(useStyles)(NavBar))
+export default withRouter(NavBar)
