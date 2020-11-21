@@ -1,7 +1,9 @@
 import React from 'react'
 import './styles.css'
 
-import TextInput from '../../componenets/TextInput'
+import TextInput from '@material-ui/core/TextField'
+
+// import TextInput from '../../componenets/TextInput'
 import validate from './validation'
 
 class Form extends React.Component {
@@ -21,8 +23,8 @@ class Form extends React.Component {
           placeholder: 'Enter Username',
           validationRules: {
             isRequired: true,
-            minLength: 3
-          }
+            minLength: 3,
+          },
         },
         email: {
           label: 'Email',
@@ -35,8 +37,8 @@ class Form extends React.Component {
           placeholder: 'Enter Email',
           validationRules: {
             isEmail: true,
-            isRequired: true
-          }
+            isRequired: true,
+          },
         },
         password: {
           label: 'Password',
@@ -48,8 +50,8 @@ class Form extends React.Component {
           touched: false,
           placeholder: 'Enter password',
           validationRules: {
-            isRequired: true
-          }
+            isRequired: true,
+          },
         },
         password2: {
           label: 'Confirm Password',
@@ -61,23 +63,23 @@ class Form extends React.Component {
           touched: false,
           placeholder: 'Enter password again',
           validationRules: {
-            isRequired: true
-          }
-        }
-      }
+            isRequired: true,
+          },
+        },
+      },
     }
   }
 
   // Event Listeners
-  changeHandler = event => {
+  changeHandler = (event) => {
     const name = event.target.name.toLowerCase()
     const value = event.target.value
 
     const updatedControls = {
-      ...this.state.formControls
+      ...this.state.formControls,
     }
     const updatedFormElement = {
-      ...updatedControls[name]
+      ...updatedControls[name],
     }
     updatedFormElement.value = value
     updatedFormElement.touched = true
@@ -95,10 +97,10 @@ class Form extends React.Component {
     updatedControls[name] = updatedFormElement
 
     this.setState({
-      formControls: updatedControls
+      formControls: updatedControls,
     })
   }
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     if (event.target.value === '') {
       this.showError(event.target.value, 'Username is required')
     }
@@ -120,7 +122,11 @@ class Form extends React.Component {
           value={textInput[item].value}
           onChange={this.changeHandler}
           className={textInput[item].className}
-        />
+        >
+          <label>{textInput[item].label}</label>
+          <input {...textInput[item]} />
+          <small>Error Message</small>
+        </TextInput>
       )
 
     return (
