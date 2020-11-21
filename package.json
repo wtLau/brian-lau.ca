@@ -49,7 +49,7 @@
     "babel-core": "^6.26.3",
     "chai": "^4.2.0",
     "eslint-plugin-babel": "^5.3.1",
-    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-react-hooks": "0.0.0-8e5adfbd7",
     "flow-bin": "^0.98.1",
     "nodemon": "^1.19.0",
     "redux-devtools-extension": "^2.13.8",

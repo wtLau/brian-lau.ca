@@ -29,21 +29,15 @@ const Map = () => {
   const [eventData, setEventData] = useState([])
   const [loading, setLoading] = useState(false)
 
-  const nasaAPI = 'https://eonet.sci.gsfc.nasa.gov/api/v2.1/events'
-  setLoading(true)
+  const fetchEvents = async () => {
+    setLoading(true)
+    const res = await axios('https://eonet.sci.gsfc.nasa.gov/api/v2.1/events')
 
+    setEventData(res.data.events)
+    setLoading(false)
+  }
   useEffect(() => {
-    const fetchNasaAPI = async () => {
-      const result = await axios(nasaAPI)
-      // .then((events) => setEventData(events))
-      // const res = await fetch()
-      // const { events } = await res.json()
-
-      setEventData(result.data)
-
-      setLoading(false)
-    }
-    fetchNasaAPI()
+    fetchEvents()
   }, [])
 
   return (

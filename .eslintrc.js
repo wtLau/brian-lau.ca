@@ -40,7 +40,12 @@ module.exports = {
     'react/jsx-wrap-multilines': 1,
     'react/react-in-jsx-scope': 1,
     'react/prefer-es6-class': 1,
-    'react/jsx-no-bind': 1,
+    'react/jsx-no-bind': [
+      1,
+      {
+        allowArrowFunctions: true,
+      },
+    ],
     'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
     'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
   },

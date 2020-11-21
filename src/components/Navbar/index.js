@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-bind */
 import React, { useState, useEffect } from 'react'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -87,12 +88,47 @@ const NavBar = () => {
     window.scrollTo(0, 0)
   })
 
-  const setDrawer = (bool) => {
-    setmenuDrawer(bool)
-  }
+  const menuListItem = () =>
+    Menu.map((item) => (
+      <ListItem
+        component={item.external ? MaterialLink : Link}
+        href={item.external ? item.pathname : null}
+        to={
+          item.external
+            ? null
+            : {
+                pathname: item.pathname,
+                search: location.search,
+              }
+        }
+        button
+        key={item.label}
+      >
+        <ListItemText primary={item.label} />
+      </ListItem>
+    ))
+
+  const menuListTab = () =>
+    Menu.map((item, index) => (
+      <Tab
+        key={index}
+        component={item.external ? MaterialLink : Link}
+        href={item.external ? item.pathname : null}
+        to={
+          item.external
+            ? null
+            : {
+                pathname: item.pathname,
+                search: location.search,
+              }
+        }
+        classes={{ root: classes.tabItem }}
+        label={item.label}
+      />
+    ))
 
   const current = () => {
-    if (location.pathname === '/home') {
+    if (location.pathname === '/') {
       return 0
     }
     if (location.pathname === '/about') {
@@ -124,7 +160,7 @@ const NavBar = () => {
               className={classes.menuButton}
               color='inherit'
               aria-label='menu'
-              onClick={setDrawer(true)}
+              onClick={() => setmenuDrawer(true)}
             >
               <MenuIcon />
             </IconButton>
@@ -133,54 +169,19 @@ const NavBar = () => {
             <SwipeableDrawer
               anchor='right'
               open={menuDrawer}
-              onClose={setDrawer(false)}
-              onOpen={setDrawer(true)}
+              onClose={() => setmenuDrawer(false)}
+              onOpen={() => setmenuDrawer(true)}
             >
               <AppBar title='Menu' />
-              <List>
-                {Menu.map((item) => (
-                  <ListItem
-                    component={item.external ? MaterialLink : Link}
-                    href={item.external ? item.pathname : null}
-                    to={
-                      item.external
-                        ? null
-                        : {
-                            pathname: item.pathname,
-                            search: location.search,
-                          }
-                    }
-                    button
-                    key={item.label}
-                  >
-                    <ListItemText primary={item.label} />
-                  </ListItem>
-                ))}
-              </List>
+              <List>{menuListItem()}</List>
             </SwipeableDrawer>
             <Tabs
-              value={current() || value}
+              value={current()}
               indicatorColor='secondary'
               textColor='secondary'
               onChange={() => setvalue({ value })}
             >
-              {Menu.map((item, index) => (
-                <Tab
-                  key={index}
-                  component={item.external ? MaterialLink : Link}
-                  href={item.external ? item.pathname : null}
-                  to={
-                    item.external
-                      ? null
-                      : {
-                          pathname: item.pathname,
-                          search: location.search,
-                        }
-                  }
-                  classes={{ root: classes.tabItem }}
-                  label={item.label}
-                />
-              ))}
+              {menuListTab()}
             </Tabs>
           </div>
         </React.Fragment>

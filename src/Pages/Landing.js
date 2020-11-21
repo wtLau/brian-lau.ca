@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import ButtonGroup from '@material-ui/core/ButtonGroup'
-import Button from '@material-ui/core/Button'
-import PhotoCameraIcon from '@material-ui/icons/PhotoCamera'
-import CodeOutlinedIcon from '@material-ui/icons/CodeOutlined'
+// import Button from '@material-ui/core/Button'
+// import PhotoCameraIcon from '@material-ui/icons/PhotoCamera'
+// import CodeOutlinedIcon from '@material-ui/icons/CodeOutlined'
 import Icon from '@material-ui/core/Icon'
 
-import ExploreOutlinedIcon from '@material-ui/icons/ExploreOutlined'
-import FitnessCenterOutlinedIcon from '@material-ui/icons/FitnessCenterOutlined'
+// import ExploreOutlinedIcon from '@material-ui/icons/ExploreOutlined'
+// import FitnessCenterOutlinedIcon from '@material-ui/icons/FitnessCenterOutlined'
 import Grid from '@material-ui/core/Grid'
 
 import List from '@material-ui/core/List'
@@ -62,7 +62,7 @@ const Landing = () => {
       className={classes.root}
     >
       <Typography variant='h1' align='center' gutterBottom>
-        Hi! I&lsquom Brian
+        Hi! I&lsquo;m Brian
       </Typography>
       <Typography justify='center' align='center' variant='h4' gutterBottom>
         Front-end Developer based in Vancouver, BC
@@ -75,7 +75,7 @@ const Landing = () => {
         <div className={classes.demo}>
           <List dense={dense}>{listMenu}</List>
         </div>
-        <Grid spacing={4} container justify='center' alignItems='center'>
+        {/* <Grid spacing={4} container justify='center' alignItems='center'>
           <Grid item container xs={12} sm={3} justify='left'>
             <Button startIcon={<CodeOutlinedIcon />} variant='text'>
               Developer
@@ -100,7 +100,7 @@ const Landing = () => {
               Traveller
             </Button>
           </Grid>
-        </Grid>
+        </Grid> */}
       </ButtonGroup>
     </Grid>
   )
