@@ -9,6 +9,7 @@
     "body-parser": "^1.19.0",
     "express": "^4.17.0",
     "fontsource-roboto": "^3.0.3",
+    "google-map-react": "^2.1.9",
     "material-ui": "^0.20.2",
     "mongoose": "^5.5.9",
     "react": "^16.8.6",
@@ -46,6 +47,7 @@
   "devDependencies": {
     "@welldone-software/why-did-you-render": "^4.0.5",
     "babel-core": "^6.26.3",
+    "chai": "^4.2.0",
     "flow-bin": "^0.98.1",
     "nodemon": "^1.19.0",
     "redux-devtools-extension": "^2.13.8",

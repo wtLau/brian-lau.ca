@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 
 import { makeStyles } from '@material-ui/core/styles'
 import NavBar from '../components/Navbar'
-import AvatarImage from '../images/brian_square.jpg'
+// import AvatarImage from '../images/brian_square.jpg'
 import Grid from '@material-ui/core/Grid'
-import Box from '@material-ui/core/Box'
-import Typography from '@material-ui/core/Typography'
+// import Box from '@material-ui/core/Box'
+// import Typography from '@material-ui/core/Typography'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,12 +23,7 @@ const Layout = ({ children }) => {
   const classes = useStyles()
 
   return (
-    <Grid
-      spacing={0}
-      alignItems='center'
-      justify='center'
-      className={classes.root}
-    >
+    <Grid spacing={0} container className={classes.root}>
       <Grid item xs={12}>
         <NavBar />
       </Grid>
