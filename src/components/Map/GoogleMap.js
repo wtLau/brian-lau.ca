@@ -5,8 +5,9 @@ import LocationInfoBox from './LocationInfoBox'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Box from '@material-ui/core/Box'
+import PropTypes from 'prop-types'
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     flexGrow: 1,
     height: '100%',
@@ -25,7 +26,7 @@ const GoogleMap = ({ eventData, center, zoom }) => {
           lat={ev.geometries[0].coordinates[1]}
           lng={ev.geometries[0].coordinates[0]}
           key={index}
-          onClick={() => setLocationInfo({ id: ev.id, title: ev.title })}
+          onClick={setLocationInfo({ id: ev.id, title: ev.title })}
         ></LocationMarker>
       )
     }
@@ -51,6 +52,22 @@ GoogleMap.defaultProps = {
     lng: -122.8756,
   },
   zoom: 6,
+}
+GoogleMap.propTypes = {
+  eventData: PropTypes.arrayOf(
+    PropTypes.shape({
+      geometries: PropTypes.shape({
+        coordinates: PropTypes.number,
+      }),
+    })
+  ),
+  center: PropTypes.arrayOf(
+    PropTypes.shape({
+      lat: PropTypes.number,
+      lng: PropTypes.number,
+    })
+  ),
+  zoom: PropTypes.number,
 }
 
 export default GoogleMap

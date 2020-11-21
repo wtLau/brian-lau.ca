@@ -3,7 +3,9 @@ import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 
-const useStyles = makeStyles((theme) => ({
+import PropTypes from 'prop-types'
+
+const useStyles = makeStyles(() => ({
   root: {
     position: 'absolute',
     minHeight: [100],
@@ -27,6 +29,14 @@ const LocationInfoBox = ({ info }) => {
       <Typography>Title: {info.title}</Typography>
     </Box>
   )
+}
+LocationInfoBox.propTypes = {
+  info: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      title: PropTypes.string,
+    })
+  ),
 }
 
 export default LocationInfoBox
