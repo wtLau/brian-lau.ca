@@ -28,7 +28,7 @@ const Menu = [
     pathname: '/dev',
     navbar: true,
     homepage: true,
-    icon: '<CodeOutlinedIcon/>',
+    icon: 'CodeOutlined',
   },
   {
     id: 5,

@@ -41,7 +41,7 @@ const Landing = () => {
       return (
         <ListItem button component={Link} to={value.pathname}>
           <ListItemIcon>
-            <Icon>{value.icon ? value.icon : 'PhotoCameraIcon'}</Icon>
+            <Icon>PhotoCamera</Icon>
           </ListItemIcon>
           <ListItemText
             primary={value.label}
