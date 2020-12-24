@@ -11,6 +11,15 @@ import Layout from './Layout'
 import * as serviceWorker from './serviceWorker'
 
 const theme = createMuiTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 960,
+      lg: 1280,
+      xl: 1920,
+    },
+  },
   palette: {
     primary: {
       main: '#A67212',
@@ -21,6 +30,20 @@ const theme = createMuiTheme({
     text: {
       primary: '#000',
       secondary: '#A2E4F2',
+    },
+  },
+  typography: {
+    h1: {
+      fontSize: '3.125rem',
+      fontWeight: 500,
+    },
+    h2: {
+      fontSize: '2.375rem',
+      fontWeight: 500,
+    },
+    h3: {
+      fontSize: '1.75rem',
+      fontWeight: 400,
     },
   },
 })

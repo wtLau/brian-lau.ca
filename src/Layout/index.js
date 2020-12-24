@@ -11,7 +11,6 @@ import Grid from '@material-ui/core/Grid'
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    height: '100vh',
   },
   paper: {
     padding: theme.spacing(1),
@@ -23,11 +22,11 @@ const Layout = ({ children }) => {
   const classes = useStyles()
 
   return (
-    <Grid spacing={0} container className={classes.root}>
+    <Grid container spacing={1} className={classes.root}>
       <Grid item xs={12}>
         <NavBar />
       </Grid>
-      <Grid item container xs={12} className={classes.main}>
+      <Grid item xs={12}>
         {children}
       </Grid>
       {/* <Grid item xs={12}>
