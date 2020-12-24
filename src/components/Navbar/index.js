@@ -5,6 +5,8 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
+import GitHubIcon from '@material-ui/icons/GitHub'
+import LinkedInIcon from '@material-ui/icons/LinkedIn'
 import { Link as MaterialLink, makeStyles } from '@material-ui/core'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
@@ -25,6 +27,15 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: 'none',
     borderBottom: `1px solid ${theme.palette.grey['100']}`,
     backgroundColor: 'white',
+  },
+  toolbar: {
+    display: 'flex',
+    [theme.breakpoints.up('md')]: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: theme.breakpoints.width('lg'),
+      margin: '0 auto',
+    },
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -75,6 +86,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: 20,
     paddingBottom: 20,
     minWidth: 'auto',
+    color: theme.palette.grey['A200'],
   },
 }))
 
@@ -89,44 +101,47 @@ const NavBar = () => {
   })
 
   const menuListItem = () =>
-    Menu.map((item) => (
-      <ListItem
-        component={item.external ? MaterialLink : Link}
-        href={item.external ? item.pathname : null}
-        to={
-          item.external
-            ? null
-            : {
-                pathname: item.pathname,
-                search: location.search,
-              }
-        }
-        button
-        key={item.label}
-      >
-        <ListItemText primary={item.label} />
-      </ListItem>
-    ))
+    Menu.map((item) =>
+      item.job ? (
+        <ListItem
+          component={item.external ? MaterialLink : Link}
+          href={item.external ? item.pathname : null}
+          to={
+            item.external
+              ? null
+              : {
+                  pathname: item.pathname,
+                  search: location.search,
+                }
+          }
+          button
+          key={item.label}
+        >
+          <ListItemText primary={item.label} />
+        </ListItem>
+      ) : null
+    )
 
   const menuListTab = () =>
-    Menu.map((item, index) => (
-      <Tab
-        key={index}
-        component={item.external ? MaterialLink : Link}
-        href={item.external ? item.pathname : null}
-        to={
-          item.external
-            ? null
-            : {
-                pathname: item.pathname,
-                search: location.search,
-              }
-        }
-        classes={{ root: classes.tabItem }}
-        label={item.label}
-      />
-    ))
-
+    Menu.map((item, index) =>
+      item.job ? (
+        <Tab
+          key={index}
+          component={item.external ? MaterialLink : Link}
+          href={item.external ? item.pathname : null}
+          to={
+            item.external
+              ? null
+              : {
+                  pathname: item.pathname,
+                  search: location.search,
+                }
+          }
+          classes={{ root: classes.tabItem }}
+          label={item.label}
+        />
+      ) : null
+    )
   const current = () => {
     if (location.pathname === '/') {
       return 0
@@ -144,13 +159,17 @@ const NavBar = () => {
 
   return (
     <AppBar position='absolute' className={classes.appBar}>
-      <Toolbar>
+      <Toolbar className={classes.toolbar}>
         <Link to='/'>
           <Avatar className={classes.logo} alt='Brian Lau' src={AvatarImage} />
         </Link>
 
-        <Typography variant='h6' color='secondary' className={classes.title}>
-          Brian&apos;s Website
+        <Typography
+          variant='h6'
+          color='textSecondary'
+          className={classes.title}
+        >
+          Brian Lau
         </Typography>
 
         <React.Fragment>
@@ -158,7 +177,6 @@ const NavBar = () => {
             <IconButton
               edge='start'
               className={classes.menuButton}
-              color='inherit'
               aria-label='menu'
               onClick={() => setmenuDrawer(true)}
             >
@@ -167,6 +185,7 @@ const NavBar = () => {
           </div>
           <div className={classes.tabContainer}>
             <SwipeableDrawer
+              //Menu Icon Click Open
               anchor='right'
               open={menuDrawer}
               onClose={() => setmenuDrawer(false)}
@@ -176,15 +195,31 @@ const NavBar = () => {
               <List>{menuListItem()}</List>
             </SwipeableDrawer>
             <Tabs
+              //Desktop Menu
               value={current()}
-              indicatorColor='secondary'
-              textColor='secondary'
+              indicatorColor='primary'
+              textColor='primary'
               onChange={() => setvalue({ value })}
             >
               {menuListTab()}
             </Tabs>
           </div>
         </React.Fragment>
+        <IconButton
+          aria-label='Github.com'
+          color='primary'
+          onClick={() => window.open('https://github.com/wtLau')}
+        >
+          <GitHubIcon />
+        </IconButton>
+        <IconButton
+          edge='end'
+          color='primary'
+          aria-label='Linkedin.com'
+          onClick={() => window.open('https://www.linkedin.com/in/brian-lau/')}
+        >
+          <LinkedInIcon />
+        </IconButton>
       </Toolbar>
     </AppBar>
   )

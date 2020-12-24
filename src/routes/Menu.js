@@ -6,6 +6,7 @@ const Menu = [
     navbar: true,
     homepage: false,
     icon: '',
+    job: true,
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ const Menu = [
     navbar: true,
     homepage: true,
     icon: '',
+    job: true,
   },
   {
     id: 3,
@@ -21,6 +23,7 @@ const Menu = [
     pathname: '/resume',
     navbar: true,
     homepage: true,
+    job: true,
   },
   {
     id: 4,
