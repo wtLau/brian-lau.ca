@@ -10,8 +10,9 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: '10px 10px 10px rgba(33, 36, 41, 0.25)',
     background: theme.palette.grey[300],
     height: (props) => props.height,
-    padding: theme.spacing(4),
+    padding: theme.spacing(3),
     display: 'flex',
+    justifyContent: 'space-around',
   },
 }))
 

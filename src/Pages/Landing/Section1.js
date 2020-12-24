@@ -15,11 +15,14 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   section1: {
-    height: '800px',
+    minHeight: '800px',
     paddingTop: '20px',
   },
   backgroundimage: {
-    background: `url(${section1BackgroundImage}) right bottom no-repeat`,
+    [theme.breakpoints.down('md')]: {
+      width: '100%',
+      height: '100%',
+    },
   },
   buttonGrp: {
     marginTop: theme.spacing(10),
@@ -38,10 +41,9 @@ const Section1 = () => {
   return (
     <Grid
       container
-      xs={12}
       alignItems='center'
       className={classes.section1}
-      spacing={0}
+      spacing={4}
     >
       <Grid container item xs={12} md={6}>
         <Grid item xs={12}>
@@ -59,7 +61,7 @@ const Section1 = () => {
             Base in Vancouver, BC
           </Typography>
         </Grid>
-        <Grid item xs={12} md={10} className={classes.buttonGrp}>
+        <Grid item xs={12} md={12} className={classes.buttonGrp}>
           <Typography variant='body1'>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -109,7 +111,11 @@ const Section1 = () => {
         </Grid>
       </Grid>
       <Grid container item xs={12} md={6}>
-        <span className={classes.backgroundimage}></span>
+        <img
+          src={section1BackgroundImage}
+          alt='portrait-image'
+          className={classes.backgroundimage}
+        ></img>
       </Grid>
     </Grid>
   )
