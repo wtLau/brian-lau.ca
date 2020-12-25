@@ -17,7 +17,7 @@ import htmlLogo from '../../assets/html5-logo.png'
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    paddingTop: '20px',
+    margin: '100px 0',
   },
   button: {
     borderRadius: '50px',

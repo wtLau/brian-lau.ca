@@ -7,6 +7,7 @@ import Section1 from './Landing/Section1'
 import Section2 from './Landing/Section2'
 import Section3 from './Landing/Section3'
 import Section4 from './Landing/Section4'
+import Company from './Landing/Company'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,6 +33,7 @@ const Landing = () => {
       <Section2 />
       <Section3 />
       <Section4 />
+      <Company />
     </Grid>
   )
 }

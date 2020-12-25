@@ -15,8 +15,7 @@ import sectionTitleHorizontal from '../../assets/section3-title-horizontal.png'
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    minHeight: '800px',
-    paddingTop: '20px',
+    margin: '100px 0',
   },
   backgroundimage: {
     width: '100%',
