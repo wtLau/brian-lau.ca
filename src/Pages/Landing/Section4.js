@@ -6,9 +6,13 @@ import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import { Link as MaterialLink } from '@material-ui/core'
 
-import sectionBackgroundImage from '../../assets/section3-shape.png'
+import Card from '../../components/Card/Card'
+
 import sectionTitle from '../../assets/section4-title.png'
 import sectionTitleHorizontal from '../../assets/section4-title-horizaontal.png'
+import jsLogo from '../../assets/javascript-logo.png'
+import reactLogo from '../../assets/react-logo.png'
+import htmlLogo from '../../assets/html5-logo.png'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,6 +31,24 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('md')]: {
       background: `no-repeat  url(${sectionTitleHorizontal})`,
       height: 'auto',
+    },
+  },
+  img: {
+    width: '78px',
+    height: '90px',
+  },
+  image1: {
+    marginLeft: '10px',
+    marginRight: '62px',
+    [theme.breakpoints.down('md')]: {
+      margin: 'initial',
+    },
+  },
+  image3: {
+    marginTop: '20px',
+    marginLeft: '11px',
+    [theme.breakpoints.down('md')]: {
+      margin: 'initial',
     },
   },
 }))
@@ -81,7 +103,8 @@ const Section4 = () => {
           item
           xs={12}
           className={classes.buttonGrp}
-          justify='space-between'
+          justify='space-evenly'
+          spacing={1}
         >
           {skills.map((data) => (
             <Grid item key={data._id}>
@@ -90,9 +113,8 @@ const Section4 = () => {
                 component={MaterialLink}
                 target='_blank'
                 href={data.url}
-                variant={'contained'}
+                variant='contained'
                 className={classes.button}
-                fullWidth
                 size='small'
               >
                 <Typography variant='button'>{data.name}</Typography>
@@ -102,12 +124,101 @@ const Section4 = () => {
         </Grid>
       </Grid>
 
-      <Grid container item xs={12} md={6}>
-        <img
-          src={sectionBackgroundImage}
-          alt='portrait-image'
-          className={classes.backgroundimage}
-        ></img>
+      <Grid container item xs={12} md={6} justify='center'>
+        <Grid
+          item
+          container
+          xs={4}
+          md={5}
+          justify='center'
+          className={classes.image1}
+        >
+          <Card width='230px' height='266px' raised mobileMargin='initial'>
+            <Grid
+              container
+              direction='column'
+              justify='space-evenly'
+              alignItems='center'
+              wrap='nowrap'
+            >
+              <Grid>
+                <img
+                  src={jsLogo}
+                  alt='portrait-image'
+                  className={classes.img}
+                ></img>
+              </Grid>
+              <Typography variant='h5'>JavaScript</Typography>
+              <Typography variant='body1' align='center'>
+                JavaScript is one of my favorite programming langugage, I find
+                it fun and easy to learn.
+              </Typography>
+            </Grid>
+          </Card>
+        </Grid>
+
+        <Grid item container xs={4} md={5} justify='center'>
+          <Card
+            width='230px'
+            height='266px'
+            raised
+            margin='40px 0  0 0'
+            mobileMargin='initial'
+          >
+            <Grid
+              container
+              direction='column'
+              justify='space-evenly'
+              alignItems='center'
+              wrap='nowrap'
+            >
+              <Grid>
+                <img
+                  src={htmlLogo}
+                  alt='portrait-image'
+                  className={classes.img}
+                ></img>
+              </Grid>
+              <Typography variant='h5'>JavaScript</Typography>
+              <Typography variant='body1' align='center'>
+                HTML is a markup template, its was the first web technology I
+                learned.
+              </Typography>
+            </Grid>
+          </Card>
+        </Grid>
+
+        <Grid
+          item
+          container
+          xs={4}
+          md={5}
+          justify='center'
+          className={classes.image3}
+        >
+          <Card width='230px' height='266px' raised mobileMargin='initial'>
+            <Grid
+              container
+              direction='column'
+              justify='space-evenly'
+              alignItems='center'
+              wrap='nowrap'
+            >
+              <Grid>
+                <img
+                  src={reactLogo}
+                  alt='portrait-image'
+                  className={classes.img}
+                ></img>
+              </Grid>
+              <Typography variant='h5'>React</Typography>
+              <Typography variant='body1' align='center'>
+                This porfolio is actually programmed in React. It was a pleasure
+                using it!
+              </Typography>
+            </Grid>
+          </Card>
+        </Grid>
       </Grid>
     </Grid>
   )
