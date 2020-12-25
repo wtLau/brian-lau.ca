@@ -5,3 +5,25 @@ functions = "functions"
   from = "api/*"
   to= ".netlify/functions/:splat"
   status= 200
+
+# The following redirect is intended for use with most SPAs that handle
+# routing internally.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+
+# If skip_processing = true, all other settings are ignored
+[build.processing]
+  skip_processing = false
+[build.processing.css]
+  bundle = true
+  minify = false
+[build.processing.js]
+  bundle = true
+  minify = false
+[build.processing.html]
+  pretty_urls = true
+[build.processing.images]
+  compress = true

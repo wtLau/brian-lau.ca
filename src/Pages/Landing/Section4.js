@@ -62,7 +62,7 @@ const Section4 = () => {
 
   const loadSkills = async () => {
     try {
-      const res = await fetch('/api/getSkills')
+      const res = await fetch('/.netlify/functions/getSkills')
       const skills = await res.json()
       setSkills(skills)
     } catch (err) {
