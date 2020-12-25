@@ -2,7 +2,7 @@
 
 This is my personal porfolio app designed, developed and deployed by hand.
 
-[Live Website Link: www.brian-lau.ca](www.brian-lau.ca)
+[Live Website Link: www.brian-lau.ca](https://www.brian-lau.ca)
 
 ---
 
@@ -14,7 +14,7 @@ This is my personal porfolio app designed, developed and deployed by hand.
 
 ---
 
-## Prerequisites
+## Getting Started
 
 ### 1. Download or Clone from Github
 
