@@ -1,10 +1,6 @@
-# Personal Porfolio Web App
+# Brian Lau's Porfolio App
 
----
-
-## An App for learning new technology and demo
-
-This is a porfolio app designed, developed and deployed.
+This is my personal porfolio app designed, developed and deployed by hand.
 
 [Live Website Link: www.brian-lau.ca](www.brian-lau.ca)
 
@@ -36,16 +32,29 @@ Run `npm install`; install the node modules you'll need for the application
 
 ---
 
-## Features
+## Built With
 
-- SPA App
-- Server Rendering
-- ES6
-- Mongo DB Cloud atlas database
-- Server-side render using Express
-- AirBnb eslint
+### Front-End
 
-## TODO List
+- [React](https://facebook.github.io/react/) - A javaScript library for building user interfaces
+- [Redux](http://redux.js.org/) - Redux is a predictable state container for JavaScript apps.
+- [Material-UI](http://www.material-ui.com/#/) - A Set of React Components that Implement Google's Material Design
+
+### Back-End
+
+- [Faunda](https://fauna.com/) - Fauna is a flexible, developer-friendly, transactional database delivered to you as a secure, web-native API
+
+### Deploy
+
+- [Netlify](https://www.netlify.com/) - Deploy modern static websites with Netlify. Get CDN, Continuous deployment, 1-click HTTPS, and all the services you need. Get started for free.
+
+### Design
+
+- [Figma](https://www.figma.com/) - Figma is a vector graphics editor and prototyping tool which is primarily web-based, with additional offline features enabled by desktop applications for macOS and Windows.
+
+---
+
+## Ideas
 
 - Mobile and desktop sfriendly
 - Landing Page
@@ -66,17 +75,6 @@ Run `npm install`; install the node modules you'll need for the application
 - CSS module
 - CSS sylelint
 - Deployment - Ansible Tower
-
-## Built With
-
-- [React](https://facebook.github.io/react/) - A javaScript library for building user interfaces
-- [Redux](http://redux.js.org/) - Redux is a predictable state container for JavaScript apps.
-- [Meteor](https://www.meteor.com/) - Meteor is a complete platform for building web and mobile apps in pure JavaScript.
-- [MongoDB](https://www.mongodb.com/) - MongoDB is a free and open-source cross-platform document-oriented database program.
-- [Visual Studio Code](https://code.visualstudio.com/) - A code editor redefined and optimized for building and debugging modern web and cloud applications.
-- [Moment](https://momentjs.com/) - Parse, validate, manipulate, and display dates and times in JavaScript.
-- [Material-UI](http://www.material-ui.com/#/) - A Set of React Components that Implement Google's Material Design
-- [mLab](https://mlab.com/) - A mLab is a fully managed cloud database service that hosts MongoDB databases
 
 ---
 
