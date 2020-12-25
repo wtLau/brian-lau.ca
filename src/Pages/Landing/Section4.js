@@ -34,7 +34,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   img: {
-    width: '78px',
     height: '90px',
   },
   image1: {

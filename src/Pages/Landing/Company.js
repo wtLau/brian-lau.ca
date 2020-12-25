@@ -190,7 +190,7 @@ const Company = () => {
         </Grid>
       </Grid>
       <Grid item container xs={12} justify='center'>
-        <Grid xs={4}>
+        <Grid item xs={4}>
           <Button
             color='secondary'
             component={Link}

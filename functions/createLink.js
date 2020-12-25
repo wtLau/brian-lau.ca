@@ -1,6 +1,6 @@
 const { CREATE_LINK } = require('./utils/linkQueries.js')
-const sendQuery = require('./utils/sendQuery')
-const formattedResponse = require('./utils/formattedResponse')
+const sendQuery = require('./helper/sendQuery')
+const formattedResponse = require('./helper/formattedResponse')
 exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') {
     return formattedResponse(405, { err: 'Method not supported' })

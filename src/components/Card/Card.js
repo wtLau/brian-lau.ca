@@ -6,14 +6,15 @@ import { makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
   card: {
-    borderRadius: '32px',
+    borderRadius: (props) => (props.borderRadius ? props.borderRadius : '32px'),
     boxShadow: '10px 10px 10px rgba(33, 36, 41, 0.25)',
-    background: theme.palette.grey[300],
+    background: (props) =>
+      props.background ? props.background : theme.palette.grey[300],
     height: (props) => props.height,
     width: (props) => props.width,
     margin: (props) => props.margin,
 
-    padding: theme.spacing(3),
+    padding: (props) => (props.padding ? props.padding : theme.spacing(3)),
     display: 'flex',
     justifyContent: 'space-around',
 
