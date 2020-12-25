@@ -1,0 +1,14 @@
+type Skill {
+  name: String!
+  type: String!
+  shorthand: String
+  fullname: String
+  proficiency: Int
+  description: String
+  archived: Boolean
+  url: String
+}
+
+type Query {
+  allSkills: [Skill!]!
+}

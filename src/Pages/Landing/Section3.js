@@ -8,20 +8,31 @@ import { Link, useLocation } from 'react-router-dom'
 import { Link as MaterialLink } from '@material-ui/core'
 
 import DownloadIcon from '@material-ui/icons/CloudDownload'
-import section1BackgroundImage from '../../assets/desktop-section1.png'
+import section1BackgroundImage from '../../assets/section3-shape.png'
+import sectionTitle from '../../assets/section3-title.png'
+import sectionTitleHorizontal from '../../assets/section3-title-horizontal.png'
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-  },
-  section1: {
     minHeight: '800px',
     paddingTop: '20px',
   },
   backgroundimage: {
+    width: '100%',
+    height: '100%',
+  },
+  titleGroup: {
+    minHeight: '260px',
+  },
+  title: {
+    background: `no-repeat  url(${sectionTitle})`,
+    height: '400px',
+    backgroundPosition: '50% 13%',
+    backgroundSize: '35px 243px',
     [theme.breakpoints.down('md')]: {
-      width: '100%',
-      height: '100%',
+      background: `no-repeat  url(${sectionTitleHorizontal})`,
+      height: 'auto',
     },
   },
   buttonGrp: {
@@ -34,33 +45,32 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const Section1 = () => {
+const Section3 = () => {
   const classes = useStyles()
   let location = useLocation()
 
   return (
-    <Grid
-      container
-      alignItems='center'
-      className={classes.section1}
-      spacing={4}
-    >
+    <Grid container alignItems='center' className={classes.root} spacing={4}>
       <Grid container item xs={12} md={6}>
+        <img
+          src={section1BackgroundImage}
+          alt='portrait-image'
+          className={classes.backgroundimage}
+        ></img>
+      </Grid>
+
+      <Grid container item xs={12} md={1} className={classes.title}></Grid>
+
+      <Grid container item xs={12} md={5}>
         <Grid item xs={12}>
-          <Typography align='left' variant='h2' gutterBottom>
-            Hi! I&lsquo;m Brian
+          <Typography align='left' variant='h2'>
+            Need Development?
+          </Typography>
+          <Typography align='left' variant='h2'>
+            I Can Help!
           </Typography>
         </Grid>
-        <Grid item xs={12}>
-          <Typography variant='h1' gutterBottom color='primary'>
-            FRONT-END DEVELOPER
-          </Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <Typography variant='subtitle1' gutterBottom>
-            Base in Vancouver, BC
-          </Typography>
-        </Grid>
+
         <Grid item xs={12} md={12} className={classes.buttonGrp}>
           <Typography variant='body1'>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -110,15 +120,8 @@ const Section1 = () => {
           </Grid>
         </Grid>
       </Grid>
-      <Grid container item xs={12} md={6}>
-        <img
-          src={section1BackgroundImage}
-          alt='portrait-image'
-          className={classes.backgroundimage}
-        ></img>
-      </Grid>
     </Grid>
   )
 }
 
-export default Section1
+export default Section3

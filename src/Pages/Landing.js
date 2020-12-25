@@ -5,6 +5,8 @@ import Grid from '@material-ui/core/Grid'
 
 import Section1 from './Landing/Section1'
 import Section2 from './Landing/Section2'
+import Section3 from './Landing/Section3'
+import Section4 from './Landing/Section4'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,6 +30,8 @@ const Landing = () => {
     >
       <Section1 />
       <Section2 />
+      <Section3 />
+      <Section4 />
     </Grid>
   )
 }

@@ -1,4 +1,4 @@
-const { GET_LINKS } = require('./utils/linkQueries.js')
+const { GET_SKILLS } = require('./skills/skillQueries.js')
 const sendQuery = require('./helper/sendQuery')
 const formattedResponse = require('./helper/formattedResponse')
 
@@ -8,8 +8,8 @@ exports.handler = async (event) => {
   }
 
   try {
-    const res = await sendQuery(GET_LINKS)
-    const data = res.allLinks.data
+    const res = await sendQuery(GET_SKILLS)
+    const data = res.allSkills.data
     return formattedResponse(200, data)
   } catch (err) {
     console.error(err)
