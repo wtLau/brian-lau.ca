@@ -13,11 +13,9 @@ import section1BackgroundImage from '../../assets/desktop-section1.png'
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    margin: '100px 0',
   },
-  section1: {
-    minHeight: '800px',
-    paddingTop: '20px',
-  },
+
   backgroundimage: {
     [theme.breakpoints.down('md')]: {
       width: '100%',
@@ -39,12 +37,7 @@ const Section1 = () => {
   let location = useLocation()
 
   return (
-    <Grid
-      container
-      alignItems='center'
-      className={classes.section1}
-      spacing={4}
-    >
+    <Grid container alignItems='center' className={classes.root} spacing={4}>
       <Grid container item xs={12} md={6}>
         <Grid item xs={12}>
           <Typography align='left' variant='h2' gutterBottom>
@@ -52,7 +45,12 @@ const Section1 = () => {
           </Typography>
         </Grid>
         <Grid item xs={12}>
-          <Typography variant='h1' gutterBottom color='primary'>
+          <Typography
+            variant='h1'
+            gutterBottom
+            color='primary'
+            style={{ marginRight: '-20px' }}
+          >
             FRONT-END DEVELOPER
           </Typography>
         </Grid>
