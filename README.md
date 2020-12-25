@@ -1,14 +1,22 @@
 # Personal Porfolio Web App
 
+---
+
 ## An App for learning new technology and demo
 
-This is an app to help me to learn new skill and mondern technology, also acting as a demo websites where people can take a look at what I have been doing.
+This is a porfolio app designed, developed and deployed.
 
-[Website Link](https://node-express-mongo-app.lauwangtatbrian.now.sh/public/)
+[Live Website Link: www.brian-lau.ca](www.brian-lau.ca)
 
 ---
 
-## Screen-Shots
+## Preview
+
+### Desktop- Home Page
+
+<img src="./src/assets/readme/preview1.png" width="270px" alt="sgsc mobile screenshot">
+
+---
 
 ## Prerequisites
 
@@ -24,13 +32,13 @@ Run `npm install`; install the node modules you'll need for the application
 
 ### Starting the Project
 
-```npm run```
+`npm run netlify`
 
 ---
 
 ## Features
 
-- SPA App, powered by React
+- SPA App
 - Server Rendering
 - ES6
 - Mongo DB Cloud atlas database
@@ -44,28 +52,20 @@ Run `npm install`; install the node modules you'll need for the application
 - Contact Page
 - Login Page
 - Restful API with CRUD operation
-- Authention for login system
-        - Firebase
-        - Auth0
+- Authention for login system - Firebase - Auth0
 - Flow; serve as a form of documentation for code and improves the readability
-- Package management
-        - Yarn
+- Package management - Yarn
 - Host Domain
-- Continuous Integration Pipeline
-        - Travis CI
-        - Jenkin
+- Continuous Integration Pipeline - Travis CI - Jenkin
 - Hosting- Amazon S3 or Google
 - Progressive web app
 - Lazy loading
 - GraphQL?
-- Test Driven Development: Write test first
-        - Jest
-        - Enzyme
+- Test Driven Development: Write test first - Jest - Enzyme
 - State management with Redux
 - CSS module
 - CSS sylelint
-- Deployment
-        - Ansible Tower
+- Deployment - Ansible Tower
 
 ## Built With
 
