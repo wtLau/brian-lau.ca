@@ -29,6 +29,8 @@ module.exports = {
     // indent: ['error', 2],
     // 'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
+    'react/prop-types': 0,
+
     semi: ['error', 'never'],
     'react/jsx-boolean-value': 0,
     'react/jsx-closing-bracket-location': 1,

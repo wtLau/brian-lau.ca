@@ -29,7 +29,7 @@ const theme = createMuiTheme({
     },
     text: {
       primary: '#000',
-      secondary: '#A2E4F2',
+      secondary: '#555',
     },
   },
   typography: {

@@ -132,7 +132,7 @@ class Form extends React.Component {
     return (
       <div className='formContainer'>
         <form id='form' className='form' onSubmit={this.handleSubmit}>
-          <h2>Register With Us</h2>
+          <h2>Send Me a Message!</h2>
           {elements}
           <button type='submit'>Submit</button>
         </form>

@@ -114,6 +114,7 @@ const NavBar = () => {
                   search: location.search,
                 }
           }
+          target='_blank'
           button
           key={item.label}
         >
@@ -139,6 +140,7 @@ const NavBar = () => {
           }
           classes={{ root: classes.tabItem }}
           label={item.label}
+          target='_blank'
         />
       ) : null
     )
@@ -149,7 +151,7 @@ const NavBar = () => {
     if (location.pathname === '/about') {
       return 1
     }
-    if (location.pathname === '/resume') {
+    if (location.pathname === '/contact') {
       return 2
     }
     if (location.pathname === '/dev') {

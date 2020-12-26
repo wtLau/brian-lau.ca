@@ -84,7 +84,7 @@ const Section1 = () => {
               color='primary'
               component={MaterialLink}
               target='_blank'
-              href='https://storage.googleapis.com/www.brian-lau.ca/Resume-Brian-Lau.pdf'
+              href='https://storage.cloud.google.com/sdfdsfasd/Resume-Brian-Lau.pdf'
               search={location.search}
               variant={'contained'}
               className={classes.button}
