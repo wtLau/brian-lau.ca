@@ -4,7 +4,7 @@ about: Suggest an idea
 title: '[FEATURE]'
 labels: 'enhancement'
 assignees: wtLau
-projects: projects/1
+projects: 1
 
 ---
 
