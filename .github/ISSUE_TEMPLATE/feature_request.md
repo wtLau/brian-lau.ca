@@ -1,10 +1,10 @@
 ---
-name: Feature request
-about: Suggest an idea for this project
-title: '[FEATURE NAME]'
+name: Feature Request
+about: Suggest an idea
+title: '[FEATURE]'
 labels: 'enhancement'
 assignees: wtLau
-project: Portfolio-App
+projects: Portfolio-App
 
 ---
 
