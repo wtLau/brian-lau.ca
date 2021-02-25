@@ -4,7 +4,6 @@ about: Suggest an idea
 title: '[FEATURE]'
 labels: 'enhancement'
 assignees: wtLau
-projects: Portfolio-App
 
 ---
 
