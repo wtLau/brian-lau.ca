@@ -4,7 +4,7 @@ about: Suggest an idea
 title: '[FEATURE]'
 labels: 'enhancement'
 assignees: wtLau
-projects: 1
+projects: 'Kanban'
 
 ---
 
