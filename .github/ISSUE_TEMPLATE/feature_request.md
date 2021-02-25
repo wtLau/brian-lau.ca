@@ -3,8 +3,8 @@ name: Feature request
 about: Suggest an idea for this project
 title: '[FEATURE NAME]'
 labels: 'enhancement'
-assignees: 'wtLau'
-project: 'Portfolio-App'
+assignees: wtLau
+project: Portfolio-App
 
 ---
 
