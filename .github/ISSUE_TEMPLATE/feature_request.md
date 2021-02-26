@@ -7,11 +7,13 @@ assignees: wtLau
 projects: 'Kanban'
 
 ---
+### Estimated Time: 
 
+---
 **Expected Feature**
 
 
-**How it will be implemented/work**
+**Detail steps of implementation**
 
 
 **Additional Context**
