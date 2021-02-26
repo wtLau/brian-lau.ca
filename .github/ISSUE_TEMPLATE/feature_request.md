@@ -2,7 +2,7 @@
 name: Feature Request
 about: Suggest an idea
 title: '[FEATURE]- '
-labels: 'enhancement'
+labels: 'Enhancement'
 assignees: wtLau
 projects: 'Kanban'
 
@@ -10,8 +10,9 @@ projects: 'Kanban'
 ### Estimated Time (Hours): 
 
 ---
-**Expected Feature**
+**Expected Features**
 
+- [ ] asdasd
 
 **Detail steps of implementation**
 
