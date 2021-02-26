@@ -10,12 +10,22 @@ projects: 'Kanban'
 ### Estimated Time (Hours): 
 
 ---
-**Expected Features**
 
-- [ ] asdasd
-
-**Detail steps of implementation**
+### Abstract:
 
 
-**Additional Context**
+
+---
+
+### Expected Features:
+
+- [ ] 
+
+### Prerequisite
+
+
+### Detail steps of implementation
+
+
+### Additional Context
 
