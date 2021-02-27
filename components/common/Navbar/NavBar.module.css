@@ -1,66 +1,28 @@
-.appBar {
-  position: 'relative',
-  boxShadow: 'none',
-  borderBottom: `1px solid ${theme.palette.grey['100']}`,
-  backgroundColor: 'white',
+header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  color: #f3dada;
+  min-height: 70px;
+  padding: 0;
+  position: fixed;
+  width: 100%;
 }
-.toolbar {
-  display: 'flex',
-  [theme.breakpoints.up('md')]: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: theme.breakpoints.width('lg'),
-    margin: '0 auto',
-  },
-},
-menuButton: {
-  marginRight: theme.spacing(2),
-  float: 'right',
-},
-title: {
-  flexGrow: 1,
-},
-logo: {
-  marginRight: theme.spacing(2),
-},
-inline: {
-  display: 'inline',
-},
-tagline: {
-  display: 'inline-block',
-  marginLeft: 10,
-  [theme.breakpoints.up('md')]: {
-    paddingTop: '0.8em',
-  },
-},
-flex: {
-  display: 'flex',
-  [theme.breakpoints.down('sm')]: {
-    display: 'flex',
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-  },
-},
-link: {
-  textDecoration: 'none',
-  color: 'inherit',
-},
-iconContainer: {
-  display: 'none',
-  [theme.breakpoints.down('sm')]: {
-    display: 'block',
-  },
-},
 
-tabContainer: {
-  marginLeft: 32,
-  [theme.breakpoints.down('sm')]: {
-    display: 'none',
-  },
-},
-tabItem: {
-  paddingTop: 20,
-  paddingBottom: 20,
-  minWidth: 'auto',
-  color: theme.palette.grey['A200'],
-},
+.logo_menu {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo_menu h1 {
+  color: antiquewhite;
+  font-weight: 700;
+  margin: auto 10px;
+}
+
+.buttons button {
+  margin: auto 10px;
+}

@@ -49,10 +49,6 @@
   width: 100%;
 }
 
-a {
-  text-decoration: none;
-}
-
 .logo_menu {
   display: flex;
   flex-flow: row nowrap;

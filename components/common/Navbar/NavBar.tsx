@@ -22,15 +22,7 @@ const useStyles = makeStyles((theme) => ({
     borderBottom: `1px solid ${theme.palette.grey['100']}`,
     backgroundColor: 'white',
   },
-  toolbar: {
-    display: 'flex',
-    [theme.breakpoints.up('md')]: {
-      justifyContent: 'center',
-      alignItems: 'center',
-      width: theme.breakpoints.width('lg'),
-      margin: '0 auto',
-    },
-  },
+
   menuButton: {
     marginRight: theme.spacing(2),
     float: 'right',
@@ -86,7 +78,7 @@ const NavBar = () => {
       position='absolute'
       className={classes.appBar}
     >
-      <Toolbar className={classes.toolbar}>
+      <Toolbar>
         <Link href='/'>
           <Avatar
             className={classes.logo}
