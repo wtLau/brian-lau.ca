@@ -2,10 +2,11 @@ import '@assets/main.css'
 
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from '@material-ui/core/styles'
+import { CssBaseline } from '@material-ui/core'
 import theme from '../styles/theme'
 
 import { Layout } from '@components/common'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 
 function MyApp({
   Component,
@@ -17,6 +18,7 @@ function MyApp({
 
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <Layout>
         <Component {...pageProps} />
       </Layout>

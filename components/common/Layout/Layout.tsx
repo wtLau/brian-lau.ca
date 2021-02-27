@@ -2,19 +2,14 @@ import {
   Footer,
   Navbar,
 } from '@components/common'
-import { Grid } from '@material-ui/core'
+import { Grid, Theme } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React, { FC } from 'react'
 import './Layout.module.css'
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   root: {
     flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
   },
 }))
 

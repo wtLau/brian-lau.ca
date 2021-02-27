@@ -1,7 +1,8 @@
 /* eslint-disable react/jsx-no-bind */
 import {
-  GitHub as GitHubIcon,
-  LinkedIn as LinkedInIcon,
+  GitHub,
+  LinkedIn,
+  CloudDownload,
 } from '@material-ui/icons'
 import {
   makeStyles,
@@ -10,19 +11,32 @@ import {
   Typography,
   IconButton,
   Avatar,
+  Theme,
+  ButtonBase,
+  Button,
+  Link as MaterialLink,
 } from '@material-ui/core'
 
 import Image from 'next/image'
 import Link from 'next/link'
+import React from 'react'
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   appBar: {
-    position: 'relative',
+    flexGrow: 1,
+    display: 'flex',
+    justifyContent: 'center',
+    flexDirection: 'row',
     boxShadow: 'none',
     borderBottom: `1px solid ${theme.palette.grey['100']}`,
     backgroundColor: 'white',
   },
-
+  toolBar: {
+    maxWidth: theme.breakpoints.width('lg'),
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
   menuButton: {
     marginRight: theme.spacing(2),
     float: 'right',
@@ -74,66 +88,77 @@ const NavBar = () => {
   const classes = useStyles()
 
   return (
-    <AppBar
-      position='absolute'
-      className={classes.appBar}
-    >
-      <Toolbar>
+    <AppBar className={classes.appBar}>
+      <Toolbar className={classes.toolBar}>
         <Link href='/'>
-          <Avatar
-            className={classes.logo}
-            alt='Brian Lau'
-          >
-            <Image
-              alt='Vercel logo'
-              src='/brian_square.jpg'
-              width={100}
-              height={100}
-            />
-          </Avatar>
-        </Link>
+          <ButtonBase>
+            <Avatar
+              className={classes.logo}
+              alt='Brian Lau'
+            >
+              <Image
+                alt='Vercel logo'
+                src='/brian_square.jpg'
+                width={100}
+                height={100}
+              />
+            </Avatar>
 
-        <Typography
-          variant='h6'
-          color='textSecondary'
-          className={classes.title}
-        >
-          Brian Lau
-        </Typography>
+            <Typography
+              variant='h6'
+              color='textSecondary'
+              className={classes.title}
+            >
+              Brian Lau
+            </Typography>
+          </ButtonBase>
+        </Link>
 
         <div>
           <Link href='/contact'>
-            <a
-              className={classes.menuButton}
-              aria-label='contact'
-            >
-              Contact
+            <a>
+              <Typography
+                variant='overline'
+                color='textPrimary'
+              >
+                Contact
+              </Typography>
             </a>
           </Link>
-        </div>
 
-        <a
-          rel='noopener'
-          href='https://github.com/wtLau'
-          aria-label='Github.com Link'
-          target='_blank'
-          className='text-primary'
-        >
-          <IconButton color='primary'>
-            <GitHubIcon color='primary' />
-          </IconButton>
-        </a>
-        <a
-          rel='noopener'
-          href='https://www.linkedin.com/in/brian-lau/'
-          aria-label='Linkedin.com/in/brian-lau/ Link'
-          target='_blank'
-          className='text-primary'
-        >
-          <IconButton edge='end' color='primary'>
-            <LinkedInIcon />
-          </IconButton>
-        </a>
+          <a
+            href='https://github.com/wtLau'
+            aria-label='Github.com Link'
+            target='_blank'
+            className='text-primary'
+          >
+            <IconButton color='primary'>
+              <GitHub color='primary' />
+            </IconButton>
+          </a>
+          <a
+            href='https://www.linkedin.com/in/brian-lau/'
+            aria-label='Linkedin Link'
+            target='_blank'
+            className='text-primary'
+          >
+            <IconButton color='primary'>
+              <LinkedIn />
+            </IconButton>
+          </a>
+
+          <MaterialLink
+            color='primary'
+            startIcon={<CloudDownload />}
+            component={Button}
+            size='small'
+            href='https://docs.google.com/document/d/1Oiysjfct-dErd9s1q3IIYuuShucltOg29MbfpIRFovM/edit?usp=sharing'
+            target='_blank'
+            aria-label='Download Resume'
+          >
+            Resume
+          </MaterialLink>
+        </div>
       </Toolbar>
     </AppBar>
   )
