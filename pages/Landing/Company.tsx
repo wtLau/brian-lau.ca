@@ -5,11 +5,9 @@ import Typography from '@material-ui/core/Typography'
 import ButtonBase from '@material-ui/core/ButtonBase'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
-import {
-  Link,
-  Link as MaterialLink,
-} from '@material-ui/core'
+import { Link as MaterialLink } from '@material-ui/core'
 
+import Link from 'next/link'
 import { Card } from '@components/ui'
 import Image from 'next/image'
 
@@ -176,40 +174,39 @@ const Company: FC = () => {
           xs={6}
           md={3}
         >
-          <Link
+          <ButtonBase
+            component={MaterialLink}
             href='http://southgranvilleseniors.ca/'
             target='_blank'
+            focusRipple
           >
-            <ButtonBase focusRipple>
-              <Card height='270px' width='246px'>
-                <Grid
-                  container
-                  justify='center'
-                  alignItems='center'
-                  direction='column'
-                  spacing={2}
-                >
-                  <Grid item>
-                    <Image
-                      src='/sgscLogo.png'
-                      alt='South Granville Seniors Centre logo'
-                      width={78}
-                      height={90}
-                    />
-                  </Grid>
-                  <Grid item>
-                    <Typography
-                      variant='h5'
-                      align='center'
-                    >
-                      South Granville Seniors
-                      Centre
-                    </Typography>
-                  </Grid>
+            <Card height='270px' width='246px'>
+              <Grid
+                container
+                justify='center'
+                alignItems='center'
+                direction='column'
+                spacing={2}
+              >
+                <Grid item>
+                  <Image
+                    src='/sgscLogo.png'
+                    alt='South Granville Seniors Centre logo'
+                    width={78}
+                    height={90}
+                  />
                 </Grid>
-              </Card>
-            </ButtonBase>
-          </Link>
+                <Grid item>
+                  <Typography
+                    variant='body1'
+                    align='center'
+                  >
+                    South Granville Seniors Centre
+                  </Typography>
+                </Grid>
+              </Grid>
+            </Card>
+          </ButtonBase>
         </Grid>
 
         <Grid

@@ -21,7 +21,7 @@
     "paths": {
       "@lib/*": ["lib/*"],
       "@assets/*": ["assets/*"],
-      "@config/*": ["/config/*"],
+      "@config/*": ["config/*"],
       "@components/*": ["components/*"],
       "@utils/*": ["utils/*"]
     }

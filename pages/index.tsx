@@ -1,6 +1,9 @@
 import { FC } from 'react'
 
-import { makeStyles } from '@material-ui/core/styles'
+import {
+  createStyles,
+  makeStyles,
+} from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 
 import Section1 from './Landing/Section1'
@@ -9,15 +12,17 @@ import Section3 from './Landing/Section3'
 import Section4 from './Landing/Section4'
 import Company from './Landing/Company'
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    [theme.breakpoints.up('md')]: {
-      maxWidth: theme.breakpoints.width('lg'),
-      margin: '0 auto',
+const useStyles = makeStyles((theme) =>
+  createStyles({
+    root: {
+      flexGrow: 1,
+      [theme.breakpoints.up('md')]: {
+        maxWidth: theme.breakpoints.width('lg'),
+        margin: '0 auto',
+      },
     },
-  },
-}))
+  })
+)
 
 const Index: FC = () => {
   const classes = useStyles()

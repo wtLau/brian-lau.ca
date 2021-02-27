@@ -1,6 +1,9 @@
 import { FC } from 'react'
 
-import { makeStyles } from '@material-ui/core/styles'
+import {
+  makeStyles,
+  Theme,
+} from '@material-ui/core/styles'
 import {
   Grid,
   Card,
@@ -13,21 +16,20 @@ import {
   LinkedIn as LinkedInIcon,
 } from '@material-ui/icons'
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   root: {
     flexGrow: 1,
-  },
-
-  white: {
-    color: '#fff',
-  },
-
-  footer: {
-    maxWidth: theme.breakpoints.width('lg'),
     borderRadius: '100px 100px 0  0',
     background: '#272727',
     padding: '60px 0 0 0 ',
   },
+  footer: {
+    maxWidth: theme.breakpoints.width('lg'),
+  },
+  white: {
+    color: '#fff',
+  },
+
   icon: {
     fontSize: '40px',
     color: '#fff',
@@ -38,23 +40,29 @@ const Footer: FC = () => {
   const classes = useStyles()
 
   return (
-    <Card className={classes.footer}>
+    <Grid
+      component={Card}
+      container
+      justify='center'
+      className={classes.root}
+    >
       <Grid
-        item
         container
         justify='center'
         alignContent='center'
-        xs={12}
         spacing={10}
+        className={classes.footer}
       >
-        <Grid item xs={12}>
-          <Typography
-            variant='h2'
-            color='secondary'
-            gutterBottom
-          >
-            Let&apos;s Connect!
-          </Typography>
+        <Grid
+          component={Typography}
+          item
+          xs={12}
+          variant='h2'
+          color='secondary'
+          gutterBottom
+          align='center'
+        >
+          Let&apos;s Connect!
         </Grid>
 
         <Grid
@@ -177,7 +185,7 @@ const Footer: FC = () => {
           </Typography>
         </Grid>
       </Grid>
-    </Card>
+    </Grid>
   )
 }
 
