@@ -4,15 +4,9 @@ import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
-import { Link as MaterialLink } from '@material-ui/core'
 
 import { Card } from '@components/ui'
-
-import sectionTitle from '/section4-title.png'
-import sectionTitleHorizontal from '/section4-title-horizaontal.png'
-import jsLogo from '/javascript-logo.png'
-import reactLogo from '/react-logo.png'
-import htmlLogo from '/html5-logo.png'
+import Image from 'next/image'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,12 +18,12 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
   },
   title: {
-    background: `no-repeat  url(${sectionTitle})`,
+    background: `no-repeat  url('/section4-title.png')`,
     height: '400px',
     backgroundPosition: '50% 13%',
     backgroundSize: '35px 243px',
     [theme.breakpoints.down('md')]: {
-      background: `no-repeat  url(${sectionTitleHorizontal})`,
+      background: `no-repeat  url('/section4-title-horizaontal.png')`,
       height: 'auto',
     },
   },
@@ -59,6 +53,12 @@ const Section4 = () => {
   //Grab all skills from Fauna
   //Display all the skills
   //Maybe add and detele capability
+
+  type Data = {
+    _id: number
+    url: string
+    name: string
+  }
 
   const loadSkills = async () => {
     try {
@@ -119,25 +119,23 @@ const Section4 = () => {
           container
           item
           xs={12}
-          className={classes.buttonGrp}
           justify='space-evenly'
           spacing={1}
         >
-          {skills.map((data) => (
+          {skills.map((data: Data) => (
             <Grid item key={data._id}>
-              <Button
-                color='secondary'
-                component={MaterialLink}
-                target='_blank'
-                href={data.url}
-                variant='contained'
-                className={classes.button}
-                size='small'
-              >
-                <Typography variant='button'>
-                  {data.name}
-                </Typography>
-              </Button>
+              <a href={data.url} target='_blank'>
+                <Button
+                  color='secondary'
+                  variant='contained'
+                  className={classes.button}
+                  size='small'
+                >
+                  <Typography variant='button'>
+                    {data.name}
+                  </Typography>
+                </Button>
+              </a>
             </Grid>
           ))}
         </Grid>
@@ -172,11 +170,13 @@ const Section4 = () => {
               wrap='nowrap'
             >
               <Grid>
-                <img
-                  src={jsLogo}
+                <Image
+                  src='/javascript-logo.png'
                   alt='portrait-image'
                   className={classes.img}
-                ></img>
+                  width={78}
+                  height={90}
+                ></Image>
               </Grid>
               <Typography variant='h5'>
                 JavaScript
@@ -215,11 +215,13 @@ const Section4 = () => {
               wrap='nowrap'
             >
               <Grid>
-                <img
-                  src={htmlLogo}
+                <Image
+                  src='/html5-logo.png'
                   alt='portrait-image'
                   className={classes.img}
-                ></img>
+                  width={78}
+                  height={90}
+                ></Image>
               </Grid>
               <Typography variant='h5'>
                 JavaScript
@@ -258,11 +260,13 @@ const Section4 = () => {
               wrap='nowrap'
             >
               <Grid>
-                <img
-                  src={reactLogo}
+                <Image
+                  src='/react-logo.png'
                   alt='portrait-image'
                   className={classes.img}
-                ></img>
+                  width={78}
+                  height={90}
+                ></Image>
               </Grid>
               <Typography variant='h5'>
                 React
