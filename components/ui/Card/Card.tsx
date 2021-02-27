@@ -1,26 +1,40 @@
-import React from 'react'
+import {
+  Card as MaterialCard,
+  makeStyles,
+  Theme,
+} from '@material-ui/core'
 import PropTypes from 'prop-types'
+import React from 'react'
 
-import { Card as MaterialCard } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core'
+type Props = {
+  borderRadius?: string
+  raised?: boolean
+  background?: string
+  height?: string
+  width?: string
+  margin?: string
+  padding?: string
+  mobileMargin?: string
+  children?: React.ReactNode
+}
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   card: {
-    borderRadius: (props: any) =>
+    borderRadius: (props: Props) =>
       props.borderRadius
         ? props.borderRadius
         : '32px',
     boxShadow:
       '10px 10px 10px rgba(33, 36, 41, 0.25)',
-    background: (props: any) =>
+    background: (props: Props) =>
       props.background
         ? props.background
         : theme.palette.grey[300],
-    height: (props: any) => props.height,
-    width: (props): any => props.width,
-    margin: (props: any) => props.margin,
+    height: (props: Props) => props.height,
+    width: (props: Props) => props.width,
+    margin: (props: Props) => props.margin,
 
-    padding: (props: any) =>
+    padding: (props: Props) =>
       props.padding
         ? props.padding
         : theme.spacing(3),
@@ -28,12 +42,13 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-around',
 
     [theme.breakpoints.down('sm')]: {
-      margin: (props: any) => props.mobileMargin,
+      margin: (props: Props) =>
+        props.mobileMargin,
     },
   },
 }))
 
-const Card = ({ ...props }) => {
+const Card = ({ ...props }: Props) => {
   const classes = useStyles(props)
   return (
     <MaterialCard

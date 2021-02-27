@@ -32,11 +32,11 @@ const dropDownOption = [
 
 const schema = yup.object({
   name: yup
-    .string('Enter your name')
+    .string()
     .required('Name is required')
     .min(3),
   email: yup
-    .string('Enter your email')
+    .string()
     .email('Enter a valid email')
     .required('Email is required'),
 })
