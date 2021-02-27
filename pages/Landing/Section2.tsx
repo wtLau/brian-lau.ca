@@ -7,14 +7,12 @@ import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline'
 
 import { Card } from '@components/ui'
 
-import backgroundImage from '/section2-background.png'
-
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
   section2: {
-    background: `no-repeat bottom url(${backgroundImage})`,
+    background: `no-repeat bottom url('/section2-background.png')`,
     // backgroundSize: '100%',
     backgroundPosition: '50% 79%',
     paddingTop: theme.spacing(4),
@@ -36,11 +34,7 @@ const Section1 = () => {
       className={classes.section2}
     >
       <Grid container item xs={12} md={4}>
-        <Card
-          raised
-          className={classes.card}
-          height='190px'
-        >
+        <Card raised height='190px'>
           <Grid item xs={2}>
             <CheckCircleOutlineIcon
               color='primary'
@@ -63,11 +57,7 @@ const Section1 = () => {
       </Grid>
 
       <Grid container item xs={12} md={4}>
-        <Card
-          raised
-          className={classes.card}
-          height='190px'
-        >
+        <Card raised height='190px'>
           <Grid item xs={2}>
             <CheckCircleOutlineIcon
               color='primary'
@@ -90,11 +80,7 @@ const Section1 = () => {
       </Grid>
 
       <Grid container item xs={12} md={4}>
-        <Card
-          raised
-          className={classes.card}
-          height='190px'
-        >
+        <Card raised height='190px'>
           <Grid item xs={2}>
             <CheckCircleOutlineIcon
               color='primary'

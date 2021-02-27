@@ -1,5 +1,5 @@
 // Validation
-const validate = (value, rules) => {
+const validate = (value: string, rules: any) => {
   let isValid = true
 
   for (let rule in rules) {
@@ -20,16 +20,16 @@ const validate = (value, rules) => {
   return isValid
 }
 
-const emailValidator = value => {
+const emailValidator = (value: string) => {
   const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   return re.test(String(value).toLowerCase())
 }
 
-const requiredValidator = value => {
+const requiredValidator = (value: string) => {
   return value.trim() !== ''
 }
 
-const minLengthValidator = (value, wordLength) => {
+const minLengthValidator = (value: string, wordLength: number) => {
   return value.trim().length >= wordLength
 }
 

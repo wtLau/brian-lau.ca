@@ -1,21 +1,17 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import ButtonBase from '@material-ui/core/ButtonBase'
 import Grid from '@material-ui/core/Grid'
-import { Link as MaterialLink } from '@material-ui/core'
-import { Link } from 'react-router-dom'
 import Button from '@material-ui/core/Button'
+import {
+  Link,
+  Link as MaterialLink,
+} from '@material-ui/core'
 
 import { Card } from '@components/ui'
-
-import sectionTitle from '/section4-title.png'
-import sectionTitleHorizontal from '/section4-title-horizaontal.png'
-import hrLogo from '/hansonroboticslogo.png'
-import dfoLogo from '/dfologo.png'
-import gmLogo from '/greenMoustacheLogo.jpg'
-import sgscLogo from '/sgscLogo.png'
+import Image from 'next/image'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,12 +24,12 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
   },
   title: {
-    background: `no-repeat  url(${sectionTitle})`,
+    background: `no-repeat  url('/section4-title.png')`,
     height: '400px',
     backgroundPosition: '50% 13%',
     backgroundSize: '35px 243px',
     [theme.breakpoints.down('md')]: {
-      background: `no-repeat  url(${sectionTitleHorizontal})`,
+      background: `no-repeat  url('/section4-title-horizaontal.png')`,
       height: 'auto',
     },
   },
@@ -62,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const Company = () => {
+const Company: FC = () => {
   const classes = useStyles()
 
   return (
@@ -111,10 +107,12 @@ const Company = () => {
                 spacing={2}
               >
                 <Grid item>
-                  <img
-                    src={hrLogo}
+                  <Image
+                    src='/hansonroboticslogo.png'
                     alt='hanson robotics logo'
-                  ></img>
+                    width={78}
+                    height={90}
+                  ></Image>
                 </Grid>
                 <Grid item>
                   <Typography
@@ -151,10 +149,12 @@ const Company = () => {
                 spacing={2}
               >
                 <Grid item>
-                  <img
-                    src={dfoLogo}
+                  <Image
+                    src='/dfologo.png'
                     alt='DFO logo'
-                  ></img>
+                    width={78}
+                    height={90}
+                  />
                 </Grid>
                 <Grid item>
                   <Typography
@@ -176,37 +176,40 @@ const Company = () => {
           xs={6}
           md={3}
         >
-          <ButtonBase
-            component={MaterialLink}
+          <Link
             href='http://southgranvilleseniors.ca/'
             target='_blank'
-            focusRipple
           >
-            <Card height='270px' width='246px'>
-              <Grid
-                container
-                justify='center'
-                alignItems='center'
-                direction='column'
-                spacing={2}
-              >
-                <Grid item>
-                  <img
-                    src={sgscLogo}
-                    alt='South Granville Seniors Centre logo'
-                  ></img>
+            <ButtonBase focusRipple>
+              <Card height='270px' width='246px'>
+                <Grid
+                  container
+                  justify='center'
+                  alignItems='center'
+                  direction='column'
+                  spacing={2}
+                >
+                  <Grid item>
+                    <Image
+                      src='/sgscLogo.png'
+                      alt='South Granville Seniors Centre logo'
+                      width={78}
+                      height={90}
+                    />
+                  </Grid>
+                  <Grid item>
+                    <Typography
+                      variant='h5'
+                      align='center'
+                    >
+                      South Granville Seniors
+                      Centre
+                    </Typography>
+                  </Grid>
                 </Grid>
-                <Grid item>
-                  <Typography
-                    variant='h5'
-                    align='center'
-                  >
-                    South Granville Seniors Centre
-                  </Typography>
-                </Grid>
-              </Grid>
-            </Card>
-          </ButtonBase>
+              </Card>
+            </ButtonBase>
+          </Link>
         </Grid>
 
         <Grid
@@ -231,10 +234,12 @@ const Company = () => {
                 spacing={2}
               >
                 <Grid item>
-                  <img
-                    src={gmLogo}
+                  <Image
+                    src='/greenMoustacheLogo.jpg'
                     alt='The Green Moustache logo'
-                  ></img>
+                    width={500}
+                    height={500}
+                  ></Image>
                 </Grid>
                 <Grid item>
                   <Typography
@@ -256,17 +261,17 @@ const Company = () => {
         justify='center'
       >
         <Grid item xs={4}>
-          <Button
-            color='secondary'
-            component={Link}
-            to='/contact'
-            variant={'contained'}
-            className={classes.button}
-          >
-            <Typography variant='button'>
-              Hire Me!
-            </Typography>
-          </Button>
+          <Link href='/contact'>
+            <Button
+              color='secondary'
+              variant={'contained'}
+              className={classes.button}
+            >
+              <Typography variant='button'>
+                Hire Me!
+              </Typography>
+            </Button>
+          </Link>
         </Grid>
       </Grid>
     </Grid>
