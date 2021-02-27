@@ -14,27 +14,47 @@
     "formik": "^2.2.6",
     "google-map-react": "^2.1.9",
     "mongoose": "^5.5.9",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "^4.0.0",
-    "redux": "^4.0.1",
+    "next": "latest",
+    "next-seo": "^4.20.0",
+    "next-unused": "^0.0.3",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "yup": "^0.32.8"
   },
   "scripts": {
-    "start": "react-scripts start react-scripts --inspect-brk --runInBand",
-    "netlify": "netlify dev",
-    "build": "react-scripts build",
-    "start-server": "PORT=5000 node server/index.js",
-    "start-watch": "nodemon server/index.js",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint": "./node_modules/.bin/eslint src",
-    "lint-fixup": "./node_modules/.bin/eslint src --ext .js,.jsx --fix",
-    "flow": "flow"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "find:unused": "next-unused"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "next-unused": {
+    "alias": {
+      "@lib/*": [
+        "lib/*"
+      ],
+      "@assets/*": [
+        "assets/*"
+      ],
+      "@config/*": [
+        "config/*"
+      ],
+      "@components/*": [
+        "components/*"
+      ],
+      "@utils/*": [
+        "utils/*"
+      ]
+    },
+    "debug": true,
+    "include": [
+      "components",
+      "lib",
+      "pages"
+    ],
+    "exclude": [],
+    "entrypoints": [
+      "pages"
+    ]
   },
   "browserslist": {
     "production": [
@@ -52,11 +72,7 @@
     "@welldone-software/why-did-you-render": "^4.0.5",
     "babel-core": "^6.26.3",
     "chai": "^4.2.0",
-    "eslint-plugin-babel": "^5.3.1",
-    "eslint-plugin-react-hooks": "0.0.0-8e5adfbd7",
     "flow-bin": "^0.98.1",
-    "nodemon": "^1.19.0",
-    "redux-devtools-extension": "^2.13.8",
-    "redux-logger": "^3.0.6"
+    "typescript": "^4.2.2"
   }
 }
