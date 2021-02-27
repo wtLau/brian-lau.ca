@@ -1,0 +1,66 @@
+.appBar {
+  position: 'relative',
+  boxShadow: 'none',
+  borderBottom: `1px solid ${theme.palette.grey['100']}`,
+  backgroundColor: 'white',
+}
+.toolbar {
+  display: 'flex',
+  [theme.breakpoints.up('md')]: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: theme.breakpoints.width('lg'),
+    margin: '0 auto',
+  },
+},
+menuButton: {
+  marginRight: theme.spacing(2),
+  float: 'right',
+},
+title: {
+  flexGrow: 1,
+},
+logo: {
+  marginRight: theme.spacing(2),
+},
+inline: {
+  display: 'inline',
+},
+tagline: {
+  display: 'inline-block',
+  marginLeft: 10,
+  [theme.breakpoints.up('md')]: {
+    paddingTop: '0.8em',
+  },
+},
+flex: {
+  display: 'flex',
+  [theme.breakpoints.down('sm')]: {
+    display: 'flex',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+  },
+},
+link: {
+  textDecoration: 'none',
+  color: 'inherit',
+},
+iconContainer: {
+  display: 'none',
+  [theme.breakpoints.down('sm')]: {
+    display: 'block',
+  },
+},
+
+tabContainer: {
+  marginLeft: 32,
+  [theme.breakpoints.down('sm')]: {
+    display: 'none',
+  },
+},
+tabItem: {
+  paddingTop: 20,
+  paddingBottom: 20,
+  minWidth: 'auto',
+  color: theme.palette.grey['A200'],
+},
