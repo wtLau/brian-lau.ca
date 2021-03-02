@@ -10,9 +10,9 @@ import {
   Theme,
   ButtonBase,
   Button,
-  Link as MaterialLink,
-  Switch
+  Link as MaterialLink
 } from '@material-ui/core';
+import { Brightness7, Brightness4 } from '@material-ui/icons';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -113,7 +113,9 @@ const NavBar: FC<NavbarProps> = ({ darkState, handleThemeChange }) => {
           </ButtonBase>
         </Link>
 
-        <Switch checked={darkState} onChange={() => handleThemeChange()} />
+        <IconButton onClick={() => handleThemeChange()}>
+          {darkState ? <Brightness7 color="primary" /> : <Brightness4 />}
+        </IconButton>
 
         <div>
           <Link href="/contact">
