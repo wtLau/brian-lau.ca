@@ -15,6 +15,7 @@ import {
   ButtonBase,
   Button,
   Link as MaterialLink,
+  PaletteType,
 } from '@material-ui/core'
 import {
   Brightness7,
@@ -29,6 +30,7 @@ import {
   ThemeContextType,
   useThemeSetContext,
 } from '@components/common/Theme'
+import { PaletteOptions } from '@material-ui/core/styles/createPalette'
 
 const useStyles = makeStyles((theme: Theme) => ({
   appBar: {
@@ -101,14 +103,15 @@ const NavBar: FC = () => {
   } = useThemeSetContext() as ThemeContextType
 
   const handleChangeDark = () => {
+    const isDark =
+      theme.palette!.type === 'light'
+        ? 'dark'
+        : 'light'
     const newTheme = {
       ...theme,
       palette: {
-        ...theme.palette,
-        type:
-          theme.palette.type === 'light'
-            ? 'dark'
-            : 'light',
+        ...(theme.palette as PaletteOptions),
+        type: isDark as PaletteType,
       },
     }
     updateTheme(newTheme)
@@ -144,7 +147,7 @@ const NavBar: FC = () => {
         <IconButton
           onClick={() => handleChangeDark()}
         >
-          {theme.palette.type === 'dark' ? (
+          {theme.palette!.type === 'dark' ? (
             <Brightness7
               style={{ color: orange[500] }}
             />

@@ -1,4 +1,5 @@
 import { PaletteType } from '@material-ui/core'
+import { PaletteOptions } from '@material-ui/core/styles/createPalette'
 
 // Create a theme instance.
 const themeConfig = {
@@ -41,6 +42,6 @@ const themeConfig = {
       lineHeight: '1.12rem',
     },
   },
-}
+} as PaletteOptions
 
 export default themeConfig

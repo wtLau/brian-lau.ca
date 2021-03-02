@@ -28,7 +28,9 @@ const ThemeCustomProvider: FC<ReactNode> = ({
   const [
     theme,
     setTheme,
-  ] = React.useState<ITheme>(themeConfig)
+  ] = React.useState<ITheme>(
+    themeConfig as ITheme
+  )
 
   const updateTheme = (themeConfig: ITheme) => {
     setTheme(themeConfig)
