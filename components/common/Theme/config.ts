@@ -1,7 +1,8 @@
-import { createMuiTheme } from '@material-ui/core/styles'
+import { PaletteType } from '@material-ui/core'
+import { PaletteOptions } from '@material-ui/core/styles/createPalette'
 
 // Create a theme instance.
-const theme = createMuiTheme({
+const themeConfig = {
   breakpoints: {
     values: {
       xs: 0,
@@ -12,6 +13,7 @@ const theme = createMuiTheme({
     },
   },
   palette: {
+    type: 'light' as PaletteType,
     primary: {
       main: '#A67212',
     },
@@ -40,6 +42,6 @@ const theme = createMuiTheme({
       lineHeight: '1.12rem',
     },
   },
-})
+} as PaletteOptions
 
-export default theme
+export default themeConfig
