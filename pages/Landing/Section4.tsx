@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react'
-
-import { makeStyles } from '@material-ui/core/styles'
-import Typography from '@material-ui/core/Typography'
+import { Card } from '@components/ui'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
-
-import { Card } from '@components/ui'
+import { makeStyles } from '@material-ui/core/styles'
+import Typography from '@material-ui/core/Typography'
 import Image from 'next/image'
+import React from 'react'
+import { skillsData } from '../../data/skillsData'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -46,35 +45,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
+type TData = {
+  skills: {
+    name: string
+    type: string
+    fullname: string
+    shorthand: string
+    proficiency: number
+    description: string
+    url: string
+  }[]
+  notFound?: boolean
+}
+
 const Section4 = () => {
   const classes = useStyles()
-  const [skills, setSkills] = useState([])
-
-  //Grab all skills from Fauna
-  //Display all the skills
-  //Maybe add and detele capability
-
-  type Data = {
-    _id: number
-    url: string
-    name: string
-  }
-
-  const loadSkills = async () => {
-    try {
-      const res = await fetch(
-        '/.netlify/functions/getSkills'
-      )
-      const skills = await res.json()
-      setSkills(skills)
-    } catch (err) {
-      console.error(err)
-    }
-  }
-
-  useEffect(() => {
-    loadSkills()
-  }, [])
+  const skills = skillsData
 
   return (
     <Grid
@@ -122,22 +108,26 @@ const Section4 = () => {
           justify='space-evenly'
           spacing={1}
         >
-          {skills.map((data: Data) => (
-            <Grid item key={data._id}>
-              <a href={data.url} target='_blank'>
-                <Button
-                  color='secondary'
-                  variant='contained'
-                  className={classes.button}
-                  size='small'
+          {skills &&
+            skills.map((data) => (
+              <Grid item key={data.name}>
+                <a
+                  href={data.url}
+                  target='_blank'
                 >
-                  <Typography variant='button'>
-                    {data.name}
-                  </Typography>
-                </Button>
-              </a>
-            </Grid>
-          ))}
+                  <Button
+                    color='secondary'
+                    variant='contained'
+                    className={classes.button}
+                    size='small'
+                  >
+                    <Typography variant='button'>
+                      {data.name}
+                    </Typography>
+                  </Button>
+                </a>
+              </Grid>
+            ))}
         </Grid>
       </Grid>
 
