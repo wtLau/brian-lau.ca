@@ -1,56 +1,25 @@
-import '@assets/main.css';
+// import '@assets/main.css'
 
-import type { AppProps } from 'next/app';
-import { ThemeProvider } from '@material-ui/core/styles';
-import { createMuiTheme, CssBaseline } from '@material-ui/core';
-import theme from '../styles/theme';
+import React, { useEffect } from 'react'
+import type { AppProps } from 'next/app'
+import { ThemeCustomProvider } from '@components/common'
+import { Layout } from '@components/common'
 
-import { Layout } from '@components/common';
-import React, { useEffect, useState } from 'react';
-import {
-  orange,
-  lightBlue,
-  deepOrange,
-  deepPurple
-} from '@material-ui/core/colors';
-
-export type DarkProps = {
-  darkState: boolean;
-};
-
-function MyApp({ Component, pageProps }: AppProps) {
-  const [darkState, setDarkState] = useState(false);
-  const palletType = darkState ? 'dark' : 'light';
-  const mainPrimaryColor = darkState ? orange[500] : lightBlue[500];
-  const mainSecondaryColor = darkState ? deepOrange[900] : deepPurple[500];
-  const darkTheme = createMuiTheme({
-    palette: {
-      type: palletType,
-      primary: {
-        main: mainPrimaryColor
-      },
-      secondary: {
-        main: mainSecondaryColor
-      }
-    }
-  });
-
-  const handleThemeChange = () => {
-    setDarkState(!darkState);
-  };
-
+function MyApp({
+  Component,
+  pageProps,
+}: AppProps) {
   useEffect(() => {
-    document.body.classList?.remove('loading');
-  }, []);
+    document.body.classList?.remove('loading')
+  }, [])
 
   return (
-    <ThemeProvider theme={darkTheme}>
-      <CssBaseline />
-      <Layout darkState={darkState} handleThemeChange={handleThemeChange}>
+    <ThemeCustomProvider>
+      <Layout>
         <Component {...pageProps} />
       </Layout>
-    </ThemeProvider>
-  );
+    </ThemeCustomProvider>
+  )
 }
 
 // Only uncomment this method if you have blocking data requirements for
@@ -65,4 +34,4 @@ function MyApp({ Component, pageProps }: AppProps) {
 //   return { ...appProps }
 // }
 
-export default MyApp;
+export default MyApp
