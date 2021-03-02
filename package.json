@@ -74,11 +74,5 @@
     "chai": "^4.2.0",
     "flow-bin": "^0.98.1",
     "typescript": "^4.2.2"
-  },
-  "prettier": {
-    "arrowParens": "always",
-    "singleQuote": true,
-    "tabWidth": 2,
-    "trailingComma": "none"
   }
 }
