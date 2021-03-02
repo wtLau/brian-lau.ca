@@ -1,29 +1,30 @@
-import {
-  Footer,
-  Navbar,
-} from '@components/common'
-import { Grid, Theme } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles'
-import React, { FC } from 'react'
-import './Layout.module.css'
+import { Footer, Navbar } from '@components/common';
+import { Grid, Theme } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import React, { FC } from 'react';
+import './Layout.module.css';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
-    flexGrow: 1,
-  },
-}))
+    flexGrow: 1
+  }
+}));
+export type LayoutProps = {
+  darkState: boolean;
+  handleThemeChange: Function;
+};
 
-const Layout: FC = ({ children }) => {
-  const classes = useStyles()
+const Layout: FC<LayoutProps> = ({
+  darkState,
+  handleThemeChange,
+  children
+}) => {
+  const classes = useStyles();
 
   return (
-    <Grid
-      container
-      spacing={1}
-      className={classes.root}
-    >
+    <Grid container spacing={1} className={classes.root}>
       <Grid item xs={12}>
-        <Navbar />
+        <Navbar darkState={darkState} handleThemeChange={handleThemeChange} />
       </Grid>
 
       <Grid item xs={12}>
@@ -34,7 +35,7 @@ const Layout: FC = ({ children }) => {
         <Footer />
       </Grid>
     </Grid>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
