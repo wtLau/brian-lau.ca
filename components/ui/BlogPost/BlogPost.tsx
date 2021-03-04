@@ -1,15 +1,25 @@
-import Link from 'next/link'
+import { Link } from '@components/ui'
 import useSWR from 'swr'
 // import format from 'comma-number'
 
 import fetcher from '@lib/fetcher'
-import { Typography } from '@material-ui/core'
+import {
+  Typography,
+  makeStyles,
+  Theme,
+} from '@material-ui/core'
 
 interface IPost {
   title: string
   summary: string
   slug: string
 }
+
+const useStyles = makeStyles((theme: Theme) => ({
+  mainGrid: {
+    marginTop: theme.spacing(3),
+  },
+}))
 
 const BlogPost = ({
   title,
@@ -21,19 +31,29 @@ const BlogPost = ({
     fetcher
   )
   const views = data?.total
-
+  const cn = useStyles()
   return (
-    <Link href={`/blog/${slug}`}>
-      <div>
-        <Typography variant='h4'>
-          {title}
-        </Typography>
+    <div className={cn.mainGrid}>
+      <Link href={`/blog/${slug}`}>
+        <div>
+          <Typography
+            variant='h5'
+            component={'h4'}
+            gutterBottom
+          >
+            {title}
+          </Typography>
 
-        <Typography variant='body1'>
-          {summary}
-        </Typography>
-      </div>
-    </Link>
+          <Typography
+            variant='body1'
+            color='textSecondary'
+            paragraph
+          >
+            {summary}
+          </Typography>
+        </div>
+      </Link>
+    </div>
   )
 }
 

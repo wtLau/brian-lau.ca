@@ -16,7 +16,11 @@ const Link: React.FC<TLink> = ({
 }) => {
   return (
     <NextLink href={href} passHref>
-      <MaterialLink {...props}>
+      <MaterialLink
+        color='textPrimary'
+        underline='none'
+        {...props}
+      >
         {children}
       </MaterialLink>
     </NextLink>

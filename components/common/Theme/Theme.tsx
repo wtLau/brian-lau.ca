@@ -4,6 +4,7 @@ import {
   createMuiTheme,
   ThemeOptions,
   ThemeProvider,
+  responsiveFontSizes,
 } from '@material-ui/core'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { PaletteOptions } from '@material-ui/core/styles/createPalette'
@@ -36,8 +37,13 @@ const ThemeCustomProvider: FC<ReactNode> = ({
     setTheme(themeConfig)
   }
 
+  const MuiTheme = createMuiTheme(theme)
+  const responsiveFontSize = responsiveFontSizes(
+    MuiTheme
+  )
+
   return (
-    <ThemeProvider theme={createMuiTheme(theme)}>
+    <ThemeProvider theme={responsiveFontSize}>
       <ThemeSetContext.Provider
         value={{
           theme,

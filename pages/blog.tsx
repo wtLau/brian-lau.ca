@@ -5,12 +5,23 @@ import {
   Typography,
   makeStyles,
   Theme,
+  TextField,
+  InputAdornment,
 } from '@material-ui/core'
-import { useState } from 'react'
+
+import { Search } from '@material-ui/icons'
+import {
+  ChangeEvent,
+  ReactHTMLElement,
+  useState,
+} from 'react'
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     flexGrow: 1,
+  },
+  gridMargin: {
+    marginTop: theme.spacing(8),
   },
 }))
 
@@ -33,36 +44,41 @@ export default function Blog({ posts }) {
   const cn = useStyles()
   return (
     <Grid container className={cn.root}>
-      <Grid
-        item
-        component={Typography}
-        variant='h1'
+      <Typography
+        component={'h1'}
+        variant='h3'
+        gutterBottom
       >
         Blog
-      </Grid>
-      <Grid
-        item
-        component={Typography}
-        variant='body1'
-      >
-        {`I've been writing online since 2014, mostly about web development and tech careers.
+      </Typography>
+
+      <Typography variant='body1' gutterBottom>
+        {`I write mostly about web development, fitness and personal blogs.
             In total, I've written ${posts.length} articles on this site.
             Use the search below to filter by title.`}
-      </Grid>
+      </Typography>
 
-      <div>
-        <input
-          type='text'
-          onChange={(e) =>
-            setSearchValue(e.target.value)
-          }
-          placeholder='Search articles'
-        />
-      </div>
+      <TextField
+        variant='outlined'
+        fullWidth
+        onChange={(
+          e: ChangeEvent<HTMLInputElement>
+        ) => setSearchValue(e.target.value)}
+        placeholder='Search articles'
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position='end'>
+              <Search />
+            </InputAdornment>
+          ),
+        }}
+      />
 
       {!searchValue && (
-        <>
-          <h3>Featured</h3>
+        <Grid item className={cn.gridMargin}>
+          <Typography variant='h3' gutterBottom>
+            Featured
+          </Typography>
           <BlogPost
             title='Everything I Know About Style Guides, Design Systems, and Component Libraries'
             summary="A deep-dive on everything I've learned in the past year building style guides, design systems, component libraries, and their best practices."
@@ -78,22 +94,29 @@ export default function Blog({ posts }) {
             summary='In this guide, you will learn how to create a Monorepo to manage multiple packages with a shared build, test, and release process.'
             slug='monorepo-lerna-yarn-workspaces'
           />
-        </>
+        </Grid>
       )}
-      <Typography variant='h3'>
-        All Posts
-      </Typography>
-      {!filteredBlogPosts.length && (
-        <Typography variant='body1'>
-          No posts found.
+
+      <Grid item className={cn.gridMargin}>
+        <Typography variant='h3' gutterBottom>
+          All Posts
         </Typography>
-      )}
-      {filteredBlogPosts.map((frontMatter) => (
-        <BlogPost
-          key={frontMatter.title}
-          {...frontMatter}
-        />
-      ))}
+        {!filteredBlogPosts.length && (
+          <Typography variant='body1'>
+            No posts found. Please let me know if
+            you are interested to learn more about
+            it.
+          </Typography>
+        )}
+        {filteredBlogPosts.map(
+          (frontMatter: any) => (
+            <BlogPost
+              key={frontMatter.title}
+              {...frontMatter}
+            />
+          )
+        )}
+      </Grid>
     </Grid>
   )
 }

@@ -21,8 +21,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   body: {
-    marginTop: theme.spacing(5),
-    marginBottom: theme.spacing(2),
+    margin: theme.spacing(5, 7),
   },
   footer: {
     marginTop: 'auto',
@@ -38,7 +37,9 @@ const Layout: FC<LayoutProps> = ({
 
   return (
     <Grid container className={classes.root}>
-      <Grid item xs={12} component={Navbar} />
+      <Grid item xs={12}>
+        <Navbar />
+      </Grid>
 
       <Grid item xs={12} className={classes.body}>
         {children}

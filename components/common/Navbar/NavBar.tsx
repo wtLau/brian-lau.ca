@@ -17,6 +17,7 @@ import {
   Button,
   Link as MaterialLink,
   PaletteType,
+  useScrollTrigger,
 } from '@material-ui/core'
 import {
   Brightness7,
@@ -40,10 +41,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     justifyContent: 'center',
     flexDirection: 'row',
-    // boxShadow: 'none',
-    // borderBottom: `1px solid ${theme.palette.grey['100']}`,
     backgroundColor:
-      theme.palette.background.paper,
+      theme.palette.background.default,
+    // boxShadow: 'none',
   },
   toolBar: {
     maxWidth: theme.breakpoints.width('lg'),
@@ -51,51 +51,27 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     justifyContent: 'space-between',
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
 
   logo: {
     marginRight: theme.spacing(1),
   },
-  inline: {
-    display: 'inline',
-  },
-  tagline: {
-    display: 'inline-block',
-    marginLeft: 10,
-    [theme.breakpoints.up('md')]: {
-      paddingTop: '0.8em',
-    },
-  },
-  flex: {
-    display: 'flex',
-    [theme.breakpoints.down('sm')]: {
-      display: 'flex',
-      justifyContent: 'space-evenly',
-      alignItems: 'center',
-    },
-  },
-  link: {
-    textDecoration: 'none',
-    color: 'inherit',
-  },
-
-  tabContainer: {
-    marginLeft: 32,
-    [theme.breakpoints.down('sm')]: {
-      display: 'none',
-    },
-  },
-  tabItem: {
-    paddingTop: 20,
-    paddingBottom: 20,
-    minWidth: 'auto',
-    color: theme.palette.grey['A200'],
-  },
 }))
+interface Props {
+  children: React.ReactElement
+}
+function ElevationScroll(props: Props) {
+  const { children } = props
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 0,
+  })
 
-const NavBar: FC = () => {
+  return React.cloneElement(children, {
+    elevation: trigger ? 1 : 0,
+  })
+}
+
+const NavBar = () => {
   const classes = useStyles()
   const {
     theme,
@@ -119,98 +95,96 @@ const NavBar: FC = () => {
 
   return (
     <>
-      <AppBar
-        className={classes.appBar}
-        position='fixed'
-      >
-        <Toolbar className={classes.toolBar}>
-          <Link href='/'>
-            <Grid container alignItems='center'>
-              <Avatar
-                className={classes.logo}
-                alt='Brian Lau'
-              >
-                <Image
-                  alt='Brian Profile Picture'
-                  src='/static/images/brian_square.jpg'
-                  width={100}
-                  height={100}
+      <ElevationScroll>
+        <AppBar className={classes.appBar}>
+          <Toolbar className={classes.toolBar}>
+            <Link href='/'>
+              <Grid container alignItems='center'>
+                <Avatar
+                  className={classes.logo}
+                  alt='Brian Lau'
+                >
+                  <Image
+                    alt='Brian Profile Picture'
+                    src='/static/images/brian_square.jpg'
+                    width={100}
+                    height={100}
+                  />
+                </Avatar>
+
+                <Typography
+                  variant='body1'
+                  color='textPrimary'
+                  gutterBottom
+                >
+                  Brian Lau
+                </Typography>
+              </Grid>
+            </Link>
+
+            <IconButton
+              onClick={() => handleChangeDark()}
+              title='Toggle light/dark theme'
+            >
+              {theme.palette!.type === 'dark' ? (
+                <Brightness7
+                  style={{ color: orange[500] }}
                 />
-              </Avatar>
+              ) : (
+                <Brightness4 />
+              )}
+            </IconButton>
 
-              <Typography
-                variant='body1'
+            <div>
+              <Link
+                href='/contact'
                 color='textPrimary'
-                gutterBottom
               >
-                Brian Lau
-              </Typography>
-            </Grid>
-          </Link>
+                Contact
+              </Link>
 
-          <IconButton
-            onClick={() => handleChangeDark()}
-            title='Toggle light/dark theme'
-          >
-            {theme.palette!.type === 'dark' ? (
-              <Brightness7
-                style={{ color: orange[500] }}
-              />
-            ) : (
-              <Brightness4 />
-            )}
-          </IconButton>
-
-          <div>
-            <Link
-              href='/contact'
-              color='textPrimary'
-            >
-              Contact
-            </Link>
-
-            <Link
-              href='/blog'
-              color='textPrimary'
-            >
-              Blog
-            </Link>
-
-            <Link
-              href='/brian-lau-resume.pdf'
-              color='textPrimary'
-              target='_blank'
-            >
-              Resume
-            </Link>
-
-            <Link
-              href='https://github.com/wtLau'
-              target='_blank'
-            >
-              <IconButton
-                color='primary'
-                title='GitHub repository'
+              <Link
+                href='/blog'
+                color='textPrimary'
               >
-                <GitHub color='primary' />
-              </IconButton>
-            </Link>
+                Blog
+              </Link>
 
-            <Link
-              href='https://www.linkedin.com/in/brian-lau/'
-              target='_blank'
-            >
-              <IconButton
-                color='primary'
-                title='LinkedIn profile'
+              <Link
+                href='/brian-lau-resume.pdf'
+                color='textPrimary'
+                target='_blank'
               >
-                <LinkedIn />
-              </IconButton>
-            </Link>
-          </div>
-        </Toolbar>
-      </AppBar>
+                Resume
+              </Link>
 
+              <Link
+                href='https://github.com/wtLau'
+                target='_blank'
+              >
+                <IconButton
+                  color='primary'
+                  title='GitHub repository'
+                >
+                  <GitHub color='primary' />
+                </IconButton>
+              </Link>
+
+              <Link
+                href='https://www.linkedin.com/in/brian-lau/'
+                target='_blank'
+              >
+                <IconButton
+                  color='primary'
+                  title='LinkedIn profile'
+                >
+                  <LinkedIn />
+                </IconButton>
+              </Link>
+            </div>
+          </Toolbar>
+        </AppBar>
+      </ElevationScroll>
       <Toolbar />
     </>
   )
