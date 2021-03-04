@@ -14,12 +14,20 @@ declare interface LayoutProps {
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     flexGrow: 1,
-  },
-  children: {
+    minHeight: '100vh',
     [theme.breakpoints.up('md')]: {
       maxWidth: theme.breakpoints.width('lg'),
       margin: '0 auto',
     },
+  },
+  body: {
+    marginTop: theme.spacing(5),
+    marginBottom: theme.spacing(2),
+  },
+  footer: {
+    marginTop: 'auto',
+    display: 'flex',
+    justifyContent: 'center',
   },
 }))
 
@@ -29,26 +37,19 @@ const Layout: FC<LayoutProps> = ({
   const classes = useStyles()
 
   return (
-    <Grid
-      container
-      spacing={1}
-      className={classes.root}
-    >
-      <Grid item xs={12}>
-        <Navbar />
+    <Grid container className={classes.root}>
+      <Grid item xs={12} component={Navbar} />
+
+      <Grid item xs={12} className={classes.body}>
+        {children}
       </Grid>
 
       <Grid
         item
         xs={12}
-        className={classes.children}
-      >
-        {children}
-      </Grid>
-
-      <Grid item xs={12}>
-        <Footer />
-      </Grid>
+        className={classes.footer}
+        component={Footer}
+      />
     </Grid>
   )
 }

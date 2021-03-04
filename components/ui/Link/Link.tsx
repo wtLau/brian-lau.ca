@@ -15,11 +15,8 @@ const Link: React.FC<TLink> = ({
   ...props
 }) => {
   return (
-    <NextLink href={href} passHref={passHref}>
-      <MaterialLink
-        style={{ cursor: 'pointer' }}
-        {...props}
-      >
+    <NextLink href={href} passHref>
+      <MaterialLink {...props}>
         {children}
       </MaterialLink>
     </NextLink>

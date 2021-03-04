@@ -13,6 +13,7 @@ import {
   Avatar,
   Theme,
   ButtonBase,
+  Grid,
   Button,
   Link as MaterialLink,
   PaletteType,
@@ -39,8 +40,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     justifyContent: 'center',
     flexDirection: 'row',
-    boxShadow: 'none',
-    borderBottom: `1px solid ${theme.palette.grey['100']}`,
+    // boxShadow: 'none',
+    // borderBottom: `1px solid ${theme.palette.grey['100']}`,
     backgroundColor:
       theme.palette.background.paper,
   },
@@ -55,7 +56,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 
   logo: {
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(1),
   },
   inline: {
     display: 'inline',
@@ -124,28 +125,32 @@ const NavBar: FC = () => {
       >
         <Toolbar className={classes.toolBar}>
           <Link href='/'>
-            <Avatar
-              className={classes.logo}
-              alt='Brian Lau'
-            >
-              <Image
-                alt='Vercel logo'
-                src='/brian_square.jpg'
-                width={100}
-                height={100}
-              />
-            </Avatar>
+            <Grid container alignItems='center'>
+              <Avatar
+                className={classes.logo}
+                alt='Brian Lau'
+              >
+                <Image
+                  alt='Brian Profile Picture'
+                  src='/static/images/brian_square.jpg'
+                  width={100}
+                  height={100}
+                />
+              </Avatar>
 
-            <Typography
-              variant='h6'
-              color='textSecondary'
-            >
-              Brian Lau
-            </Typography>
+              <Typography
+                variant='body1'
+                color='textPrimary'
+                gutterBottom
+              >
+                Brian Lau
+              </Typography>
+            </Grid>
           </Link>
 
           <IconButton
             onClick={() => handleChangeDark()}
+            title='Toggle light/dark theme'
           >
             {theme.palette!.type === 'dark' ? (
               <Brightness7
@@ -172,30 +177,33 @@ const NavBar: FC = () => {
             </Link>
 
             <Link
-              href='https://docs.google.com/document/d/1Oiysjfct-dErd9s1q3IIYuuShucltOg29MbfpIRFovM/edit?usp=sharing'
+              href='/brian-lau-resume.pdf'
               color='textPrimary'
               target='_blank'
-              passHref
             >
               Resume
             </Link>
 
             <Link
-              passHref
               href='https://github.com/wtLau'
               target='_blank'
             >
-              <IconButton color='primary'>
+              <IconButton
+                color='primary'
+                title='GitHub repository'
+              >
                 <GitHub color='primary' />
               </IconButton>
             </Link>
 
             <Link
-              passHref
               href='https://www.linkedin.com/in/brian-lau/'
               target='_blank'
             >
-              <IconButton color='primary'>
+              <IconButton
+                color='primary'
+                title='LinkedIn profile'
+              >
                 <LinkedIn />
               </IconButton>
             </Link>

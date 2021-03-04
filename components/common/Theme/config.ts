@@ -23,7 +23,7 @@ const themeConfig = {
     text: {
       primary: '#000',
       secondary: '#555',
-    },
+    }
   },
   typography: {
     h1: {

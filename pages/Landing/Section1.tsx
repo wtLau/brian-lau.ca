@@ -137,7 +137,7 @@ const Section1 = () => {
       </Grid>
       <Grid container item xs={12} md={6}>
         <Image
-          src='/desktop-section1.png'
+          src='/static/images/desktop-section1.png'
           width={784}
           height={684}
           alt='portrait-image'

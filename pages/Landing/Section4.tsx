@@ -161,7 +161,7 @@ const Section4 = () => {
             >
               <Grid>
                 <Image
-                  src='/javascript-logo.png'
+                  src='/static/images/javascript-logo.png'
                   alt='portrait-image'
                   className={classes.img}
                   width={78}
@@ -206,7 +206,7 @@ const Section4 = () => {
             >
               <Grid>
                 <Image
-                  src='/html5-logo.png'
+                  src='/static/images/html5-logo.png'
                   alt='portrait-image'
                   className={classes.img}
                   width={78}
@@ -251,7 +251,7 @@ const Section4 = () => {
             >
               <Grid>
                 <Image
-                  src='/react-logo.png'
+                  src='/static/images/react-logo.png'
                   alt='portrait-image'
                   className={classes.img}
                   width={78}

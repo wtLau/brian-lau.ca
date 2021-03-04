@@ -106,7 +106,7 @@ const Company: FC = () => {
               >
                 <Grid item>
                   <Image
-                    src='/hansonroboticslogo.png'
+                    src='/static/images/hansonroboticslogo.png'
                     alt='hanson robotics logo'
                     width={78}
                     height={90}
@@ -148,7 +148,7 @@ const Company: FC = () => {
               >
                 <Grid item>
                   <Image
-                    src='/dfologo.png'
+                    src='/static/images/dfologo.png'
                     alt='DFO logo'
                     width={78}
                     height={90}
@@ -190,7 +190,7 @@ const Company: FC = () => {
               >
                 <Grid item>
                   <Image
-                    src='/sgscLogo.png'
+                    src='/static/images/sgscLogo.png'
                     alt='South Granville Seniors Centre logo'
                     width={78}
                     height={90}
@@ -232,7 +232,7 @@ const Company: FC = () => {
               >
                 <Grid item>
                   <Image
-                    src='/greenMoustacheLogo.jpg'
+                    src='/static/images/greenMoustacheLogo.jpg'
                     alt='The Green Moustache logo'
                     width={500}
                     height={500}

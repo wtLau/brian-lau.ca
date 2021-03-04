@@ -52,7 +52,7 @@ const Section3 = () => {
     >
       <Grid container item xs={12} md={6}>
         <Image
-          src='/section3-shape.png'
+          src='/static/images/section3-shape.png'
           alt='portrait-image'
           className={classes.backgroundimage}
           width={654}
