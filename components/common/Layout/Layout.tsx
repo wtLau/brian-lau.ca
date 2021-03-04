@@ -15,6 +15,12 @@ const useStyles = makeStyles((theme: Theme) => ({
   root: {
     flexGrow: 1,
   },
+  children: {
+    [theme.breakpoints.up('md')]: {
+      maxWidth: theme.breakpoints.width('lg'),
+      margin: '0 auto',
+    },
+  },
 }))
 
 const Layout: FC<LayoutProps> = ({
@@ -32,7 +38,11 @@ const Layout: FC<LayoutProps> = ({
         <Navbar />
       </Grid>
 
-      <Grid item xs={12}>
+      <Grid
+        item
+        xs={12}
+        className={classes.children}
+      >
         {children}
       </Grid>
 

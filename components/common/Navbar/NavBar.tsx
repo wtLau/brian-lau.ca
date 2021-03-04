@@ -23,13 +23,14 @@ import {
 } from '@material-ui/icons'
 
 import Image from 'next/image'
-import Link from 'next/link'
+// import Link from 'next/link'
 import React, { FC } from 'react'
 import { orange } from '@material-ui/core/colors'
 import {
   ThemeContextType,
   useThemeSetContext,
 } from '@components/common/Theme'
+import { Link } from '@components/ui'
 import { PaletteOptions } from '@material-ui/core/styles/createPalette'
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -40,7 +41,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     flexDirection: 'row',
     boxShadow: 'none',
     borderBottom: `1px solid ${theme.palette.grey['100']}`,
-    backgroundColor: 'white',
+    backgroundColor:
+      theme.palette.background.paper,
   },
   toolBar: {
     maxWidth: theme.breakpoints.width('lg'),
@@ -50,11 +52,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
-    float: 'right',
   },
-  title: {
-    flexGrow: 1,
-  },
+
   logo: {
     marginRight: theme.spacing(2),
   },
@@ -118,10 +117,13 @@ const NavBar: FC = () => {
   }
 
   return (
-    <AppBar className={classes.appBar}>
-      <Toolbar className={classes.toolBar}>
-        <Link href='/'>
-          <ButtonBase>
+    <>
+      <AppBar
+        className={classes.appBar}
+        position='fixed'
+      >
+        <Toolbar className={classes.toolBar}>
+          <Link href='/'>
             <Avatar
               className={classes.logo}
               alt='Brian Lau'
@@ -137,72 +139,72 @@ const NavBar: FC = () => {
             <Typography
               variant='h6'
               color='textSecondary'
-              className={classes.title}
             >
               Brian Lau
             </Typography>
-          </ButtonBase>
-        </Link>
-
-        <IconButton
-          onClick={() => handleChangeDark()}
-        >
-          {theme.palette!.type === 'dark' ? (
-            <Brightness7
-              style={{ color: orange[500] }}
-            />
-          ) : (
-            <Brightness4 />
-          )}
-        </IconButton>
-
-        <div>
-          <Link href='/contact'>
-            <a>
-              <Typography
-                variant='overline'
-                color='textPrimary'
-              >
-                Contact
-              </Typography>
-            </a>
           </Link>
 
-          <a
-            href='https://github.com/wtLau'
-            aria-label='Github.com Link'
-            target='_blank'
-            className='text-primary'
+          <IconButton
+            onClick={() => handleChangeDark()}
           >
-            <IconButton color='primary'>
-              <GitHub color='primary' />
-            </IconButton>
-          </a>
-          <a
-            href='https://www.linkedin.com/in/brian-lau/'
-            aria-label='Linkedin Link'
-            target='_blank'
-            className='text-primary'
-          >
-            <IconButton color='primary'>
-              <LinkedIn />
-            </IconButton>
-          </a>
+            {theme.palette!.type === 'dark' ? (
+              <Brightness7
+                style={{ color: orange[500] }}
+              />
+            ) : (
+              <Brightness4 />
+            )}
+          </IconButton>
 
-          <MaterialLink
-            color='primary'
-            startIcon={<CloudDownload />}
-            component={Button}
-            size='small'
-            href='https://docs.google.com/document/d/1Oiysjfct-dErd9s1q3IIYuuShucltOg29MbfpIRFovM/edit?usp=sharing'
-            target='_blank'
-            aria-label='Download Resume'
-          >
-            Resume
-          </MaterialLink>
-        </div>
-      </Toolbar>
-    </AppBar>
+          <div>
+            <Link
+              href='/contact'
+              color='textPrimary'
+            >
+              Contact
+            </Link>
+
+            <Link
+              href='/blog'
+              color='textPrimary'
+            >
+              Blog
+            </Link>
+
+            <Link
+              href='https://docs.google.com/document/d/1Oiysjfct-dErd9s1q3IIYuuShucltOg29MbfpIRFovM/edit?usp=sharing'
+              color='textPrimary'
+              target='_blank'
+              passHref
+            >
+              Resume
+            </Link>
+
+            <Link
+              passHref
+              href='https://github.com/wtLau'
+              target='_blank'
+            >
+              <IconButton color='primary'>
+                <GitHub color='primary' />
+              </IconButton>
+            </Link>
+
+            <Link
+              passHref
+              href='https://www.linkedin.com/in/brian-lau/'
+              target='_blank'
+            >
+              <IconButton color='primary'>
+                <LinkedIn />
+              </IconButton>
+            </Link>
+          </div>
+        </Toolbar>
+      </AppBar>
+
+      <Toolbar />
+    </>
   )
 }
 export default NavBar
