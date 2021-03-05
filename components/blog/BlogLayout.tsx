@@ -12,19 +12,25 @@ import {
   Grid,
 } from '@material-ui/core'
 import { Link } from '@components/ui'
+import { ReactNode } from 'react'
 
-const editUrl = (slug) =>
+const editUrl = (slug: string) =>
   `https://github.com/wtLau/Portfolio-App/edit/main/data/blog/${slug}.mdx`
 
-const discussUrl = (slug) =>
+const discussUrl = (slug: string) =>
   `https://mobile.twitter.com/search?q=${encodeURIComponent(
     `https://brian-lau.ca/blog/${slug}`
   )}`
 
+type Props = {
+  children: ReactNode
+  frontMatter: any
+}
+
 export default function BlogLayout({
   children,
   frontMatter,
-}) {
+}: Props) {
   return (
     <article>
       <Typography variant='h6' gutterBottom>

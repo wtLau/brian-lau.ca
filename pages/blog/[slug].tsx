@@ -3,10 +3,15 @@ import BlogLayout from '@components/blog/BlogLayout'
 import MDXComponents from '@components/blog/BlogContent'
 import hydrate from 'next-mdx-remote/hydrate'
 
+type Props = {
+  mdxSource: any
+  frontMatter: any
+}
+
 export default function Blog({
   mdxSource,
   frontMatter,
-}) {
+}: Props) {
   const contents = hydrate(mdxSource, {
     components: MDXComponents,
   })
@@ -31,7 +36,9 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({
+  params,
+}: any) {
   const post = await getFileBySlug(
     'blog',
     params.slug

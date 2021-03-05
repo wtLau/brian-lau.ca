@@ -25,17 +25,17 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }))
 
-export default function Blog({ posts }) {
+export default function Blog({ posts }: any) {
   const [searchValue, setSearchValue] = useState(
     ''
   )
   const filteredBlogPosts = posts
     .sort(
-      (a, b) =>
+      (a: any, b: any) =>
         Number(new Date(b.publishedAt)) -
         Number(new Date(a.publishedAt))
     )
-    .filter((frontMatter) =>
+    .filter((frontMatter: any) =>
       frontMatter.title
         .toLowerCase()
         .includes(searchValue.toLowerCase())

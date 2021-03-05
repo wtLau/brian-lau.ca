@@ -21,6 +21,14 @@ const useStyles = makeStyles({
   },
 })
 
+// type Props = {
+//   navLinks: {
+//     title: string
+//     path: string
+//     external?: boolean
+//   }[]
+// }
+
 const SideDrawer = ({ navLinks }) => {
   const classes = useStyles()
   const [state, setState] = useState({
@@ -30,11 +38,7 @@ const SideDrawer = ({ navLinks }) => {
   const toggleDrawer = (anchor, open) => (
     event
   ) => {
-    if (
-      event.type === 'keydown' &&
-      (event.key === 'Tab' ||
-        event.key === 'Shift')
-    ) {
+    if (event.type === 'keydown') {
       return
     }
 

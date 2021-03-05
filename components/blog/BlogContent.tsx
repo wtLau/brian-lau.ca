@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import Typography from '@material-ui/core/Typography'
 import { Link } from '@components/ui'
 
 import Image from 'next/image'
 
-const H1 = ({ children }) => {
+type Props = {
+  children: ReactNode
+}
+
+const H1 = ({ children }: Props) => {
   return (
     <Typography
       variant='h3'
@@ -16,7 +20,7 @@ const H1 = ({ children }) => {
   )
 }
 
-const H2 = ({ children }) => {
+const H2 = ({ children }: Props) => {
   return (
     <Typography
       variant='h4'
@@ -28,7 +32,7 @@ const H2 = ({ children }) => {
   )
 }
 
-const P = ({ children }) => {
+const P = ({ children }: Props) => {
   return (
     <Typography
       variant='body1'
