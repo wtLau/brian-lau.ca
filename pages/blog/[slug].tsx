@@ -1,11 +1,10 @@
-// import hydrate from 'next-mdx-remote/hydrate'
-
 import { getFiles, getFileBySlug } from '@lib/mdx'
-import BlogLayout from '@layouts/blog'
-import MDXComponents from '@components/MDXComponents'
+import BlogLayout from '@components/blog/BlogLayout'
+import BlogContent from '@components/blog/BlogContent'
 
 export default function Blog({
-  mdxSource,
+  // mdxSource,
+  content,
   frontMatter,
 }) {
   // const content = hydrate(mdxSource, {
@@ -13,10 +12,14 @@ export default function Blog({
   // })
 
   return (
-    <h1>Blog Post</h1>
-    // <BlogView frontMatter={frontMatter}>
-    //   {content}
-    // </BlogView>
+    <BlogLayout frontMatter={frontMatter}>
+      {/* <BlogContent frontMatter={frontMatter} /> */}
+      <div
+        dangerouslySetInnerHTML={{
+          __html: content,
+        }}
+      />
+    </BlogLayout>
   )
 }
 
