@@ -18,6 +18,11 @@ import {
   Link as MaterialLink,
   PaletteType,
   useScrollTrigger,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemIcon,
+  Hidden,
 } from '@material-ui/core'
 import {
   Brightness7,
@@ -34,6 +39,7 @@ import {
 } from '@components/common/Theme'
 import { Link } from '@components/ui'
 import { PaletteOptions } from '@material-ui/core/styles/createPalette'
+import SideDrawer from './SideDrawer'
 
 const useStyles = makeStyles((theme: Theme) => ({
   appBar: {
@@ -55,10 +61,24 @@ const useStyles = makeStyles((theme: Theme) => ({
   logo: {
     marginRight: theme.spacing(1),
   },
+  navbarDisplayFlex: {
+    display: `flex`,
+    justifyContent: `space-between`,
+  },
+  navDisplayFlex: {
+    display: `flex`,
+    justifyContent: `space-between`,
+  },
+  linkText: {
+    textDecoration: `none`,
+    color: `white`,
+  },
 }))
+
 interface Props {
   children: React.ReactElement
 }
+
 function ElevationScroll(props: Props) {
   const { children } = props
   const trigger = useScrollTrigger({
@@ -71,8 +91,27 @@ function ElevationScroll(props: Props) {
   })
 }
 
+const navLinks = [
+  { title: `Blog`, path: `/blog` },
+  { title: `Contact`, path: `/contact` },
+  {
+    title: `Resume`,
+    path: `/brian-lau-resume.pdf`,
+    external: true,
+  },
+  {
+    title: `Github`,
+    path: `https://github.com/wtLau`,
+    external: true,
+  },
+  {
+    title: `LinkedIn`,
+    path: `https://www.linkedin.com/in/brian-lau/`,
+    external: true,
+  },
+]
+
 const NavBar = () => {
-  const classes = useStyles()
   const {
     theme,
     updateTheme,
@@ -83,6 +122,7 @@ const NavBar = () => {
       theme.palette!.type === 'light'
         ? 'dark'
         : 'light'
+
     const newTheme = {
       ...theme,
       palette: {
@@ -92,6 +132,8 @@ const NavBar = () => {
     }
     updateTheme(newTheme)
   }
+
+  const classes = useStyles()
 
   return (
     <>
@@ -134,54 +176,70 @@ const NavBar = () => {
                 <Brightness4 />
               )}
             </IconButton>
-
-            <div>
-              <Link
-                href='/contact'
-                color='textPrimary'
+            <Hidden smDown>
+              <List
+                component='nav'
+                aria-labelledby='main navigation'
+                className={classes.navDisplayFlex}
               >
-                Contact
-              </Link>
+                <Link
+                  href='/contact'
+                  color='textPrimary'
+                >
+                  <ListItem button>
+                    <ListItemText
+                      primary={'Contact'}
+                    />
+                  </ListItem>
+                </Link>
 
-              <Link
-                href='/blog'
-                color='textPrimary'
-              >
-                Blog
-              </Link>
+                <Link
+                  href='/blog'
+                  color='textPrimary'
+                >
+                  <ListItem button>
+                    <ListItemText
+                      primary={'Blog'}
+                    />
+                  </ListItem>
+                </Link>
 
-              <Link
-                href='/brian-lau-resume.pdf'
-                color='textPrimary'
-                target='_blank'
-              >
-                Resume
-              </Link>
+                <Link
+                  href='/brian-lau-resume.pdf'
+                  color='textPrimary'
+                  target='_blank'
+                >
+                  <ListItem button>
+                    <ListItemText
+                      primary={'Resume'}
+                    />
+                  </ListItem>
+                </Link>
 
-              <Link
-                href='https://github.com/wtLau'
-                target='_blank'
-              >
-                <IconButton
-                  color='primary'
+                <Link
+                  href='https://github.com/wtLau'
+                  target='_blank'
                   title='GitHub repository'
                 >
-                  <GitHub color='primary' />
-                </IconButton>
-              </Link>
+                  <ListItem>
+                    <GitHub color='primary' />
+                  </ListItem>
+                </Link>
 
-              <Link
-                href='https://www.linkedin.com/in/brian-lau/'
-                target='_blank'
-              >
-                <IconButton
-                  color='primary'
+                <Link
+                  href='https://www.linkedin.com/in/brian-lau/'
+                  target='_blank'
                   title='LinkedIn profile'
                 >
-                  <LinkedIn />
-                </IconButton>
-              </Link>
-            </div>
+                  <ListItem>
+                    <LinkedIn color='primary' />
+                  </ListItem>
+                </Link>
+              </List>
+            </Hidden>
+            <Hidden mdUp>
+              <SideDrawer navLinks={navLinks} />
+            </Hidden>
           </Toolbar>
         </AppBar>
       </ElevationScroll>

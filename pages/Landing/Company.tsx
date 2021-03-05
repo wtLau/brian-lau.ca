@@ -14,45 +14,11 @@ import Image from 'next/image'
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    paddingTop: '20px',
-    margin: '30px 0',
+    margin: theme.spacing(8, 0),
   },
   button: {
     borderRadius: '50px',
     width: '100%',
-  },
-  title: {
-    background: `no-repeat  url('/section4-title.png')`,
-    height: '400px',
-    backgroundPosition: '50% 13%',
-    backgroundSize: '35px 243px',
-    [theme.breakpoints.down('md')]: {
-      background: `no-repeat  url('/section4-title-horizaontal.png')`,
-      height: 'auto',
-    },
-  },
-  img: {
-    width: '78px',
-    height: '90px',
-  },
-  image1: {
-    marginLeft: '10px',
-    marginRight: '62px',
-    [theme.breakpoints.down('md')]: {
-      margin: 'initial',
-    },
-  },
-  image3: {
-    marginTop: '20px',
-    marginLeft: '11px',
-    [theme.breakpoints.down('md')]: {
-      margin: 'initial',
-    },
-    button: {
-      borderRadius: '50px',
-      width: '100%',
-      height: '48px',
-    },
   },
 }))
 
@@ -63,16 +29,16 @@ const Company: FC = () => {
     <Grid
       container
       className={classes.root}
-      spacing={10}
+      spacing={6}
       alignItems='center'
     >
       <Grid item xs={12}>
         <Typography
           align='center'
-          variant='h2'
-          gutterBottom
+          variant='h3'
+          component='h2'
         >
-          Previous Company
+          I've worked with
         </Typography>
       </Grid>
 
@@ -114,7 +80,7 @@ const Company: FC = () => {
                 </Grid>
                 <Grid item>
                   <Typography
-                    variant='h5'
+                    variant='body1'
                     align='center'
                   >
                     Hanson Robotics Inc.
@@ -156,7 +122,7 @@ const Company: FC = () => {
                 </Grid>
                 <Grid item>
                   <Typography
-                    variant='h5'
+                    variant='body1'
                     align='center'
                   >
                     Direct Focus Online
@@ -234,13 +200,13 @@ const Company: FC = () => {
                   <Image
                     src='/static/images/greenMoustacheLogo.jpg'
                     alt='The Green Moustache logo'
-                    width={500}
-                    height={500}
-                  ></Image>
+                    width={78}
+                    height={90}
+                  />
                 </Grid>
                 <Grid item>
                   <Typography
-                    variant='h5'
+                    variant='body1'
                     align='center'
                   >
                     The Green Moustache
@@ -249,26 +215,6 @@ const Company: FC = () => {
               </Grid>
             </Card>
           </ButtonBase>
-        </Grid>
-      </Grid>
-      <Grid
-        item
-        container
-        xs={12}
-        justify='center'
-      >
-        <Grid item xs={4}>
-          <Link href='/contact'>
-            <Button
-              color='secondary'
-              variant={'contained'}
-              className={classes.button}
-            >
-              <Typography variant='button'>
-                Hire Me!
-              </Typography>
-            </Button>
-          </Link>
         </Grid>
       </Grid>
     </Grid>
