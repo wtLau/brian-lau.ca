@@ -30,7 +30,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx", 
-    "pages/index.tsx"  ],
+    "pages/index.tsx", "components/common/Navbar/SideDrawer.js"  ],
   "exclude": [
     "node_modules"
   ]

@@ -6,11 +6,12 @@ import Typography from '@material-ui/core/Typography'
 import Image from 'next/image'
 import React from 'react'
 import { skillsData } from '../../data/skillsData'
+import { Link } from '@components/ui'
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    margin: '100px 0',
+    margin: theme.spacing(5, 0),
   },
   button: {
     borderRadius: '50px',
@@ -45,74 +46,35 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-type TData = {
-  skills: {
-    name: string
-    type: string
-    fullname: string
-    shorthand: string
-    proficiency: number
-    description: string
-    url: string
-  }[]
-  notFound?: boolean
-}
-
 const Section4 = () => {
   const classes = useStyles()
   const skills = skillsData
 
   return (
-    <Grid
-      container
-      className={classes.root}
-      spacing={4}
-    >
+    <Grid container className={classes.root}>
       <Grid
         container
         item
         xs={12}
-        md={1}
-        className={classes.title}
-      ></Grid>
-
-      <Grid container item xs={12} md={5}>
-        <Grid item xs={12}>
-          <Typography align='left' variant='h2'>
-            What My Development Skills Included
-          </Typography>
-        </Grid>
-
-        <Grid item xs={12} md={12}>
-          <Typography variant='body1'>
-            Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation
-            ullamco laboris nisi ut aliquip ex ea
-            commodo consequat. Duis aute irure
-            dolor in reprehenderit in voluptate
-            velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint
-            occaecat cupidatat non proident, sunt
-            in culpa qui officia deserunt mollit
-            anim id est laborum.
-          </Typography>
-        </Grid>
+        md={5}
+        spacing={4}
+      >
+        <Typography variant='h3' component='h2'>
+          I am interested in...
+        </Typography>
 
         <Grid
           container
           item
           xs={12}
-          justify='space-evenly'
-          spacing={1}
+          justify='center'
+          spacing={2}
         >
           {skills &&
             skills.map((data) => (
               <Grid item key={data.name}>
-                <a
-                  href={data.url}
+                <Link
+                  href={data.url ? data.url : ''}
                   target='_blank'
                 >
                   <Button
@@ -121,11 +83,9 @@ const Section4 = () => {
                     className={classes.button}
                     size='small'
                   >
-                    <Typography variant='button'>
-                      {data.name}
-                    </Typography>
+                    {data.name}
                   </Button>
-                </a>
+                </Link>
               </Grid>
             ))}
         </Grid>
@@ -161,23 +121,18 @@ const Section4 = () => {
             >
               <Grid>
                 <Image
-                  src='/javascript-logo.png'
+                  src='/static/images/javascript-logo.png'
                   alt='portrait-image'
                   className={classes.img}
                   width={78}
                   height={90}
                 ></Image>
               </Grid>
-              <Typography variant='h5'>
-                JavaScript
-              </Typography>
               <Typography
-                variant='body1'
-                align='center'
+                variant='h5'
+                component={'h5'}
               >
-                JavaScript is one of my favorite
-                programming langugage, I find it
-                fun and easy to learn.
+                JavaScript
               </Typography>
             </Grid>
           </Card>
@@ -206,23 +161,18 @@ const Section4 = () => {
             >
               <Grid>
                 <Image
-                  src='/html5-logo.png'
+                  src='/static/images/html5-logo.png'
                   alt='portrait-image'
                   className={classes.img}
                   width={78}
                   height={90}
                 ></Image>
               </Grid>
-              <Typography variant='h5'>
-                JavaScript
-              </Typography>
               <Typography
-                variant='body1'
-                align='center'
+                variant='h5'
+                component={'h5'}
               >
-                HTML is a markup template, its was
-                the first web technology I
-                learned.
+                HTML5
               </Typography>
             </Grid>
           </Card>
@@ -249,25 +199,18 @@ const Section4 = () => {
               alignItems='center'
               wrap='nowrap'
             >
-              <Grid>
-                <Image
-                  src='/react-logo.png'
-                  alt='portrait-image'
-                  className={classes.img}
-                  width={78}
-                  height={90}
-                ></Image>
-              </Grid>
-              <Typography variant='h5'>
-                React
-              </Typography>
+              <Image
+                src='/static/images/react-logo.png'
+                alt='portrait-image'
+                className={classes.img}
+                width={100}
+                height={90}
+              />
               <Typography
-                variant='body1'
-                align='center'
+                variant='h5'
+                component={'h5'}
               >
-                This porfolio is actually
-                programmed in React. It was a
-                pleasure using it!
+                React
               </Typography>
             </Grid>
           </Card>

@@ -13,9 +13,16 @@ import {
   Avatar,
   Theme,
   ButtonBase,
+  Grid,
   Button,
   Link as MaterialLink,
   PaletteType,
+  useScrollTrigger,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemIcon,
+  Hidden,
 } from '@material-ui/core'
 import {
   Brightness7,
@@ -23,14 +30,16 @@ import {
 } from '@material-ui/icons'
 
 import Image from 'next/image'
-import Link from 'next/link'
+// import Link from 'next/link'
 import React, { FC } from 'react'
 import { orange } from '@material-ui/core/colors'
 import {
   ThemeContextType,
   useThemeSetContext,
 } from '@components/common/Theme'
+import { Link } from '@components/ui'
 import { PaletteOptions } from '@material-ui/core/styles/createPalette'
+import SideDrawer from './SideDrawer'
 
 const useStyles = makeStyles((theme: Theme) => ({
   appBar: {
@@ -38,9 +47,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     justifyContent: 'center',
     flexDirection: 'row',
-    boxShadow: 'none',
-    borderBottom: `1px solid ${theme.palette.grey['100']}`,
-    backgroundColor: 'white',
+    backgroundColor:
+      theme.palette.background.default,
+    // boxShadow: 'none',
   },
   toolBar: {
     maxWidth: theme.breakpoints.width('lg'),
@@ -48,55 +57,61 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     justifyContent: 'space-between',
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
-    float: 'right',
-  },
-  title: {
-    flexGrow: 1,
-  },
-  logo: {
-    marginRight: theme.spacing(2),
-  },
-  inline: {
-    display: 'inline',
-  },
-  tagline: {
-    display: 'inline-block',
-    marginLeft: 10,
-    [theme.breakpoints.up('md')]: {
-      paddingTop: '0.8em',
-    },
-  },
-  flex: {
-    display: 'flex',
-    [theme.breakpoints.down('sm')]: {
-      display: 'flex',
-      justifyContent: 'space-evenly',
-      alignItems: 'center',
-    },
-  },
-  link: {
-    textDecoration: 'none',
-    color: 'inherit',
-  },
 
-  tabContainer: {
-    marginLeft: 32,
-    [theme.breakpoints.down('sm')]: {
-      display: 'none',
-    },
+  logo: {
+    marginRight: theme.spacing(1),
   },
-  tabItem: {
-    paddingTop: 20,
-    paddingBottom: 20,
-    minWidth: 'auto',
-    color: theme.palette.grey['A200'],
+  navbarDisplayFlex: {
+    display: `flex`,
+    justifyContent: `space-between`,
+  },
+  navDisplayFlex: {
+    display: `flex`,
+    justifyContent: `space-between`,
+  },
+  linkText: {
+    textDecoration: `none`,
+    color: `white`,
   },
 }))
 
-const NavBar: FC = () => {
-  const classes = useStyles()
+interface Props {
+  children: React.ReactElement
+}
+
+function ElevationScroll(props: Props) {
+  const { children } = props
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 0,
+  })
+
+  return React.cloneElement(children, {
+    elevation: trigger ? 1 : 0,
+  })
+}
+
+const navLinks = [
+  { title: `Blog`, path: `/blog` },
+  { title: `Contact`, path: `/contact` },
+  {
+    title: `Resume`,
+    path: `/brian-lau-resume.pdf`,
+    external: true,
+  },
+  {
+    title: `Github`,
+    path: `https://github.com/wtLau`,
+    external: true,
+  },
+  {
+    title: `LinkedIn`,
+    path: `https://www.linkedin.com/in/brian-lau/`,
+    external: true,
+  },
+]
+
+const NavBar = () => {
   const {
     theme,
     updateTheme,
@@ -107,6 +122,7 @@ const NavBar: FC = () => {
       theme.palette!.type === 'light'
         ? 'dark'
         : 'light'
+
     const newTheme = {
       ...theme,
       palette: {
@@ -117,92 +133,118 @@ const NavBar: FC = () => {
     updateTheme(newTheme)
   }
 
+  const classes = useStyles()
+
   return (
-    <AppBar className={classes.appBar}>
-      <Toolbar className={classes.toolBar}>
-        <Link href='/'>
-          <ButtonBase>
-            <Avatar
-              className={classes.logo}
-              alt='Brian Lau'
+    <>
+      <ElevationScroll>
+        <AppBar className={classes.appBar}>
+          <Toolbar className={classes.toolBar}>
+            <Link href='/'>
+              <Grid container alignItems='center'>
+                <Avatar
+                  className={classes.logo}
+                  alt='Brian Lau'
+                >
+                  <Image
+                    alt='Brian Profile Picture'
+                    src='/static/images/brian_square.jpg'
+                    width={100}
+                    height={100}
+                  />
+                </Avatar>
+
+                <Typography
+                  variant='body1'
+                  color='textPrimary'
+                  gutterBottom
+                >
+                  Brian Lau
+                </Typography>
+              </Grid>
+            </Link>
+
+            <IconButton
+              onClick={() => handleChangeDark()}
+              title='Toggle light/dark theme'
             >
-              <Image
-                alt='Vercel logo'
-                src='/brian_square.jpg'
-                width={100}
-                height={100}
-              />
-            </Avatar>
-
-            <Typography
-              variant='h6'
-              color='textSecondary'
-              className={classes.title}
-            >
-              Brian Lau
-            </Typography>
-          </ButtonBase>
-        </Link>
-
-        <IconButton
-          onClick={() => handleChangeDark()}
-        >
-          {theme.palette!.type === 'dark' ? (
-            <Brightness7
-              style={{ color: orange[500] }}
-            />
-          ) : (
-            <Brightness4 />
-          )}
-        </IconButton>
-
-        <div>
-          <Link href='/contact'>
-            <a>
-              <Typography
-                variant='overline'
-                color='textPrimary'
+              {theme.palette!.type === 'dark' ? (
+                <Brightness7
+                  style={{ color: orange[500] }}
+                />
+              ) : (
+                <Brightness4 />
+              )}
+            </IconButton>
+            <Hidden smDown>
+              <List
+                component='nav'
+                aria-labelledby='main navigation'
+                className={classes.navDisplayFlex}
               >
-                Contact
-              </Typography>
-            </a>
-          </Link>
+                <Link
+                  href='/contact'
+                  color='textPrimary'
+                >
+                  <ListItem button>
+                    <ListItemText
+                      primary={'Contact'}
+                    />
+                  </ListItem>
+                </Link>
 
-          <a
-            href='https://github.com/wtLau'
-            aria-label='Github.com Link'
-            target='_blank'
-            className='text-primary'
-          >
-            <IconButton color='primary'>
-              <GitHub color='primary' />
-            </IconButton>
-          </a>
-          <a
-            href='https://www.linkedin.com/in/brian-lau/'
-            aria-label='Linkedin Link'
-            target='_blank'
-            className='text-primary'
-          >
-            <IconButton color='primary'>
-              <LinkedIn />
-            </IconButton>
-          </a>
+                <Link
+                  href='/blog'
+                  color='textPrimary'
+                >
+                  <ListItem button>
+                    <ListItemText
+                      primary={'Blog'}
+                    />
+                  </ListItem>
+                </Link>
 
-          <MaterialLink
-            color='primary'
-            startIcon={<CloudDownload />}
-            component={Button}
-            size='small'
-            href='https://docs.google.com/document/d/1Oiysjfct-dErd9s1q3IIYuuShucltOg29MbfpIRFovM/edit?usp=sharing'
-            target='_blank'
-            aria-label='Download Resume'
-          >
-            Resume
-          </MaterialLink>
-        </div>
-      </Toolbar>
-    </AppBar>
+                <Link
+                  href='/brian-lau-resume.pdf'
+                  color='textPrimary'
+                  target='_blank'
+                >
+                  <ListItem button>
+                    <ListItemText
+                      primary={'Resume'}
+                    />
+                  </ListItem>
+                </Link>
+
+                <Link
+                  href='https://github.com/wtLau'
+                  target='_blank'
+                  title='GitHub repository'
+                >
+                  <ListItem>
+                    <GitHub color='primary' />
+                  </ListItem>
+                </Link>
+
+                <Link
+                  href='https://www.linkedin.com/in/brian-lau/'
+                  target='_blank'
+                  title='LinkedIn profile'
+                >
+                  <ListItem>
+                    <LinkedIn color='primary' />
+                  </ListItem>
+                </Link>
+              </List>
+            </Hidden>
+            <Hidden mdUp>
+              <SideDrawer navLinks={navLinks} />
+            </Hidden>
+          </Toolbar>
+        </AppBar>
+      </ElevationScroll>
+      <Toolbar />
+    </>
   )
 }
 export default NavBar

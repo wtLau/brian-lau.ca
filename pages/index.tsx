@@ -16,10 +16,6 @@ const useStyles = makeStyles((theme) =>
   createStyles({
     root: {
       flexGrow: 1,
-      [theme.breakpoints.up('md')]: {
-        maxWidth: theme.breakpoints.width('lg'),
-        margin: '0 auto',
-      },
     },
   })
 )

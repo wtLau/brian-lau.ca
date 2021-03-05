@@ -9,14 +9,9 @@ import { Card } from '@components/ui'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
-  },
-  section2: {
     background: `no-repeat bottom url('/section2-background.png')`,
-    // backgroundSize: '100%',
     backgroundPosition: '50% 79%',
-    paddingTop: theme.spacing(4),
-    minHeight: '500px',
+    margin: theme.spacing(8, 0),
   },
 }))
 
@@ -31,10 +26,10 @@ const Section1 = () => {
       justify='space-between'
       alignItems='center'
       spacing={4}
-      className={classes.section2}
+      className={classes.root}
     >
       <Grid container item xs={12} md={4}>
-        <Card raised height='190px'>
+        <Card raised height='220px'>
           <Grid item xs={2}>
             <CheckCircleOutlineIcon
               color='primary'
@@ -42,22 +37,22 @@ const Section1 = () => {
             />
           </Grid>
           <Grid item xs={9}>
-            <Typography variant='h3' gutterBottom>
-              DESIGN
+            <Typography
+              component={'h3'}
+              variant='h4'
+            >
+              Design
             </Typography>
             <Typography variant='body1'>
               Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore
-              et dolore magna aliqua. Ut enim ad
-              minim veniam
+              consectetur adipiscing elit
             </Typography>
           </Grid>
         </Card>
       </Grid>
 
       <Grid container item xs={12} md={4}>
-        <Card raised height='190px'>
+        <Card raised height='220px'>
           <Grid item xs={2}>
             <CheckCircleOutlineIcon
               color='primary'
@@ -65,22 +60,23 @@ const Section1 = () => {
             />
           </Grid>
           <Grid item xs={9}>
-            <Typography variant='h3' gutterBottom>
-              FRONT-END
+            <Typography
+              component={'h3'}
+              variant='h4'
+            >
+              Front-End
             </Typography>
             <Typography variant='body1'>
               Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore
-              et dolore magna aliqua. Ut enim ad
-              minim veniam
+              consectetur adipiscing elit minim
+              veniam
             </Typography>
           </Grid>
         </Card>
       </Grid>
 
       <Grid container item xs={12} md={4}>
-        <Card raised height='190px'>
+        <Card raised height='220px'>
           <Grid item xs={2}>
             <CheckCircleOutlineIcon
               color='primary'
@@ -88,15 +84,16 @@ const Section1 = () => {
             />
           </Grid>
           <Grid item xs={9}>
-            <Typography variant='h3' gutterBottom>
-              BACK-END
+            <Typography
+              component={'h3'}
+              variant='h4'
+            >
+              Back-End
             </Typography>
             <Typography variant='body1'>
               Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore
-              et dolore magna aliqua. Ut enim ad
-              minim veniam
+              consectetur adipiscing elit minim
+              veniam
             </Typography>
           </Grid>
         </Card>

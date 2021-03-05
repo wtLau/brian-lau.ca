@@ -7,14 +7,14 @@ import {
   Grid,
 } from '@material-ui/core'
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@components/ui'
 
 import { CloudDownload as DownloadIcon } from '@material-ui/icons'
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    margin: '100px 0',
+    margin: theme.spacing(5, 0),
   },
 
   backgroundimage: {
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   buttonGrp: {
-    marginTop: theme.spacing(10),
+    marginTop: theme.spacing(4),
   },
   button: {
     borderRadius: '50px',
@@ -48,6 +48,7 @@ const Section1 = () => {
           <Typography
             align='left'
             variant='h2'
+            component={'h1'}
             gutterBottom
           >
             Hi! I&lsquo;m Brian
@@ -55,18 +56,19 @@ const Section1 = () => {
         </Grid>
         <Grid item xs={12}>
           <Typography
-            variant='h1'
+            variant='h4'
+            component={'h3'}
             gutterBottom
             color='primary'
             style={{ marginRight: '-20px' }}
           >
-            FRONT-END DEVELOPER
+            Front-End Devloper
           </Typography>
         </Grid>
         <Grid item xs={12}>
           <Typography
             variant='subtitle1'
-            gutterBottom
+            color='textSecondary'
           >
             Base in Vancouver, BC
           </Typography>
@@ -103,8 +105,8 @@ const Section1 = () => {
           justify='space-between'
         >
           <Grid item xs={6} md={7}>
-            <a
-              href='https://docs.google.com/document/d/1Oiysjfct-dErd9s1q3IIYuuShucltOg29MbfpIRFovM/edit?usp=sharing'
+            <Link
+              href='/brian_lau-resume.pdf'
               target='_blank'
             >
               <Button
@@ -113,11 +115,11 @@ const Section1 = () => {
                 className={classes.button}
                 startIcon={<DownloadIcon />}
               >
-                <Typography variant='button'>
-                  Downlaod Resume
+                <Typography variant='body1'>
+                  View Resume
                 </Typography>
               </Button>
-            </a>
+            </Link>
           </Grid>
           <Grid item xs={6} md={4}>
             <Link href='/contact'>
@@ -128,7 +130,7 @@ const Section1 = () => {
                 fullWidth
               >
                 <Typography variant='button'>
-                  Hire Me!
+                  Lets Chat!
                 </Typography>
               </Button>
             </Link>
@@ -137,7 +139,7 @@ const Section1 = () => {
       </Grid>
       <Grid container item xs={12} md={6}>
         <Image
-          src='/desktop-section1.png'
+          src='/static/images/desktop-section1.png'
           width={784}
           height={684}
           alt='portrait-image'
