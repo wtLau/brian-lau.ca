@@ -1,0 +1,28 @@
+header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  color: #f3dada;
+  min-height: 70px;
+  padding: 0;
+  position: fixed;
+  width: 100%;
+}
+
+.logo_menu {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo_menu h1 {
+  color: antiquewhite;
+  font-weight: 700;
+  margin: auto 10px;
+}
+
+.buttons button {
+  margin: auto 10px;
+}
