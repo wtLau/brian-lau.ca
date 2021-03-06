@@ -3,7 +3,6 @@ import {
   makeStyles,
   Theme,
 } from '@material-ui/core'
-import PropTypes from 'prop-types'
 import React from 'react'
 
 type Props = {
@@ -16,20 +15,14 @@ type Props = {
   padding?: string
   mobileMargin?: string
   children?: React.ReactNode
+  className?: any
+  props?: any
 }
 
 const useStyles = makeStyles((theme: Theme) => ({
   card: {
-    borderRadius: (props: Props) =>
-      props.borderRadius
-        ? props.borderRadius
-        : '32px',
-    boxShadow:
-      '10px 10px 10px rgba(33, 36, 41, 0.25)',
-    background: (props: Props) =>
-      props.background
-        ? props.background
-        : theme.palette.grey[300],
+    borderRadius: '32px',
+    background: theme.palette.background.paper,
     height: (props: Props) => props.height,
     width: (props: Props) => props.width,
     margin: (props: Props) => props.margin,
@@ -48,20 +41,18 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }))
 
-const Card = ({ ...props }: Props) => {
-  const classes = useStyles(props)
+const Card = ({ props, children }: Props) => {
+  const classes = useStyles({
+    ...props,
+  })
   return (
     <MaterialCard
-      raised={props.raised ? props.raised : false}
       className={classes.card}
+      {...props}
     >
-      {props.children}
+      {children}
     </MaterialCard>
   )
 }
-Card.propTypes = {
-  props: PropTypes.node,
-  raised: PropTypes.bool,
-  children: PropTypes.node,
-}
+
 export default Card
