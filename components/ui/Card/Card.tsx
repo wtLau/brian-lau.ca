@@ -3,7 +3,6 @@ import {
   makeStyles,
   Theme,
 } from '@material-ui/core'
-import PropTypes from 'prop-types'
 import React from 'react'
 
 type Props = {
@@ -42,14 +41,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }))
 
-const Card = ({
-  props,
-  className,
-  children,
-}: Props) => {
+const Card = ({ props, children }: Props) => {
   const classes = useStyles({
     ...props,
-    className,
   })
   return (
     <MaterialCard
@@ -60,9 +54,5 @@ const Card = ({
     </MaterialCard>
   )
 }
-Card.propTypes = {
-  props: PropTypes.node,
-  raised: PropTypes.bool,
-  children: PropTypes.node,
-}
+
 export default Card
