@@ -106,7 +106,7 @@ const Section1 = () => {
         >
           <Grid item xs={6} md={7}>
             <Link
-              href='/brian_lau-resume.pdf'
+              href='/brian-lau-resume.pdf'
               target='_blank'
             >
               <Button
