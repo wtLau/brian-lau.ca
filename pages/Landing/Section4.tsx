@@ -1,8 +1,12 @@
-import { Card } from '@components/ui'
+// import { Card } from '@components/ui'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/core/styles'
-import Typography from '@material-ui/core/Typography'
+import {
+  Typography,
+  Card,
+} from '@material-ui/core'
+
 import Image from 'next/image'
 import React from 'react'
 import { skillsData } from '../../data/skillsData'
@@ -43,6 +47,14 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('md')]: {
       margin: 'initial',
     },
+  },
+  card: {
+    width: '230px',
+    height: '266px',
+    borderRadius: '32px',
+    background: theme.palette.background.paper,
+    display: 'flex',
+    justifyContent: 'center',
   },
 }))
 
@@ -106,12 +118,7 @@ const Section4 = () => {
           justify='center'
           className={classes.image1}
         >
-          <Card
-            width='230px'
-            height='266px'
-            raised
-            mobileMargin='initial'
-          >
+          <Card raised className={classes.card}>
             <Grid
               container
               direction='column'
@@ -119,15 +126,14 @@ const Section4 = () => {
               alignItems='center'
               wrap='nowrap'
             >
-              <Grid>
-                <Image
-                  src='/static/images/javascript-logo.png'
-                  alt='portrait-image'
-                  className={classes.img}
-                  width={78}
-                  height={90}
-                ></Image>
-              </Grid>
+              <Image
+                src='/static/images/javascript-logo.png'
+                alt='portrait-image'
+                className={classes.img}
+                width={78}
+                height={90}
+              />
+
               <Typography
                 variant='h5'
                 component={'h5'}
@@ -145,13 +151,7 @@ const Section4 = () => {
           md={5}
           justify='center'
         >
-          <Card
-            width='230px'
-            height='266px'
-            raised
-            margin='40px 0  0 0'
-            mobileMargin='initial'
-          >
+          <Card raised className={classes.card}>
             <Grid
               container
               direction='column'
@@ -186,12 +186,7 @@ const Section4 = () => {
           justify='center'
           className={classes.image3}
         >
-          <Card
-            width='230px'
-            height='266px'
-            raised
-            mobileMargin='initial'
-          >
+          <Card raised className={classes.card}>
             <Grid
               container
               direction='column'

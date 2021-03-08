@@ -53,7 +53,8 @@ export default function Blog({ posts }: any) {
       </Typography>
 
       <Typography variant='body1' gutterBottom>
-        {`I write mostly about web development, fitness and personal blogs.
+        {`I care about web development, fitness, photography and personal growth.
+
             In total, I've written ${posts.length} articles on this site.
             Use the search below to filter by title.`}
       </Typography>
@@ -80,19 +81,9 @@ export default function Blog({ posts }: any) {
             Featured
           </Typography>
           <BlogPost
-            title='Everything I Know About Style Guides, Design Systems, and Component Libraries'
-            summary="A deep-dive on everything I've learned in the past year building style guides, design systems, component libraries, and their best practices."
-            slug='style-guides-component-libraries-design-systems'
-          />
-          <BlogPost
-            title='How Stripe Designs Beautiful Websites'
-            summary="Examining the tips and tricks used to make Stripe's website design a notch above the rest."
-            slug='how-stripe-designs-beautiful-websites'
-          />
-          <BlogPost
-            title='Creating a Monorepo with Lerna & Yarn Workspaces'
-            summary='In this guide, you will learn how to create a Monorepo to manage multiple packages with a shared build, test, and release process.'
-            slug='monorepo-lerna-yarn-workspaces'
+            title='About Me'
+            summary='Learn more about me, here I am answering some personal question.'
+            slug='about-me'
           />
         </Grid>
       )}
