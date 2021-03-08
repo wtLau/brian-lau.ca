@@ -6,6 +6,7 @@ import {
   Typography,
   Card,
 } from '@material-ui/core'
+
 import Image from 'next/image'
 import React from 'react'
 import { skillsData } from '../../data/skillsData'
@@ -132,6 +133,7 @@ const Section4 = () => {
                 width={78}
                 height={90}
               />
+
               <Typography
                 variant='h5'
                 component={'h5'}

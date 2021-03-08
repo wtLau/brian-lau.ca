@@ -3,6 +3,7 @@ import {
   makeStyles,
   Theme,
 } from '@material-ui/core'
+
 import React from 'react'
 
 type Props = {
@@ -23,10 +24,11 @@ const useStyles = makeStyles((theme: Theme) => ({
   card: {
     borderRadius: '32px',
     background: theme.palette.background.paper,
+    boxShadow:
+      '10px 10px 10px rgba(33, 36, 41, 0.25)',
     height: (props: Props) => props.height,
     width: (props: Props) => props.width,
     margin: (props: Props) => props.margin,
-
     padding: (props: Props) =>
       props.padding
         ? props.padding
@@ -54,5 +56,6 @@ const Card = ({ props, children }: Props) => {
     </MaterialCard>
   )
 }
+
 
 export default Card

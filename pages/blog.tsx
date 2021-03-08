@@ -54,6 +54,7 @@ export default function Blog({ posts }: any) {
 
       <Typography variant='body1' gutterBottom>
         {`I care about web development, fitness, photography and personal growth.
+
             In total, I've written ${posts.length} articles on this site.
             Use the search below to filter by title.`}
       </Typography>
