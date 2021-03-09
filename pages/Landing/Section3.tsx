@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '50px',
     width: '100%',
     height: '48px',
+    marginTop: theme.spacing(2),
   },
 }))
 
@@ -35,43 +36,41 @@ const Section3 = () => {
   const classes = useStyles()
 
   return (
-    <Grid container alignItems='center' className={classes.root} spacing={4}>
-      <Grid container item xs={12} md={6}>
+    <Grid
+      container
+      alignItems='center'
+      className={classes.root}
+      justify='center'
+      spacing={4}
+    >
+      <Grid item xs={12} md={6} container justify='center'>
         <Image
           src='/static/images/section3-shape.png'
           alt='portrait-image'
           width={654}
           height={590}
-        ></Image>
+        />
       </Grid>
-      <Grid container item xs={12} md={5} spacing={5}>
-        <Grid item xs={12}>
-          <Typography align='left' variant='h3' component={'h2'}>
-            Web is FUN!
-          </Typography>
-        </Grid>
-
-        <Grid item xs={12}>
-          <Typography variant='body1'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </Typography>
-        </Grid>
-
-        <Grid item xs={12} md={7}>
-          <Link href='/blog'>
-            <Button
-              color='primary'
-              variant={'contained'}
-              className={classes.button}
-              startIcon={<MenuBook />}
-            >
-              Read More~
-            </Button>
-          </Link>
-        </Grid>
+      <Grid item xs={12} md={6}>
+        <Typography variant='h3' component={'h2'} gutterBottom>
+          Web is FUN!
+        </Typography>
+        <Typography variant='body1' gutterBottom paragraph>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </Typography>
+        <Link href='/blog'>
+          <Button
+            color='primary'
+            variant={'contained'}
+            className={classes.button}
+            startIcon={<MenuBook />}
+          >
+            Read More~
+          </Button>
+        </Link>
       </Grid>
     </Grid>
   )

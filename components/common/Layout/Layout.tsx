@@ -1,7 +1,4 @@
-import {
-  Footer,
-  Navbar,
-} from '@components/common'
+import { Footer, Navbar } from '@components/common'
 import { Grid, Theme } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React, { FC } from 'react'
@@ -21,7 +18,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   body: {
-    margin: theme.spacing(5, 7),
+    [theme.breakpoints.up('md')]: {
+      margin: theme.spacing(5, 7),
+    },
   },
   footer: {
     marginTop: 'auto',
@@ -30,9 +29,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }))
 
-const Layout: FC<LayoutProps> = ({
-  children,
-}) => {
+const Layout: FC<LayoutProps> = ({ children }) => {
   const classes = useStyles()
 
   return (
@@ -45,12 +42,7 @@ const Layout: FC<LayoutProps> = ({
         {children}
       </Grid>
 
-      <Grid
-        item
-        xs={12}
-        className={classes.footer}
-        component={Footer}
-      />
+      <Grid item xs={12} className={classes.footer} component={Footer} />
     </Grid>
   )
 }
