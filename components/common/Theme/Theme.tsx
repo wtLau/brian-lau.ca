@@ -1,12 +1,11 @@
-import React, { FC, ReactNode } from 'react'
-import themeConfig from './config'
+import React, { FC } from 'react'
 import {
   createMuiTheme,
   ThemeOptions,
-  ThemeProvider,
-  responsiveFontSizes,
+  useTheme,
+  Theme,
+  MuiThemeProvider,
 } from '@material-ui/core'
-import CssBaseline from '@material-ui/core/CssBaseline'
 import { PaletteOptions } from '@material-ui/core/styles/createPalette'
 
 interface ITheme {
@@ -14,59 +13,78 @@ interface ITheme {
   palette?: PaletteOptions
 }
 
-export type ThemeContextType = {
-  theme: ITheme
-  updateTheme: (themeConfig: ITheme) => void
+interface ThemeContextType {
+  dispatch: React.Dispatch<any>
 }
 
-const ThemeSetContext = React.createContext<ThemeContextType | null>(
-  null
-)
+type Action = {
+  type: 'changeTheme'
+  payload: any
+}
 
-const ThemeCustomProvider: FC<ReactNode> = ({
-  children,
-}) => {
-  const [
-    theme,
-    setTheme,
-  ] = React.useState<ITheme>(
-    themeConfig as ITheme
-  )
+interface State {
+  paletteType: string
+}
 
-  const updateTheme = (themeConfig: ITheme) => {
-    setTheme(themeConfig)
+interface ThemeProviderProps {
+  children: React.ReactNode
+  theme: ThemeOptions
+}
+
+const ThemeDispatchContext = React.createContext<any>(null)
+
+const ThemeCustomProvider: FC<ThemeProviderProps> = ({ children, theme }) => {
+  const themeInitialOptions = {
+    paletteType: 'light',
   }
 
-  const MuiTheme = createMuiTheme(theme)
-  const responsiveFontSize = responsiveFontSizes(
-    MuiTheme
+  const [themeOptions, dispatch] = React.useReducer(
+    (state: State, action: Action) => {
+      switch (action.type) {
+        case 'changeTheme':
+          return {
+            ...state,
+            paletteType: action.payload,
+          }
+        default:
+          throw new Error()
+      }
+    },
+    themeInitialOptions
   )
+
+  const memoizedTheme = React.useMemo(() => {
+    return createMuiTheme({
+      ...theme,
+      palette: {
+        ...theme.palette,
+        type: themeOptions.paletteType,
+      },
+    })
+  }, [theme, themeOptions.paletteType])
 
   return (
-    <ThemeProvider theme={responsiveFontSize}>
-      <ThemeSetContext.Provider
-        value={{
-          theme,
-          updateTheme,
-        }}
-      >
-        <CssBaseline />
+    <MuiThemeProvider theme={memoizedTheme}>
+      <ThemeDispatchContext.Provider value={dispatch}>
         {children}
-      </ThemeSetContext.Provider>
-    </ThemeProvider>
+      </ThemeDispatchContext.Provider>
+    </MuiThemeProvider>
   )
-}
-
-export function useThemeSetContext() {
-  const context = React.useContext(
-    ThemeSetContext
-  )
-  if (context === undefined) {
-    throw new Error(
-      'ThemeSetContext must be used within a ThemeContext.Provider'
-    )
-  }
-  return context
 }
 
 export default ThemeCustomProvider
+
+export const useChangeTheme = () => {
+  const dispatch = React.useContext(ThemeDispatchContext)
+  const theme = useTheme()
+  const changeTheme = React.useCallback(
+    () =>
+      dispatch({
+        type: 'changeTheme',
+        payload: theme.palette.type === 'light' ? 'dark' : 'light',
+      }),
+    [theme.palette.type, dispatch]
+  )
+
+  return changeTheme
+}

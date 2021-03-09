@@ -86,7 +86,7 @@ const Section4 = () => {
             skills.map((data) => (
               <Grid item key={data.name}>
                 <Link
-                  href={data.url ? data.url : ''}
+                  href={data.url ? data.url : '/'}
                   target='_blank'
                 >
                   <Button
