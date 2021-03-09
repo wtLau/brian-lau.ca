@@ -5,18 +5,20 @@ import Grid from '@material-ui/core/Grid'
 import { Formik, Form, Field } from 'formik'
 import { TextFormField } from '@components/ui/FormFields/TextFormField'
 import SelectFormField from '@components/ui/FormFields/SelecFormField'
-import Card from '@components/ui/Card'
+// import Card from '@components/ui/Card'
 import * as yup from 'yup'
-import { Typography } from '@material-ui/core'
+import { Typography, Card } from '@material-ui/core'
 import Button from '@components/ui/Button/Button'
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    margin: theme.spacing(4, 0),
   },
   card: {
     padding: theme.spacing(5, 2),
     height: '100%',
+    borderRadius: '50px',
   },
   button: {
     marginTop: theme.spacing(4),
@@ -50,17 +52,15 @@ const Contact = () => {
       justify='center'
       alignItems='center'
     >
-      <Card>
-        <Grid
-          item
-          container
-          direction='column'
-          alignItems='center'
-          xs={10}
-          md={8}
-          className={classes.card}
-        >
-          <Typography variant='h3' component='h1' gutterBottom color='primary'>
+      <Grid item component={Card} xs={10} md={8} className={classes.card}>
+        <Grid container direction='column' alignItems='center'>
+          <Typography
+            variant='h3'
+            component='h1'
+            align='center'
+            gutterBottom
+            color='primary'
+          >
             Send Me a Message!
           </Typography>
 
@@ -151,7 +151,7 @@ const Contact = () => {
             </Formik>
           </Grid>
         </Grid>
-      </Card>
+      </Grid>
     </Grid>
   )
 }
