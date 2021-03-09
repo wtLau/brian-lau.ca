@@ -67,15 +67,7 @@ const Company: FC = () => {
       </Grid>
 
       {companyData.map((prop) => (
-        <Grid
-          item
-          xs={12}
-          md={3}
-          alignItems='center'
-          justify='center'
-          spacing={4}
-          key={prop.name}
-        >
+        <Grid item xs={12} md={3} key={prop.name}>
           <Button
             component={Card}
             focusRipple
