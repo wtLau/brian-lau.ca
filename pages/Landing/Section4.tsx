@@ -2,10 +2,7 @@
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/core/styles'
-import {
-  Typography,
-  Card,
-} from '@material-ui/core'
+import { Typography, Card } from '@material-ui/core'
 
 import Image from 'next/image'
 import React from 'react'
@@ -35,16 +32,16 @@ const useStyles = makeStyles((theme) => ({
     height: '90px',
   },
   image1: {
-    marginLeft: '10px',
-    marginRight: '62px',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.up('md')]: {
+      marginLeft: '10px',
+      marginRight: '62px',
       margin: 'initial',
     },
   },
   image3: {
-    marginTop: '20px',
-    marginLeft: '11px',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.up('md')]: {
+      marginTop: '20px',
+      marginLeft: '11px',
       margin: 'initial',
     },
   },
@@ -63,35 +60,19 @@ const Section4 = () => {
   const skills = skillsData
 
   return (
-    <Grid container className={classes.root}>
-      <Grid
-        container
-        item
-        xs={12}
-        md={5}
-        spacing={4}
-      >
-        <Typography variant='h3' component='h2'>
+    <Grid container className={classes.root} spacing={4} justify='center'>
+      <Grid item xs={12} md={5} justify='center'>
+        <Typography variant='h3' component='h2' gutterBottom>
           I am interested in...
         </Typography>
 
-        <Grid
-          container
-          item
-          xs={12}
-          justify='center'
-          spacing={2}
-        >
+        <Grid container justify='center' spacing={2}>
           {skills &&
             skills.map((data) => (
               <Grid item key={data.name}>
-                <Link
-                  href={data.url ? data.url : '/'}
-                  target='_blank'
-                >
+                <Link href={data.url ? data.url : '/'} target='_blank'>
                   <Button
-                    color='secondary'
-                    variant='contained'
+                    variant='text'
                     className={classes.button}
                     size='small'
                   >
@@ -103,22 +84,16 @@ const Section4 = () => {
         </Grid>
       </Grid>
 
-      <Grid
-        container
-        item
-        xs={12}
-        md={6}
-        justify='center'
-      >
+      <Grid container item xs={12} md={6} justify='center' spacing={2}>
         <Grid
           item
           container
-          xs={4}
+          xs={12}
           md={5}
           justify='center'
           className={classes.image1}
         >
-          <Card raised className={classes.card}>
+          <Card className={classes.card}>
             <Grid
               container
               direction='column'
@@ -134,24 +109,15 @@ const Section4 = () => {
                 height={90}
               />
 
-              <Typography
-                variant='h5'
-                component={'h5'}
-              >
+              <Typography variant='h5' component={'h5'}>
                 JavaScript
               </Typography>
             </Grid>
           </Card>
         </Grid>
 
-        <Grid
-          item
-          container
-          xs={4}
-          md={5}
-          justify='center'
-        >
-          <Card raised className={classes.card}>
+        <Grid item container xs={12} md={5} justify='center'>
+          <Card className={classes.card}>
             <Grid
               container
               direction='column'
@@ -168,10 +134,7 @@ const Section4 = () => {
                   height={90}
                 ></Image>
               </Grid>
-              <Typography
-                variant='h5'
-                component={'h5'}
-              >
+              <Typography variant='h5' component={'h5'}>
                 HTML5
               </Typography>
             </Grid>
@@ -181,12 +144,12 @@ const Section4 = () => {
         <Grid
           item
           container
-          xs={4}
+          xs={12}
           md={5}
           justify='center'
           className={classes.image3}
         >
-          <Card raised className={classes.card}>
+          <Card className={classes.card}>
             <Grid
               container
               direction='column'
@@ -201,10 +164,7 @@ const Section4 = () => {
                 width={100}
                 height={90}
               />
-              <Typography
-                variant='h5'
-                component={'h5'}
-              >
+              <Typography variant='h5' component={'h5'}>
                 React
               </Typography>
             </Grid>

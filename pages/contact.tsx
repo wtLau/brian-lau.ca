@@ -5,19 +5,23 @@ import Grid from '@material-ui/core/Grid'
 import { Formik, Form, Field } from 'formik'
 import { TextFormField } from '@components/ui/FormFields/TextFormField'
 import SelectFormField from '@components/ui/FormFields/SelecFormField'
-import Card from '@components/ui/Card'
+// import Card from '@components/ui/Card'
 import * as yup from 'yup'
-import { Typography } from '@material-ui/core'
+import { Typography, Card } from '@material-ui/core'
 import Button from '@components/ui/Button/Button'
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    margin: '130px auto',
-    [theme.breakpoints.up('md')]: {
-      maxWidth: theme.breakpoints.width('lg'),
-      margin: '300px auto',
-    },
+    margin: theme.spacing(4, 0),
+  },
+  card: {
+    padding: theme.spacing(5, 2),
+    height: '100%',
+    borderRadius: '50px',
+  },
+  button: {
+    marginTop: theme.spacing(4),
   },
 }))
 
@@ -31,10 +35,7 @@ const dropDownOption = [
 ]
 
 const schema = yup.object({
-  name: yup
-    .string()
-    .required('Name is required')
-    .min(3),
+  name: yup.string().required('Name is required').min(3),
   email: yup
     .string()
     .email('Enter a valid email')
@@ -51,114 +52,105 @@ const Contact = () => {
       justify='center'
       alignItems='center'
     >
-      <Grid item xs={8}>
-        <Card>
-          <Grid
-            container
-            justify='center'
-            alignItems='center'
-            spacing={2}
+      <Grid item component={Card} xs={10} md={8} className={classes.card}>
+        <Grid container direction='column' alignItems='center'>
+          <Typography
+            variant='h3'
+            component='h1'
+            align='center'
+            gutterBottom
+            color='primary'
           >
-            <Grid
-              item
-              xs={12}
-              component={Typography}
-              variant='h1'
-              align='center'
-              gutterBottom
-            >
-              Send Me a Message!
-            </Grid>
-            <Grid
-              item
-              xs={12}
-              component={Typography}
-              variant='h3'
-              align='center'
-            >
-              Inquiries, Feedback, Support
-            </Grid>
-            <Grid
-              item
-              xs={12}
-              component={Typography}
-              variant='body1'
-              align='center'
-            >
-              Send me a message to get in touch.
-              Always happy to receive info
-              requests, hear user feedback or
-              provide app support!
-            </Grid>
+            Send Me a Message!
+          </Typography>
 
-            <Grid item xs={10}>
-              <Formik
-                initialValues={{
-                  name: '',
-                  email: '',
-                  messagetype: '',
-                  message: '',
-                }}
-                validationSchema={schema}
-                onSubmit={(values) => {
-                  alert(
-                    JSON.stringify(
-                      values,
-                      null,
-                      2
-                    )
-                  )
-                }}
-              >
-                {({ isSubmitting }) => (
-                  <Form>
-                    <Grid
-                      container
-                      justify='center'
-                      alignItems='center'
-                      spacing={2}
-                    >
-                      <Field
-                        id='name'
-                        name='name'
-                        label='Your Name'
-                        component={TextFormField}
-                      />
-                      <Field
-                        id='email'
-                        name='email'
-                        label='Email'
-                        component={TextFormField}
-                      />
-                      <Field
-                        options={dropDownOption}
-                        label='MessageType*'
-                        name='messagetype'
-                        component={
-                          SelectFormField
-                        }
-                      />
-                      <Field
-                        id='message'
-                        name='message'
-                        label='Message'
-                        component={TextFormField}
-                      />
-                      <Grid item xs={6}>
-                        <Button
-                          type='submit'
-                          disabled={isSubmitting}
-                        >
-                          Submit
-                        </Button>
-                      </Grid>
+          <Typography variant='h5' align='center' component='h2' gutterBottom>
+            Inquiries, Feedback, Support
+          </Typography>
+
+          <Typography variant='body2' align='center' gutterBottom>
+            Send me a message to get in touch. Always happy to receive info
+            requests, hear user feedback or provide app support!
+          </Typography>
+
+          <Grid item xs={10}>
+            <Formik
+              initialValues={{
+                name: '',
+                email: '',
+                messagetype: '',
+                message: '',
+              }}
+              validationSchema={schema}
+              onSubmit={(values) => {
+                const { name, email, messagetype, message } = values
+
+                window.open(
+                  `mailto:lauwangtatbrian@gmail.com
+                    ?subject=${messagetype.toUpperCase()} for brian-lau.ca
+                    &body=Hi Brian
+                    <br/>
+                    <br/>
+                    <br/> 
+                    ${message} 
+                    <br/>
+                    <br/>
+                    <br/>
+                    ${name}
+                    <br/> 
+                    ${email}`
+                )
+              }}
+            >
+              {({ isSubmitting }) => (
+                <Form>
+                  <Grid
+                    container
+                    justify='center'
+                    alignItems='center'
+                    spacing={2}
+                  >
+                    <Field
+                      id='name'
+                      name='name'
+                      label='Your Name'
+                      component={TextFormField}
+                    />
+                    <Field
+                      id='email'
+                      name='email'
+                      label='Email'
+                      component={TextFormField}
+                    />
+                    <Field
+                      options={dropDownOption}
+                      label='MessageType*'
+                      name='messagetype'
+                      component={SelectFormField}
+                    />
+                    <Field
+                      id='message'
+                      name='message'
+                      label='Message'
+                      component={TextFormField}
+                      multiline
+                      rows={4}
+                    />
+                    <Grid item xs={8}>
+                      <Button
+                        type='submit'
+                        disabled={isSubmitting}
+                        className={classes.button}
+                      >
+                        Submit
+                      </Button>
                     </Grid>
-                  </Form>
-                )}
-              </Formik>
-            </Grid>
+                  </Grid>
+                </Form>
+              )}
+            </Formik>
           </Grid>
-        </Card>
+        </Grid>
       </Grid>
     </Grid>
   )

@@ -74,9 +74,10 @@ const Section1 = () => {
           xs={12}
           md={10}
           className={classes.buttonGrp}
-          justify='space-between'
+          justify='center'
+          spacing={2}
         >
-          <Grid item xs={6} md={7}>
+          <Grid item xs={10} md={7}>
             <Link href='/brian-lau-resume.pdf' target='_blank'>
               <Button
                 color='primary'
@@ -88,7 +89,7 @@ const Section1 = () => {
               </Button>
             </Link>
           </Grid>
-          <Grid item xs={6} md={4}>
+          <Grid item xs={10} md={4}>
             <Link href='/contact'>
               <Button
                 color='secondary'
