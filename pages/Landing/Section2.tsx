@@ -9,9 +9,10 @@ import { Card } from '@components/ui'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    background: `no-repeat bottom url('/section2-background.png')`,
+    background: `no-repeat bottom url('/static/images/section2-background.png')`,
     backgroundPosition: '50% 79%',
     margin: theme.spacing(8, 0),
+    padding: theme.spacing(7, 0),
   },
 }))
 

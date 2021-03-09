@@ -1,11 +1,7 @@
 import React from 'react'
 
 import { makeStyles } from '@material-ui/core/styles'
-import {
-  Typography,
-  Button,
-  Grid,
-} from '@material-ui/core'
+import { Typography, Button, Grid } from '@material-ui/core'
 import Image from 'next/image'
 import { Link } from '@components/ui'
 
@@ -37,20 +33,10 @@ const Section1 = () => {
   const classes = useStyles()
 
   return (
-    <Grid
-      container
-      alignItems='center'
-      className={classes.root}
-      spacing={4}
-    >
+    <Grid container alignItems='center' className={classes.root} spacing={4}>
       <Grid container item xs={12} md={6}>
         <Grid item xs={12}>
-          <Typography
-            align='left'
-            variant='h2'
-            component={'h1'}
-            gutterBottom
-          >
+          <Typography align='left' variant='h2' component={'h1'} gutterBottom>
             Hi! I&lsquo;m Brian
           </Typography>
         </Grid>
@@ -66,33 +52,19 @@ const Section1 = () => {
           </Typography>
         </Grid>
         <Grid item xs={12}>
-          <Typography
-            variant='subtitle1'
-            color='textSecondary'
-          >
+          <Typography variant='subtitle1' color='textSecondary'>
             Base in Vancouver, BC
           </Typography>
         </Grid>
-        <Grid
-          item
-          xs={12}
-          md={12}
-          className={classes.buttonGrp}
-        >
+        <Grid item xs={12} md={12} className={classes.buttonGrp}>
           <Typography variant='body1'>
-            Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation
-            ullamco laboris nisi ut aliquip ex ea
-            commodo consequat. Duis aute irure
-            dolor in reprehenderit in voluptate
-            velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint
-            occaecat cupidatat non proident, sunt
-            in culpa qui officia deserunt mollit
-            anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
           </Typography>
         </Grid>
 
@@ -105,19 +77,14 @@ const Section1 = () => {
           justify='space-between'
         >
           <Grid item xs={6} md={7}>
-            <Link
-              href='/brian-lau-resume.pdf'
-              target='_blank'
-            >
+            <Link href='/brian-lau-resume.pdf' target='_blank'>
               <Button
                 color='primary'
                 variant={'contained'}
                 className={classes.button}
                 startIcon={<DownloadIcon />}
               >
-                <Typography variant='body1'>
-                  View Resume
-                </Typography>
+                <Typography variant='body1'>View Resume</Typography>
               </Button>
             </Link>
           </Grid>
@@ -129,9 +96,7 @@ const Section1 = () => {
                 className={classes.button}
                 fullWidth
               >
-                <Typography variant='button'>
-                  Lets Chat!
-                </Typography>
+                <Typography variant='button'>Lets Chat!</Typography>
               </Button>
             </Link>
           </Grid>

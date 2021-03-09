@@ -1,9 +1,5 @@
 /* eslint-disable react/jsx-no-bind */
-import {
-  GitHub,
-  LinkedIn,
-  CloudDownload,
-} from '@material-ui/icons'
+import { GitHub, LinkedIn } from '@material-ui/icons'
 import {
   makeStyles,
   AppBar,
@@ -12,33 +8,21 @@ import {
   IconButton,
   Avatar,
   Theme,
-  ButtonBase,
   Grid,
-  Button,
-  Link as MaterialLink,
-  PaletteType,
   useScrollTrigger,
   List,
   ListItem,
   ListItemText,
-  ListItemIcon,
   Hidden,
+  useTheme,
 } from '@material-ui/core'
-import {
-  Brightness7,
-  Brightness4,
-} from '@material-ui/icons'
+import { Brightness7, Brightness4 } from '@material-ui/icons'
 
 import Image from 'next/image'
 // import Link from 'next/link'
-import React, { FC } from 'react'
-import { orange } from '@material-ui/core/colors'
-import {
-  ThemeContextType,
-  useThemeSetContext,
-} from '@components/common/Theme'
+import React from 'react'
+import { useChangeTheme } from '@components/common/Theme'
 import { Link } from '@components/ui'
-import { PaletteOptions } from '@material-ui/core/styles/createPalette'
 import SideDrawer from './SideDrawer'
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -47,8 +31,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     justifyContent: 'center',
     flexDirection: 'row',
-    backgroundColor:
-      theme.palette.background.default,
+    backgroundColor: theme.palette.background.default,
     // boxShadow: 'none',
   },
   toolBar: {
@@ -112,26 +95,8 @@ const navLinks = [
 ]
 
 const NavBar = () => {
-  const {
-    theme,
-    updateTheme,
-  } = useThemeSetContext() as ThemeContextType
-
-  const handleChangeDark = () => {
-    const isDark =
-      theme.palette!.type === 'light'
-        ? 'dark'
-        : 'light'
-
-    const newTheme = {
-      ...theme,
-      palette: {
-        ...(theme.palette as PaletteOptions),
-        type: isDark as PaletteType,
-      },
-    }
-    updateTheme(newTheme)
-  }
+  const theme = useTheme()
+  const changeTheme = useChangeTheme()
 
   const classes = useStyles()
 
@@ -142,10 +107,7 @@ const NavBar = () => {
           <Toolbar className={classes.toolBar}>
             <Link href='/'>
               <Grid container alignItems='center'>
-                <Avatar
-                  className={classes.logo}
-                  alt='Brian Lau'
-                >
+                <Avatar className={classes.logo} alt='Brian Lau'>
                   <Image
                     alt='Brian Profile Picture'
                     src='/static/images/brian_square.jpg'
@@ -154,24 +116,18 @@ const NavBar = () => {
                   />
                 </Avatar>
 
-                <Typography
-                  variant='body1'
-                  color='textPrimary'
-                  gutterBottom
-                >
+                <Typography variant='body1' color='textPrimary' gutterBottom>
                   Brian Lau
                 </Typography>
               </Grid>
             </Link>
 
             <IconButton
-              onClick={() => handleChangeDark()}
+              onClick={() => changeTheme()}
               title='Toggle light/dark theme'
             >
-              {theme.palette!.type === 'dark' ? (
-                <Brightness7
-                  style={{ color: orange[500] }}
-                />
+              {theme.palette.type === 'dark' ? (
+                <Brightness7 />
               ) : (
                 <Brightness4 />
               )}
@@ -182,25 +138,15 @@ const NavBar = () => {
                 aria-labelledby='main navigation'
                 className={classes.navDisplayFlex}
               >
-                <Link
-                  href='/contact'
-                  color='textPrimary'
-                >
+                <Link href='/contact' color='textPrimary'>
                   <ListItem button>
-                    <ListItemText
-                      primary={'Contact'}
-                    />
+                    <ListItemText primary={'Contact'} />
                   </ListItem>
                 </Link>
 
-                <Link
-                  href='/blog'
-                  color='textPrimary'
-                >
+                <Link href='/blog' color='textPrimary'>
                   <ListItem button>
-                    <ListItemText
-                      primary={'Blog'}
-                    />
+                    <ListItemText primary={'Blog'} />
                   </ListItem>
                 </Link>
 
@@ -210,20 +156,13 @@ const NavBar = () => {
                   target='_blank'
                 >
                   <ListItem button>
-                    <ListItemText
-                      primary={'Resume'}
-                    />
+                    <ListItemText primary={'Resume'} />
                   </ListItem>
                 </Link>
 
-                <Link
-                  href='/tools'
-                  color='textPrimary'
-                >
+                <Link href='/tools' color='textPrimary'>
                   <ListItem button>
-                    <ListItemText
-                      primary={'Tools'}
-                    />
+                    <ListItemText primary={'Tools'} />
                   </ListItem>
                 </Link>
 
