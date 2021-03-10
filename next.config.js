@@ -5,6 +5,7 @@ module.exports = {
   //     'pbs.twimg.com', // Twitter Profile Picture
   //   ],
   // },
+  target: 'serverless',
   webpack: (config, { dev, isServer }) => {
     if (isServer) {
       require('./scripts/generate-sitemap.js')
