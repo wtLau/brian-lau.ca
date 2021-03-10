@@ -1,0 +1,22 @@
+{
+  "name": "Brian Lau",
+  "short_name": "brian-lau.ca",
+  "description": "Developer, fitness enthusiast, and coffee lover.",
+  "display": "standalone",
+  "start_url": "/",
+  "theme_color": "#fff",
+  "background_color": "#fff",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/static/favicons/icon-192x192.jpeg",
+      "type": "image/jpeg",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/static/favicons/icon-512x512.jpeg",
+      "type": "image/jpeg",
+      "sizes": "512x512"
+    }
+  ]
+}

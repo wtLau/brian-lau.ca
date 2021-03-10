@@ -1,10 +1,5 @@
 import { ServerStyleSheets } from '@material-ui/core'
-import Document, {
-  Head,
-  Html,
-  Main,
-  NextScript,
-} from 'next/document'
+import Document, { Head, Html, Main, NextScript } from 'next/document'
 import React from 'react'
 
 class MyDocument extends Document {
@@ -12,6 +7,7 @@ class MyDocument extends Document {
     return (
       <Html lang='en'>
         <Head />
+
         <body className='loading'>
           <Main />
           <NextScript />
@@ -51,21 +47,16 @@ MyDocument.getInitialProps = async (ctx) => {
 
   ctx.renderPage = () =>
     originalRenderPage({
-      enhanceApp: (App) => (props) =>
-        sheets.collect(<App {...props} />),
+      enhanceApp: (App) => (props) => sheets.collect(<App {...props} />),
     })
 
-  const initialProps = await Document.getInitialProps(
-    ctx
-  )
+  const initialProps = await Document.getInitialProps(ctx)
 
   return {
     ...initialProps,
     // Styles fragment is rendered after the app and page rendering finish.
     styles: [
-      ...React.Children.toArray(
-        initialProps.styles
-      ),
+      ...React.Children.toArray(initialProps.styles),
       sheets.getStyleElement(),
     ],
   }
