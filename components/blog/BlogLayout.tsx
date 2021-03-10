@@ -1,21 +1,13 @@
 import Image from 'next/image'
 import { parseISO, format } from 'date-fns'
 
-// import Container from '@/components/Container';
-// import Subscribe from '@/components/Subscribe';
-// import ViewCounter from '@/components/ViewCounter';
 import BlogContent from './BlogContent'
-import {
-  Typography,
-  makeStyles,
-  Theme,
-  Grid,
-} from '@material-ui/core'
+import { Typography, makeStyles, Theme, Grid } from '@material-ui/core'
 import { Link } from '@components/ui'
 import { ReactNode } from 'react'
 
 const editUrl = (slug: string) =>
-  `https://github.com/wtLau/Portfolio-App/edit/main/data/blog/${slug}.mdx`
+  `https://github.com/wtLau/Portfolio-App/edit/development/data/blog/${slug}.mdx`
 
 const discussUrl = (slug: string) =>
   `https://mobile.twitter.com/search?q=${encodeURIComponent(
@@ -27,10 +19,7 @@ type Props = {
   frontMatter: any
 }
 
-export default function BlogLayout({
-  children,
-  frontMatter,
-}: Props) {
+export default function BlogLayout({ children, frontMatter }: Props) {
   return (
     <article>
       <Typography variant='h6' gutterBottom>
@@ -47,10 +36,7 @@ export default function BlogLayout({
         <Typography>
           {frontMatter.by}
           {'Brian Lau / '}
-          {format(
-            parseISO(frontMatter.publishedAt),
-            'MMMM dd, yyyy'
-          )}
+          {format(parseISO(frontMatter.publishedAt), 'MMMM dd, yyyy')}
         </Typography>
       </Grid>
       <Typography>
