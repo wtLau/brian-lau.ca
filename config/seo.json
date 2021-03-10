@@ -1,0 +1,16 @@
+{
+  "title": "Brian Lau – Developer, fitness, coffee",
+  "titleTemplate": "%s - Brian Lau",
+  "description": "Front-end developer, JavaScript enthusiast, and fitness athlete",
+  "openGraph": {
+    "type": "website",
+    "locale": "en_IE",
+    "url": "https://brian-lau.ca",
+    "site_name": "Brian Lau website"
+  },
+  "twitter": {
+    "handle": "@lauwangtatbrian",
+    "site": "@lauwangtatbrian",
+    "cardType": "summary_large_image"
+  }
+}
