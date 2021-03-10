@@ -43,7 +43,7 @@ const Section1 = () => {
         <Grid item xs={12}>
           <Typography
             variant='h4'
-            component={'h3'}
+            component={'h2'}
             gutterBottom
             color='primary'
             style={{ marginRight: '-20px' }}
@@ -53,7 +53,7 @@ const Section1 = () => {
         </Grid>
         <Grid item xs={12}>
           <Typography variant='subtitle1' color='textSecondary'>
-            Base in Vancouver, BC
+            Based in Vancouver, BC
           </Typography>
         </Grid>
         <Grid item xs={12} md={12} className={classes.buttonGrp}>

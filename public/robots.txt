@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://brian-lau.ca/sitemap.xml

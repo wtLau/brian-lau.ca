@@ -61,7 +61,7 @@ const Section4 = () => {
 
   return (
     <Grid container className={classes.root} spacing={4} justify='center'>
-      <Grid item xs={12} md={5} justify='center'>
+      <Grid item xs={12} md={5}>
         <Typography variant='h3' component='h2' gutterBottom>
           I am interested in...
         </Typography>

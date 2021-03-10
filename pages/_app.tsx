@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import type { AppProps } from 'next/app'
-import { ThemeCustomProvider } from '@components/common'
+import { ThemeCustomProvider, Head } from '@components/common'
 import { Layout } from '@components/common'
 import themeConfig from '@components/common/Theme/config'
 import { createMuiTheme, CssBaseline } from '@material-ui/core'
@@ -13,12 +13,15 @@ function MyApp({ Component, pageProps }: AppProps) {
   const theme = themeConfig
 
   return (
-    <ThemeCustomProvider theme={theme}>
-      <CssBaseline />
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </ThemeCustomProvider>
+    <>
+      <Head />
+      <ThemeCustomProvider theme={theme}>
+        <CssBaseline />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ThemeCustomProvider>
+    </>
   )
 }
 

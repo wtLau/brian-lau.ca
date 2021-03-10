@@ -30,26 +30,14 @@ type Props = {
   kcal: number | string
 }
 
-export default function Slider({
-  title,
-  defaultPercentage,
-  kcal,
-}: Props) {
+export default function Slider({ title, defaultPercentage, kcal }: Props) {
   const cn = useStyles()
-  const [
-    percentage,
-    setPercentage,
-  ] = useState<number>(defaultPercentage)
+  const [percentage, setPercentage] = useState<number>(defaultPercentage)
 
   const [macro, setMacro] = useState<number>(0)
-  const [calorie, setCalorie] = useState<number>(
-    0
-  )
+  const [calorie, setCalorie] = useState<number>(0)
 
-  const macroCalculation = (
-    title: string,
-    calorie: number
-  ) => {
+  const macroCalculation = (title: string, calorie: number) => {
     let multipiler = 0
 
     switch (title) {
@@ -67,29 +55,18 @@ export default function Slider({
     setMacro(~~(calorie / multipiler))
   }
 
-  const calCalculation = (
-    kcal: number | string,
-    percentage: number
-  ) => {
-    const numberKcal =
-      typeof kcal === 'number' ? kcal : 0
-    setCalorie(
-      ~~((numberKcal * percentage) / 100)
-    )
+  const calCalculation = (kcal: number | string, percentage: number) => {
+    const numberKcal = typeof kcal === 'number' ? kcal : 0
+    setCalorie(~~((numberKcal * percentage) / 100))
   }
 
-  const handleSliderChange = (
-    _event: any,
-    newValue: number | number[]
-  ) => {
+  const handleSliderChange = (_event: any, newValue: number | number[]) => {
     if (typeof newValue === 'number') {
       setPercentage(newValue)
     }
   }
 
-  const handleInputChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPercentage(Number(event.target.value))
   }
 
@@ -107,27 +84,14 @@ export default function Slider({
   }, [percentage, calorie, kcal])
 
   return (
-    <Grid
-      container
-      justify='center'
-      spacing={3}
-      className={cn.root}
-    >
+    <Grid container justify='center' spacing={3} className={cn.root}>
       <Grid item xs={6}>
-        <Typography
-          id='input-slider'
-          gutterBottom
-        >
+        <Typography id='input-slider' gutterBottom>
           {title}
         </Typography>
       </Grid>
 
-      <Grid
-        item
-        container
-        justify='space-between'
-        xs={4}
-      >
+      <Grid item container justify='space-between' xs={4}>
         <Typography>{macro} g</Typography>
 
         <Input
@@ -143,11 +107,7 @@ export default function Slider({
             type: 'number',
             'aria-labelledby': 'input-slider',
           }}
-          endAdornment={
-            <InputAdornment position='end'>
-              %
-            </InputAdornment>
-          }
+          endAdornment={<InputAdornment position='end'>%</InputAdornment>}
         />
 
         <Typography>{calorie} cals</Typography>
@@ -155,13 +115,9 @@ export default function Slider({
 
       <Grid container item xs={12}>
         <Grid item xs={1} component={Remove} />
-        <Grid xs={10}>
+        <Grid item xs={10}>
           <MSlider
-            value={
-              typeof percentage === 'number'
-                ? percentage
-                : 0
-            }
+            value={typeof percentage === 'number' ? percentage : 0}
             onChange={handleSliderChange}
             aria-labelledby='input-slider'
           />
