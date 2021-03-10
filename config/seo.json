@@ -2,6 +2,8 @@
   "title": "Brian Lau – Developer, fitness, coffee",
   "titleTemplate": "%s - Brian Lau",
   "description": "Front-end developer, JavaScript enthusiast, and fitness athlete",
+  "noindex": "false",
+  "nofollow": "false",
   "openGraph": {
     "type": "website",
     "locale": "en_IE",
