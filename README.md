@@ -23,7 +23,7 @@ yarn dev
 
 - [React](https://facebook.github.io/react/) - A javaScript library for building user interfaces
 - [Typescript]() - Typescript
-- [NextJs]()
+- [NextJs]() - Using Server Side Generation
 - [Material-UI](http://www.material-ui.com/#/) - A Set of React Components that Implement Google's Material Design
 
 ### Back-End
