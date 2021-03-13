@@ -6,7 +6,7 @@ import { Typography, Card } from '@material-ui/core'
 
 import Image from 'next/image'
 import React from 'react'
-import { skillsData } from '../../data/skillsData'
+import { skillsData } from '../../../data/skillsData'
 import { Link } from '@components/ui'
 
 const useStyles = makeStyles((theme) => ({

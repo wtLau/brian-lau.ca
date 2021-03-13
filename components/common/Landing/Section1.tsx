@@ -108,6 +108,7 @@ const Section1 = () => {
           src='/static/images/desktop-section1.png'
           width={784}
           height={684}
+          priority={true}
           alt='portrait-image'
           className={classes.backgroundimage}
         />
