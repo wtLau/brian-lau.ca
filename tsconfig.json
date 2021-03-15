@@ -24,7 +24,7 @@
       "@config/*": ["config/*"],
       "@components/*": ["components/*"],
       "@utils/*": ["utils/*"],
-      "@hooks/*": ["hooks/*"]
+      "@hooks/*": ["lib/hooks/*"]
     }
   },
   "include": [

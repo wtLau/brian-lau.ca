@@ -1,8 +1,8 @@
 import React from 'react'
-import useUser from '@hooks/useUser'
-import useEvents from '@hooks/useEvents'
+import useUser from '@lib/hooks/useUser'
+import useEvents from '@lib/hooks/useEvents'
 
-import { Grid, Typography } from '@material-ui/core'
+import { Button, Grid, Typography } from '@material-ui/core'
 import Fetcher from '@lib/fetcher'
 import { useRouter } from 'next/router'
 
@@ -13,6 +13,12 @@ const Profile = () => {
 
   if (!user?.isLoggedIn || loadingEvents) {
     return <Typography>loading...</Typography>
+  }
+
+  const onLogout = async (e) => {
+    e.preventDefault()
+    mutateUser(await Fetcher('/api/auth/logout', { method: 'POST' }), false)
+    router.push('/login')
   }
 
   return (
@@ -40,19 +46,9 @@ const Profile = () => {
         type: <b>{events.type}</b>
       </p>
 
-      <a
-        href='/api/logout'
-        onClick={async (e) => {
-          e.preventDefault()
-          mutateUser(
-            await Fetcher('/api/auth/logout', { method: 'POST' }),
-            false
-          )
-          router.push('/login')
-        }}
-      >
+      <Button color='primary' variant='contained' onClick={onLogout}>
         Logout
-      </a>
+      </Button>
     </Grid>
   )
 }

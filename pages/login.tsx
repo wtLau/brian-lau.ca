@@ -1,6 +1,7 @@
 import React, { FormEvent, ReactEventHandler, useState } from 'react'
-import useUser from '@hooks/useUser'
+import useUser from '@lib/hooks/useUser'
 import fetcher from '@lib/fetcher'
+import { TextField, Button, Typography } from '@material-ui/core'
 
 const Login = () => {
   // here we just check if user is already logged in and redirect to profile
@@ -37,14 +38,14 @@ const Login = () => {
     <>
       <div className='login'>
         <form onSubmit={handleSubmit}>
-          <label>
-            <span>Type your GitHub username</span>
-            <input type='text' name='username' required />
-          </label>
+          <Typography gutterBottom>Type your GitHub username</Typography>
+          <input type='text' name='username' required />
 
-          <button type='submit'>Login</button>
+          <Button variant='contained' color='primary' type='submit'>
+            Login
+          </Button>
 
-          {errorMsg && <p className='error'>{errorMsg}</p>}
+          {errorMsg && <Typography color='error'>{errorMsg}</Typography>}
         </form>
       </div>
       <style jsx>{`

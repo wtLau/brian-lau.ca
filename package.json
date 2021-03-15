@@ -35,6 +35,7 @@
     "chai": "^4.2.0",
     "flow-bin": "^0.98.1",
     "globby": "^11.0.2",
+    "mocha": "^8.3.2",
     "prettier": "^2.2.1",
     "typescript": "^4.2.2"
   },
@@ -42,7 +43,8 @@
     "dev": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
-    "find:unused": "next-unused"
+    "find:unused": "next-unused",
+    "test": "jest --coverage && yarn lint"
   },
   "next-unused": {
     "alias": {
