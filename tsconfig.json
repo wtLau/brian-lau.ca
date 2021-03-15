@@ -31,8 +31,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx", 
-    "**/*.js", 
-    "pages/index.tsx", "components/common/Navbar/SideDrawer.js", "lib/session.js", "lib/fetcher.js", "lib/hooks/useEvents.test.ts"  ],
+    "**/*.js"
+  ],
   "exclude": [
     "node_modules"
   ]
