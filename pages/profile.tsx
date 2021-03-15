@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { MouseEvent } from 'react'
 import useUser from '@lib/hooks/useUser'
 import useEvents from '@lib/hooks/useEvents'
 
@@ -15,7 +15,7 @@ const Profile = () => {
     return <Typography>loading...</Typography>
   }
 
-  const onLogout = async (e) => {
+  const onLogout = async (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
     mutateUser(await Fetcher('/api/auth/logout', { method: 'POST' }), false)
     router.push('/login')
@@ -53,7 +53,7 @@ const Profile = () => {
   )
 }
 
-function githubUrl(login) {
+function githubUrl(login: string) {
   return `https://api.github.com/users/${login}`
 }
 
