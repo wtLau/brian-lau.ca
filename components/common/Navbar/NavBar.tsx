@@ -103,7 +103,9 @@ const navLinks = [
 const NavBar = () => {
   const theme = useTheme()
   const changeTheme = useChangeTheme()
-  const [session, loading] = useSession()
+
+  const [session] = useSession()
+
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
   const open = Boolean(anchorEl)
 
@@ -225,7 +227,7 @@ const NavBar = () => {
                         aria-haspopup='true'
                         onClick={handleMenu}
                       >
-                        <Image
+                        {/* <Image
                           alt='Profile Picture'
                           src={
                             session.user.image !== null
@@ -235,7 +237,8 @@ const NavBar = () => {
                           width={60}
                           height={60}
                           priority
-                        />
+                        /> */}
+                        yaya
                       </Button>
                     </Avatar>
 

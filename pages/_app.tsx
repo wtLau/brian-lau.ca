@@ -16,14 +16,14 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head />
-      <NextAuthProvider session={pageProps.session}>
-        <ThemeCustomProvider theme={theme}>
-          <CssBaseline />
-          <Layout>
+      <ThemeCustomProvider theme={theme}>
+        <CssBaseline />
+        <Layout>
+          <NextAuthProvider session={pageProps.session}>
             <Component {...pageProps} />
-          </Layout>
-        </ThemeCustomProvider>
-      </NextAuthProvider>
+          </NextAuthProvider>
+        </Layout>
+      </ThemeCustomProvider>
     </>
   )
 }
