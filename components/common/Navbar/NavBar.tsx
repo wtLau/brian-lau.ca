@@ -16,8 +16,11 @@ import {
   Hidden,
   useTheme,
   Button,
+  Menu,
+  MenuItem,
+  ListItemIcon,
 } from '@material-ui/core'
-import { Brightness7, Brightness4 } from '@material-ui/icons'
+import { Brightness7, Brightness4, Person, Eject } from '@material-ui/icons'
 
 import Image from 'next/image'
 // import Link from 'next/link'
@@ -101,8 +104,18 @@ const NavBar = () => {
   const theme = useTheme()
   const changeTheme = useChangeTheme()
   const [session, loading] = useSession()
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
+  const open = Boolean(anchorEl)
 
   const classes = useStyles()
+
+  const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget)
+  }
+
+  const handleClose = () => {
+    setAnchorEl(null)
+  }
 
   return (
     <>
@@ -111,7 +124,7 @@ const NavBar = () => {
           <Toolbar className={classes.toolBar}>
             <Link href='/'>
               <Grid container alignItems='center'>
-                <Avatar className={classes.logo} alt='Brian Lau'>
+                {/* <Avatar className={classes.logo} alt='Brian Lau'>
                   <Image
                     alt='Brian Profile Picture'
                     src='/static/images/brian_square.jpg'
@@ -119,7 +132,7 @@ const NavBar = () => {
                     height={100}
                     priority
                   />
-                </Avatar>
+                </Avatar> */}
 
                 <Typography variant='body1' color='textPrimary' gutterBottom>
                   Brian Lau
@@ -190,48 +203,86 @@ const NavBar = () => {
                     <LinkedIn color='primary' />
                   </ListItem>
                 </Link>
+
                 {!session && (
-                  <Link href='/login'>
-                    <ListItem>
+                  <ListItem>
+                    <Button
+                      onClick={() => {
+                        signIn()
+                      }}
+                    >
+                      LogIn
+                    </Button>
+                  </ListItem>
+                )}
+
+                {session && (
+                  <ListItem>
+                    <Avatar className={classes.logo}>
                       <Button
-                        onClick={() => {
-                          signIn()
-                        }}
+                        aria-label='Account show more'
+                        aria-controls='menu-appbar'
+                        aria-haspopup='true'
+                        onClick={handleMenu}
                       >
-                        LogIn
+                        <Image
+                          alt='Profile Picture'
+                          src={
+                            session?.user.image !== null
+                              ? session.user.image
+                              : '/static/images/profile/profile_placeholder.png'
+                          }
+                          width={60}
+                          height={60}
+                          priority
+                        />
                       </Button>
-                    </ListItem>
-                  </Link>
+                    </Avatar>
+
+                    <Menu
+                      id='menu-appbar'
+                      anchorEl={anchorEl}
+                      anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'right',
+                      }}
+                      keepMounted
+                      transformOrigin={{
+                        vertical: 'top',
+                        horizontal: 'right',
+                      }}
+                      open={open}
+                      onClose={handleClose}
+                    >
+                      <MenuItem>
+                        <Typography>Signed in as:</Typography>
+                        <ListItemText>
+                          {session.user.name || session.user.email}
+                        </ListItemText>
+                      </MenuItem>
+
+                      <MenuItem>
+                        <ListItemIcon>
+                          <Person />
+                        </ListItemIcon>
+                        <ListItemText>
+                          <Link href='/profile' color='textPrimary'>
+                            View Profile
+                          </Link>
+                        </ListItemText>
+                      </MenuItem>
+
+                      <MenuItem onClick={() => signOut()}>
+                        <ListItemIcon>
+                          <Eject />
+                        </ListItemIcon>
+
+                        <ListItemText>Sign Out</ListItemText>
+                      </MenuItem>
+                    </Menu>
+                  </ListItem>
                 )}
               </List>
-
-              {session && (
-                <>
-                  {session.user.image && (
-                    <span
-                      style={{
-                        backgroundImage: `url(${session.user.image})`,
-                      }}
-                    />
-                  )}
-                  <span>
-                    <Typography>Signed in as</Typography>
-                    <br />
-                    <Typography>
-                      {session.user.name || session.user.email}
-                    </Typography>
-                  </span>
-                  <a
-                    href={`/api/auth/signout`}
-                    onClick={(e) => {
-                      e.preventDefault()
-                      signOut()
-                    }}
-                  >
-                    Sign out
-                  </a>
-                </>
-              )}
             </Hidden>
             <Hidden mdUp>
               <SideDrawer navLinks={navLinks} />

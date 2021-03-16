@@ -38,6 +38,7 @@ const Profile = () => {
     <Grid>
       <h1>Protected Page</h1>
       <p>
+        You're sign in as
         <strong>{session.user.name || '\u00a0'}</strong>
       </p>
     </Grid>
