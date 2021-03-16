@@ -49,6 +49,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
   logo: {
     marginRight: theme.spacing(1),
+    backgroundImage: '/static/images/profile/profile_placeholder.png',
   },
   navbarDisplayFlex: {
     display: `flex`,
@@ -227,18 +228,15 @@ const NavBar = () => {
                         aria-haspopup='true'
                         onClick={handleMenu}
                       >
-                        {/* <Image
-                          alt='Profile Picture'
-                          src={
-                            session.user.image !== null
-                              ? session.user.image!
-                              : '/static/images/profile/profile_placeholder.png'
-                          }
-                          width={60}
-                          height={60}
-                          priority
-                        /> */}
-                        yaya
+                        {session.user.image && (
+                          <Image
+                            alt='Profile Picture'
+                            src={session.user.image}
+                            width={60}
+                            height={60}
+                            priority
+                          />
+                        )}
                       </Button>
                     </Avatar>
 
