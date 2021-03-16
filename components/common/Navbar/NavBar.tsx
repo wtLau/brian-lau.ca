@@ -49,6 +49,8 @@ const useStyles = makeStyles((theme: Theme) => ({
 
   logo: {
     marginRight: theme.spacing(1),
+    background: `url('/static/images/profile/profile_placeholder.png')`,
+    backgroundSize: 'contain',
   },
   navbarDisplayFlex: {
     display: `flex`,
@@ -118,7 +120,6 @@ const NavBar = () => {
   const handleClose = () => {
     setAnchorEl(null)
   }
-
   return (
     <>
       <ElevationScroll>
@@ -238,18 +239,15 @@ const NavBar = () => {
                         aria-haspopup='true'
                         onClick={handleMenu}
                       >
-                        {/* <Image
-                          alt='Profile Picture'
-                          src={
-                            session.user.image !== null
-                              ? session.user.image!
-                              : '/static/images/profile/profile_placeholder.png'
-                          }
-                          width={60}
-                          height={60}
-                          priority
-                        /> */}
-                        yaya
+                        {session.user.image && (
+                          <Image
+                            alt='Profile Picture'
+                            src={session.user.image}
+                            width={60}
+                            height={60}
+                            priority
+                          />
+                        )}
                       </Button>
                     </Avatar>
 
@@ -257,7 +255,7 @@ const NavBar = () => {
                       id='menu-appbar'
                       anchorEl={anchorEl}
                       anchorOrigin={{
-                        vertical: 'bottom',
+                        vertical: 'top',
                         horizontal: 'right',
                       }}
                       keepMounted
