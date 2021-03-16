@@ -9,7 +9,7 @@ const prettier = require('prettier')
     'pages/*.js',
     'pages/*.tsx',
     'pages/*.ts',
-    'data/**/*.mdx',
+    'data/blog/*.mdx',
     '!pages/_*.js',
     '!pages/_*.ts',
     '!pages/_*.tsx',
