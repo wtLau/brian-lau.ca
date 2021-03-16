@@ -1,43 +1,29 @@
 # Brian Lau's Porfolio App
 
-This is my personal porfolio app designed, developed and deployed by hand.
+This is my personal porfolio app.
 
 [Live Website Link: www.brian-lau.ca](https://www.brian-lau.ca)
 
 ---
 
-## Preview
-
-### Desktop- Home Page
-
-<img src="./src/assets/readme/preview1.png" width="270px" alt="sgsc mobile screenshot">
-
----
-
 ## Getting Started
 
-### 1. Download or Clone from Github
-
-Go into the file directory and
-
-run `cd Portfolio-App/`
-
-#### 2. Install the dev dependencies
-
-Run `npm install`; install the node modules you'll need for the application
-
-### Starting the Project
-
-`npm run netlify`
+```
+git clone https://github.com/wtLau/Portfolio-App.git
+cd Portfolio-App/
+yarn
+yarn dev
+```
 
 ---
 
-## Built With
+## Powered By
 
 ### Front-End
 
 - [React](https://facebook.github.io/react/) - A javaScript library for building user interfaces
-- [Redux](http://redux.js.org/) - Redux is a predictable state container for JavaScript apps.
+- [Typescript]() - Typescript
+- [NextJs]() - Using Server Side Generation
 - [Material-UI](http://www.material-ui.com/#/) - A Set of React Components that Implement Google's Material Design
 
 ### Back-End
@@ -46,35 +32,25 @@ Run `npm install`; install the node modules you'll need for the application
 
 ### Deploy
 
+#### Production
+
 - [Netlify](https://www.netlify.com/) - Deploy modern static websites with Netlify. Get CDN, Continuous deployment, 1-click HTTPS, and all the services you need. Get started for free.
+
+#### Dev (Latest Update)
+
+- [Vercel](https://www.vercel.com/) - Deploy modern static websites with Vercel
 
 ### Design
 
 - [Figma](https://www.figma.com/) - Figma is a vector graphics editor and prototyping tool which is primarily web-based, with additional offline features enabled by desktop applications for macOS and Windows.
 
+and more...
+
 ---
 
-## Ideas
+## Attributions
 
-- Mobile and desktop sfriendly
-- Landing Page
-- Contact Page
-- Login Page
-- Restful API with CRUD operation
-- Authention for login system - Firebase - Auth0
-- Flow; serve as a form of documentation for code and improves the readability
-- Package management - Yarn
-- Host Domain
-- Continuous Integration Pipeline - Travis CI - Jenkin
-- Hosting- Amazon S3 or Google
-- Progressive web app
-- Lazy loading
-- GraphQL?
-- Test Driven Development: Write test first - Jest - Enzyme
-- State management with Redux
-- CSS module
-- CSS sylelint
-- Deployment - Ansible Tower
+Inpired by [Lee Robinson](https://leerob.io/) [Next.js Commerce](https://www.nextjs.org/commerce)
 
 ---
 

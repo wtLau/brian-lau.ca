@@ -23,14 +23,16 @@
       "@assets/*": ["assets/*"],
       "@config/*": ["config/*"],
       "@components/*": ["components/*"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@hooks/*": ["lib/hooks/*"]
     }
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx", 
-    "pages/index.tsx", "components/common/Navbar/SideDrawer.js"  ],
+    "**/*.js"
+  ],
   "exclude": [
     "node_modules"
   ]
