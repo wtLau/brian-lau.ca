@@ -4,7 +4,7 @@ import { ThemeCustomProvider, Head } from '@components/common'
 import { Layout } from '@components/common'
 import themeConfig from '@components/common/Theme/config'
 import { createMuiTheme, CssBaseline } from '@material-ui/core'
-// import { Provider as NextAuthProvider } from 'next-auth/client'
+import { Provider as NextAuthProvider } from 'next-auth/client'
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -19,9 +19,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ThemeCustomProvider theme={theme}>
         <CssBaseline />
         <Layout>
-          {/* <NextAuthProvider session={pageProps.session}> */}
-          <Component {...pageProps} />
-          {/* </NextAuthProvider> */}
+          <NextAuthProvider session={pageProps.session}>
+            <Component {...pageProps} />
+          </NextAuthProvider>
         </Layout>
       </ThemeCustomProvider>
     </>
