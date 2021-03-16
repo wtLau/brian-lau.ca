@@ -24,6 +24,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           {/* </NextAuthProvider> */}
         </Layout>
       </ThemeCustomProvider>
+
     </>
   )
 }

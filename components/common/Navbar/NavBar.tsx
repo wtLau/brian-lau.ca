@@ -103,7 +103,9 @@ const navLinks = [
 const NavBar = () => {
   const theme = useTheme()
   const changeTheme = useChangeTheme()
+
   const [session] = useSession()
+
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
   const open = Boolean(anchorEl)
 
@@ -227,7 +229,12 @@ const NavBar = () => {
                       >
                         <Image
                           alt='Profile Picture'
-                          src='/static/images/profile/profile_placeholder.png'
+
+                          src={
+                            session.user.image !== null
+                              ? session.user.image!
+                              : '/static/images/profile/profile_placeholder.png'
+                          }
                           width={60}
                           height={60}
                           priority
