@@ -1,0 +1,7 @@
+# Add 'frontend` label to any change to *.js files as long as the `main.js` hasn't changed
+UI:
+  - 'components/**/*.js
+  - 'components/**/*.ts'
+
+doc:
+  - ./**/*.md

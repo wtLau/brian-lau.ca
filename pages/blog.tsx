@@ -73,7 +73,6 @@ export default function Blog({ posts }: any) {
             <Typography variant='h3' gutterBottom>
               Featured
             </Typography>
-            title='About Me'
             <BlogPost
               title='About Me'
               summary='Learn more about me, here I am answering some personal question.'
