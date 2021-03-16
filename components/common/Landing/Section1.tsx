@@ -77,7 +77,7 @@ const Section1 = () => {
           justify='center'
           spacing={2}
         >
-          <Grid item xs={10} md={7}>
+          <Grid item xs={6} md={7}>
             <Link href='/brian-lau-resume.pdf' target='_blank'>
               <Button
                 color='primary'

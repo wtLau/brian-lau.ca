@@ -93,7 +93,7 @@ const Section4 = () => {
           justify='center'
           className={classes.image1}
         >
-          <Card className={classes.card}>
+          <Card raised className={classes.card}>
             <Grid
               container
               direction='column'
@@ -116,8 +116,8 @@ const Section4 = () => {
           </Card>
         </Grid>
 
-        <Grid item container xs={12} md={5} justify='center'>
-          <Card className={classes.card}>
+        <Grid item container xs={4} md={5} justify='center'>
+          <Card raised className={classes.card}>
             <Grid
               container
               direction='column'
@@ -149,7 +149,7 @@ const Section4 = () => {
           justify='center'
           className={classes.image3}
         >
-          <Card className={classes.card}>
+          <Card raised className={classes.card}>
             <Grid
               container
               direction='column'
