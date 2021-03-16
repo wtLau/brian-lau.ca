@@ -228,8 +228,8 @@ const NavBar = () => {
                         <Image
                           alt='Profile Picture'
                           src={
-                            session?.user.image !== null
-                              ? session.user.image
+                            session.user.image !== null
+                              ? session.user.image!
                               : '/static/images/profile/profile_placeholder.png'
                           }
                           width={60}

@@ -1,12 +1,8 @@
-import React, { MouseEvent, useEffect, useState } from 'react'
-import useUser from '@lib/hooks/useUser'
-import useEvents from '@lib/hooks/useEvents'
+import React, { useEffect, useState } from 'react'
 
-import { Button, Grid, Typography } from '@material-ui/core'
-import Fetcher from '@lib/fetcher'
-import { useRouter } from 'next/router'
+import { Grid, Typography } from '@material-ui/core'
 
-import { signIn, signOut, useSession } from 'next-auth/client'
+import { useSession } from 'next-auth/client'
 
 const Profile = () => {
   const [content, setContent] = useState()

@@ -11,16 +11,16 @@ export default NextAuth({
     //   from: process.env.EMAIL_FROM,
     // }),
     Providers.GitHub({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
+      clientId: process.env.GITHUB_ID!,
+      clientSecret: process.env.GITHUB_SECRET!,
     }),
     Providers.Google({
-      clientId: process.env.GOOGLE_ID,
-      clientSecret: process.env.GOOGLE_SECRET,
+      clientId: process.env.GOOGLE_ID!,
+      clientSecret: process.env.GOOGLE_SECRET!,
     }),
     Providers.LinkedIn({
-      clientId: process.env.LINKEDIN_ID,
-      clientSecret: process.env.LINKEDIN_SECRET,
+      clientId: process.env.LINKEDIN_ID!,
+      clientSecret: process.env.LINKEDIN_SECRET!,
     }),
   ],
   // Database optional. MySQL, Maria DB, Postgres and MongoDB are supported.
