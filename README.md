@@ -6,6 +6,9 @@ This is my personal porfolio app.
 
 ---
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c89ae7be-207a-4638-8bcd-215105688cfc/deploy-status)](https://app.netlify.com/sites/brian-porfolio/deploys)
+[![Labeler](https://github.com/wtLau/Portfolio-App/actions/workflows/labeler.yml/badge.svg)](https://github.com/wtLau/Portfolio-App/actions/workflows/labeler.yml)
+
 ## Getting Started
 
 ```
