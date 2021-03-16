@@ -3,6 +3,8 @@ import useUser from '@lib/hooks/useUser'
 import fetcher from '@lib/fetcher'
 import { TextField, Button, Typography } from '@material-ui/core'
 
+import { signIn, signOut, useSession } from 'next-auth/client'
+
 const Login = () => {
   // here we just check if user is already logged in and redirect to profile
   const { mutateUser } = useUser({
@@ -11,6 +13,7 @@ const Login = () => {
   })
 
   const [errorMsg, setErrorMsg] = useState('')
+  const [session, loading] = useSession()
 
   async function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault()
@@ -47,6 +50,14 @@ const Login = () => {
 
           {errorMsg && <Typography color='error'>{errorMsg}</Typography>}
         </form>
+
+        <Button
+          onClick={() => {
+            signIn()
+          }}
+        >
+          NextAuth Sign in
+        </Button>
       </div>
       <style jsx>{`
         .login {

@@ -1,28 +1,32 @@
-import fetcher from "@lib/fetcher";
-import withSession from "@lib/session";
+// import fetcher from "@lib/fetcher";
+// import withSession from "@lib/session";
 
-export default withSession(async (req: any, res: any) => {
-  const username = await req.body;
-
-
-  const url = `https://api.github.com/users/${username}`;
+// export default withSession(async (req: any, res: any) => {
+//   const username = await req.body;
 
 
-  try {
-    // we check that the user exists on GitHub and store some data in session
-    const data = await fetcher(url);
+//   const url = `https://api.github.com/users/${username}`;
 
-    const { login, avatar_url: avatarUrl } = data
-    const user = { isLoggedIn: true, login, avatarUrl };
 
-    req.session.set("user", user);
+//   try {
+//     // we check that the user exists on GitHub and store some data in session
+//     const data = await fetcher(url);
 
-    await req.session.save();
+//     const { login, avatar_url: avatarUrl } = data
+//     const user = { isLoggedIn: true, login, avatarUrl };
 
-    res.json(user);
+//     req.session.set("user", user);
 
-  } catch (error) {
-    const { response: fetchResponse } = error;
-    res.status(fetchResponse?.status || 500).json(error.data);
-  }
-})
+//     await req.session.save();
+
+//     res.json(user);
+
+//   } catch (error) {
+//     const { response: fetchResponse } = error;
+//     res.status(fetchResponse?.status || 500).json(error.data);
+//   }
+// })
+
+import { signIn } from 'next-auth/client'
+
+export default signIn

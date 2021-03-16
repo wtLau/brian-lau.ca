@@ -15,6 +15,7 @@ import {
   ListItemText,
   Hidden,
   useTheme,
+  Button,
 } from '@material-ui/core'
 import { Brightness7, Brightness4 } from '@material-ui/icons'
 
@@ -24,6 +25,8 @@ import React from 'react'
 import { useChangeTheme } from '@components/common/Theme'
 import { Link } from '@components/ui'
 import SideDrawer from './SideDrawer'
+
+import { signIn, signOut, useSession } from 'next-auth/client'
 
 const useStyles = makeStyles((theme: Theme) => ({
   appBar: {
@@ -97,6 +100,7 @@ const navLinks = [
 const NavBar = () => {
   const theme = useTheme()
   const changeTheme = useChangeTheme()
+  const [session, loading] = useSession()
 
   const classes = useStyles()
 
@@ -186,7 +190,48 @@ const NavBar = () => {
                     <LinkedIn color='primary' />
                   </ListItem>
                 </Link>
+                {!session && (
+                  <Link href='/login'>
+                    <ListItem>
+                      <Button
+                        onClick={() => {
+                          signIn()
+                        }}
+                      >
+                        LogIn
+                      </Button>
+                    </ListItem>
+                  </Link>
+                )}
               </List>
+
+              {session && (
+                <>
+                  {session.user.image && (
+                    <span
+                      style={{
+                        backgroundImage: `url(${session.user.image})`,
+                      }}
+                    />
+                  )}
+                  <span>
+                    <Typography>Signed in as</Typography>
+                    <br />
+                    <Typography>
+                      {session.user.name || session.user.email}
+                    </Typography>
+                  </span>
+                  <a
+                    href={`/api/auth/signout`}
+                    onClick={(e) => {
+                      e.preventDefault()
+                      signOut()
+                    }}
+                  >
+                    Sign out
+                  </a>
+                </>
+              )}
             </Hidden>
             <Hidden mdUp>
               <SideDrawer navLinks={navLinks} />

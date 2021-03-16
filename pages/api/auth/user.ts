@@ -1,18 +1,12 @@
-import withSession from "@lib/session";
+// This is an example of to protect an API route
+import { getSession } from 'next-auth/client'
 
-export default withSession(async (req: any, res: any) => {
-  const user = req.session.get("user");
+export default async (req, res) => {
+  const session = await getSession({ req })
 
-  if (user) {
-    // in a real world application you might read the user id from the session and then do a database request
-    // to get more information on the user if needed
-    res.json({
-      isLoggedIn: true,
-      ...user,
-    });
+  if (session) {
+    res.send(JSON.stringify(session, null, 2))
   } else {
-    res.json({
-      isLoggedIn: false,
-    });
+    res.send({ error: 'You must be sign in to view the protected content on this page.' })
   }
-});
+}
