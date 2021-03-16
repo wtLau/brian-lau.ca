@@ -5,6 +5,8 @@ module.exports = {
       'lh3.googleusercontent.com', // Google Image
     ],
   },
+  //Nelify specification
+  target: 'serverless',
   webpack: (config, { dev, isServer }) => {
     if (isServer) {
       require('./scripts/generate-sitemap.js')
