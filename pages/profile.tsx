@@ -1,8 +1,7 @@
+import { useSession } from 'next-auth/client'
 import React, { useEffect, useState } from 'react'
 
-import { Grid, Typography } from '@material-ui/core'
-
-import { useSession } from 'next-auth/client'
+import { Grid, Typography, CircularProgress } from '@material-ui/core'
 
 const Profile = () => {
   const [content, setContent] = useState()
@@ -11,7 +10,7 @@ const Profile = () => {
   // Fetch content from protected route
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch('/api/auth/user')
+      const res = await fetch('/api/user')
       const json = await res.json()
       if (json.content) {
         setContent(json.content)
@@ -21,7 +20,7 @@ const Profile = () => {
   }, [session])
 
   if (loading) {
-    return <Typography>loading...</Typography>
+    return <CircularProgress />
   }
 
   // If no session exists, display access denied message
@@ -29,14 +28,14 @@ const Profile = () => {
     return <Typography>Access Denied</Typography>
   }
 
-  console.log(session)
   return (
     <Grid>
       <h1>Protected Page</h1>
-      <p>
-        You're sign in as
-        <strong>{session.user.name || '\u00a0'}</strong>
-      </p>
+      <p>You're sign in as</p>
+
+      <strong>{session.user.name || '\u00a0'}</strong>
+      <br />
+      <strong>{content}</strong>
     </Grid>
   )
 }

@@ -6,45 +6,80 @@ This is my personal porfolio app.
 
 ---
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c89ae7be-207a-4638-8bcd-215105688cfc/deploy-status)](https://app.netlify.com/sites/brian-porfolio/deploys)
+[![Labeler](https://github.com/wtLau/Portfolio-App/actions/workflows/labeler.yml/badge.svg)](https://github.com/wtLau/Portfolio-App/actions/workflows/labeler.yml)
+
 ## Getting Started
 
+
+### Installation
+
+You will need `node@14.x` and `npm@6.14.x` installed globally on your machine
 ```
 git clone https://github.com/wtLau/Portfolio-App.git
 cd Portfolio-App/
 yarn
+```
+
+### Environment Setup
+
+Add .env file with your own keys
+
+```
+$ mv .env.sample .env
+# rename .env.sample to .env
+```
+
+Add your own key
+
+```
+NEXTAUTH_URL=
+
+SECRET_COOKIE_PASSWORD=
+JWT_SIGNING_PRIVATE_KEY=
+
+EMAIL_SERVER=
+EMAIL_FROM=
+
+GITHUB_ID=
+GITHUB_SECRET=
+
+GOOGLE_ID=
+GOOGLE_SECRET=
+
+LINKEDIN_ID=
+LINKEDIN_SECRET=
+```
+
+### Start Development Server
+
+```
 yarn dev
 ```
 
+Once you've started the development server, open http://localhost:3000 with your browser to see the result.
 ---
 
 ## Powered By
 
-### Front-End
 
-- [React](https://facebook.github.io/react/) - A javaScript library for building user interfaces
-- [Typescript]() - Typescript
-- [NextJs]() - Using Server Side Generation
-- [Material-UI](http://www.material-ui.com/#/) - A Set of React Components that Implement Google's Material Design
+- [React](https://facebook.github.io/react/) 
+  - A javaScript library for building user interfaces
+- [Typescript](https://www.typescriptlang.org/) 
+  - TypeScript extends JavaScript by adding types.
+- [NextJs](https://nextjs.org/) 
+  - The React Framework for Production
+- [Material-UI](http://www.material-ui.com/#/) 
+  - A Set of React Components that Implement Google's Material Design
+- [FaundaDB](https://fauna.com/) 
+  - Fauna is a flexible, developer-friendly, transactional database delivered to you as a secure, web-native API
+- [Netlify](https://www.netlify.com/) 
+  - Deploy modern static websites with Netlify. Get CDN, Continuous deployment, 1-click HTTPS, and all the services you need. Get started for free.
+- [Vercel](https://www.vercel.com/) 
+  - Deploy modern static websites with Vercel
+- [Figma](https://www.figma.com/) 
+  - Figma is a vector graphics editor and prototyping tool which is primarily web-based, with additional offline features enabled by desktop applications for macOS and Windows.
 
-### Back-End
-
-- [Faunda](https://fauna.com/) - Fauna is a flexible, developer-friendly, transactional database delivered to you as a secure, web-native API
-
-### Deploy
-
-#### Production
-
-- [Netlify](https://www.netlify.com/) - Deploy modern static websites with Netlify. Get CDN, Continuous deployment, 1-click HTTPS, and all the services you need. Get started for free.
-
-#### Dev (Latest Update)
-
-- [Vercel](https://www.vercel.com/) - Deploy modern static websites with Vercel
-
-### Design
-
-- [Figma](https://www.figma.com/) - Figma is a vector graphics editor and prototyping tool which is primarily web-based, with additional offline features enabled by desktop applications for macOS and Windows.
-
-and more...
 
 ---
 

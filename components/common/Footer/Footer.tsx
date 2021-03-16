@@ -1,165 +1,104 @@
-import { FC } from 'react'
+import React, { FC } from 'react'
 
-import {
-  makeStyles,
-  Theme,
-} from '@material-ui/core/styles'
+import { makeStyles, Theme } from '@material-ui/core/styles'
 import {
   Grid,
   Typography,
   IconButton,
+  MenuList,
+  ListItemText,
+  Icon,
 } from '@material-ui/core'
-import {
-  GitHub as GitHubIcon,
-  Instagram as InstagramIcon,
-  LinkedIn as LinkedInIcon,
-} from '@material-ui/icons'
+import { GitHub, Instagram, LinkedIn } from '@material-ui/icons'
+import { Link } from '@components/ui'
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     flexGrow: 1,
-    padding: theme.spacing(5, 0),
-    maxWidth: theme.breakpoints.width('lg'),
+    paddingTop: theme.spacing(6),
     borderTop: `1px solid ${theme.palette.divider}`,
   },
-  icon: {
-    fontSize: '40px',
+  copyright: {
+    marginTop: theme.spacing(3),
   },
 }))
+
+const linkData = [
+  {
+    name: 'Home',
+    link: '/',
+  },
+  {
+    name: 'Contact',
+    link: '/contact',
+  },
+  {
+    name: 'Blog',
+    link: '/blog',
+  },
+  {
+    name: 'Tools',
+    link: '/tools',
+  },
+  {
+    name: 'Resume',
+    link: 'brian-lau-resume.pdf',
+    target: '_blank',
+  },
+]
 
 const Footer: FC = () => {
   const classes = useStyles()
 
   return (
-    <Grid container className={classes.root}>
-      <Grid
-        component={Typography}
-        item
-        xs={12}
-        variant='h4'
-        color='secondary'
-        gutterBottom
-        align='center'
-      >
-        Let&apos;s Connect!
-      </Grid>
-
-      <Grid
-        item
-        container
-        xs={12}
-        justify='center'
-      >
-        <Grid item xs={12} md={4}>
-          <Grid
-            direction='column'
-            container
-            justify='center'
-            alignItems='center'
-          >
-            <Typography
-              variant='h6'
-              color='primary'
-              gutterBottom
-            >
-              Phone:
-            </Typography>
-            <Typography
-              variant='body1'
-              color='textSecondary'
-            >
-              778-898-1111
-            </Typography>
-          </Grid>
-        </Grid>
-        <Grid item xs={12} md={4}>
-          <Grid
-            direction='column'
-            container
-            justify='center'
-            alignItems='center'
-          >
-            <Typography
-              variant='h6'
-              color='primary'
-              gutterBottom
-            >
-              Social Media
-            </Typography>
-            <Grid
-              container
-              justify='center'
-              alignItems='center'
-            >
-              <IconButton
-                aria-label='Github.com'
-                onClick={() =>
-                  window.open(
-                    'https://github.com/wtLau'
-                  )
-                }
-              >
-                <GitHubIcon
-                  className={classes.icon}
-                />
-              </IconButton>
-              <IconButton
-                aria-label='Linkedin.com'
-                onClick={() =>
-                  window.open(
-                    'https://www.linkedin.com/in/brian-lau/'
-                  )
-                }
-              >
-                <LinkedInIcon
-                  className={classes.icon}
-                />
-              </IconButton>
-              <IconButton
-                aria-label='Instagram'
-                onClick={() =>
-                  window.open(
-                    'https://www.instagram.com/image_brlau/'
-                  )
-                }
-              >
-                <InstagramIcon
-                  className={classes.icon}
-                />
-              </IconButton>
+    <Grid container className={classes.root} justify='center' spacing={4}>
+      <Grid container item justify='center' spacing={5}>
+        {linkData &&
+          linkData.map((e, i) => (
+            <Grid item key={i}>
+              <Link href={e.link} target={e.target ? e.target : ''}>
+                <Typography
+                  gutterBottom
+                  variant='h6'
+                  component='p'
+                  color='textSecondary'
+                  align='center'
+                >
+                  {e.name}
+                </Typography>
+              </Link>
             </Grid>
-          </Grid>
+          ))}
+      </Grid>
+
+      <Grid container item justify='center' spacing={1}>
+        <Grid item>
+          <Link target='_blank' href='https://www.github.com/wtlau'>
+            <IconButton>
+              <GitHub />
+            </IconButton>
+          </Link>
         </Grid>
-        <Grid item xs={12} md={4}>
-          <Grid
-            direction='column'
-            container
-            justify='center'
-            alignItems='center'
-          >
-            <Typography
-              variant='h6'
-              color='primary'
-              gutterBottom
-            >
-              Email
-            </Typography>
-            <Typography
-              variant='body1'
-              color='textSecondary'
-            >
-              778-898-1111
-            </Typography>
-          </Grid>
+
+        <Grid item>
+          <Link target='_blank' href='https://www.linkedin.com/in/brian-lau/'>
+            <IconButton>
+              <LinkedIn />
+            </IconButton>
+          </Link>
+        </Grid>
+
+        <Grid item>
+          <Link target='_blank' href='https://www.instagram.com/image_brlau/'>
+            <IconButton>
+              <Instagram />
+            </IconButton>
+          </Link>
         </Grid>
       </Grid>
 
-      <Grid item xs={12}>
-        <Typography
-          variant='body2'
-          color='textSecondary'
-          align='center'
-        >
+      <Grid item xs={12} className={classes.copyright}>
+        <Typography variant='subtitle2' color='textSecondary' align='center'>
           © {new Date().getFullYear()} Brian Lau
         </Typography>
       </Grid>
