@@ -49,7 +49,8 @@ const useStyles = makeStyles((theme: Theme) => ({
 
   logo: {
     marginRight: theme.spacing(1),
-    backgroundImage: '/static/images/profile/profile_placeholder.png',
+    background: `url('/static/images/profile/profile_placeholder.png')`,
+    backgroundSize: 'contain',
   },
   navbarDisplayFlex: {
     display: `flex`,
@@ -119,7 +120,6 @@ const NavBar = () => {
   const handleClose = () => {
     setAnchorEl(null)
   }
-
   return (
     <>
       <ElevationScroll>
@@ -244,7 +244,7 @@ const NavBar = () => {
                       id='menu-appbar'
                       anchorEl={anchorEl}
                       anchorOrigin={{
-                        vertical: 'bottom',
+                        vertical: 'top',
                         horizontal: 'right',
                       }}
                       keepMounted
