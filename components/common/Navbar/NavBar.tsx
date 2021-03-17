@@ -188,17 +188,6 @@ const NavBar = () => {
                 </Link>
 
                 <Link
-                  href='/tools'
-                  color='textPrimary'
-                >
-                  <ListItem button>
-                    <ListItemText
-                      primary={'Tools'}
-                    />
-                  </ListItem>
-                </Link>
-
-                <Link
                   href='https://github.com/wtLau'
                   target='_blank'
                   title='GitHub repository'

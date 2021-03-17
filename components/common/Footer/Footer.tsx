@@ -42,7 +42,7 @@ const linkData = [
   },
   {
     name: 'Resume',
-    link: 'brian-lau-resume.pdf',
+    link: '/brian-lau-resume.pdf',
     target: '_blank',
   },
 ]
