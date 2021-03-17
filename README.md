@@ -27,29 +27,10 @@ Add .env file with your own keys
 
 ```
 $ mv .env.sample .env
-# rename .env.sample to .env
+# rename .env.sample to .env.local
 ```
 
 Add your own key
-
-```
-NEXTAUTH_URL=
-
-SECRET_COOKIE_PASSWORD=
-JWT_SIGNING_PRIVATE_KEY=
-
-EMAIL_SERVER=
-EMAIL_FROM=
-
-GITHUB_ID=
-GITHUB_SECRET=
-
-GOOGLE_ID=
-GOOGLE_SECRET=
-
-LINKEDIN_ID=
-LINKEDIN_SECRET=
-```
 
 ### Start Development Server
 
