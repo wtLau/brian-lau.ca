@@ -5,7 +5,7 @@ import React from 'react'
 class MyDocument extends Document {
   render() {
     return (
-      <Html lang='en'>
+      <Html lang={this.props.lang || 'en'}>
         <Head />
 
         <body className='loading'>

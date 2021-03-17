@@ -3,6 +3,8 @@ import NextHead from 'next/head'
 import { DefaultSeo } from 'next-seo'
 import seoConfig from '@config/seo.json'
 
+import { GA_TRACKING_ID } from '@lib/gtag'
+
 const Head: FC = () => {
   return (
     <>
@@ -35,6 +37,24 @@ const Head: FC = () => {
         />
         <meta content='#ffffff' name='theme-color' />
         <meta content='#ffffff' name='msapplication-TileColor' />
+
+        {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_TRACKING_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
+          }}
+        />
       </NextHead>
     </>
   )

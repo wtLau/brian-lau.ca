@@ -5,13 +5,25 @@ import { Layout } from '@components/common'
 import themeConfig from '@components/common/Theme/config'
 import { createMuiTheme, CssBaseline } from '@material-ui/core'
 import { Provider as NextAuthProvider } from 'next-auth/client'
+import { useRouter } from 'next/dist/client/router'
+import * as gtag from '@lib/gtag'
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter()
+  const theme = themeConfig
+
   useEffect(() => {
     document.body.classList?.remove('loading')
-  }, [])
 
-  const theme = themeConfig
+    // Google Analytics tacking page view s and events
+    const handleRouteChange = (url: URL) => {
+      gtag.pageview(url)
+    }
+    router.events.on('routeChangeComplete', handleRouteChange)
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [router.events])
 
   return (
     <>
