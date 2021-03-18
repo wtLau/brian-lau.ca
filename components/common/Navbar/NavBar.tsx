@@ -151,12 +151,6 @@ const NavBar = () => {
                 aria-labelledby='main navigation'
                 className={classes.navDisplayFlex}
               >
-                <Link href='/contact' color='textPrimary'>
-                  <ListItem button>
-                    <ListItemText primary={'Contact'} />
-                  </ListItem>
-                </Link>
-
                 <Link href='/blog' color='textPrimary'>
                   <ListItem button>
                     <ListItemText primary={'Blog'} />
@@ -173,9 +167,15 @@ const NavBar = () => {
                   </ListItem>
                 </Link>
 
-                <Link href='/tools' color='textPrimary'>
+                <Link href='/contact' color='textPrimary'>
                   <ListItem button>
-                    <ListItemText primary={'Tools'} />
+                    <ListItemText primary={'Contact'} />
+                  </ListItem>
+                </Link>
+
+                <Link href='/about' color='textPrimary'>
+                  <ListItem button>
+                    <ListItemText primary={'About'} />
                   </ListItem>
                 </Link>
 
