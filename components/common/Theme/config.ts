@@ -1,8 +1,8 @@
-import { PaletteType } from '@material-ui/core'
+import { PaletteType, ThemeOptions } from '@material-ui/core'
 import { PaletteOptions } from '@material-ui/core/styles/createPalette'
 
 // Create a theme instance.
-const themeConfig = {
+const themeConfig: ThemeOptions = {
   palette: {
     primary: {
       main: '#A67212',
@@ -14,6 +14,18 @@ const themeConfig = {
       main: '#F2CB57',
     }
   },
+  typography: {
+    fontSize: 18
+  },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 1060,
+      lg: 1200,
+      xl: 1920
+    }
+  }
 
 }
 

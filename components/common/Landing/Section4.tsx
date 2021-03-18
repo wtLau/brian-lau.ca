@@ -60,116 +60,22 @@ const Section4 = () => {
   const skills = skillsData
 
   return (
-    <Grid container className={classes.root} spacing={4} justify='center'>
-      <Grid item xs={12} md={5}>
-        <Typography variant='h3' component='h2' gutterBottom>
-          I am interested in...
-        </Typography>
+    <Grid container className={classes.root} spacing={4}>
+      <Typography variant='h3' component='h2' gutterBottom>
+        Interested In...
+      </Typography>
 
-        <Grid container justify='center' spacing={2}>
-          {skills &&
-            skills.map((data) => (
-              <Grid item key={data.name}>
-                <Link href={data.url ? data.url : '/'} target='_blank'>
-                  <Button
-                    variant='text'
-                    className={classes.button}
-                    size='small'
-                  >
-                    {data.name}
-                  </Button>
-                </Link>
-              </Grid>
-            ))}
-        </Grid>
-      </Grid>
-
-      <Grid container item xs={12} md={6} justify='center' spacing={2}>
-        <Grid
-          item
-          container
-          xs={12}
-          md={5}
-          justify='center'
-          className={classes.image1}
-        >
-          <Card raised className={classes.card}>
-            <Grid
-              container
-              direction='column'
-              justify='space-evenly'
-              alignItems='center'
-              wrap='nowrap'
-            >
-              <Image
-                src='/static/images/javascript-logo.png'
-                alt='portrait-image'
-                className={classes.img}
-                width={78}
-                height={90}
-              />
-
-              <Typography variant='h5' component={'h5'}>
-                JavaScript
-              </Typography>
+      <Grid container justify='center' spacing={2}>
+        {skills &&
+          skills.map((data) => (
+            <Grid item key={data.name}>
+              <Link href={data.url ? data.url : '/'} target='_blank'>
+                <Button variant='text' className={classes.button} size='small'>
+                  {data.name}
+                </Button>
+              </Link>
             </Grid>
-          </Card>
-        </Grid>
-
-        <Grid item container xs={4} md={5} justify='center'>
-          <Card raised className={classes.card}>
-            <Grid
-              container
-              direction='column'
-              justify='space-evenly'
-              alignItems='center'
-              wrap='nowrap'
-            >
-              <Grid>
-                <Image
-                  src='/static/images/html5-logo.png'
-                  alt='portrait-image'
-                  className={classes.img}
-                  width={78}
-                  height={90}
-                ></Image>
-              </Grid>
-              <Typography variant='h5' component={'h5'}>
-                HTML5
-              </Typography>
-            </Grid>
-          </Card>
-        </Grid>
-
-        <Grid
-          item
-          container
-          xs={12}
-          md={5}
-          justify='center'
-          className={classes.image3}
-        >
-          <Card raised className={classes.card}>
-            <Grid
-              container
-              direction='column'
-              justify='space-evenly'
-              alignItems='center'
-              wrap='nowrap'
-            >
-              <Image
-                src='/static/images/react-logo.png'
-                alt='portrait-image'
-                className={classes.img}
-                width={100}
-                height={90}
-              />
-              <Typography variant='h5' component={'h5'}>
-                React
-              </Typography>
-            </Grid>
-          </Card>
-        </Grid>
+          ))}
       </Grid>
     </Grid>
   )

@@ -7,7 +7,7 @@ import Section1 from '@components/common/Landing/Section1'
 import Section2 from '@components/common/Landing/Section2'
 import Section3 from '@components/common/Landing/Section3'
 import Section4 from '@components/common/Landing/Section4'
-import Company from '@components/common/Landing/Company'
+import Section5 from '@components/common/Landing/Section5'
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -29,9 +29,9 @@ const Index: FC = () => {
     >
       <Section1 />
       <Section2 />
-      <Section3 />
+      {/* <Section3 /> */}
       <Section4 />
-      <Company />
+      <Section5 />
     </Grid>
   )
 }
