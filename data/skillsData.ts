@@ -5,7 +5,7 @@ export type TSkills = {
   fullname: string
   proficiency: number
   description: string
-  url?: string
+  url?: string | null
 }
 
 
