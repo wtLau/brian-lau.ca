@@ -14,7 +14,7 @@ import { NextSeo } from 'next-seo'
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    margin: theme.spacing(4, 0),
+    margin: theme.spacing(14, 0),
   },
   card: {
     padding: theme.spacing(5, 2),
@@ -58,15 +58,9 @@ const Contact = () => {
         justify='center'
         alignItems='center'
       >
-        <Grid item component={Card} xs={10} md={8} className={classes.card}>
+        <Grid item component={Card} xs={10} className={classes.card}>
           <Grid container direction='column' alignItems='center'>
-            <Typography
-              variant='h3'
-              component='h1'
-              align='center'
-              gutterBottom
-              color='primary'
-            >
+            <Typography variant='h3' component='h1' align='center' gutterBottom>
               Send Me a Message!
             </Typography>
 

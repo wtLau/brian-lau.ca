@@ -11,8 +11,7 @@ import { signIn, signOut, useSession } from 'next-auth/client'
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    margin: theme.spacing(5, 0),
-    minHeight: '30vh',
+    minHeight: '95vh',
   },
 
   backgroundimage: {
@@ -37,15 +36,17 @@ const Section1 = () => {
 
   return (
     <Grid container className={classes.root} spacing={8} alignContent='center'>
-      <Typography variant='h2' component={'h1'} gutterBottom>
-        Hey, {session && `${session.user.name}.`} I'm Brian Lau
-      </Typography>
-
-      <Typography variant='body1' gutterBottom>
-        I am a developer, fitness enthusaist and coffee lover. You’ve somehow
-        found my little corner of the internet – sign my guestbook and let know
-        me you're here!
-      </Typography>
+      <Grid item>
+        <Typography variant='h2' component={'h1'} gutterBottom>
+          Hey, {session && `${session.user.name}.`} I'm Brian Lau
+        </Typography>
+      </Grid>
+      <Grid item>
+        <Typography variant='body1' gutterBottom>
+          You’ve somehow found my little corner of the internet!
+        </Typography>
+        <Typography>Sign my guestbook and let know me you're here!</Typography>
+      </Grid>
     </Grid>
   )
 }

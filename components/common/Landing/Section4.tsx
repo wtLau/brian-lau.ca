@@ -61,11 +61,11 @@ const Section4 = () => {
 
   return (
     <Grid container className={classes.root} spacing={4}>
-      <Typography variant='h3' component='h2' gutterBottom>
-        Interested In...
+      <Typography variant='h2' gutterBottom>
+        Interested In
       </Typography>
 
-      <Grid container justify='center' spacing={2}>
+      <Grid container item justify='center' spacing={2}>
         {skills &&
           skills.map((data) => (
             <Grid item key={data.name}>

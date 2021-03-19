@@ -15,15 +15,19 @@ import { NextSeo } from 'next-seo'
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
-    flexGrow: 1,
+    marginTop: theme.spacing(10),
   },
   gridMargin: {
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(15),
+  },
+  searchField: {
+    marginTop: theme.spacing(5),
   },
 }))
 
 export default function Blog({ posts }: any) {
   const [searchValue, setSearchValue] = useState('')
+
   const filteredBlogPosts = posts
     .sort(
       (a: any, b: any) =>
@@ -41,19 +45,17 @@ export default function Blog({ posts }: any) {
         description='Thoughts on the front-end development, programming, diet, fitness, coffee, and my personal life.'
       />
       <Grid container className={cn.root}>
-        <Typography component={'h1'} variant='h3' gutterBottom>
+        <Typography variant='h1' gutterBottom>
           Blog
         </Typography>
 
         <Typography variant='body1' gutterBottom>
-          {`I care about web development, fitness, photography and personal growth.
-
-            In total, I've written ${posts.length} articles on this site.
-            Use the search below to filter by title.`}
+          {`I care about web development, fitness, photography and personal growth. In total, I've written ${posts.length} articles on this site. Use the search below to filter by title.`}
         </Typography>
 
         <TextField
           variant='outlined'
+          className={cn.searchField}
           fullWidth
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
             setSearchValue(e.target.value)
@@ -67,8 +69,9 @@ export default function Blog({ posts }: any) {
             ),
           }}
         />
+      </Grid>
 
-        {!searchValue && (
+      {/* {!searchValue && (
           <Grid item className={cn.gridMargin}>
             <Typography variant='h3' gutterBottom>
               Featured
@@ -79,18 +82,25 @@ export default function Blog({ posts }: any) {
               slug='about-me'
             />
           </Grid>
-        )}
+        )} */}
 
-        <Grid item className={cn.gridMargin}>
-          <Typography variant='h3' gutterBottom>
+      <Grid container className={cn.gridMargin}>
+        <Grid item>
+          <Typography variant='h2' gutterBottom>
             All Posts
           </Typography>
-          {!filteredBlogPosts.length && (
+        </Grid>
+
+        {!filteredBlogPosts.length && (
+          <Grid item>
             <Typography variant='body1'>
               No posts found. Please let me know if you are interested to learn
               more about it.
             </Typography>
-          )}
+          </Grid>
+        )}
+
+        <Grid item>
           {filteredBlogPosts.map((frontMatter: any) => (
             <BlogPost key={frontMatter.title} {...frontMatter} />
           ))}

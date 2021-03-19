@@ -15,7 +15,22 @@ const themeConfig: ThemeOptions = {
     }
   },
   typography: {
-    fontSize: 18
+    fontSize: 18,
+    h1: {
+      fontSize: '5rem',
+      fontWeight: 700
+    },
+    h2: {
+      fontSize: '3.5rem'
+      ,
+      fontWeight: 700
+    },
+    h3: {
+      fontSize: '3rem'
+      ,
+      fontWeight: 700
+    },
+
   },
   breakpoints: {
     values: {

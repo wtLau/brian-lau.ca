@@ -1,4 +1,24 @@
-export const skillsData = [
+export type TSkills = {
+  name: string
+  type: string
+  shorthand: string
+  fullname: string
+  proficiency: number
+  description: string
+  url?: string
+}
+
+
+export const skillsData: TSkills[] = [
+  {
+    name: "TypeScript",
+    type: "Language",
+    shorthand: "TS",
+    fullname: "TypeScript",
+    proficiency: 60,
+    description: " TypeScript extends JavaScript by adding types",
+    url: "https://www.typescriptlang.org/"
+  },
   {
     name: "JavaScript",
     type: "Language",
@@ -7,6 +27,24 @@ export const skillsData = [
     proficiency: 90,
     description: "JavaScript is a programming langugage",
     url: "https://www.javascript.com/"
+  },
+  {
+    name: "React JS",
+    shorthand: "React",
+    fullname: "React.js",
+    type: "Library/Framework",
+    proficiency: 80,
+    description: "React is a JavaScript library for building user interfaces",
+    url: "https://reactjs.org/"
+  },
+  {
+    name: "Next JS",
+    shorthand: "Next",
+    fullname: "Next.js",
+    type: "Library/Framework",
+    proficiency: 80,
+    description: "The React Framework for Production",
+    url: "https://nextjs.org/"
   },
   {
     name: "Node JS",
@@ -18,15 +56,6 @@ export const skillsData = [
     url: "https://nodejs.org/"
   },
 
-  {
-    name: "React JS",
-    shorthand: "React",
-    fullname: "React.js",
-    type: "Library/Framework",
-    proficiency: 80,
-    description: "React is a JavaScript library for building user interfaces",
-    url: "https://reactjs.org/"
-  },
 
   {
     name: "HTML5",

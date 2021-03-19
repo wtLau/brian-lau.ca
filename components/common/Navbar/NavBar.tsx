@@ -33,7 +33,6 @@ import { signIn, signOut, useSession } from 'next-auth/client'
 
 const useStyles = makeStyles((theme: Theme) => ({
   appBar: {
-    flexGrow: 1,
     [theme.breakpoints.up('md')]: {
       height: '100px',
     },
@@ -115,13 +114,6 @@ const NavBar = () => {
 
   const classes = useStyles()
 
-  const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget)
-  }
-
-  const handleClose = () => {
-    setAnchorEl(null)
-  }
   return (
     <>
       <ElevationScroll>
@@ -157,10 +149,17 @@ const NavBar = () => {
                   </ListItem>
                 </Link>
 
+                <Link href='/about' color='textPrimary'>
+                  <ListItem button>
+                    <ListItemText primary={'About'} />
+                  </ListItem>
+                </Link>
+
                 <Link
                   href='/brian-lau-resume.pdf'
                   color='textPrimary'
                   target='_blank'
+                  download
                 >
                   <ListItem button>
                     <ListItemText primary={'Resume'} />
@@ -170,12 +169,6 @@ const NavBar = () => {
                 <Link href='/contact' color='textPrimary'>
                   <ListItem button>
                     <ListItemText primary={'Contact'} />
-                  </ListItem>
-                </Link>
-
-                <Link href='/about' color='textPrimary'>
-                  <ListItem button>
-                    <ListItemText primary={'About'} />
                   </ListItem>
                 </Link>
 

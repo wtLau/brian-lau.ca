@@ -1,16 +1,19 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { makeStyles } from '@material-ui/core/styles'
 import { Typography, Button, Grid } from '@material-ui/core'
 import Image from 'next/image'
 import { Link } from '@components/ui'
 
-import { CloudDownload as DownloadIcon } from '@material-ui/icons'
+import { skillsData, TSkills } from '@data/skillsData'
 import { signIn, signOut, useSession } from 'next-auth/client'
+import { NextSeo } from 'next-seo'
+import Section5 from '@components/common/Landing/Section5'
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  title: {
     flexGrow: 1,
+    marginTop: theme.spacing(17),
   },
   backgroundimage: {
     [theme.breakpoints.down('md')]: {
@@ -18,23 +21,45 @@ const useStyles = makeStyles((theme) => ({
       height: '100%',
     },
   },
+  container: {
+    margin: theme.spacing(10, 0),
+  },
 }))
 
 const About = () => {
   const classes = useStyles()
   const [session] = useSession()
+  const [skills, setSkills] = useState<TSkills[]>([])
+
+  useEffect(() => {
+    setSkills(skillsData)
+  }, [skills])
 
   return (
-    <Grid container className={classes.root} spacing={4} alignItems='center'>
-      <Grid item xs={12}>
-        <Typography variant='h2' component={'h1'}>
+    <>
+      <NextSeo
+        title='About'
+        description='A little more information about Brian Lau'
+      />
+
+      <Grid container className={classes.title}>
+        <Typography variant='h1' gutterBottom>
           About Me
         </Typography>
+        <Image
+          src='/static/images/desktop-section1.png'
+          width={584}
+          height={484}
+          priority={true}
+          alt='portrait-image'
+          className={classes.backgroundimage}
+        />
       </Grid>
-      <Grid item xs={12} md={6}>
+
+      <Grid item xs={12} className={classes.container}>
         <Typography paragraph>
-          {session && `Hi, ${session.user.name}.`} My name is Brian, and I live
-          in North Vancouver, Canada, with my beautiful corgi.
+          {session && `Hi, ${session.user.name}.`} My name is Brian, and I am
+          currently living in North Vancouver, Canada, with my beautiful corgi.
         </Typography>
 
         <Typography paragraph>
@@ -50,15 +75,41 @@ const About = () => {
           Vancouver.
         </Typography>
       </Grid>
-      <Image
-        src='/static/images/desktop-section1.png'
-        width={584}
-        height={484}
-        priority={true}
-        alt='portrait-image'
-        className={classes.backgroundimage}
-      />
-    </Grid>
+
+      <Grid className={classes.container}>
+        <Typography variant='h2' gutterBottom>
+          Interested In
+        </Typography>
+
+        <Grid container justify='center' spacing={2}>
+          {skills &&
+            skills.map((data) => (
+              <Grid item key={data.name}>
+                <Link href={data.url ? data.url : '/'} target='_blank'>
+                  <Button variant='text' size='small'>
+                    {data.name}
+                  </Button>
+                </Link>
+              </Grid>
+            ))}
+        </Grid>
+      </Grid>
+
+      <Grid className={classes.container}>
+        <Typography variant='h2' gutterBottom>
+          Footprint
+        </Typography>
+        <iframe
+          src='https://www.google.com/maps/d/embed?mid=11fk358gCbvrJrgluq7zidFOMMv1CieaA&z=2'
+          width='100%'
+          height='680'
+        />
+      </Grid>
+
+      <Grid className={classes.container}>
+        <Section5 />
+      </Grid>
+    </>
   )
 }
 
