@@ -15,7 +15,7 @@ import { Link } from '@components/ui'
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     flexGrow: 1,
-    paddingTop: theme.spacing(6),
+    padding: theme.spacing(6, 0),
     borderTop: `1px solid ${theme.palette.divider}`,
   },
   copyright: {
@@ -96,12 +96,12 @@ const Footer: FC = () => {
           </Link>
         </Grid>
       </Grid>
-
+      {/* 
       <Grid item xs={12} className={classes.copyright}>
         <Typography variant='subtitle2' color='textSecondary' align='center'>
           © {new Date().getFullYear()} Brian Lau
         </Typography>
-      </Grid>
+      </Grid> */}
     </Grid>
   )
 }

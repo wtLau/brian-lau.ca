@@ -16,9 +16,10 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(8, 0),
   },
   companyCard: {
-    height: '300px',
+    minHeight: '200px',
     background: theme.palette.background.paper,
     borderRadius: '50px',
+    width: '100%',
   },
 }))
 
@@ -27,6 +28,7 @@ const companyData = [
     name: 'Hanson Robotics Inc.',
     imageLocation: '/static/images/hansonroboticslogo.png',
     imageAlt: 'hanson robotics logo',
+    title: 'Robot Opeator',
     link: 'https://www.hansonrobotics.com',
   },
   {
@@ -34,78 +36,71 @@ const companyData = [
     imageLocation: '/static/images/dfologo.png',
     imageAlt: 'DFO logo',
     link: 'https://www.linkedin.com/company/direct-focus-online/',
+    title: 'Front-End Developer',
   },
   {
     name: 'South Granville Seniors Centre',
     imageLocation: '/static/images/sgscLogo.png',
     imageAlt: 'South Granville Seniors Centre logo',
     link: 'http://southgranvilleseniors.ca/',
+    title: 'Front-End Developer',
   },
   {
     name: 'The Green Moustache',
     imageLocation: '/static/images/greenMoustacheLogo.jpg',
     imageAlt: 'The Green Moustachelogo',
     link: 'https://www.linkedin.com/company/the-green-moustache/',
+    title: 'Front-End Developer',
   },
 ]
 
-const Company: FC = () => {
+const Section5: FC = () => {
   const classes = useStyles()
 
   return (
     <Grid
       container
       className={classes.root}
-      spacing={6}
+      spacing={4}
       alignItems='center'
       justify='center'
     >
       <Grid item xs={12}>
-        <Typography align='center' variant='h3' component='h2'>
-          I've worked with
+        <Typography variant='h3' component='h2' gutterBottom>
+          Previous Experiences
         </Typography>
       </Grid>
 
       {companyData.map((prop) => (
-        <Grid item xs={12} md={3} key={prop.name}>
-          <Button
-            component={Card}
-            focusRipple
-            fullWidth
-            className={classes.companyCard}
-          >
-            <Link href={prop.link} target='_blank'>
-              <Grid
-                container
-                justify='center'
-                alignItems='center'
-                direction='column'
-                spacing={2}
-              >
-                <Grid item>
+        <Grid item xs={12} key={prop.name}>
+          <Link href={prop.link} target='_blank'>
+            <ButtonBase
+              className={classes.companyCard}
+              component={Card}
+              focusRipple
+            >
+              <Grid container alignItems='center' justify='space-between'>
+                <Grid item xs={3} container justify='flex-end'>
                   <Image
                     src={prop.imageLocation}
                     alt={prop.imageAlt}
                     width={78}
                     height={90}
-                  ></Image>
+                  />
                 </Grid>
-                <Grid item>
-                  <Typography
-                    variant='body1'
-                    color='textPrimary'
-                    align='center'
-                  >
-                    {prop.name}
+                <Grid item xs={8}>
+                  <Typography variant='body1'>{prop.name}</Typography>
+                  <Typography variant='body1' color='textSecondary'>
+                    {prop.title}
                   </Typography>
                 </Grid>
               </Grid>
-            </Link>
-          </Button>
+            </ButtonBase>
+          </Link>
         </Grid>
       ))}
     </Grid>
   )
 }
 
-export default Company
+export default Section5

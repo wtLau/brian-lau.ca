@@ -33,12 +33,13 @@ import { signIn, signOut, useSession } from 'next-auth/client'
 
 const useStyles = makeStyles((theme: Theme) => ({
   appBar: {
-    flexGrow: 1,
+    [theme.breakpoints.up('md')]: {
+      height: '100px',
+    },
     display: 'flex',
     justifyContent: 'center',
     flexDirection: 'row',
-    backgroundColor: theme.palette.background.default,
-    // boxShadow: 'none',
+    backgroundColor: `${theme.palette.background.default}90`,
   },
   toolBar: {
     maxWidth: theme.breakpoints.width('lg'),
@@ -113,13 +114,6 @@ const NavBar = () => {
 
   const classes = useStyles()
 
-  const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget)
-  }
-
-  const handleClose = () => {
-    setAnchorEl(null)
-  }
   return (
     <>
       <ElevationScroll>
@@ -143,31 +137,21 @@ const NavBar = () => {
               </Grid>
             </Link>
 
-            <IconButton
-              onClick={() => changeTheme()}
-              title='Toggle light/dark theme'
-            >
-              {theme.palette.type === 'dark' ? (
-                <Brightness7 />
-              ) : (
-                <Brightness4 />
-              )}
-            </IconButton>
             <Hidden smDown>
               <List
                 component='nav'
                 aria-labelledby='main navigation'
                 className={classes.navDisplayFlex}
               >
-                <Link href='/contact' color='textPrimary'>
-                  <ListItem button>
-                    <ListItemText primary={'Contact'} />
-                  </ListItem>
-                </Link>
-
                 <Link href='/blog' color='textPrimary'>
                   <ListItem button>
                     <ListItemText primary={'Blog'} />
+                  </ListItem>
+                </Link>
+
+                <Link href='/about' color='textPrimary'>
+                  <ListItem button>
+                    <ListItemText primary={'About'} />
                   </ListItem>
                 </Link>
 
@@ -175,18 +159,32 @@ const NavBar = () => {
                   href='/brian-lau-resume.pdf'
                   color='textPrimary'
                   target='_blank'
+                  download
                 >
                   <ListItem button>
                     <ListItemText primary={'Resume'} />
                   </ListItem>
                 </Link>
 
-                <Link href='/tools' color='textPrimary'>
+                <Link href='/contact' color='textPrimary'>
                   <ListItem button>
-                    <ListItemText primary={'Tools'} />
+                    <ListItemText primary={'Contact'} />
                   </ListItem>
                 </Link>
 
+                <ListItemIcon>
+                  <IconButton
+                    onClick={() => changeTheme()}
+                    title='Toggle light/dark theme'
+                  >
+                    {theme.palette.type === 'dark' ? (
+                      <Brightness7 />
+                    ) : (
+                      <Brightness4 />
+                    )}
+                  </IconButton>
+                </ListItemIcon>
+                {/* 
                 <Link
                   href='https://github.com/wtLau'
                   target='_blank'
@@ -205,9 +203,9 @@ const NavBar = () => {
                   <ListItem>
                     <LinkedIn color='primary' />
                   </ListItem>
-                </Link>
+                </Link> */}
 
-                {!session && (
+                {/* {!session && (
                   <ListItem>
                     <Button
                       onClick={() => {
@@ -282,9 +280,10 @@ const NavBar = () => {
                       </MenuItem>
                     </Menu>
                   </ListItem>
-                )}
+                )} */}
               </List>
             </Hidden>
+
             <Hidden mdUp>
               <SideDrawer navLinks={navLinks} />
             </Hidden>

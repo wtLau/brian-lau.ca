@@ -12,15 +12,17 @@ const useStyles = makeStyles((theme: Theme) => ({
   root: {
     flexGrow: 1,
     minHeight: '100vh',
-    [theme.breakpoints.up('md')]: {
-      maxWidth: theme.breakpoints.width('lg'),
-      margin: '0 auto',
+    maxWidth: theme.breakpoints.width('md'),
+    margin: '0 auto',
+    [theme.breakpoints.down('lg')]: {
+      overflowX: 'hidden',
     },
   },
   body: {
     [theme.breakpoints.up('md')]: {
       margin: theme.spacing(5, 7),
     },
+    margin: theme.spacing(0, 3),
   },
   footer: {
     marginTop: 'auto',
@@ -33,7 +35,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
   const classes = useStyles()
 
   return (
-    <Grid container className={classes.root}>
+    <Grid container className={classes.root} justify='center'>
       <Grid item xs={12}>
         <Navbar />
       </Grid>
