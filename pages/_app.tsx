@@ -7,6 +7,8 @@ import { createMuiTheme, CssBaseline } from '@material-ui/core'
 import { Provider as NextAuthProvider } from 'next-auth/client'
 import { useRouter } from 'next/dist/client/router'
 import * as gtag from '@lib/gtag'
+import { MDXProvider } from '@mdx-js/react'
+import MDXComponents from '@components/blog/BlogContent'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
@@ -32,7 +34,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         <ThemeCustomProvider theme={theme}>
           <CssBaseline />
           <Layout>
-            <Component {...pageProps} />
+            <MDXProvider components={MDXComponents}>
+              <Component {...pageProps} />
+            </MDXProvider>
           </Layout>
         </ThemeCustomProvider>
       </NextAuthProvider>

@@ -31,4 +31,8 @@
   <url>
     <loc>https://brian-lau.ca/blog/about-me</loc>
   </url>
+
+  <url>
+    <loc>https://brian-lau.ca/blog/how-i-implemented-authentication</loc>
+  </url>
 </urlset>

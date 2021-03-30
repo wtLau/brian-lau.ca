@@ -19,32 +19,60 @@ type Props = {
   frontMatter: any
 }
 
+const useStyles = makeStyles((theme: Theme) => ({
+  header: {
+    marginBottom: theme.spacing(10),
+  },
+  profile: {
+    borderRadius: '50%',
+  },
+}))
+
 export default function BlogLayout({ children, frontMatter }: Props) {
+  const classes = useStyles()
   return (
     <article>
-      <Typography variant='h6' gutterBottom>
+      <Typography variant='h1' paragraph>
         {frontMatter.title}
       </Typography>
-      <Grid className='flex items-center'>
-        <Image
-          alt='Brian Lau'
-          height={24}
-          width={24}
-          src='/static/images/brian_square.jpg'
-          className='rounded-full'
-        />
-        <Typography>
-          {frontMatter.by}
-          {'Brian Lau / '}
-          {format(parseISO(frontMatter.publishedAt), 'MMMM dd, yyyy')}
-        </Typography>
+      <Grid
+        container
+        spacing={2}
+        alignItems='center'
+        className={classes.header}
+      >
+        <Grid item>
+          <Image
+            alt='Brian Lau'
+            height={35}
+            width={35}
+            src='/static/images/brian_square.jpg'
+            className={classes.profile}
+          />
+        </Grid>
+        <Grid item xs={9}>
+          <Typography color='textSecondary'>
+            {frontMatter.by}
+            {'Brian Lau / '}
+            {format(parseISO(frontMatter.publishedAt), 'MMMM dd, yyyy')}
+          </Typography>
+        </Grid>
+        <Grid item xs>
+          <Typography color='textSecondary'>
+            {frontMatter.readingTime.text}
+            {/* {` • `} */}
+            {/* <ViewCounter slug={frontMatter.slug} /> */}
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Image
+            alt={frontMatter.image_alt}
+            height={1620}
+            width={2160}
+            src={frontMatter.image}
+          />
+        </Grid>
       </Grid>
-      <Typography>
-        {frontMatter.readingTime.text}
-        {` • `}
-        {/* <ViewCounter slug={frontMatter.slug} /> */}
-      </Typography>
-
       {children}
 
       {/* <Subscribe /> */}
