@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     maxWidth: theme.breakpoints.width('md'),
     margin: '0 auto',
     [theme.breakpoints.down('lg')]: {
-      overflowX: 'hidden',
+      overflow: 'hidden',
     },
   },
   body: {
