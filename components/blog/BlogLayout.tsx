@@ -25,72 +25,80 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   profile: {
     borderRadius: '50%',
+    marginRight: '1rem',
   },
+  content: {
+    margin: '2.5rem 0'
+  }
 }))
 
 export default function BlogLayout({ children, frontMatter }: Props) {
   const classes = useStyles()
   return (
     <article>
-      <Typography variant='h1' paragraph>
-        {frontMatter.title}
-      </Typography>
-      <Grid
-        container
-        spacing={2}
-        alignItems='center'
-        className={classes.header}
-      >
+      <Grid container className={classes.header}>
         <Grid item>
-          <Image
-            alt='Brian Lau'
-            height={35}
-            width={35}
-            src='/static/images/brian_square.jpg'
-            className={classes.profile}
-          />
+          <Typography variant='h1' gutterBottom>{frontMatter.title}</Typography>
         </Grid>
-        <Grid item xs={9}>
-          <Typography color='textSecondary'>
-            {frontMatter.by}
-            {'Brian Lau / '}
-            {format(parseISO(frontMatter.publishedAt), 'MMMM dd, yyyy')}
-          </Typography>
+
+        <Grid item container>
+          <Grid container item xs={9}>
+            <div className={classes.profile}>
+              <Image
+                alt='Brian Lau'
+                height={35}
+                width={35}
+                src='/static/images/brian_square.jpg'
+                className={classes.profile}
+              />
+            </div>
+            <Typography color='textSecondary'>
+              {'Brian Lau / '}
+              {format(parseISO(frontMatter.publishedAt), 'MMMM dd, yyyy')}
+            </Typography>
+          </Grid>
+          <Grid item xs>
+            <Typography color='textSecondary'>
+              {frontMatter.readingTime.text}
+              {/* {` • `} */}
+              {/* <ViewCounter slug={frontMatter.slug} /> */}
+            </Typography>
+          </Grid>
         </Grid>
+
+        {frontMatter.image && (
+          <Grid item>
+            <Image
+              alt={frontMatter.image_alt}
+              height={1620}
+              width={2160}
+              src={frontMatter.image}
+            />
+          </Grid>
+        )}
+        <Grid item xs className={classes.content}>
+          {children}
+        </Grid>
+
+        {/* <Subscribe /> */}
         <Grid item xs>
-          <Typography color='textSecondary'>
-            {frontMatter.readingTime.text}
-            {/* {` • `} */}
-            {/* <ViewCounter slug={frontMatter.slug} /> */}
-          </Typography>
-        </Grid>
-        <Grid item>
-          <Image
-            alt={frontMatter.image_alt}
-            height={1620}
-            width={2160}
-            src={frontMatter.image}
-          />
+          <Link
+            href={discussUrl(frontMatter.slug)}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            {'Discuss on Twitter'}
+          </Link>
+          {` • `}
+          <Link
+            href={editUrl(frontMatter.slug)}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            {'Edit on GitHub'}
+          </Link>
         </Grid>
       </Grid>
-      {children}
-
-      {/* <Subscribe /> */}
-      <Link
-        href={discussUrl(frontMatter.slug)}
-        target='_blank'
-        rel='noopener noreferrer'
-      >
-        {'Discuss on Twitter'}
-      </Link>
-      {` • `}
-      <Link
-        href={editUrl(frontMatter.slug)}
-        target='_blank'
-        rel='noopener noreferrer'
-      >
-        {'Edit on GitHub'}
-      </Link>
     </article>
   )
 }

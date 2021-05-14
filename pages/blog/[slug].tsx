@@ -18,7 +18,7 @@ export default function Blog({ mdxSource, frontMatter }: Props) {
   return (
     <>
       <NextSeo
-        title={frontMatter.title}
+        title={`Blog- ${frontMatter.title}`}
         description={frontMatter.summary}
         openGraph={{
           type: 'website',

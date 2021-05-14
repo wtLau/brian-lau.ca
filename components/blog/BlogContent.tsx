@@ -11,7 +11,7 @@ type Props = {
 
 const H1 = ({ children }: Props) => {
   return (
-    <Typography variant='h1' gutterBottom style={{ marginTop: '3rem' }}>
+    <Typography variant='h1' gutterBottom style={{ marginTop: '3rem', marginBottom: '2rem' }}>
       {children}
     </Typography>
   )
@@ -19,7 +19,23 @@ const H1 = ({ children }: Props) => {
 
 const H2 = ({ children }: Props) => {
   return (
-    <Typography variant='h2' gutterBottom style={{ marginTop: '3rem' }}>
+    <Typography variant='h2' gutterBottom style={{ marginTop: '3rem', marginBottom: '2rem' }}>
+      {children}
+    </Typography>
+  )
+}
+
+const H3 = ({ children }: Props) => {
+  return (
+    <Typography variant='h3' gutterBottom style={{ marginTop: '3rem', marginBottom: '2rem' }}>
+      {children}
+    </Typography>
+  )
+}
+
+const H4 = ({ children }: Props) => {
+  return (
+    <Typography variant='h4' gutterBottom style={{ marginTop: '3rem', marginBottom: '2rem' }}>
       {children}
     </Typography>
   )
@@ -27,7 +43,7 @@ const H2 = ({ children }: Props) => {
 
 const P = ({ children }: Props) => {
   return (
-    <Typography variant='body1' paragraph gutterBottom>
+    <Typography variant='body1' paragraph gutterBottom style={{ margin: '1rem 0' }} >
       {children}
     </Typography>
   )
@@ -59,6 +75,8 @@ const MDXComponents = {
   a: mdxLink,
   h1: H1,
   h2: H2,
+  h3: H3,
+  h4: H4,
   p: P,
 }
 
