@@ -1,3 +1,5 @@
+import 'styles/global.css'
+
 import React, { useEffect } from 'react'
 import type { AppProps } from 'next/app'
 import { ThemeCustomProvider, Head } from '@components/common'
