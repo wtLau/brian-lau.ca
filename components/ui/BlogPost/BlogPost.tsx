@@ -13,7 +13,7 @@ interface IPost {
 
 const useStyles = makeStyles((theme: Theme) => ({
   mainGrid: {
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(6),
   },
 }))
 
