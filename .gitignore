@@ -31,3 +31,6 @@ yarn-error.log*
 
 /metrics
 .vercel
+
+
+public/sitemap.xml
