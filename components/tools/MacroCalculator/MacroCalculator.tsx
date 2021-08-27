@@ -1,9 +1,4 @@
-import {
-  Grid,
-  makeStyles,
-  Theme,
-  Input,
-} from '@material-ui/core'
+import { Grid, makeStyles, Theme, Input } from '@material-ui/core'
 
 import React, { useState } from 'react'
 
@@ -16,33 +11,21 @@ const useStyles = makeStyles((theme: Theme) => ({
 }))
 
 const MacroCalculator = () => {
-  const [kcal, setKcal] = useState<
-    number | string
-  >('')
+  const [kcal, setKcal] = useState<string>('2150')
   const cn = useStyles()
 
-  const handleInputChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setKcal(
-      event.target.value === ''
-        ? ''
-        : Number(event.target.value)
-    )
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setKcal(event.target.value === '' ? '' : event.target.value)
   }
 
   const handleBlur = () => {
-    if (kcal < 0) {
+    if (Number(kcal) < 0) {
       setKcal('')
     }
   }
 
   return (
-    <Grid
-      container
-      spacing={2}
-      className={cn.root}
-    >
+    <Grid container spacing={2} className={cn.root}>
       <Grid item xs={12}>
         <Input
           value={kcal}
@@ -54,27 +37,15 @@ const MacroCalculator = () => {
         Kcal
       </Grid>
       <Grid item xs={12}>
-        <Slider
-          title='Protein'
-          defaultPercentage={30}
-          kcal={kcal}
-        />
+        <Slider title='Protein' defaultPercentage={30} kcal={Number(kcal)} />
       </Grid>
 
       <Grid item xs={12}>
-        <Slider
-          title='Carbs'
-          defaultPercentage={40}
-          kcal={kcal}
-        />
+        <Slider title='Carbs' defaultPercentage={40} kcal={Number(kcal)} />
       </Grid>
 
       <Grid item xs={12}>
-        <Slider
-          title='Fat'
-          defaultPercentage={30}
-          kcal={kcal}
-        />
+        <Slider title='Fat' defaultPercentage={30} kcal={Number(kcal)} />
       </Grid>
     </Grid>
   )
