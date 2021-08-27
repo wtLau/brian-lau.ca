@@ -28,8 +28,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginRight: '1rem',
   },
   content: {
-    margin: '2.5rem 0',
-  },
+    margin: '2.5rem 0'
+  }
 }))
 
 export default function BlogLayout({ children, frontMatter }: Props) {
@@ -107,6 +107,5 @@ export default function BlogLayout({ children, frontMatter }: Props) {
           </Link>
         </Grid>
       </Grid>
-    </article>
-  )
+    </  )
 }
