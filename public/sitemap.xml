@@ -35,4 +35,8 @@
   <url>
     <loc>https://brian-lau.ca/blog/how-i-implemented-authentication</loc>
   </url>
+
+  <url>
+    <loc>https://brian-lau.ca/blog/managing-server-and-app-state</loc>
+  </url>
 </urlset>

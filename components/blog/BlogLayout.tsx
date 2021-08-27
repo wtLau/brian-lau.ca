@@ -28,8 +28,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginRight: '1rem',
   },
   content: {
-    margin: '2.5rem 0'
-  }
+    margin: '2.5rem 0',
+  },
 }))
 
 export default function BlogLayout({ children, frontMatter }: Props) {
@@ -38,7 +38,9 @@ export default function BlogLayout({ children, frontMatter }: Props) {
     <article>
       <Grid container className={classes.header}>
         <Grid item>
-          <Typography variant='h1' gutterBottom>{frontMatter.title}</Typography>
+          <Typography variant='h1' gutterBottom>
+            {frontMatter.title}
+          </Typography>
         </Grid>
 
         <Grid item container>
@@ -76,12 +78,18 @@ export default function BlogLayout({ children, frontMatter }: Props) {
             />
           </Grid>
         )}
-        <Grid item xs className={classes.content}>
+        <Grid item className={classes.content}>
           {children}
         </Grid>
 
-        {/* <Subscribe /> */}
-        <Grid item xs>
+        <Grid item>
+          <div>
+            <Typography variant='caption' gutterBottom>
+              I am still learning how to interact on the internet. If you find
+              any problem or issue regarding this post, feel free to tweet me or
+              make pull request!
+            </Typography>
+          </div>
           <Link
             href={discussUrl(frontMatter.slug)}
             target='_blank'

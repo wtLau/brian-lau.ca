@@ -45,6 +45,7 @@ const linkData = [
     link: '/brian-lau-resume.pdf',
     target: '_blank',
   },
+  { name: 'Mentorship', link: '/mentorship' },
 ]
 
 const Footer: FC = () => {
@@ -59,7 +60,7 @@ const Footer: FC = () => {
               <Link href={e.link} target={e.target ? e.target : ''}>
                 <Typography
                   gutterBottom
-                  variant='h6'
+                  variant='body2'
                   component='p'
                   color='textSecondary'
                   align='center'
@@ -72,14 +73,6 @@ const Footer: FC = () => {
       </Grid>
 
       <Grid container item justify='center' spacing={1}>
-        <Grid item>
-          <Link target='_blank' href='https://www.github.com/wtlau'>
-            <IconButton>
-              <GitHub />
-            </IconButton>
-          </Link>
-        </Grid>
-
         <Grid item>
           <Link target='_blank' href='https://www.linkedin.com/in/brian-lau/'>
             <IconButton>
@@ -95,7 +88,15 @@ const Footer: FC = () => {
             </IconButton>
           </Link>
         </Grid>
+        <Grid item>
+          <Link target='_blank' href='https://www.github.com/wtlau'>
+            <IconButton>
+              <GitHub />
+            </IconButton>
+          </Link>
+        </Grid>
       </Grid>
+
       {/* 
       <Grid item xs={12} className={classes.copyright}>
         <Typography variant='subtitle2' color='textSecondary' align='center'>
