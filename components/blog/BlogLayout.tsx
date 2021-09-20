@@ -82,8 +82,14 @@ export default function BlogLayout({ children, frontMatter }: Props) {
           {children}
         </Grid>
 
-        {/* <Subscribe /> */}
-        <Grid item xs>
+        <Grid item>
+          <div>
+            <Typography variant='caption' gutterBottom>
+              I am still learning how to interact on the internet. If you find
+              any problem or issue regarding this post, feel free to tweet me or
+              make pull request!
+            </Typography>
+          </div>
           <Link
             href={discussUrl(frontMatter.slug)}
             target='_blank'
@@ -101,6 +107,5 @@ export default function BlogLayout({ children, frontMatter }: Props) {
           </Link>
         </Grid>
       </Grid>
-    </article>
-  )
+    </  )
 }
