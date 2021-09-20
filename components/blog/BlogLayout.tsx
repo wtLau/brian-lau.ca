@@ -107,5 +107,6 @@ export default function BlogLayout({ children, frontMatter }: Props) {
           </Link>
         </Grid>
       </Grid>
-    </  )
+    </article>
+  )
 }
