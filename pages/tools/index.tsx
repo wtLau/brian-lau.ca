@@ -33,7 +33,7 @@ export default function Tools({
         </Typography>
 
         <Typography variant='body1' gutterBottom>
-          {`I love building tools that could assist me on various day-to-day task. In total, I've made {posts.length} published tools on this site. Use the search below to filter by title.`}
+          {`I love building tools that could assist me on various day-to-day task. In total, I've made ${tools.length} published tools on this site.`}
         </Typography>
       </Grid>
 
