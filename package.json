@@ -8,7 +8,7 @@
     "@material-ui/styles": "^4.10.0",
     "@mdx-js/react": "^1.6.22",
     "@types/gtag.js": "^0.0.4",
-    "axios": "^0.21.0",
+    "axios": "^0.21.2",
     "body-parser": "^1.19.0",
     "date-fns": "^2.18.0",
     "dotenv": "^8.2.0",
