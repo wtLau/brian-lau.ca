@@ -1,5 +1,5 @@
 import { getFiles, getFileBySlug } from '@lib/mdx'
-import BlogLayout from '@components/blog/BlogLayout'
+import BlogLayout from '@components/layout/BlogLayout'
 import MDXComponents from '@components/blog/BlogContent'
 import hydrate from 'next-mdx-remote/hydrate'
 import React from 'react'

@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { parseISO, format } from 'date-fns'
 
-import BlogContent from './BlogContent'
+import BlogContent from '../blog/BlogContent'
 import { Typography, makeStyles, Theme, Grid } from '@material-ui/core'
 import { Link } from '@components/ui'
 import { ReactNode } from 'react'
