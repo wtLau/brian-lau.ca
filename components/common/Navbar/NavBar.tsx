@@ -86,6 +86,7 @@ function ElevationScroll(props: Props) {
 const navLinks = [
   { title: `Blog`, path: `/blog` },
   { title: `Contact`, path: `/contact` },
+  { title: `Tools`, path: `/tools` },
   {
     title: `Resume`,
     path: `/brian-lau-resume.pdf`,
@@ -121,16 +122,6 @@ const NavBar = () => {
           <Toolbar className={classes.toolBar}>
             <Link href='/'>
               <Grid container alignItems='center'>
-                {/* <Avatar className={classes.logo} alt='Brian Lau'>
-                  <Image
-                    alt='Brian Profile Picture'
-                    src='/static/images/brian_square.jpg'
-                    width={100}
-                    height={100}
-                    priority
-                  />
-                </Avatar> */}
-
                 <Typography variant='body1' color='textPrimary' gutterBottom>
                   Brian Lau
                 </Typography>
@@ -190,103 +181,6 @@ const NavBar = () => {
                     )}
                   </IconButton>
                 </ListItemIcon>
-                {/* 
-                <Link
-                  href='https://github.com/wtLau'
-                  target='_blank'
-                  title='GitHub repository'
-                >
-                  <ListItem>
-                    <GitHub color='primary' />
-                  </ListItem>
-                </Link>
-
-                <Link
-                  href='https://www.linkedin.com/in/brian-lau/'
-                  target='_blank'
-                  title='LinkedIn profile'
-                >
-                  <ListItem>
-                    <LinkedIn color='primary' />
-                  </ListItem>
-                </Link> */}
-
-                {/* {!session && (
-                  <ListItem>
-                    <Button
-                      onClick={() => {
-                        signIn()
-                      }}
-                    >
-                      LogIn
-                    </Button>
-                  </ListItem>
-                )}
-
-                {session && (
-                  <ListItem>
-                    <Avatar className={classes.logo}>
-                      <Button
-                        aria-label='Account show more'
-                        aria-controls='menu-appbar'
-                        aria-haspopup='true'
-                        onClick={handleMenu}
-                      >
-                        {session.user.image && (
-                          <Image
-                            alt='Profile Picture'
-                            src={session.user.image}
-                            width={60}
-                            height={60}
-                            priority
-                          />
-                        )}
-                      </Button>
-                    </Avatar>
-
-                    <Menu
-                      id='menu-appbar'
-                      anchorEl={anchorEl}
-                      anchorOrigin={{
-                        vertical: 'top',
-                        horizontal: 'right',
-                      }}
-                      keepMounted
-                      transformOrigin={{
-                        vertical: 'top',
-                        horizontal: 'right',
-                      }}
-                      open={open}
-                      onClose={handleClose}
-                    >
-                      <MenuItem>
-                        <Typography>Signed in as:</Typography>
-                        <ListItemText>
-                          {session.user.name || session.user.email}
-                        </ListItemText>
-                      </MenuItem>
-
-                      <MenuItem>
-                        <ListItemIcon>
-                          <Person />
-                        </ListItemIcon>
-                        <ListItemText>
-                          <Link href='/profile' color='textPrimary'>
-                            View Profile
-                          </Link>
-                        </ListItemText>
-                      </MenuItem>
-
-                      <MenuItem onClick={() => signOut()}>
-                        <ListItemIcon>
-                          <Eject />
-                        </ListItemIcon>
-
-                        <ListItemText>Sign Out</ListItemText>
-                      </MenuItem>
-                    </Menu>
-                  </ListItem>
-                )} */}
               </List>
             </Hidden>
 
