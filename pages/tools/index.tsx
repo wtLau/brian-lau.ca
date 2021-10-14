@@ -1,21 +1,12 @@
 import type { InferGetStaticPropsType } from 'next'
 import { NextSeo } from 'next-seo'
-import React, { ChangeEvent } from 'react'
+import React from 'react'
 import { BlogPost } from '@components/ui'
-import {
-  Grid,
-  Typography,
-  TextField,
-  InputAdornment,
-  makeStyles,
-  Theme,
-} from '@material-ui/core'
-import { Search } from '@material-ui/icons'
-import { getAllFilesFrontMatter } from '@lib/mdx'
+import { Grid, Typography, makeStyles, Theme } from '@material-ui/core'
 import matter from 'gray-matter'
-import { type } from 'os'
 import fs from 'fs'
 import path from 'path'
+import ToolCard from '@components/tools/MacroCalculator/ToolCard'
 
 const root = process.cwd()
 
@@ -35,8 +26,8 @@ export default function Tools({
   tools,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const cn = useStyles()
-  console.log(tools)
 
+  console.log(tools)
   return (
     <>
       <NextSeo
@@ -69,30 +60,26 @@ export default function Tools({
           </Grid>
         )}
 
-        <Grid item>
-          {tools.map((frontMatter: any) => (
-            <BlogPost key={frontMatter.title} {...frontMatter} />
-          ))}
-        </Grid>
+        {tools.map((tool: string) => (
+          <Grid item>
+            <ToolCard key={tool} slug={tool} {...tool} />
+          </Grid>
+        ))}
       </Grid>
     </>
   )
 }
 export async function getStaticProps() {
-  // const tools = await getAllFilesFrontMatter('blog')
-  const files = await fs.readdirSync(path.join(root, 'data/blog'))
+  const files = await fs.readdirSync(path.join(root, 'pages/tools'))
 
-  const tools = await files.reduce((allPosts, postSlug) => {
-    const source = fs.readFileSync(
-      path.join(root, 'data/blog', postSlug),
-      'utf8'
-    )
-    const { data } = matter(source)
+  const tools = await files.reduce((allPosts, toolsSlug) => {
+    const slug = toolsSlug.replace('.tsx', '')
+
+    if (slug === 'index') return [...allPosts]
 
     return [
       {
-        ...data,
-        slug: postSlug.replace('.mdx', ''),
+        slug: toolsSlug.replace('.tsx', ''),
       },
       ...allPosts,
     ]
@@ -100,17 +87,3 @@ export async function getStaticProps() {
 
   return { props: { tools } }
 }
-
-// export async function getStaticPaths() {
-//   const tools = await function () {
-//     return fs.readdirSync(path.join(root, 'pages/blog', type))
-//   }
-//   return {
-//     paths: tools.map((p) => ({
-//       params: {
-//         slug: p.replace(/\.mdx/, ''),
-//       },
-//     })),
-//     fallback: false,
-//   }
-// }
