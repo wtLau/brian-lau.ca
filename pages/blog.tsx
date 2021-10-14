@@ -14,9 +14,7 @@ import { ChangeEvent, ReactHTMLElement, useState } from 'react'
 import { NextSeo } from 'next-seo'
 
 const useStyles = makeStyles((theme: Theme) => ({
-  root: {
-    marginTop: theme.spacing(10),
-  },
+  root: {},
   gridMargin: {
     marginTop: theme.spacing(15),
   },
