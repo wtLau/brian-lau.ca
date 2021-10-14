@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }))
 
-export default function Tools() {
+export default function MacroCalculatorPage() {
   const cn = useStyles()
 
   return (
@@ -29,7 +29,7 @@ export default function Tools() {
       <Card className={cn.root}>
         <CardContent>
           <Typography component={'h1'} variant='h3' gutterBottom>
-            Marco Calculator
+            Nutrition Marco Calculator
           </Typography>
           <Typography variant='body1' paragraph>
             This calculator can provide a suggested values for a person's
