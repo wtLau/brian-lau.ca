@@ -37,28 +37,20 @@ export default function Tools({
         </Typography>
       </Grid>
 
-      <Grid container className={cn.gridMargin}>
-        <Grid item>
-          <Typography variant='h2' gutterBottom>
-            All Tools
-          </Typography>
-        </Grid>
+      <Typography variant='h2' gutterBottom className={cn.gridMargin}>
+        All Tools
+      </Typography>
 
-        {!tools.length && (
-          <Grid item>
-            <Typography variant='body1'>
-              No tool found. Please let me know if you are interested to learn
-              more about it.
-            </Typography>
-          </Grid>
-        )}
+      {!tools.length && (
+        <Typography variant='body1'>
+          No tool found. Please let me know if you are interested to learn more
+          about it.
+        </Typography>
+      )}
 
-        <Grid item>
-          {tools.map((tool: string) => (
-            <ToolCard key={tool} slug={tool} {...tool} />
-          ))}
-        </Grid>
-      </Grid>
+      {tools.map((tool: string) => (
+        <ToolCard key={tool} slug={tool} {...tool} />
+      ))}
     </>
   )
 }
