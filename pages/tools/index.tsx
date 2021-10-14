@@ -1,9 +1,7 @@
 import type { InferGetStaticPropsType } from 'next'
 import { NextSeo } from 'next-seo'
 import React from 'react'
-import { BlogPost } from '@components/ui'
 import { Grid, Typography, makeStyles, Theme } from '@material-ui/core'
-import matter from 'gray-matter'
 import fs from 'fs'
 import path from 'path'
 import ToolCard from '@components/tools/MacroCalculator/ToolCard'
@@ -11,14 +9,9 @@ import ToolCard from '@components/tools/MacroCalculator/ToolCard'
 const root = process.cwd()
 
 const useStyles = makeStyles((theme: Theme) => ({
-  root: {
-    marginTop: theme.spacing(10),
-  },
+  root: {},
   gridMargin: {
     marginTop: theme.spacing(15),
-  },
-  searchField: {
-    marginTop: theme.spacing(5),
   },
 }))
 
@@ -60,11 +53,11 @@ export default function Tools({
           </Grid>
         )}
 
-        {tools.map((tool: string) => (
-          <Grid item>
+        <Grid item>
+          {tools.map((tool: string) => (
             <ToolCard key={tool} slug={tool} {...tool} />
-          </Grid>
-        ))}
+          ))}
+        </Grid>
       </Grid>
     </>
   )
@@ -77,12 +70,10 @@ export async function getStaticProps() {
 
     if (slug === 'index') return [...allPosts]
 
-    return [
-      {
-        slug: toolsSlug.replace('.tsx', ''),
-      },
+    return {
+      slug: slug.replace('.tsx', ''),
       ...allPosts,
-    ]
+    }
   }, [])
 
   return { props: { tools } }
