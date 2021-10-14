@@ -155,6 +155,12 @@ const NavBar = () => {
                   </ListItem>
                 </Link>
 
+                <Link href='/tools' color='textPrimary'>
+                  <ListItem button>
+                    <ListItemText primary={'Tools'} />
+                  </ListItem>
+                </Link>
+
                 <Link
                   href='/brian-lau-resume.pdf'
                   color='textPrimary'
