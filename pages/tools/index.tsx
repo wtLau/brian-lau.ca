@@ -48,8 +48,8 @@ export default function Tools({
         </Typography>
       )}
 
-      {tools.map((tool: string) => (
-        <ToolCard key={tool} slug={tool} {...tool} />
+      {tools.map(({ title, slug, ...rest }) => (
+        <ToolCard key={slug} title={title} slug={slug} {...rest} />
       ))}
     </>
   )
@@ -57,16 +57,28 @@ export default function Tools({
 export async function getStaticProps() {
   const files = await fs.readdirSync(path.join(root, 'pages/tools'))
 
-  const tools = await files.reduce((allPosts, toolsSlug) => {
-    const slug = toolsSlug.replace('.tsx', '')
+  const tools = await files.reduce(
+    (
+      allTools: {
+        slug: string
+        title: string
+      }[],
+      toolsSlug
+    ) => {
+      const slug = toolsSlug.replace('.tsx', '')
 
-    if (slug === 'index') return [...allPosts]
+      if (slug === 'index') return allTools
 
-    return {
-      slug: slug.replace('.tsx', ''),
-      ...allPosts,
-    }
-  }, [])
+      return [
+        {
+          slug: slug.replace('.tsx', ''),
+          title: slug.replace(/-/g, ' '),
+        },
+        ...allTools,
+      ]
+    },
+    []
+  )
 
   return { props: { tools } }
 }
