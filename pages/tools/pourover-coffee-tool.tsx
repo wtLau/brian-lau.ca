@@ -9,6 +9,7 @@ import {
   Chip,
   TextField,
   InputAdornment,
+  Button,
 } from '@material-ui/core'
 import clsx from 'clsx'
 
@@ -43,6 +44,25 @@ const brewRatioList = [
   },
 ]
 
+const brewMethodsList = [
+  {
+    id: 1,
+    title: '4:6',
+  },
+  {
+    id: 2,
+    title: 'Hoffman',
+  },
+  {
+    id: 3,
+    title: 'V60',
+  },
+  {
+    id: 4,
+    title: 'Kalista',
+  },
+]
+
 const useStyles = makeStyles((theme: Theme) => ({
   card: {
     flexGrow: 1,
@@ -64,6 +84,10 @@ export default function MacroCalculatorPage() {
 
   const handleCoffeeRatio = (value) => {
     console.log(value)
+  }
+
+  const handleMethodRatio = (title) => {
+    console.log(title)
   }
 
   return (
@@ -144,6 +168,101 @@ export default function MacroCalculatorPage() {
               }}
             />
           </div>
+        </CardContent>
+      </Card>
+
+      <Card className={cn.card}>
+        <CardContent>
+          <Typography component={'h1'} variant='h3' gutterBottom>
+            Methods
+          </Typography>
+          <Typography variant='body1' paragraph>
+            This tool is a methods card. This tool is a methods card. This This
+            tool is a methods card. tool is a methods card. This tool is This
+            tool is a methods card. a methods card.
+          </Typography>
+
+          {brewRatioList.map(({ title, id }) => (
+            <Chip
+              key={id}
+              label={title}
+              variant='outlined'
+              onClick={() => handleMethodRatio(title)}
+            />
+          ))}
+
+          <Chip label='custom' variant='outlined' />
+
+          <div>
+            <Typography variant='h5' paragraph>
+              Bloom/1st Pour:
+            </Typography>
+
+            <TextField
+              id='standard-start-adornment'
+              className={clsx(cn.margin, cn.textField)}
+              value='60'
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position='end'>gram</InputAdornment>
+                ),
+              }}
+            />
+
+            <Typography variant='body1' paragraph>
+              Total: 60g
+            </Typography>
+          </div>
+
+          <div>
+            <Typography variant='h5' paragraph>
+              2nd Pour:
+            </Typography>
+
+            <TextField
+              id='standard-start-adornment'
+              className={clsx(cn.margin, cn.textField)}
+              value='130'
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position='end'>gram</InputAdornment>
+                ),
+              }}
+            />
+
+            <Typography variant='body1' paragraph>
+              Total: 190g
+            </Typography>
+          </div>
+
+          <div>
+            <Typography variant='h5' paragraph>
+              2nd Pour:
+            </Typography>
+
+            <TextField
+              id='standard-start-adornment'
+              className={clsx(cn.margin, cn.textField)}
+              value='130'
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position='end'>gram</InputAdornment>
+                ),
+              }}
+            />
+
+            <Typography variant='body1' paragraph>
+              Total: 450g
+            </Typography>
+          </div>
+
+          <Button
+            className={clsx(cn.margin, cn.textField)}
+            variant='outlined'
+            color='primary'
+          >
+            Add another pour
+          </Button>
         </CardContent>
       </Card>
     </>
