@@ -59,7 +59,8 @@
     "build": "next build",
     "start": "next start",
     "find:unused": "next-unused",
-    "test": "jest --coverage && yarn lint"
+    "test-coverage": "jest --coverage && yarn lint",
+    "test": "jest --watch -o"
   },
   "next-unused": {
     "alias": {
