@@ -5,7 +5,6 @@ import { Typography, makeStyles, Theme } from '@material-ui/core'
 type ColumnListProps = {
   title: string
   description?: string
-  link?: string
 }
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -14,26 +13,23 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }))
 
-const ColumnListItem = ({ title, description, link }: ColumnListProps) => {
+const ColumnListItem = ({ title, description }: ColumnListProps) => {
   const cn = useStyles()
 
   return (
     <div className={cn.mainGrid}>
-      <Link href={link}>
-
-        {title && <Typography variant='h5' component={'h4'} gutterBottom>
+      {title && (
+        <Typography variant='h5' component={'h4'} gutterBottom>
           {title}
         </Typography>
-        }
-        {
-          description &&
-          <Typography variant='body1' color='textSecondary' paragraph>
-            {description}
-          </Typography>
-        }
-      </Link>
+      )}
+      {description && (
+        <Typography variant='body1' color='textSecondary' paragraph>
+          {description}
+        </Typography>
+      )}
     </div>
   )
 }
 
-export default ColumnListItem 
+export default ColumnListItem
