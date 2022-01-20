@@ -52,7 +52,9 @@ const About = () => {
 
       <Grid item xs={12} className={classes.container}>
         {resources.map((resource) => (
-          <ColumnListItem link={resource.url} title={resource.title} />
+          <Link href={resource.url}>
+            <ColumnListItem title={resource.title} />
+          </Link>
         ))}
       </Grid>
     </>
