@@ -33,12 +33,13 @@ const useStyles = makeStyles((theme) => ({
 const Section1 = () => {
   const classes = useStyles()
   const [session] = useSession()
+  const userName = session?.user?.name || 'stranger'
 
   return (
     <Grid container className={classes.root} spacing={8} alignContent='center'>
       <Grid item>
         <Typography variant='h2' component={'h1'} gutterBottom>
-          Hey, {session && `${session.user.name}.`} I'm Brian Lau
+          Hey, {userName}! I'm Brian Lau
         </Typography>
       </Grid>
       <Grid item>

@@ -6,7 +6,7 @@ import { Grid, Typography, CircularProgress } from '@material-ui/core'
 const Profile = () => {
   const [content, setContent] = useState()
   const [session, loading] = useSession()
-
+  const userName = session?.user?.name
   // Fetch content from protected route
   useEffect(() => {
     const fetchData = async () => {
@@ -33,7 +33,7 @@ const Profile = () => {
       <h1>Protected Page</h1>
       <p>You're sign in as</p>
 
-      <strong>{session.user.name || '\u00a0'}</strong>
+      <strong>{userName || '\u00a0'}</strong>
       <br />
       <strong>{content}</strong>
     </Grid>

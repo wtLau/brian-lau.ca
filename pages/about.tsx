@@ -30,6 +30,7 @@ const About = () => {
   const classes = useStyles()
   const [session] = useSession()
   const [skills, setSkills] = useState<TSkills[]>([])
+  const userName = session?.user?.name || 'stranger'
 
   useEffect(() => {
     setSkills(skillsData)
@@ -58,8 +59,8 @@ const About = () => {
 
       <Grid item xs={12} className={classes.container}>
         <Typography paragraph>
-          {session && `Hi, ${session.user.name}.`} My name is Brian, and I am
-          currently living in North Vancouver, Canada, with my beautiful corgi.
+          {session && `Hi, ${userName}.`} My name is Brian, and I am currently
+          living in North Vancouver, Canada, with my beautiful corgi.
         </Typography>
 
         <Typography paragraph>
