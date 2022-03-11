@@ -9,6 +9,7 @@ jobs:
   update_release_draft:
     runs-on: ubuntu-latest
     steps:
-      - uses: release-drafter/release-drafter@master
+      - name: Release Drafter @production
+        uses: release-drafter/release-drafter@production
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
