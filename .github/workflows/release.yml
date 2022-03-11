@@ -1,5 +1,5 @@
-# Github Action: https://github.com/marketplace/actions/release-drafter
-name: Release Bot
+
+name: Release
 on:
   push:
     branches:
@@ -11,11 +11,37 @@ jobs:
   update_release_draft:
     runs-on: ubuntu-latest
     steps:
-      # Drafts your next Release notes as Pull Requests are merged into "master"
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: yarn
+          registry-url: https://registry.npmjs.org
+
+      - name: Yarn Install
+        run: yarn install --frozen-lockfile
+
+      - name: Test
+        run: yarn test
+        
+      - name: Version
+        id: version
+        run: |
+          tag=${GITHUB_REF/refs\/tags\//}
+          version=${tag#v}
+          major=${version%%.*}
+          echo "::set-output name=tag::${tag}"
+          echo "::set-output name=version::${version}"
+          echo "::set-output name=major::${major}"
+          
       - uses: release-drafter/release-drafter@v5
-        # (Optional) specify config name to use, relative to .github/. Default: release-drafter.yml
-        # with:
-        #   config-name: my-config.yml
-        #   disable-autolabeler: true
+        with:
+          version: ${{ steps.version.outputs.version }}
+          publish: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
