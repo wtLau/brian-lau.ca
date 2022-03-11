@@ -1,0 +1,15 @@
+name: Release Drafter
+
+on:
+  push:
+    branches:
+      - production
+
+jobs:
+  update_release_draft:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Release Drafter @production
+        uses: release-drafter/release-drafter@production
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
