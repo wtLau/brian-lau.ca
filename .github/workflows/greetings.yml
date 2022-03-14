@@ -12,6 +12,6 @@ jobs:
           # Token for the repository
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           # Comment to post on an individual's first issue
-          issue-message: 'Hello! Congrat on your first issue! Ping me on Twitter with the issue too :)'
+          issue-message: 'Hello! Congrat on your first issue! Ping me on Twitter for faster reviews too :)'
           # Comment to post on an individual's first pull request
           pr-message: 'Hello! Congrat on your first pull request. I (Brian) really appreciated it~ :D :)'
