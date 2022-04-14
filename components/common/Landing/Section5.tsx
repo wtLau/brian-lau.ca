@@ -25,6 +25,14 @@ const useStyles = makeStyles((theme) => ({
 
 const companyData = [
   {
+    name: 'Spinndle',
+    imageLocation: '/static/images/spinndle_logo.png',
+    imageAlt: 'logo',
+    title: 'Front-End Developer',
+    description: 'Use Spinndle\'s competency-based learning software to keep track of student-driven inquiry, PBL, personal projects and more. The project management tool allows gifted and IB students to manage their projects more independently through ongoing collaboration, reflection and revision.',
+    link: 'https://spinndle.com/',
+  },
+  {
     name: 'Hanson Robotics Inc.',
     imageLocation: '/static/images/hansonroboticslogo.png',
     imageAlt: 'hanson robotics logo',
