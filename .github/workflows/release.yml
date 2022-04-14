@@ -1,24 +1,48 @@
+
 name: Release
 on:
-  push:
-    branches:
-      - 'production'
   pull_request:
+    branches:
+      - production
+      
+env:
+  HUSKY: '0'
+  
 jobs:
-  release:
-    name: 'Release'
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup Node.js
-        uses: actions/setup-node@v1
+        uses: actions/checkout@v3
         with:
-          node-version: 14
-      - name: Install dependencies
-        uses: bahmutov/npm-install@v1
-      - run: npm run build
-      - run: npx semantic-release@17
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: yarn
+          registry-url: https://registry.npmjs.org
+
+      - name: Yarn Install
+        run: yarn install --frozen-lockfile
+
+      - name: Test
+        run: yarn test
+        
+      - name: Version
+        id: version
+        run: |
+          tag=${GITHUB_REF/refs\/tags\//}
+          version=${tag#v}
+          major=${version%%.*}
+          echo "::set-output name=tag::${tag}"
+          echo "::set-output name=version::${version}"
+          echo "::set-output name=major::${major}"
+          
+      - uses: release-drafter/release-drafter@v5
+        with:
+          version: ${{ steps.version.outputs.version }}
+          publish: true
         env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

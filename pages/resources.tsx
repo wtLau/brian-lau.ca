@@ -4,13 +4,12 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Typography, Button, Grid } from '@material-ui/core'
 import Image from 'next/image'
 import { Link } from '@components/ui'
-import { getFiles, getFileBySlug } from '@lib/mdx'
-import BlogLayout from '@components/layout/BlogLayout'
-import MDXComponents from '@components/blog/BlogContent'
-import hydrate from 'next-mdx-remote/hydrate'
+
 import { skillsData, TSkills } from '@data/skillsData'
 import { signIn, signOut, useSession } from 'next-auth/client'
 import { NextSeo } from 'next-seo'
+import { resources } from '@data/resources'
+import { ColumnListItem } from '@components/ui'
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -28,19 +27,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-interface Props {
-  mdxSource: any
-  frontMatter: any
-}
-
-const Mentorship = ({ mdxSource, frontMatter }: Props) => {
+const About = () => {
   const classes = useStyles()
   const [session] = useSession()
   const [skills, setSkills] = useState<TSkills[]>([])
-
-  const contents = hydrate(mdxSource, {
-    components: MDXComponents,
-  })
 
   useEffect(() => {
     setSkills(skillsData)
@@ -49,19 +39,25 @@ const Mentorship = ({ mdxSource, frontMatter }: Props) => {
   return (
     <>
       <NextSeo
-        title='Mentorship'
-        description='A description of what I can provide with my mentorship'
+        title='Resources'
+        description='A little library of my knowledge collections.'
       />
 
-      <BlogLayout frontMatter={frontMatter}>{contents}</BlogLayout>
+      <Grid container className={classes.title}>
+        <Typography variant='h1' gutterBottom>
+          Resources
+        </Typography>
+      </Grid>
+
+      <Grid item xs={12} className={classes.container}>
+        {resources.map((resource) => (
+          <Link href={resource.url}>
+            <ColumnListItem title={resource.title} />
+          </Link>
+        ))}
+      </Grid>
     </>
   )
 }
 
-export default Mentorship
-
-export async function getStaticProps({ params }: any) {
-  const post = await getFileBySlug('/mentorship')
-
-  return { props: post }
-}
+export default About

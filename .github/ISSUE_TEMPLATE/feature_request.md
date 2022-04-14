@@ -1,12 +1,13 @@
 ---
 name: Feature Request
-about: Suggest an idea
-title: '[FEATURE]- '
-labels: 'Enhancement'
-assignees: wtLau
+about: Suggest ideas!
+title: 'feat: '
+labels: 'feat'
+assignees: 'wtLau'
 projects: 'Kanban'
 
 ---
+### Estimated T-shirt size (Small | Medium | Large | XL): 
 ### Estimated Time (Hours): 
 
 ---

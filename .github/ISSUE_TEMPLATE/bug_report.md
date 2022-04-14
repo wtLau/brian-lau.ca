@@ -1,7 +1,7 @@
 ---
 name: Bug Report
 about: Create a report to help us improve
-title: '[BUG]-'
+title: 'bug: '
 labels: 'bug'
 assignees: 'wtLau'
 
@@ -9,18 +9,24 @@ assignees: 'wtLau'
 
 ## Estimated Time (Hours): 
 
-**Describe the bug**
+## Describe the bug 🐛
 
+### Issue:
 
-**To Reproduce**
-Steps to reproduce the behavior:
+- 
+
+### Steps To Reproduce
+
 1. 
 
-**Expected behavior**
+### Expected behavior
+
+- [ ] 
+
+---
+
+### Addtional Screenshots
 
 
-**Screenshots**
-
-
-**Additional context**
+### Additional context
 
