@@ -60,7 +60,7 @@
     "start": "next start",
     "find:unused": "next-unused",
     "test-coverage": "jest --coverage && yarn lint",
-    "test": "jest --watch -o"
+    "test": "yarn jest --watch --collectCoverage --silent"
   },
   "next-unused": {
     "alias": {
