@@ -11,7 +11,6 @@ import hydrate from 'next-mdx-remote/hydrate'
 import { skillsData, TSkills } from '@data/skillsData'
 import { signIn, signOut, useSession } from 'next-auth/client'
 import { NextSeo } from 'next-seo'
-import Section5 from '@components/common/Landing/Section5'
 
 const useStyles = makeStyles((theme) => ({
   title: {

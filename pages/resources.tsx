@@ -8,7 +8,6 @@ import { Link } from '@components/ui'
 import { skillsData, TSkills } from '@data/skillsData'
 import { signIn, signOut, useSession } from 'next-auth/client'
 import { NextSeo } from 'next-seo'
-import Section5 from '@components/common/Landing/Section5'
 import { resources } from '@data/resources'
 import { ColumnListItem } from '@components/ui'
 
