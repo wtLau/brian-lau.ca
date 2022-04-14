@@ -7,7 +7,6 @@ import Section1 from '@components/common/Landing/Section1'
 import Section2 from '@components/common/Landing/Section2'
 import Section3 from '@components/common/Landing/Section3'
 import Section4 from '@components/common/Landing/Section4'
-import Section5 from '@components/common/Landing/Section5'
 import { Typography } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) =>
