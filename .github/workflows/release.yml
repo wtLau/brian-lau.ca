@@ -1,13 +1,12 @@
-
 name: Release
 on:
   pull_request:
     branches:
       - production
-      
+
 env:
   HUSKY: '0'
-  
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -29,7 +28,7 @@ jobs:
 
       - name: Test
         run: yarn test
-        
+
       - name: Version
         id: version
         run: |
@@ -39,7 +38,7 @@ jobs:
           echo "::set-output name=tag::${tag}"
           echo "::set-output name=version::${version}"
           echo "::set-output name=major::${major}"
-          
+
       - uses: release-drafter/release-drafter@v5
         with:
           version: ${{ steps.version.outputs.version }}

@@ -59,7 +59,7 @@
     "build": "next build",
     "start": "next start",
     "find:unused": "next-unused",
-    "test-coverage": "jest --coverage && yarn lint",
+    "test-coverage": "yarn jest --coverage",
     "test": "yarn jest --watch --collectCoverage --silent"
   },
   "next-unused": {
