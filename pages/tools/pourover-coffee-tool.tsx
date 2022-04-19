@@ -88,17 +88,17 @@ export default function MacroCalculatorPage() {
   const cn = useStyles()
   const [ratio, setRatio] = useState(16)
   const [weight, setWeight] = useState(25)
-  const handleCoffeeRatio = (ratio) => {
+  const handleCoffeeRatio = (ratio: number) => {
     setRatio(ratio)
   }
-  const handleCoffeeWeight = (e) => {
-    const weight = e.target.value
+  const handleCoffeeWeight = (input: string) => {
+    const weight = Number(input)
     setWeight(weight)
   }
 
-  const handleMethodRatio = (title) => {
-    console.log(title)
-  }
+  // const handleMethodRatio = (title) => {
+  //   console.log(title)
+  // }
 
   return (
     <Grid spacing={10} container>
@@ -170,7 +170,7 @@ export default function MacroCalculatorPage() {
                         <InputAdornment position='end'>g</InputAdornment>
                       ),
                     }}
-                    onChange={handleCoffeeWeight}
+                    onChange={(e) => handleCoffeeWeight(e.target.value)}
                   />
                 </Grid>
                 <Grid item>
