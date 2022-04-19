@@ -6,13 +6,13 @@ import Theme from '.'
 const themeConfig: ThemeOptions = {
   palette: {
     primary: {
-      main: '#A67212',
+      main: '#347d39',
       // light: '#dba044',
       // dark: '#734700',
       // contrastText: "#fff"
     },
     secondary: {
-      main: '#F2CB57',
+      main: 'rgb(173, 186, 199)',
     },
   },
   typography: {

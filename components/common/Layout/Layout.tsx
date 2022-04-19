@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   body: {
     [theme.breakpoints.up('md')]: {
-      margin: theme.spacing(5, 7),
+      margin: theme.spacing(12, 2),
     },
     margin: theme.spacing(0, 3),
   },
