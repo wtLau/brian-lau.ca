@@ -7,9 +7,9 @@ import { Link } from '@components/ui'
 
 import { skillsData, TSkills } from '@data/skillsData'
 import { signIn, signOut, useSession } from 'next-auth/client'
-import { NextSeo } from 'next-seo'
 import { companyData } from '@data/companyData'
 import CompanyCard from '@components/CompanyCard'
+import { HeadSeo } from '@components/HeadSeo'
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -40,10 +40,7 @@ const About = () => {
 
   return (
     <>
-      <NextSeo
-        title='About- Brian Lau'
-        description='A little more about Brian Lau'
-      />
+      <HeadSeo title='About' description='A little more about Brian Lau' />
       <Grid container spacing={8}>
         <Grid item className={classes.title}>
           <Typography variant='h1' gutterBottom>
