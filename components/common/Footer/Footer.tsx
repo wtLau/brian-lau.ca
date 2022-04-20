@@ -1,7 +1,4 @@
-import React, { FC } from 'react'
-
-import { Theme, styled } from '@mui/material/styles'
-import makeStyles from '@mui/styles/makeStyles'
+import { GitHub, Instagram, LinkedIn } from '@mui/icons-material'
 import {
   Grid,
   Typography,
@@ -10,7 +7,10 @@ import {
   ListItemText,
   Icon,
 } from '@mui/material'
-import { GitHub, Instagram, LinkedIn } from '@mui/icons-material'
+import { Theme, styled } from '@mui/material/styles'
+import makeStyles from '@mui/styles/makeStyles'
+import React, { FC } from 'react'
+
 import { Link } from '@components/ui'
 
 const PREFIX = 'Footer'

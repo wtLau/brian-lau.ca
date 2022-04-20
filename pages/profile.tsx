@@ -1,7 +1,6 @@
+import { Grid, Typography, CircularProgress } from '@mui/material'
 import { useSession } from 'next-auth/client'
 import React, { useEffect, useState } from 'react'
-
-import { Grid, Typography, CircularProgress } from '@mui/material'
 
 const Profile = () => {
   const [content, setContent] = useState()

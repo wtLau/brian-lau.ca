@@ -1,6 +1,3 @@
-import { Card } from '@components/ui'
-import { styled } from '@mui/material/styles'
-import MacroCalculator from '@components/tools/MacroCalculator/MacroCalculator'
 import {
   Typography,
   Theme,
@@ -14,13 +11,16 @@ import {
   FormControl,
   InputLabel,
 } from '@mui/material'
+import { styled } from '@mui/material/styles'
 import makeStyles from '@mui/styles/makeStyles'
 import clsx from 'clsx'
-
-import React, { useState } from 'react'
 import { NextSeo } from 'next-seo'
-import { HeadSeo } from '@components/HeadSeo'
+import React, { useState } from 'react'
 import { number } from 'yup'
+
+import { HeadSeo } from '@components/HeadSeo'
+import MacroCalculator from '@components/tools/MacroCalculator/MacroCalculator'
+import { Card } from '@components/ui'
 
 const PREFIX = 'pourover-coffee-tool'
 

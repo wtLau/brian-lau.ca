@@ -1,13 +1,18 @@
-import { BlogPost } from '@components/ui'
-import { styled } from '@mui/material/styles'
-import { getAllFilesFrontMatter } from '@lib/mdx'
-import { Grid, Typography, Theme, TextField, InputAdornment } from '@mui/material';
-
-import makeStyles from '@mui/styles/makeStyles';
-
 import { Search } from '@mui/icons-material'
-import { ChangeEvent, ReactHTMLElement, useState } from 'react'
+import {
+  Grid,
+  Typography,
+  Theme,
+  TextField,
+  InputAdornment,
+} from '@mui/material'
+import { styled } from '@mui/material/styles'
+import makeStyles from '@mui/styles/makeStyles'
 import { NextSeo } from 'next-seo'
+import { ChangeEvent, ReactHTMLElement, useState } from 'react'
+
+import { BlogPost } from '@components/ui'
+import { getAllFilesFrontMatter } from '@lib/mdx'
 
 const PREFIX = 'blog'
 

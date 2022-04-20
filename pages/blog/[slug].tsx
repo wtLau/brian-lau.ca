@@ -1,9 +1,10 @@
-import { getFiles, getFileBySlug } from '@lib/mdx'
-import BlogLayout from '@components/layout/BlogLayout'
-import MDXComponents from '@components/blog/BlogContent'
 import hydrate from 'next-mdx-remote/hydrate'
-import React from 'react'
 import { NextSeo } from 'next-seo'
+import React from 'react'
+
+import MDXComponents from '@components/blog/BlogContent'
+import BlogLayout from '@components/layout/BlogLayout'
+import { getFiles, getFileBySlug } from '@lib/mdx'
 
 type Props = {
   mdxSource: any
@@ -49,7 +50,7 @@ export async function getStaticPaths() {
       },
     })),
     fallback: false,
-  };
+  }
 }
 
 export async function getStaticProps({ params }: any) {

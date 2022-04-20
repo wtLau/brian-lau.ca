@@ -1,9 +1,6 @@
-import { Grid, Theme, Input } from '@mui/material';
-
-import makeStyles from '@mui/styles/makeStyles';
-
+import { Grid, Theme, Input } from '@mui/material'
 import { styled } from '@mui/material/styles'
-
+import makeStyles from '@mui/styles/makeStyles'
 import React, { useState } from 'react'
 
 import Slider from './Slider'

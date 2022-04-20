@@ -20,8 +20,7 @@ export const Data = [
   {
     id: 3,
     label: 'Resume',
-    pathname:
-      'https://storage.cloud.google.com/sdfdsfasd/Resume-Brian-Lau.pdf',
+    pathname: 'https://storage.cloud.google.com/sdfdsfasd/Resume-Brian-Lau.pdf',
     navbar: true,
     external: true,
     homepage: true,

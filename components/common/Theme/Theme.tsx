@@ -1,4 +1,3 @@
-import React, { FC } from 'react'
 import {
   createTheme,
   DeprecatedThemeOptions,
@@ -9,6 +8,7 @@ import {
   adaptV4Theme,
 } from '@mui/material'
 import { PaletteOptions } from '@mui/material/styles'
+import React, { FC } from 'react'
 
 interface ITheme {
   themeConfig: DeprecatedThemeOptions

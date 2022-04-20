@@ -1,28 +1,23 @@
+import { CloudDownload as DownloadIcon } from '@mui/icons-material'
+import { Typography, Button, Grid } from '@mui/material'
+import { styled } from '@mui/material/styles'
+import makeStyles from '@mui/styles/makeStyles'
+import { signIn, signOut, useSession } from 'next-auth/client'
+import Image from 'next/image'
 import React from 'react'
 
-import { styled } from '@mui/material/styles';
-import makeStyles from '@mui/styles/makeStyles';
-import { Typography, Button, Grid } from '@mui/material'
-import Image from 'next/image'
 import { Link } from '@components/ui'
 
-import { CloudDownload as DownloadIcon } from '@mui/icons-material'
-import { signIn, signOut, useSession } from 'next-auth/client'
-
-const PREFIX = 'Section1';
+const PREFIX = 'Section1'
 
 const classes = {
   root: `${PREFIX}-root`,
   backgroundimage: `${PREFIX}-backgroundimage`,
   buttonGrp: `${PREFIX}-buttonGrp`,
-  button: `${PREFIX}-button`
-};
+  button: `${PREFIX}-button`,
+}
 
-const StyledGrid = styled(Grid)((
-  {
-    theme
-  }
-) => ({
+const StyledGrid = styled(Grid)(({ theme }) => ({
   [`&.${classes.root}`]: {
     flexGrow: 1,
     minHeight: '95vh',
@@ -43,16 +38,20 @@ const StyledGrid = styled(Grid)((
     borderRadius: '50px',
     width: '100%',
     height: '48px',
-  }
-}));
+  },
+}))
 
 const Section1 = () => {
-
   const [session] = useSession()
   const userName = session?.user?.name || 'stranger'
 
   return (
-    <StyledGrid container className={classes.root} spacing={8} alignContent='center'>
+    <StyledGrid
+      container
+      className={classes.root}
+      spacing={8}
+      alignContent='center'
+    >
       <Grid item>
         <Typography variant='h2' component={'h1'} gutterBottom>
           Hey, {userName}! I'm Brian Lau
@@ -65,7 +64,7 @@ const Section1 = () => {
         <Typography>Sign my guestbook and let know me you're here!</Typography>
       </Grid>
     </StyledGrid>
-  );
+  )
 }
 
 export default Section1

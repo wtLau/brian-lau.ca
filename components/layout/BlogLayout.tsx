@@ -1,12 +1,13 @@
-import Image from 'next/image'
+import { Typography, Theme, Grid } from '@mui/material'
 import { styled } from '@mui/material/styles'
+import makeStyles from '@mui/styles/makeStyles'
 import { parseISO, format } from 'date-fns'
+import Image from 'next/image'
+import { ReactNode } from 'react'
+
+import { Link } from '@components/ui'
 
 import BlogContent from '../blog/BlogContent'
-import { Typography, Theme, Grid } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
-import { Link } from '@components/ui'
-import { ReactNode } from 'react'
 
 const PREFIX = 'BlogLayout'
 

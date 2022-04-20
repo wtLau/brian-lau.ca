@@ -1,11 +1,13 @@
-import type { InferGetStaticPropsType } from 'next'
-import { styled } from '@mui/material/styles'
-import { NextSeo } from 'next-seo'
-import React from 'react'
-import { Grid, Typography, Theme } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
 import fs from 'fs'
 import path from 'path'
+
+import { Grid, Typography, Theme } from '@mui/material'
+import { styled } from '@mui/material/styles'
+import makeStyles from '@mui/styles/makeStyles'
+import type { InferGetStaticPropsType } from 'next'
+import { NextSeo } from 'next-seo'
+import React from 'react'
+
 import ToolCard from '@components/tools/MacroCalculator/ToolCard'
 
 const PREFIX = 'index'
@@ -81,7 +83,7 @@ export async function getStaticProps() {
           title: slug.replace(/-/g, ' '),
         },
         ...allTools,
-      ];
+      ]
     },
     []
   )

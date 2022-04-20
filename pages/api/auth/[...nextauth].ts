@@ -1,5 +1,5 @@
-import NextAuth from "next-auth"
-import Providers from "next-auth/providers"
+import NextAuth from 'next-auth'
+import Providers from 'next-auth/providers'
 
 // For more information on each option (and a full list of options) go to
 // https://next-auth.js.org/configuration/options
@@ -83,7 +83,9 @@ export default NextAuth({
   // https://next-auth.js.org/configuration/callbacks
   callbacks: {
     // async signIn(user, account, profile) { return true },
-    async redirect(url, baseUrl) { return baseUrl },
+    async redirect(url, baseUrl) {
+      return baseUrl
+    },
     // async session(session, user) { return session },
     // async jwt(token, user, account, profile, isNewUser) { return token }
   },

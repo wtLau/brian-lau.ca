@@ -1,16 +1,17 @@
 // import { Card } from '@components/ui'
+import { Typography, Card } from '@mui/material'
 import Button from '@mui/material/Button'
 import Grid from '@mui/material/Grid'
-import { styled } from '@mui/material/styles';
-import makeStyles from '@mui/styles/makeStyles';
-import { Typography, Card } from '@mui/material'
-
+import { styled } from '@mui/material/styles'
+import makeStyles from '@mui/styles/makeStyles'
 import Image from 'next/image'
 import React from 'react'
-import { skillsData } from '../../../data/skillsData'
+
 import { Link } from '@components/ui'
 
-const PREFIX = 'Section4';
+import { skillsData } from '../../../data/skillsData'
+
+const PREFIX = 'Section4'
 
 const classes = {
   root: `${PREFIX}-root`,
@@ -19,14 +20,10 @@ const classes = {
   img: `${PREFIX}-img`,
   image1: `${PREFIX}-image1`,
   image3: `${PREFIX}-image3`,
-  card: `${PREFIX}-card`
-};
+  card: `${PREFIX}-card`,
+}
 
-const StyledGrid = styled(Grid)((
-  {
-    theme
-  }
-) => ({
+const StyledGrid = styled(Grid)(({ theme }) => ({
   [`&.${classes.root}`]: {
     flexGrow: 1,
     margin: theme.spacing(5, 0),
@@ -75,11 +72,10 @@ const StyledGrid = styled(Grid)((
     background: theme.palette.background.paper,
     display: 'flex',
     justifyContent: 'center',
-  }
-}));
+  },
+}))
 
 const Section4 = () => {
-
   const skills = skillsData
 
   return (
@@ -101,7 +97,7 @@ const Section4 = () => {
           ))}
       </Grid>
     </StyledGrid>
-  );
+  )
 }
 
 export default Section4

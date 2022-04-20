@@ -1,12 +1,11 @@
-import { Card } from '@components/ui'
+import { Typography, Theme, CardContent, CardActions } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import MacroCalculator from '@components/tools/MacroCalculator/MacroCalculator'
-import { Typography, Theme, CardContent, CardActions } from '@mui/material';
-
-import makeStyles from '@mui/styles/makeStyles';
-
-import React from 'react'
+import makeStyles from '@mui/styles/makeStyles'
 import { NextSeo } from 'next-seo'
+import React from 'react'
+
+import MacroCalculator from '@components/tools/MacroCalculator/MacroCalculator'
+import { Card } from '@components/ui'
 
 const PREFIX = 'nutrition-macro-calculator'
 
