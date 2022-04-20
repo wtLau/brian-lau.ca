@@ -7,7 +7,7 @@ Welcome! This is my personal app where fun things get built~
 ---
 
 [![Labeler](https://github.com/wtLau/Portfolio-App/actions/workflows/labeler.yml/badge.svg)](https://github.com/wtLau/Portfolio-App/actions/workflows/labeler.yml)
-
+[![Release](https://github.com/wtLau/brian-lau.ca/actions/workflows/release.yml/badge.svg)](https://github.com/wtLau/brian-lau.ca/actions/workflows/release.yml)
 ## Getting Started
 
 
