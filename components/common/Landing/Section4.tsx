@@ -1,71 +1,94 @@
 // import { Card } from '@components/ui'
-import Button from '@material-ui/core/Button'
-import Grid from '@material-ui/core/Grid'
-import { makeStyles } from '@material-ui/core/styles'
-import { Typography, Card } from '@material-ui/core'
+import Button from '@mui/material/Button'
+import Grid from '@mui/material/Grid'
+import { styled } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import { Typography, Card } from '@mui/material'
 
 import Image from 'next/image'
 import React from 'react'
 import { skillsData } from '../../../data/skillsData'
 import { Link } from '@components/ui'
 
-const useStyles = makeStyles((theme) => ({
-  root: {
+const PREFIX = 'Section4';
+
+const classes = {
+  root: `${PREFIX}-root`,
+  button: `${PREFIX}-button`,
+  title: `${PREFIX}-title`,
+  img: `${PREFIX}-img`,
+  image1: `${PREFIX}-image1`,
+  image3: `${PREFIX}-image3`,
+  card: `${PREFIX}-card`
+};
+
+const StyledGrid = styled(Grid)((
+  {
+    theme
+  }
+) => ({
+  [`&.${classes.root}`]: {
     flexGrow: 1,
     margin: theme.spacing(5, 0),
   },
-  button: {
+
+  [`& .${classes.button}`]: {
     borderRadius: '50px',
     width: '100%',
   },
-  title: {
+
+  [`& .${classes.title}`]: {
     background: `no-repeat  url('/section4-title.png')`,
     height: '400px',
     backgroundPosition: '50% 13%',
     backgroundSize: '35px 243px',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('xl')]: {
       background: `no-repeat  url('/section4-title-horizaontal.png')`,
       height: 'auto',
     },
   },
-  img: {
+
+  [`& .${classes.img}`]: {
     height: '90px',
   },
-  image1: {
+
+  [`& .${classes.image1}`]: {
     [theme.breakpoints.up('md')]: {
       marginLeft: '10px',
       marginRight: '62px',
       margin: 'initial',
     },
   },
-  image3: {
+
+  [`& .${classes.image3}`]: {
     [theme.breakpoints.up('md')]: {
       marginTop: '20px',
       marginLeft: '11px',
       margin: 'initial',
     },
   },
-  card: {
+
+  [`& .${classes.card}`]: {
     width: '230px',
     height: '266px',
     borderRadius: '32px',
     background: theme.palette.background.paper,
     display: 'flex',
     justifyContent: 'center',
-  },
-}))
+  }
+}));
 
 const Section4 = () => {
-  const classes = useStyles()
+
   const skills = skillsData
 
   return (
-    <Grid container className={classes.root} spacing={4}>
+    <StyledGrid container className={classes.root} spacing={4}>
       <Typography variant='h2' gutterBottom>
         Interested In
       </Typography>
 
-      <Grid container item justify='center' spacing={2}>
+      <Grid container item justifyContent='center' spacing={2}>
         {skills &&
           skills.map((data) => (
             <Grid item key={data.name}>
@@ -77,8 +100,8 @@ const Section4 = () => {
             </Grid>
           ))}
       </Grid>
-    </Grid>
-  )
+    </StyledGrid>
+  );
 }
 
 export default Section4

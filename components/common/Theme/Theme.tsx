@@ -1,15 +1,17 @@
 import React, { FC } from 'react'
 import {
-  createMuiTheme,
-  ThemeOptions,
+  createTheme,
+  DeprecatedThemeOptions,
   useTheme,
   Theme,
-  MuiThemeProvider,
-} from '@material-ui/core'
-import { PaletteOptions } from '@material-ui/core/styles/createPalette'
+  ThemeProvider,
+  StyledEngineProvider,
+  adaptV4Theme,
+} from '@mui/material'
+import { PaletteOptions } from '@mui/material/styles'
 
 interface ITheme {
-  themeConfig: ThemeOptions
+  themeConfig: DeprecatedThemeOptions
   palette?: PaletteOptions
 }
 
@@ -28,7 +30,7 @@ interface State {
 
 interface ThemeProviderProps {
   children: React.ReactNode
-  theme: ThemeOptions
+  theme: DeprecatedThemeOptions
 }
 
 const ThemeDispatchContext = React.createContext<any>(null)
@@ -54,21 +56,25 @@ const ThemeCustomProvider: FC<ThemeProviderProps> = ({ children, theme }) => {
   )
 
   const memoizedTheme = React.useMemo(() => {
-    return createMuiTheme({
-      ...theme,
-      palette: {
-        ...theme.palette,
-        type: themeOptions.paletteType,
-      },
-    })
+    return createTheme(
+      adaptV4Theme({
+        ...theme,
+        palette: {
+          ...theme.palette,
+          mode: themeOptions.paletteType,
+        },
+      })
+    )
   }, [theme, themeOptions.paletteType])
 
   return (
-    <MuiThemeProvider theme={memoizedTheme}>
-      <ThemeDispatchContext.Provider value={dispatch}>
-        {children}
-      </ThemeDispatchContext.Provider>
-    </MuiThemeProvider>
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={memoizedTheme}>
+        <ThemeDispatchContext.Provider value={dispatch}>
+          {children}
+        </ThemeDispatchContext.Provider>
+      </ThemeProvider>
+    </StyledEngineProvider>
   )
 }
 
@@ -81,9 +87,9 @@ export const useChangeTheme = () => {
     () =>
       dispatch({
         type: 'changeTheme',
-        payload: theme.palette.type === 'light' ? 'dark' : 'light',
+        payload: theme.palette.mode === 'light' ? 'dark' : 'light',
       }),
-    [theme.palette.type, dispatch]
+    [theme.palette.mode, dispatch]
   )
 
   return changeTheme

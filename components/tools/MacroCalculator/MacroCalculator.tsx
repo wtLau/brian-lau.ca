@@ -1,18 +1,27 @@
-import { Grid, makeStyles, Theme, Input } from '@material-ui/core'
+import { Grid, Theme, Input } from '@mui/material';
+
+import makeStyles from '@mui/styles/makeStyles';
+
+import { styled } from '@mui/material/styles'
 
 import React, { useState } from 'react'
 
 import Slider from './Slider'
 
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {
+const PREFIX = 'MacroCalculator'
+
+const classes = {
+  root: `${PREFIX}-root`,
+}
+
+const StyledGrid = styled(Grid)(({ theme }) => ({
+  [`& .${classes.root}`]: {
     marginTop: theme.spacing(3),
   },
 }))
 
 const MacroCalculator = () => {
   const [kcal, setKcal] = useState<string>('2150')
-  const cn = useStyles()
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setKcal(event.target.value === '' ? '' : event.target.value)
@@ -25,7 +34,7 @@ const MacroCalculator = () => {
   }
 
   return (
-    <Grid container spacing={2} className={cn.root}>
+    <StyledGrid container spacing={2}>
       <Grid item xs={12}>
         <Input
           value={kcal}
@@ -47,7 +56,7 @@ const MacroCalculator = () => {
       <Grid item xs={12}>
         <Slider title='Fat' defaultPercentage={30} kcal={Number(kcal)} />
       </Grid>
-    </Grid>
+    </StyledGrid>
   )
 }
 

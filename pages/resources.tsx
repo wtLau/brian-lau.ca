@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 
-import { makeStyles } from '@material-ui/core/styles'
-import { Typography, Button, Grid } from '@material-ui/core'
+import { styled } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import { Typography, Button, Grid } from '@mui/material'
 import Image from 'next/image'
 import { Link } from '@components/ui'
 
@@ -11,24 +12,39 @@ import { NextSeo } from 'next-seo'
 import { resources } from '@data/resources'
 import { ColumnListItem } from '@components/ui'
 
-const useStyles = makeStyles((theme) => ({
-  title: {
+const PREFIX = 'About';
+
+const classes = {
+  title: `${PREFIX}-title`,
+  backgroundimage: `${PREFIX}-backgroundimage`,
+  container: `${PREFIX}-container`
+};
+
+// TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
+const Root = styled('div')((
+  {
+    theme
+  }
+) => ({
+  [`& .${classes.title}`]: {
     flexGrow: 1,
     marginTop: theme.spacing(17),
   },
-  backgroundimage: {
-    [theme.breakpoints.down('md')]: {
+
+  [`& .${classes.backgroundimage}`]: {
+    [theme.breakpoints.down('xl')]: {
       width: '100%',
       height: '100%',
     },
   },
-  container: {
+
+  [`& .${classes.container}`]: {
     margin: theme.spacing(10, 0),
-  },
-}))
+  }
+}));
 
 const About = () => {
-  const classes = useStyles()
+
   const [session] = useSession()
   const [skills, setSkills] = useState<TSkills[]>([])
 
@@ -37,18 +53,16 @@ const About = () => {
   }, [skills])
 
   return (
-    <>
+    (<Root>
       <NextSeo
         title='Resources'
         description='A little library of my knowledge collections.'
       />
-
       <Grid container className={classes.title}>
         <Typography variant='h1' gutterBottom>
           Resources
         </Typography>
       </Grid>
-
       <Grid item xs={12} className={classes.container}>
         {resources.map((resource) => (
           <Link href={resource.url}>
@@ -56,8 +70,8 @@ const About = () => {
           </Link>
         ))}
       </Grid>
-    </>
-  )
+    </Root>)
+  );
 }
 
 export default About

@@ -4,22 +4,31 @@ import {
   List,
   ListItem,
   ListItemText,
-} from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles'
-import { Menu } from '@material-ui/icons'
+} from '@mui/material'
+import { styled } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import { Menu } from '@mui/icons-material'
 import * as React from 'react'
 import { useState } from 'react'
 import { Link } from '@components/ui'
-const useStyles = makeStyles({
-  list: {
+const PREFIX = 'SideDrawer';
+
+const classes = {
+  list: `${PREFIX}-list`,
+  linkText: `${PREFIX}-linkText`
+};
+
+// TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
+const Root = styled('div')({
+  [`& .${classes.list}`]: {
     width: 250,
   },
-  linkText: {
+  [`& .${classes.linkText}`]: {
     textDecoration: `none`,
     textTransform: `uppercase`,
     color: `black`,
   },
-})
+});
 
 // type Props = {
 //   navLinks: {
@@ -30,7 +39,7 @@ const useStyles = makeStyles({
 // }
 
 const SideDrawer = ({ navLinks }) => {
-  const classes = useStyles()
+
   const [state, setState] = useState({
     right: false,
   })
@@ -72,12 +81,12 @@ const SideDrawer = ({ navLinks }) => {
   )
 
   return (
-    <React.Fragment>
+    <Root>
       <IconButton
         edge='start'
         aria-label='menu'
         onClick={toggleDrawer('right', true)}
-      >
+        size="large">
         <Menu fontSize='large' color='primary' />
       </IconButton>
 
@@ -89,8 +98,8 @@ const SideDrawer = ({ navLinks }) => {
       >
         {sideDrawerList('right')}
       </Drawer>
-    </React.Fragment>
-  )
+    </Root>
+  );
 }
 
 export default SideDrawer

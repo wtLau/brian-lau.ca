@@ -1,41 +1,50 @@
 import { Footer, Navbar } from '@components/common'
-import { Grid, Theme } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles'
+import { Grid, Theme } from '@mui/material'
+import { styled } from '@mui/material/styles'
+import makeStyles from '@mui/styles/makeStyles'
 import React, { FC } from 'react'
 import './Layout.module.css'
 
-declare interface LayoutProps {
-  children: React.ReactNode
+const PREFIX = 'Layout'
+
+const classes = {
+  root: `${PREFIX}-root`,
+  body: `${PREFIX}-body`,
+  footer: `${PREFIX}-footer`,
 }
 
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {
+const StyledGrid = styled(Grid)(({ theme }) => ({
+  [`&.${classes.root}`]: {
     flexGrow: 1,
     minHeight: '100vh',
-    maxWidth: theme.breakpoints.width('md'),
+    maxWidth: theme.breakpoints.values.lg,
     margin: '0 auto',
-    [theme.breakpoints.down('lg')]: {
+    [theme.breakpoints.down('xl')]: {
       overflow: 'hidden',
     },
   },
-  body: {
+
+  [`& .${classes.body}`]: {
     [theme.breakpoints.up('md')]: {
       margin: theme.spacing(12, 2),
     },
     margin: theme.spacing(0, 3),
   },
-  footer: {
+
+  [`& .${classes.footer}`]: {
     marginTop: 'auto',
     display: 'flex',
     justifyContent: 'center',
   },
 }))
 
-const Layout: FC<LayoutProps> = ({ children }) => {
-  const classes = useStyles()
+declare interface LayoutProps {
+  children: React.ReactNode
+}
 
+const Layout: FC<LayoutProps> = ({ children }) => {
   return (
-    <Grid container className={classes.root} justify='center'>
+    <StyledGrid container className={classes.root} justifyContent='center'>
       <Grid item xs={12}>
         <Navbar />
       </Grid>
@@ -45,7 +54,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
       </Grid>
 
       <Grid item xs={12} className={classes.footer} component={Footer} />
-    </Grid>
+    </StyledGrid>
   )
 }
 

@@ -1,8 +1,8 @@
 import { Card } from '@components/ui'
+import { styled } from '@mui/material/styles'
 import MacroCalculator from '@components/tools/MacroCalculator/MacroCalculator'
 import {
   Typography,
-  makeStyles,
   Theme,
   CardContent,
   CardActions,
@@ -13,13 +13,41 @@ import {
   Grid,
   FormControl,
   InputLabel,
-} from '@material-ui/core'
+} from '@mui/material'
+import makeStyles from '@mui/styles/makeStyles'
 import clsx from 'clsx'
 
 import React, { useState } from 'react'
 import { NextSeo } from 'next-seo'
 import { HeadSeo } from '@components/HeadSeo'
 import { number } from 'yup'
+
+const PREFIX = 'pourover-coffee-tool'
+
+const classes = {
+  card: `${PREFIX}-card`,
+  gridMargin: `${PREFIX}-gridMargin`,
+  margin: `${PREFIX}-margin`,
+  textField: `${PREFIX}-textField`,
+}
+
+const StyledGrid = styled(Grid)(({ theme }) => ({
+  [`& .${classes.card}`]: {
+    flexGrow: 1,
+  },
+
+  [`& .${classes.gridMargin}`]: {
+    marginTop: theme.spacing(8),
+  },
+
+  [`& .${classes.margin}`]: {
+    margin: theme.spacing(1, 0),
+  },
+
+  [`& .${classes.textField}`]: {
+    width: '25ch',
+  },
+}))
 
 const brewRatioList = [
   {
@@ -68,24 +96,7 @@ const brewMethodsList = [
   },
 ]
 
-const useStyles = makeStyles((theme: Theme) => ({
-  card: {
-    flexGrow: 1,
-  },
-  gridMargin: {
-    marginTop: theme.spacing(8),
-  },
-  margin: {
-    margin: theme.spacing(1, 0),
-  },
-
-  textField: {
-    width: '25ch',
-  },
-}))
-
 export default function MacroCalculatorPage() {
-  const cn = useStyles()
   const [ratio, setRatio] = useState(16)
   const [weight, setWeight] = useState(25)
   const handleCoffeeRatio = (ratio: number) => {
@@ -101,7 +112,7 @@ export default function MacroCalculatorPage() {
   // }
 
   return (
-    <Grid spacing={10} container>
+    <StyledGrid spacing={10} container>
       <HeadSeo
         title='Pour Over Coffee'
         description='Pour over coffee tool to measure, record, and track.'
@@ -120,7 +131,7 @@ export default function MacroCalculatorPage() {
       </Grid>
 
       <Grid item>
-        <Card className={cn.card}>
+        <Card className={classes.card}>
           <CardContent>
             <Grid container direction='column' spacing={2}>
               <Grid item>
@@ -141,7 +152,7 @@ export default function MacroCalculatorPage() {
                       <Chip
                         key={id}
                         label={title}
-                        variant={ratio === value ? 'default' : 'outlined'}
+                        variant={ratio === value ? 'filled' : 'outlined'}
                         color='primary'
                         onClick={() => handleCoffeeRatio(value)}
                       />
@@ -163,7 +174,7 @@ export default function MacroCalculatorPage() {
                     id='standard-start-adornment'
                     value={weight}
                     label='Coffee Weight'
-                    className={clsx(cn.textField)}
+                    className={clsx(classes.textField)}
                     aria-describedby='outlined-weight-helper-text'
                     InputProps={{
                       endAdornment: (
@@ -185,7 +196,7 @@ export default function MacroCalculatorPage() {
       </Grid>
 
       <Grid item>
-        <Card className={cn.card}>
+        <Card className={classes.card}>
           <CardContent>
             <Typography component={'h1'} variant='h3' gutterBottom>
               Methods
@@ -212,7 +223,7 @@ export default function MacroCalculatorPage() {
 
               <TextField
                 id='standard-start-adornment'
-                className={clsx(cn.margin, cn.textField)}
+                className={clsx(classes.margin, classes.textField)}
                 value='60'
                 InputProps={{
                   endAdornment: (
@@ -233,7 +244,7 @@ export default function MacroCalculatorPage() {
 
               <TextField
                 id='standard-start-adornment'
-                className={clsx(cn.margin, cn.textField)}
+                className={clsx(classes.margin, cn.textField)}
                 value='130'
                 InputProps={{
                   endAdornment: (
@@ -278,6 +289,6 @@ export default function MacroCalculatorPage() {
           </CardContent>
         </Card>
       </Grid>
-    </Grid>
+    </StyledGrid>
   )
 }

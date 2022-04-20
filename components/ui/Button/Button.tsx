@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Button as MaterialButton, Typography } from '@material-ui/core'
+import { Button as MaterialButton, Typography } from '@mui/material'
 
 const Button = ({ ...props }) => {
   return (

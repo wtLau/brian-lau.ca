@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 
-import { makeStyles, Theme } from '@material-ui/core/styles'
+import { Theme, styled } from '@mui/material/styles'
+import makeStyles from '@mui/styles/makeStyles'
 import {
   Grid,
   Typography,
@@ -8,17 +9,25 @@ import {
   MenuList,
   ListItemText,
   Icon,
-} from '@material-ui/core'
-import { GitHub, Instagram, LinkedIn } from '@material-ui/icons'
+} from '@mui/material'
+import { GitHub, Instagram, LinkedIn } from '@mui/icons-material'
 import { Link } from '@components/ui'
 
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {
+const PREFIX = 'Footer'
+
+const classes = {
+  root: `${PREFIX}-root`,
+  copyright: `${PREFIX}-copyright`,
+}
+
+const StyledGrid = styled(Grid)(({ theme }) => ({
+  [`&.${classes.root}`]: {
     flexGrow: 1,
     padding: theme.spacing(6, 0),
     borderTop: `1px solid ${theme.palette.divider}`,
   },
-  copyright: {
+
+  [`& .${classes.copyright}`]: {
     marginTop: theme.spacing(3),
   },
 }))
@@ -49,11 +58,14 @@ const linkData = [
 ]
 
 const Footer: FC = () => {
-  const classes = useStyles()
-
   return (
-    <Grid container className={classes.root} justify='center' spacing={4}>
-      <Grid container item justify='center' spacing={5}>
+    <StyledGrid
+      container
+      className={classes.root}
+      justifyContent='center'
+      spacing={4}
+    >
+      <Grid container item justifyContent='center' spacing={5}>
         {linkData &&
           linkData.map((e, i) => (
             <Grid item key={i}>
@@ -72,10 +84,10 @@ const Footer: FC = () => {
           ))}
       </Grid>
 
-      <Grid container item justify='center' spacing={1}>
+      <Grid container item justifyContent='center' spacing={1}>
         <Grid item>
           <Link target='_blank' href='https://www.linkedin.com/in/brian-lau/'>
-            <IconButton>
+            <IconButton size='large'>
               <LinkedIn />
             </IconButton>
           </Link>
@@ -83,14 +95,14 @@ const Footer: FC = () => {
 
         <Grid item>
           <Link target='_blank' href='https://www.instagram.com/image_brlau/'>
-            <IconButton>
+            <IconButton size='large'>
               <Instagram />
             </IconButton>
           </Link>
         </Grid>
         <Grid item>
           <Link target='_blank' href='https://www.github.com/wtlau'>
-            <IconButton>
+            <IconButton size='large'>
               <GitHub />
             </IconButton>
           </Link>
@@ -103,7 +115,7 @@ const Footer: FC = () => {
           © {new Date().getFullYear()} Brian Lau
         </Typography>
       </Grid> */}
-    </Grid>
+    </StyledGrid>
   )
 }
 
