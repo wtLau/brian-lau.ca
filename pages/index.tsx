@@ -1,8 +1,8 @@
 import { FC } from 'react'
 
-import { styled } from '@mui/material/styles';
-import createStyles from '@mui/styles/createStyles';
-import makeStyles from '@mui/styles/makeStyles';
+import { styled } from '@mui/material/styles'
+import createStyles from '@mui/styles/createStyles'
+import makeStyles from '@mui/styles/makeStyles'
 import Grid from '@mui/material/Grid'
 
 import Section1 from '@components/common/Landing/Section1'
@@ -11,30 +11,24 @@ import Section3 from '@components/common/Landing/Section3'
 import Section4 from '@components/common/Landing/Section4'
 import { Typography } from '@mui/material'
 
-const PREFIX = 'Index';
+const PREFIX = 'Index'
 
 const classes = {
-  root: `${PREFIX}-root`
-};
+  root: `${PREFIX}-root`,
+}
 
-const StyledGrid = styled(Grid)((
-  {
-    theme
-  }
-) => ({
+const StyledGrid = styled(Grid)(({ theme }) => ({
   [`&.${classes.root}`]: {
     flexGrow: 1,
-  }
-}));
+  },
+}))
 
 const Index: FC = () => {
-
-
   return (
     <StyledGrid
       container
       className={classes.root}
-      justify='center'
+      justifyContent='center'
       alignItems='center'
     >
       <Section1 />
@@ -42,7 +36,7 @@ const Index: FC = () => {
       {/* <Section3 /> */}
       {/* <Section4 /> */}
     </StyledGrid>
-  );
+  )
 }
 
 export default Index

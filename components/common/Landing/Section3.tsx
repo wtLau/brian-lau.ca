@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { styled } from '@mui/material/styles';
-import makeStyles from '@mui/styles/makeStyles';
+import { styled } from '@mui/material/styles'
+import makeStyles from '@mui/styles/makeStyles'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import Grid from '@mui/material/Grid'
@@ -9,19 +9,15 @@ import Image from 'next/image'
 import { Link } from '@components/ui'
 import { MenuBook } from '@mui/icons-material'
 
-const PREFIX = 'Section3';
+const PREFIX = 'Section3'
 
 const classes = {
   root: `${PREFIX}-root`,
   title: `${PREFIX}-title`,
-  button: `${PREFIX}-button`
-};
+  button: `${PREFIX}-button`,
+}
 
-const StyledGrid = styled(Grid)((
-  {
-    theme
-  }
-) => ({
+const StyledGrid = styled(Grid)(({ theme }) => ({
   [`&.${classes.root}`]: {
     flexGrow: 1,
     margin: theme.spacing(5, 0),
@@ -43,18 +39,16 @@ const StyledGrid = styled(Grid)((
     width: '100%',
     height: '48px',
     marginTop: theme.spacing(2),
-  }
-}));
+  },
+}))
 
 const Section3 = () => {
-
-
   return (
     <StyledGrid
       container
       alignItems='center'
       className={classes.root}
-      justify='center'
+      justifyContent='center'
       spacing={4}
     >
       <Grid item xs={12} md={6} container justifyContent='center'>
@@ -87,7 +81,7 @@ const Section3 = () => {
         </Link>
       </Grid>
     </StyledGrid>
-  );
+  )
 }
 
 export default Section3

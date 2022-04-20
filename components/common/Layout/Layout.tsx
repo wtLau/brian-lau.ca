@@ -1,7 +1,7 @@
 import { Footer, Navbar } from '@components/common'
 import { Grid, Theme } from '@mui/material'
-import { styled } from '@mui/material/styles';
-import makeStyles from '@mui/styles/makeStyles';
+import { styled } from '@mui/material/styles'
+import makeStyles from '@mui/styles/makeStyles'
 import React, { FC } from 'react'
 import './Layout.module.css'
 
@@ -44,7 +44,7 @@ declare interface LayoutProps {
 
 const Layout: FC<LayoutProps> = ({ children }) => {
   return (
-    <StyledGrid container className={classes.root} justify='center'>
+    <StyledGrid container className={classes.root} justifyContent='center'>
       <Grid item xs={12}>
         <Navbar />
       </Grid>
