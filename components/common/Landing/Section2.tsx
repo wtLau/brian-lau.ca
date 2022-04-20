@@ -1,8 +1,6 @@
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline'
 import { Grid, Card } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import Typography from '@mui/material/Typography'
-import makeStyles from '@mui/styles/makeStyles'
 import React from 'react'
 
 const PREFIX = 'Section1'

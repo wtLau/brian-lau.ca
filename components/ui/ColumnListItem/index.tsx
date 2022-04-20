@@ -1,8 +1,5 @@
-import { Typography, Theme } from '@mui/material'
+import { Typography } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import makeStyles from '@mui/styles/makeStyles'
-
-import { Link } from '@components/ui'
 
 const PREFIX = 'ColumnListItem'
 

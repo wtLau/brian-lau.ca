@@ -1,15 +1,8 @@
 import { Search } from '@mui/icons-material'
-import {
-  Grid,
-  Typography,
-  Theme,
-  TextField,
-  InputAdornment,
-} from '@mui/material'
+import { Grid, Typography, TextField, InputAdornment } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import makeStyles from '@mui/styles/makeStyles'
 import { NextSeo } from 'next-seo'
-import { ChangeEvent, ReactHTMLElement, useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 
 import { BlogPost } from '@components/ui'
 import { getAllFilesFrontMatter } from '@lib/mdx'

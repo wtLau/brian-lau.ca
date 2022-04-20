@@ -1,14 +1,6 @@
 import { GitHub, Instagram, LinkedIn } from '@mui/icons-material'
-import {
-  Grid,
-  Typography,
-  IconButton,
-  MenuList,
-  ListItemText,
-  Icon,
-} from '@mui/material'
-import { Theme, styled } from '@mui/material/styles'
-import makeStyles from '@mui/styles/makeStyles'
+import { Grid, Typography, IconButton } from '@mui/material'
+import { styled } from '@mui/material/styles'
 import React, { FC } from 'react'
 
 import { Link } from '@components/ui'

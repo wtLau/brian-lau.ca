@@ -2,7 +2,6 @@ import {
   createTheme,
   DeprecatedThemeOptions,
   useTheme,
-  Theme,
   ThemeProvider,
   StyledEngineProvider,
   adaptV4Theme,

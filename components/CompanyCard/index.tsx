@@ -1,6 +1,5 @@
 import { Grid, ButtonBase, Card, Typography } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import makeStyles from '@mui/styles/makeStyles'
 import Image from 'next/image'
 
 import { Link } from '@components/ui'

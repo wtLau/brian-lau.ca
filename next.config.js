@@ -5,7 +5,7 @@ module.exports = {
       'lh3.googleusercontent.com', // Google Image
     ],
   },
-  webpack: (config, { dev, isServer }) => {
+  webpack: (config, { isServer }) => {
     if (isServer) {
       require('./scripts/generate-sitemap.js')
       // require('./scripts/generate-rss')

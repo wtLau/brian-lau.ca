@@ -1,7 +1,6 @@
 import { Typography, Button, Grid } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import makeStyles from '@mui/styles/makeStyles'
-import { signIn, signOut, useSession } from 'next-auth/client'
+import { useSession } from 'next-auth/client'
 import Image from 'next/image'
 import React, { useState, useEffect } from 'react'
 
@@ -71,8 +70,8 @@ const About = () => {
 
             <Typography paragraph>
               Professionally, I am an web developer with an obsession for
-              well-crafted design, building seamless experiences for users. I'm
-              big on growth and teamwork. If we're gonna build the future, let's
+              well-crafted design, building seamless experiences for users. I am
+              big on growth and teamwork. If we are gonna build the future, lets
               have some fun doing it!
             </Typography>
 
@@ -111,6 +110,7 @@ const About = () => {
             src='https://www.google.com/maps/d/embed?mid=11fk358gCbvrJrgluq7zidFOMMv1CieaA&z=2'
             width='100%'
             height='680'
+            title='travel map'
           />
         </Grid>
         <Grid item xs={12}>

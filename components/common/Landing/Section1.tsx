@@ -1,12 +1,7 @@
-import { CloudDownload as DownloadIcon } from '@mui/icons-material'
-import { Typography, Button, Grid } from '@mui/material'
+import { Typography, Grid } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import makeStyles from '@mui/styles/makeStyles'
-import { signIn, signOut, useSession } from 'next-auth/client'
-import Image from 'next/image'
+import { useSession } from 'next-auth/client'
 import React from 'react'
-
-import { Link } from '@components/ui'
 
 const PREFIX = 'Section1'
 

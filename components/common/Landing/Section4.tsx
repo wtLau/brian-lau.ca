@@ -1,10 +1,8 @@
 // import { Card } from '@components/ui'
-import { Typography, Card } from '@mui/material'
+import { Typography } from '@mui/material'
 import Button from '@mui/material/Button'
 import Grid from '@mui/material/Grid'
 import { styled } from '@mui/material/styles'
-import makeStyles from '@mui/styles/makeStyles'
-import Image from 'next/image'
 import React from 'react'
 
 import { Link } from '@components/ui'

@@ -1,6 +1,5 @@
-import { Typography, Theme, CardContent, CardActions } from '@mui/material'
+import { Typography, CardContent, CardActions } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import makeStyles from '@mui/styles/makeStyles'
 import { NextSeo } from 'next-seo'
 import React from 'react'
 
@@ -35,7 +34,7 @@ export default function MacroCalculatorPage() {
             Nutrition Marco Calculator
           </Typography>
           <Typography variant='body1' paragraph>
-            This calculator can provide a suggested values for a person's
+            This calculator can provide a suggested values for a {"person's"}
             macronutrient in percentage or gram based on the daily calorie
             provided.
           </Typography>

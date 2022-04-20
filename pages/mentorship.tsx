@@ -1,17 +1,13 @@
-import { Typography, Button, Grid } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import makeStyles from '@mui/styles/makeStyles'
-import { signIn, signOut, useSession } from 'next-auth/client'
+import { useSession } from 'next-auth/client'
 import hydrate from 'next-mdx-remote/hydrate'
 import { NextSeo } from 'next-seo'
-import Image from 'next/image'
 import React, { useState, useEffect } from 'react'
 
 import MDXComponents from '@components/blog/BlogContent'
 import BlogLayout from '@components/layout/BlogLayout'
-import { Link } from '@components/ui'
 import { skillsData, TSkills } from '@data/skillsData'
-import { getFiles, getFileBySlug } from '@lib/mdx'
+import { getFileBySlug } from '@lib/mdx'
 
 const PREFIX = 'Mentorship'
 

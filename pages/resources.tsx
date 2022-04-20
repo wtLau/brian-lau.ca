@@ -1,9 +1,7 @@
-import { Typography, Button, Grid } from '@mui/material'
+import { Typography, Grid } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import makeStyles from '@mui/styles/makeStyles'
-import { signIn, signOut, useSession } from 'next-auth/client'
+import { useSession } from 'next-auth/client'
 import { NextSeo } from 'next-seo'
-import Image from 'next/image'
 import React, { useState, useEffect } from 'react'
 
 import { Link, ColumnListItem } from '@components/ui'
@@ -58,7 +56,7 @@ const About = () => {
       </Grid>
       <Grid item xs={12} className={classes.container}>
         {resources.map((resource) => (
-          <Link href={resource.url}>
+          <Link href={resource.url} key={resource.id}>
             <ColumnListItem title={resource.title} />
           </Link>
         ))}

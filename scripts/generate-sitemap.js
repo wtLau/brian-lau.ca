@@ -39,10 +39,9 @@ const prettier = require('prettier')
     `
 
   const formatted = prettier.format(sitemap, {
-    ...prettierConfig,
+    prettierConfig,
     parser: 'html',
   })
 
-  // eslint-disable-next-line no-sync
   fs.writeFileSync('public/sitemap.xml', formatted)
 })()

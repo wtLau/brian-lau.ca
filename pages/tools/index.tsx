@@ -1,9 +1,8 @@
 import fs from 'fs'
 import path from 'path'
 
-import { Grid, Typography, Theme } from '@mui/material'
+import { Grid, Typography } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import makeStyles from '@mui/styles/makeStyles'
 import type { InferGetStaticPropsType } from 'next'
 import { NextSeo } from 'next-seo'
 import React from 'react'

@@ -1,7 +1,6 @@
 import { Typography, Card } from '@mui/material'
 import Grid from '@mui/material/Grid'
 import { styled } from '@mui/material/styles'
-import makeStyles from '@mui/styles/makeStyles'
 import { Formik, Form, Field } from 'formik'
 import { NextSeo } from 'next-seo'
 import React from 'react'

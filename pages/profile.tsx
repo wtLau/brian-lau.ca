@@ -30,7 +30,7 @@ const Profile = () => {
   return (
     <Grid>
       <h1>Protected Page</h1>
-      <p>You're sign in as</p>
+      <p>{`You're sign in as`}</p>
 
       <strong>{userName || '\u00a0'}</strong>
       <br />

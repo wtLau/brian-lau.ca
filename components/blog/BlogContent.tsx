@@ -1,6 +1,6 @@
 import Typography from '@mui/material/Typography'
 import Image from 'next/image'
-import React, { AnchorHTMLAttributes, ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 
 import { Link } from '@components/ui'
 

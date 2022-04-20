@@ -15,7 +15,7 @@ const NotFound = () => (
         />
       </div>
       <h3 style={{ textAlign: 'center' }}>
-        Sorry, looks like the page you looked for doesn't exist :(
+        Sorry, looks like the page you looked for doesn&#39t exist :(
       </h3>
     </div>
   </>

@@ -3,12 +3,10 @@ import {
   Grid,
   Input,
   Slider as MSlider,
-  Theme,
   Typography,
   InputAdornment,
 } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import makeStyles from '@mui/styles/makeStyles'
 import React, { useEffect, useState } from 'react'
 
 const PREFIX = 'Slider'

@@ -1,7 +1,7 @@
 import 'styles/global.css'
 
 import { MDXProvider } from '@mdx-js/react'
-import { createTheme, CssBaseline } from '@mui/material'
+import { CssBaseline } from '@mui/material'
 import { Provider as NextAuthProvider } from 'next-auth/client'
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/dist/client/router'

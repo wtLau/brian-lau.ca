@@ -67,6 +67,7 @@
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.4.0",
     "eslint-plugin-testing-library": "^5.3.1",
+    "eslint-plugin-unused-imports": "^2.0.0",
     "flow-bin": "^0.98.1",
     "globby": "^11.0.2",
     "husky": "^7.0.4",
@@ -85,11 +86,11 @@
     "test": "yarn jest --watch --collectCoverage --silent",
     "lint": "eslint --fix --ext .js,.ts,.tsx ./ --ignore-path .gitignore",
     "prettier": "prettier --ignore-path .gitignore --write \"**/*.+(js|json|ts|tsx)\"",
-    "format": "npm run prettier -- --write",
+    "format": "yarn run prettier -- --write",
     "check-types": "tsc --project tsconfig.json --pretty --noEmit",
-    "check-format": "npm run prettier -- --list-different",
+    "check-format": "yarn run prettier -- --list-different",
     "postinstall": "husky install",
-    "precommit": "yarn check-types & lint-staged"
+    "precommit": "yarn check-types & yarn lint-staged"
   },
   "next-unused": {
     "alias": {
