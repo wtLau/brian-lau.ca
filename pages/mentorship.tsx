@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
-import { styled } from '@mui/material/styles';
-import makeStyles from '@mui/styles/makeStyles';
+import { styled } from '@mui/material/styles'
+import makeStyles from '@mui/styles/makeStyles'
 import { Typography, Button, Grid } from '@mui/material'
 import Image from 'next/image'
 import { Link } from '@components/ui'
@@ -13,20 +13,16 @@ import { skillsData, TSkills } from '@data/skillsData'
 import { signIn, signOut, useSession } from 'next-auth/client'
 import { NextSeo } from 'next-seo'
 
-const PREFIX = 'Mentorship';
+const PREFIX = 'Mentorship'
 
 const classes = {
   title: `${PREFIX}-title`,
   backgroundimage: `${PREFIX}-backgroundimage`,
-  container: `${PREFIX}-container`
-};
+  container: `${PREFIX}-container`,
+}
 
 // TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
-const Root = styled('div')((
-  {
-    theme
-  }
-) => ({
+const Root = styled('div')(({ theme }) => ({
   [`& .${classes.title}`]: {
     flexGrow: 1,
     marginTop: theme.spacing(17),
@@ -41,8 +37,8 @@ const Root = styled('div')((
 
   [`& .${classes.container}`]: {
     margin: theme.spacing(10, 0),
-  }
-}));
+  },
+}))
 
 interface Props {
   mdxSource: any
@@ -50,7 +46,6 @@ interface Props {
 }
 
 const Mentorship = ({ mdxSource, frontMatter }: Props) => {
-
   const [session] = useSession()
   const [skills, setSkills] = useState<TSkills[]>([])
 
@@ -63,20 +58,20 @@ const Mentorship = ({ mdxSource, frontMatter }: Props) => {
   }, [skills])
 
   return (
-    (<Root>
+    <Root>
       <NextSeo
         title='Mentorship'
         description='A description of what I can provide with my mentorship'
       />
       <BlogLayout frontMatter={frontMatter}>{contents}</BlogLayout>
-    </Root>)
-  );
+    </Root>
+  )
 }
 
 export default Mentorship
 
 export async function getStaticProps({ params }: any) {
-  const post = await getFileBySlug('/mentorship')
+  const post = await getFileBySlug('/blog/mentorship')
 
   return { props: post }
 }
