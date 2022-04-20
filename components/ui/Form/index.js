@@ -1,7 +1,7 @@
 import React from 'react'
 import './styles.css'
 
-import TextInput from '@material-ui/core/TextField'
+import TextInput from '@mui/material/TextField'
 
 // import TextInput from '../../componenets/TextInput'
 import validate from './validation'

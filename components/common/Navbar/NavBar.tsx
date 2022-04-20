@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-bind */
-import { GitHub, LinkedIn } from '@material-ui/icons'
+import { GitHub, LinkedIn } from '@mui/icons-material'
+import { styled } from '@mui/material/styles'
 import {
-  makeStyles,
   AppBar,
   Toolbar,
   Typography,
@@ -19,8 +19,9 @@ import {
   Menu,
   MenuItem,
   ListItemIcon,
-} from '@material-ui/core'
-import { Brightness7, Brightness4, Person, Eject } from '@material-ui/icons'
+} from '@mui/material'
+import makeStyles from '@mui/styles/makeStyles'
+import { Brightness7, Brightness4, Person, Eject } from '@mui/icons-material'
 
 import Image from 'next/image'
 // import Link from 'next/link'
@@ -31,8 +32,20 @@ import SideDrawer from './SideDrawer'
 
 import { signIn, signOut, useSession } from 'next-auth/client'
 
-const useStyles = makeStyles((theme: Theme) => ({
-  appBar: {
+const PREFIX = 'NavBar'
+
+const classes = {
+  appBar: `${PREFIX}-appBar`,
+  toolBar: `${PREFIX}-toolBar`,
+  logo: `${PREFIX}-logo`,
+  navbarDisplayFlex: `${PREFIX}-navbarDisplayFlex`,
+  navDisplayFlex: `${PREFIX}-navDisplayFlex`,
+  linkText: `${PREFIX}-linkText`,
+}
+
+// TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
+const Root = styled('div')(({ theme }) => ({
+  [`& .${classes.appBar}`]: {
     [theme.breakpoints.up('md')]: {
       height: '100px',
     },
@@ -41,27 +54,31 @@ const useStyles = makeStyles((theme: Theme) => ({
     flexDirection: 'row',
     backgroundColor: `${theme.palette.background.default}90`,
   },
-  toolBar: {
-    maxWidth: theme.breakpoints.width('lg'),
+
+  [`& .${classes.toolBar}`]: {
+    maxWidth: theme.breakpoints.values.lg,
     width: '100%',
     display: 'flex',
     justifyContent: 'space-between',
   },
 
-  logo: {
+  [`& .${classes.logo}`]: {
     marginRight: theme.spacing(1),
     background: `url('/static/images/profile/profile_placeholder.png')`,
     backgroundSize: 'contain',
   },
-  navbarDisplayFlex: {
+
+  [`& .${classes.navbarDisplayFlex}`]: {
     display: `flex`,
     justifyContent: `space-between`,
   },
-  navDisplayFlex: {
+
+  [`& .${classes.navDisplayFlex}`]: {
     display: `flex`,
     justifyContent: `space-between`,
   },
-  linkText: {
+
+  [`& .${classes.linkText}`]: {
     textDecoration: `none`,
     color: `white`,
   },
@@ -113,12 +130,10 @@ const NavBar = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
   const open = Boolean(anchorEl)
 
-  const classes = useStyles()
-
   return (
-    <>
+    <Root>
       <ElevationScroll>
-        <AppBar className={classes.appBar}>
+        <AppBar className={classes.appBar} color='transparent'>
           <Toolbar className={classes.toolBar}>
             <Link href='/'>
               <Grid container alignItems='center'>
@@ -128,7 +143,7 @@ const NavBar = () => {
               </Grid>
             </Link>
 
-            <Hidden smDown>
+            <Hidden lgDown>
               <List
                 component='nav'
                 aria-labelledby='main navigation'
@@ -173,8 +188,9 @@ const NavBar = () => {
                   <IconButton
                     onClick={() => changeTheme()}
                     title='Toggle light/dark theme'
+                    size='large'
                   >
-                    {theme.palette.type === 'dark' ? (
+                    {theme.palette.mode === 'dark' ? (
                       <Brightness7 />
                     ) : (
                       <Brightness4 />
@@ -191,7 +207,7 @@ const NavBar = () => {
         </AppBar>
       </ElevationScroll>
       <Toolbar />
-    </>
+    </Root>
   )
 }
 export default NavBar

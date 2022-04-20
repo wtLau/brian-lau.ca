@@ -1,23 +1,31 @@
 import { Link } from '@components/ui'
 
-import { Typography, makeStyles, Theme } from '@material-ui/core'
+import { styled } from '@mui/material/styles'
+
+import { Typography, Theme } from '@mui/material';
+
+import makeStyles from '@mui/styles/makeStyles';
+
+const PREFIX = 'ColumnListItem'
+
+const classes = {
+  mainGrid: `${PREFIX}-mainGrid`,
+}
+
+const Root = styled('div')(({ theme }) => ({
+  [`& .${classes.mainGrid}`]: {
+    marginTop: theme.spacing(6),
+  },
+}))
 
 type ColumnListProps = {
   title: string
   description?: string
 }
 
-const useStyles = makeStyles((theme: Theme) => ({
-  mainGrid: {
-    marginTop: theme.spacing(6),
-  },
-}))
-
 const ColumnListItem = ({ title, description }: ColumnListProps) => {
-  const cn = useStyles()
-
   return (
-    <div className={cn.mainGrid}>
+    <Root className={classes.mainGrid}>
       {title && (
         <Typography variant='h5' component={'h4'} gutterBottom>
           {title}
@@ -28,7 +36,7 @@ const ColumnListItem = ({ title, description }: ColumnListProps) => {
           {description}
         </Typography>
       )}
-    </div>
+    </Root>
   )
 }
 

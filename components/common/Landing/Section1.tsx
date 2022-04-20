@@ -1,42 +1,58 @@
 import React from 'react'
 
-import { makeStyles } from '@material-ui/core/styles'
-import { Typography, Button, Grid } from '@material-ui/core'
+import { styled } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import { Typography, Button, Grid } from '@mui/material'
 import Image from 'next/image'
 import { Link } from '@components/ui'
 
-import { CloudDownload as DownloadIcon } from '@material-ui/icons'
+import { CloudDownload as DownloadIcon } from '@mui/icons-material'
 import { signIn, signOut, useSession } from 'next-auth/client'
 
-const useStyles = makeStyles((theme) => ({
-  root: {
+const PREFIX = 'Section1';
+
+const classes = {
+  root: `${PREFIX}-root`,
+  backgroundimage: `${PREFIX}-backgroundimage`,
+  buttonGrp: `${PREFIX}-buttonGrp`,
+  button: `${PREFIX}-button`
+};
+
+const StyledGrid = styled(Grid)((
+  {
+    theme
+  }
+) => ({
+  [`&.${classes.root}`]: {
     flexGrow: 1,
     minHeight: '95vh',
   },
 
-  backgroundimage: {
-    [theme.breakpoints.down('md')]: {
+  [`& .${classes.backgroundimage}`]: {
+    [theme.breakpoints.down('xl')]: {
       width: '100%',
       height: '100%',
     },
   },
-  buttonGrp: {
+
+  [`& .${classes.buttonGrp}`]: {
     marginTop: theme.spacing(4),
   },
-  button: {
+
+  [`& .${classes.button}`]: {
     borderRadius: '50px',
     width: '100%',
     height: '48px',
-  },
-}))
+  }
+}));
 
 const Section1 = () => {
-  const classes = useStyles()
+
   const [session] = useSession()
   const userName = session?.user?.name || 'stranger'
 
   return (
-    <Grid container className={classes.root} spacing={8} alignContent='center'>
+    <StyledGrid container className={classes.root} spacing={8} alignContent='center'>
       <Grid item>
         <Typography variant='h2' component={'h1'} gutterBottom>
           Hey, {userName}! I'm Brian Lau
@@ -48,8 +64,8 @@ const Section1 = () => {
         </Typography>
         <Typography>Sign my guestbook and let know me you're here!</Typography>
       </Grid>
-    </Grid>
-  )
+    </StyledGrid>
+  );
 }
 
 export default Section1

@@ -1,9 +1,24 @@
 import { Link } from '@components/ui'
+import { styled } from '@mui/material/styles'
 import useSWR from 'swr'
 // import format from 'comma-number'
 
 import fetcher from '@lib/fetcher'
-import { Typography, makeStyles, Theme } from '@material-ui/core'
+import { Typography, Theme } from '@mui/material';
+
+import makeStyles from '@mui/styles/makeStyles';
+
+const PREFIX = 'BlogPost'
+
+const classes = {
+  mainGrid: `${PREFIX}-mainGrid`,
+}
+
+const Root = styled('div')(({ theme }) => ({
+  [`& .${classes.mainGrid}`]: {
+    marginTop: theme.spacing(6),
+  },
+}))
 
 interface IPost {
   title: string
@@ -11,21 +26,15 @@ interface IPost {
   slug: string
 }
 
-const useStyles = makeStyles((theme: Theme) => ({
-  mainGrid: {
-    marginTop: theme.spacing(6),
-  },
-}))
-
 const BlogPost = ({ title, summary, slug }: IPost) => {
   // const { data } = useSWR(
   //   `/api/views/${slug}`,
   //   fetcher
   // )
   // const views = data?.total
-  const cn = useStyles()
+
   return (
-    <div className={cn.mainGrid}>
+    <Root className={classes.mainGrid}>
       <Link href={`/blog/${slug}`}>
         <div>
           <Typography variant='h5' component={'h4'} gutterBottom>
@@ -37,7 +46,7 @@ const BlogPost = ({ title, summary, slug }: IPost) => {
           </Typography>
         </div>
       </Link>
-    </div>
+    </Root>
   )
 }
 

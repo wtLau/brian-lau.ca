@@ -1,33 +1,42 @@
 import type { InferGetStaticPropsType } from 'next'
+import { styled } from '@mui/material/styles'
 import { NextSeo } from 'next-seo'
 import React from 'react'
-import { Grid, Typography, makeStyles, Theme } from '@material-ui/core'
+import { Grid, Typography, Theme } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import fs from 'fs'
 import path from 'path'
 import ToolCard from '@components/tools/MacroCalculator/ToolCard'
 
-const root = process.cwd()
+const PREFIX = 'index'
 
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {},
-  gridMargin: {
+const classes = {
+  root: `${PREFIX}-root`,
+  gridMargin: `${PREFIX}-gridMargin`,
+}
+
+// TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
+const Root = styled('div')(({ theme }) => ({
+  [`& .${classes.root}`]: {},
+
+  [`& .${classes.gridMargin}`]: {
     marginTop: theme.spacing(15),
   },
 }))
 
+const root = process.cwd()
+
 export default function Tools({
   tools,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const cn = useStyles()
-
   console.log(tools)
   return (
-    <>
+    <Root>
       <NextSeo
         title='Tools'
         description='Thoughts on the front-end development, programming, diet, fitness, coffee, and my personal life.'
       />
-      <Grid container className={cn.root}>
+      <Grid container className={classes.root}>
         <Typography variant='h1' gutterBottom>
           Tools
         </Typography>
@@ -36,22 +45,19 @@ export default function Tools({
           {`I love building tools that could assist me on various day-to-day task. In total, I've made ${tools.length} published tools on this site.`}
         </Typography>
       </Grid>
-
-      <Typography variant='h2' gutterBottom className={cn.gridMargin}>
+      <Typography variant='h2' gutterBottom className={classes.gridMargin}>
         All Tools
       </Typography>
-
       {!tools.length && (
         <Typography variant='body1'>
           No tool found. Please let me know if you are interested to learn more
           about it.
         </Typography>
       )}
-
       {tools.map(({ title, slug, ...rest }) => (
         <ToolCard key={slug} title={title} slug={slug} {...rest} />
       ))}
-    </>
+    </Root>
   )
 }
 export async function getStaticProps() {
@@ -75,7 +81,7 @@ export async function getStaticProps() {
           title: slug.replace(/-/g, ' '),
         },
         ...allTools,
-      ]
+      ];
     },
     []
   )

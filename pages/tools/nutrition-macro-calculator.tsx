@@ -1,32 +1,36 @@
 import { Card } from '@components/ui'
+import { styled } from '@mui/material/styles'
 import MacroCalculator from '@components/tools/MacroCalculator/MacroCalculator'
-import {
-  Typography,
-  makeStyles,
-  Theme,
-  CardContent,
-  CardActions,
-} from '@material-ui/core'
+import { Typography, Theme, CardContent, CardActions } from '@mui/material';
+
+import makeStyles from '@mui/styles/makeStyles';
 
 import React from 'react'
 import { NextSeo } from 'next-seo'
 
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {
+const PREFIX = 'nutrition-macro-calculator'
+
+const classes = {
+  root: `${PREFIX}-root`,
+  gridMargin: `${PREFIX}-gridMargin`,
+}
+
+// TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
+const Root = styled('div')(({ theme }) => ({
+  [`& .${classes.root}`]: {
     flexGrow: 1,
   },
-  gridMargin: {
+
+  [`& .${classes.gridMargin}`]: {
     marginTop: theme.spacing(8),
   },
 }))
 
 export default function MacroCalculatorPage() {
-  const cn = useStyles()
-
   return (
-    <>
+    <Root>
       <NextSeo title='Tools' description='Tools that you might find useful' />
-      <Card className={cn.root}>
+      <Card className={classes.root}>
         <CardContent>
           <Typography component={'h1'} variant='h3' gutterBottom>
             Nutrition Marco Calculator
@@ -52,6 +56,6 @@ export default function MacroCalculatorPage() {
           </CardActions>
         </CardContent>
       </Card>
-    </>
+    </Root>
   )
 }

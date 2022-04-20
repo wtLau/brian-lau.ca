@@ -1,5 +1,5 @@
 import NextLink, { LinkProps as NextLinkProps } from 'next/link'
-import { Link as MaterialLink, LinkProps } from '@material-ui/core'
+import { Link as MaterialLink, LinkProps } from '@mui/material'
 
 type TLink = NextLinkProps & LinkProps
 

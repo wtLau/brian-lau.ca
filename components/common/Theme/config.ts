@@ -1,15 +1,11 @@
-import { PaletteType, ThemeOptions } from '@material-ui/core'
-import { PaletteOptions } from '@material-ui/core/styles/createPalette'
-import Theme from '.'
+import { ThemeOptions } from '@mui/material'
+import { PaletteOptions } from '@mui/material/styles'
 
 // Create a theme instance.
 const themeConfig: ThemeOptions = {
   palette: {
     primary: {
       main: '#347d39',
-      // light: '#dba044',
-      // dark: '#734700',
-      // contrastText: "#fff"
     },
     secondary: {
       main: 'rgb(173, 186, 199)',

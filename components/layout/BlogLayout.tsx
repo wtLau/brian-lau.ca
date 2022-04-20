@@ -1,10 +1,35 @@
 import Image from 'next/image'
+import { styled } from '@mui/material/styles'
 import { parseISO, format } from 'date-fns'
 
 import BlogContent from '../blog/BlogContent'
-import { Typography, makeStyles, Theme, Grid } from '@material-ui/core'
+import { Typography, Theme, Grid } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { Link } from '@components/ui'
 import { ReactNode } from 'react'
+
+const PREFIX = 'BlogLayout'
+
+const classes = {
+  header: `${PREFIX}-header`,
+  profile: `${PREFIX}-profile`,
+  content: `${PREFIX}-content`,
+}
+
+const Root = styled('article')(({ theme }) => ({
+  [`& .${classes.header}`]: {
+    marginBottom: theme.spacing(10),
+  },
+
+  [`& .${classes.profile}`]: {
+    borderRadius: '50%',
+    marginRight: '1rem',
+  },
+
+  [`& .${classes.content}`]: {
+    margin: '2.5rem 0',
+  },
+}))
 
 const editUrl = (slug: string) =>
   `https://github.com/wtLau/Portfolio-App/edit/development/data/blog/${slug}.mdx`
@@ -19,23 +44,9 @@ type Props = {
   frontMatter: any
 }
 
-const useStyles = makeStyles((theme: Theme) => ({
-  header: {
-    marginBottom: theme.spacing(10),
-  },
-  profile: {
-    borderRadius: '50%',
-    marginRight: '1rem',
-  },
-  content: {
-    margin: '2.5rem 0',
-  },
-}))
-
 export default function BlogLayout({ children, frontMatter }: Props) {
-  const classes = useStyles()
   return (
-    <article>
+    <Root>
       <Grid container className={classes.header}>
         <Grid item>
           <Typography variant='h1' gutterBottom>
@@ -107,6 +118,6 @@ export default function BlogLayout({ children, frontMatter }: Props) {
           </Link>
         </Grid>
       </Grid>
-    </article>
+    </Root>
   )
 }

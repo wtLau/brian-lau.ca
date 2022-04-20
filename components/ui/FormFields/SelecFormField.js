@@ -6,7 +6,7 @@ import {
   Select,
   MenuItem,
   FormHelperText,
-} from '@material-ui/core'
+} from '@mui/material'
 
 const SelectFormField = ({ field, form, label, options, ...props }) => {
   const errorText =

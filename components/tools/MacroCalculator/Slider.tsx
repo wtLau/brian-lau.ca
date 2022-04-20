@@ -2,21 +2,30 @@ import {
   Grid,
   Input,
   Slider as MSlider,
-  makeStyles,
   Theme,
   Typography,
   InputAdornment,
-} from '@material-ui/core'
+} from '@mui/material'
+import makeStyles from '@mui/styles/makeStyles'
+import { styled } from '@mui/material/styles'
 import React, { useEffect, useState } from 'react'
-import { Add, Remove } from '@material-ui/icons'
+import { Add, Remove } from '@mui/icons-material'
 
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {
+const PREFIX = 'Slider'
+
+const classes = {
+  root: `${PREFIX}-root`,
+  input: `${PREFIX}-input`,
+}
+
+const StyledGrid = styled(Grid)(({ theme }) => ({
+  [`& .${classes.root}`]: {
     flexGrow: 1,
     marginTop: theme.spacing(3),
     border: `1px solid ${theme.palette.divider}`,
   },
-  input: {
+
+  [`& .${classes.input}`]: {
     width: '70px',
     '& input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button': {
       '-webkit-appearance': 'none',
@@ -31,7 +40,6 @@ type Props = {
 }
 
 export default function Slider({ title, defaultPercentage, kcal }: Props) {
-  const cn = useStyles()
   const [percentage, setPercentage] = useState<number>(defaultPercentage)
 
   const [macro, setMacro] = useState<number>(0)
@@ -84,18 +92,23 @@ export default function Slider({ title, defaultPercentage, kcal }: Props) {
   }, [percentage, calorie, kcal])
 
   return (
-    <Grid container justify='center' spacing={3} className={cn.root}>
+    <StyledGrid
+      container
+      justifyContent='center'
+      spacing={3}
+      className={classes.root}
+    >
       <Grid item xs={6}>
         <Typography id='input-slider' gutterBottom>
           {title}
         </Typography>
       </Grid>
 
-      <Grid item container justify='space-between' xs={4}>
+      <Grid item container justifyContent='space-between' xs={4}>
         <Typography>{macro} g</Typography>
 
         <Input
-          className={cn.input}
+          className={classes.input}
           value={percentage}
           margin='dense'
           onChange={handleInputChange}
@@ -124,6 +137,6 @@ export default function Slider({ title, defaultPercentage, kcal }: Props) {
         </Grid>
         <Grid item xs={1} component={Add} />
       </Grid>
-    </Grid>
+    </StyledGrid>
   )
 }

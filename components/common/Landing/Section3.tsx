@@ -1,49 +1,63 @@
 import React from 'react'
 
-import { makeStyles } from '@material-ui/core/styles'
-import Typography from '@material-ui/core/Typography'
-import Button from '@material-ui/core/Button'
-import Grid from '@material-ui/core/Grid'
+import { styled } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import Typography from '@mui/material/Typography'
+import Button from '@mui/material/Button'
+import Grid from '@mui/material/Grid'
 import Image from 'next/image'
 import { Link } from '@components/ui'
-import { MenuBook } from '@material-ui/icons'
+import { MenuBook } from '@mui/icons-material'
 
-const useStyles = makeStyles((theme) => ({
-  root: {
+const PREFIX = 'Section3';
+
+const classes = {
+  root: `${PREFIX}-root`,
+  title: `${PREFIX}-title`,
+  button: `${PREFIX}-button`
+};
+
+const StyledGrid = styled(Grid)((
+  {
+    theme
+  }
+) => ({
+  [`&.${classes.root}`]: {
     flexGrow: 1,
     margin: theme.spacing(5, 0),
   },
 
-  title: {
+  [`& .${classes.title}`]: {
     background: `no-repeat  url('/section3-title.png')`,
     height: '400px',
     backgroundPosition: '50% 13%',
     backgroundSize: '35px 243px',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('xl')]: {
       background: `no-repeat  url('/section3-title-horizontal.png')`,
       height: 'auto',
     },
   },
-  button: {
+
+  [`& .${classes.button}`]: {
     borderRadius: '50px',
     width: '100%',
     height: '48px',
     marginTop: theme.spacing(2),
-  },
-}))
+  }
+}));
 
 const Section3 = () => {
-  const classes = useStyles()
+
 
   return (
-    <Grid
+    <StyledGrid
       container
       alignItems='center'
       className={classes.root}
       justify='center'
       spacing={4}
     >
-      <Grid item xs={12} md={6} container justify='center'>
+      <Grid item xs={12} md={6} container justifyContent='center'>
         <Image
           src='/static/images/section3-shape.png'
           alt='portrait-image'
@@ -72,8 +86,8 @@ const Section3 = () => {
           </Button>
         </Link>
       </Grid>
-    </Grid>
-  )
+    </StyledGrid>
+  );
 }
 
 export default Section3

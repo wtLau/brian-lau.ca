@@ -1,39 +1,49 @@
 import { Link } from '@components/ui'
 
-import { Typography, makeStyles, Theme } from '@material-ui/core'
+import { styled } from '@mui/material/styles'
+
+import { Typography, Theme } from '@mui/material';
+
+import makeStyles from '@mui/styles/makeStyles';
+
+const PREFIX = 'ToolCard'
+
+const classes = {
+  mainGrid: `${PREFIX}-mainGrid`,
+  text: `${PREFIX}-text`,
+}
+
+const Root = styled('div')(({ theme }) => ({
+  [`& .${classes.mainGrid}`]: {
+    marginTop: theme.spacing(6),
+  },
+
+  [`& .${classes.text}`]: {
+    textTransform: 'capitalize',
+  },
+}))
 
 interface IPost {
   slug: string
   title: string
 }
 
-const useStyles = makeStyles((theme: Theme) => ({
-  mainGrid: {
-    marginTop: theme.spacing(6),
-  },
-  text: {
-    textTransform: 'capitalize',
-  },
-}))
-
 const ToolCard = ({ title, slug, ...RestaurantOutlined }: IPost) => {
-  const cn = useStyles()
-
   return (
-    <div className={cn.mainGrid}>
+    <Root className={classes.mainGrid}>
       <Link href={`/tools/${slug}`}>
         <div>
           <Typography
             variant='h5'
             component={'h4'}
             gutterBottom
-            className={cn.text}
+            className={classes.text}
           >
             {title}
           </Typography>
         </div>
       </Link>
-    </div>
+    </Root>
   )
 }
 
