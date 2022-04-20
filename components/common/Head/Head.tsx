@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import NextHead from 'next/head'
 import { DefaultSeo } from 'next-seo'
-import seoConfig from '@config/seo.json'
+import seoConfig from '@data/seo.json'
 
 import { GA_TRACKING_ID } from '@lib/gtag'
 
