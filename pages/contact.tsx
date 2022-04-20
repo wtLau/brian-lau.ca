@@ -6,10 +6,9 @@ import { NextSeo } from 'next-seo'
 import React from 'react'
 import * as yup from 'yup'
 
-import Button from '@components/ui/Button/Button'
+import Button from '@components/ui/Button'
 import SelectFormField from '@components/ui/FormFields/SelecFormField'
 import { TextFormField } from '@components/ui/FormFields/TextFormField'
-// import Card from '@components/ui/Card'
 
 const PREFIX = 'Contact'
 
