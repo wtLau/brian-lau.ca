@@ -43,6 +43,7 @@
     "yup": "^0.32.8"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^12.1.5",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@types/jest": "^26.0.20",
