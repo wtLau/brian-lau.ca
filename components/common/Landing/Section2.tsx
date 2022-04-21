@@ -1,23 +1,16 @@
+import { Grid, Card } from '@mui/material'
+import { styled } from '@mui/material/styles'
+import Typography from '@mui/material/Typography'
 import React from 'react'
 
-import { styled } from '@mui/material/styles';
-import makeStyles from '@mui/styles/makeStyles';
-import Typography from '@mui/material/Typography'
-import { Grid, Card } from '@mui/material'
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline'
-
-const PREFIX = 'Section1';
+const PREFIX = 'Section1'
 
 const classes = {
   root: `${PREFIX}-root`,
-  card: `${PREFIX}-card`
-};
+  card: `${PREFIX}-card`,
+}
 
-const StyledGrid = styled(Grid)((
-  {
-    theme
-  }
-) => ({
+const StyledGrid = styled(Grid)(({ theme }) => ({
   [`&.${classes.root}`]: {
     [theme.breakpoints.up('md')]: {
       background: `no-repeat bottom url('/static/images/section2-background.png')`,
@@ -34,12 +27,10 @@ const StyledGrid = styled(Grid)((
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-  }
-}));
+  },
+}))
 
 const Section1 = () => {
-
-
   return (
     <StyledGrid container item xs={12} spacing={4} className={classes.root}>
       <Grid item xs={12} md={4}>
@@ -66,7 +57,7 @@ const Section1 = () => {
         </Card>
       </Grid>
     </StyledGrid>
-  );
+  )
 }
 
 export default Section1

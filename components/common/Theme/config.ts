@@ -1,5 +1,4 @@
 import { ThemeOptions } from '@mui/material'
-import { PaletteOptions } from '@mui/material/styles'
 
 // Create a theme instance.
 const themeConfig: ThemeOptions = {

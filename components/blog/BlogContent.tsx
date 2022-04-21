@@ -1,8 +1,8 @@
-import React, { AnchorHTMLAttributes, ReactNode } from 'react'
 import Typography from '@mui/material/Typography'
-import { Link } from '@components/ui'
-
 import Image from 'next/image'
+import React, { ReactNode } from 'react'
+
+import { Link } from '@components/ui'
 
 type Props = {
   children: ReactNode
@@ -11,7 +11,14 @@ type Props = {
 
 const H1 = ({ children }: Props) => {
   return (
-    <Typography variant='h1' gutterBottom style={{ marginTop: '3rem', marginBottom: '2rem' }}>
+    <Typography
+      variant='h1'
+      gutterBottom
+      style={{
+        marginTop: '3rem',
+        marginBottom: '2rem',
+      }}
+    >
       {children}
     </Typography>
   )
@@ -19,7 +26,14 @@ const H1 = ({ children }: Props) => {
 
 const H2 = ({ children }: Props) => {
   return (
-    <Typography variant='h2' gutterBottom style={{ marginTop: '3rem', marginBottom: '2rem' }}>
+    <Typography
+      variant='h2'
+      gutterBottom
+      style={{
+        marginTop: '3rem',
+        marginBottom: '2rem',
+      }}
+    >
       {children}
     </Typography>
   )
@@ -27,7 +41,14 @@ const H2 = ({ children }: Props) => {
 
 const H3 = ({ children }: Props) => {
   return (
-    <Typography variant='h3' gutterBottom style={{ marginTop: '3rem', marginBottom: '2rem' }}>
+    <Typography
+      variant='h3'
+      gutterBottom
+      style={{
+        marginTop: '3rem',
+        marginBottom: '2rem',
+      }}
+    >
       {children}
     </Typography>
   )
@@ -35,7 +56,14 @@ const H3 = ({ children }: Props) => {
 
 const H4 = ({ children }: Props) => {
   return (
-    <Typography variant='h4' gutterBottom style={{ marginTop: '3rem', marginBottom: '2rem' }}>
+    <Typography
+      variant='h4'
+      gutterBottom
+      style={{
+        marginTop: '3rem',
+        marginBottom: '2rem',
+      }}
+    >
       {children}
     </Typography>
   )
@@ -43,7 +71,12 @@ const H4 = ({ children }: Props) => {
 
 const P = ({ children }: Props) => {
   return (
-    <Typography variant='body1' paragraph gutterBottom style={{ margin: '1rem 0' }} >
+    <Typography
+      variant='body1'
+      paragraph
+      gutterBottom
+      style={{ margin: '1rem 0' }}
+    >
       {children}
     </Typography>
   )
@@ -53,7 +86,12 @@ const mdxLink = ({ href, children }: Props) => {
   const isInternalLink = href && (href.startsWith('/') || href.startsWith('#'))
   if (isInternalLink) {
     return (
-      <Link href={href} style={{ textDecorationLine: 'underline' }}>
+      <Link
+        href={href}
+        style={{
+          textDecorationLine: 'underline',
+        }}
+      >
         {children}
       </Link>
     )

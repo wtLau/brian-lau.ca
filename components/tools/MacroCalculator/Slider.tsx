@@ -1,15 +1,13 @@
+import { Add, Remove } from '@mui/icons-material'
 import {
   Grid,
   Input,
   Slider as MSlider,
-  Theme,
   Typography,
   InputAdornment,
 } from '@mui/material'
-import makeStyles from '@mui/styles/makeStyles'
 import { styled } from '@mui/material/styles'
 import React, { useEffect, useState } from 'react'
-import { Add, Remove } from '@mui/icons-material'
 
 const PREFIX = 'Slider'
 

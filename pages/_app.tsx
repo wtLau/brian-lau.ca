@@ -1,16 +1,16 @@
 import 'styles/global.css'
 
-import React, { useEffect } from 'react'
-import type { AppProps } from 'next/app'
-import { ThemeCustomProvider, Head } from '@components/common'
-import { Layout } from '@components/common'
-import themeConfig from '@components/common/Theme/config'
-import { createTheme, CssBaseline } from '@mui/material'
-import { Provider as NextAuthProvider } from 'next-auth/client'
-import { useRouter } from 'next/dist/client/router'
-import * as gtag from '@lib/gtag'
 import { MDXProvider } from '@mdx-js/react'
+import { CssBaseline } from '@mui/material'
+import { Provider as NextAuthProvider } from 'next-auth/client'
+import type { AppProps } from 'next/app'
+import { useRouter } from 'next/dist/client/router'
+import React, { useEffect } from 'react'
+
 import MDXComponents from '@components/blog/BlogContent'
+import { ThemeCustomProvider, Head, Layout } from '@components/common'
+import themeConfig from '@components/common/Theme/config'
+import * as gtag from '@lib/gtag'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()

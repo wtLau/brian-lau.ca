@@ -1,10 +1,7 @@
-import { Link } from '@components/ui'
-
+import { Typography } from '@mui/material'
 import { styled } from '@mui/material/styles'
 
-import { Typography, Theme } from '@mui/material';
-
-import makeStyles from '@mui/styles/makeStyles';
+import { Link } from '@components/ui'
 
 const PREFIX = 'ToolCard'
 
@@ -28,7 +25,7 @@ interface IPost {
   title: string
 }
 
-const ToolCard = ({ title, slug, ...RestaurantOutlined }: IPost) => {
+const ToolCard = ({ title, slug }: IPost) => {
   return (
     <Root className={classes.mainGrid}>
       <Link href={`/tools/${slug}`}>

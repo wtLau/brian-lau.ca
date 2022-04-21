@@ -1,26 +1,17 @@
-import { Card } from '@components/ui'
-import { styled } from '@mui/material/styles'
-import MacroCalculator from '@components/tools/MacroCalculator/MacroCalculator'
 import {
   Typography,
-  Theme,
   CardContent,
-  CardActions,
   Chip,
   TextField,
   InputAdornment,
-  Button,
   Grid,
-  FormControl,
-  InputLabel,
 } from '@mui/material'
-import makeStyles from '@mui/styles/makeStyles'
+import { styled } from '@mui/material/styles'
 import clsx from 'clsx'
-
 import React, { useState } from 'react'
-import { NextSeo } from 'next-seo'
+
 import { HeadSeo } from '@components/HeadSeo'
-import { number } from 'yup'
+import { Card } from '@components/ui'
 
 const PREFIX = 'pourover-coffee-tool'
 
@@ -148,9 +139,8 @@ export default function MacroCalculatorPage() {
                 <Typography variant='h5'>Coffee Ratio</Typography>
                 <Grid container spacing={1}>
                   {brewRatioList.map(({ title, value, id }) => (
-                    <Grid item>
+                    <Grid item key={id}>
                       <Chip
-                        key={id}
                         label={title}
                         variant={ratio === value ? 'filled' : 'outlined'}
                         color='primary'

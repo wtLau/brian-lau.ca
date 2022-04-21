@@ -1,13 +1,12 @@
-import React from 'react'
-
-import { styled } from '@mui/material/styles'
-import makeStyles from '@mui/styles/makeStyles'
-import Typography from '@mui/material/Typography'
+import { MenuBook } from '@mui/icons-material'
 import Button from '@mui/material/Button'
 import Grid from '@mui/material/Grid'
+import { styled } from '@mui/material/styles'
+import Typography from '@mui/material/Typography'
 import Image from 'next/image'
+import React from 'react'
+
 import { Link } from '@components/ui'
-import { MenuBook } from '@mui/icons-material'
 
 const PREFIX = 'Section3'
 

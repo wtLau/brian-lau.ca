@@ -1,8 +1,8 @@
-import { Footer, Navbar } from '@components/common'
-import { Grid, Theme } from '@mui/material'
+import { Grid } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import makeStyles from '@mui/styles/makeStyles'
 import React, { FC } from 'react'
+
+import { Footer, Navbar } from '@components/common'
 import './Layout.module.css'
 
 const PREFIX = 'Layout'

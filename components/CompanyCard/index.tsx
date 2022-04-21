@@ -1,29 +1,25 @@
-import { CompanyType } from '@data/companyData'
 import { Grid, ButtonBase, Card, Typography } from '@mui/material'
-import { styled } from '@mui/material/styles';
-import makeStyles from '@mui/styles/makeStyles';
-import { Link } from '@components/ui'
+import { styled } from '@mui/material/styles'
 import Image from 'next/image'
 
-const PREFIX = 'CompanyCard';
+import { Link } from '@components/ui'
+import { CompanyType } from '@data/companyData'
+
+const PREFIX = 'CompanyCard'
 
 const classes = {
-  companyCard: `${PREFIX}-companyCard`
-};
+  companyCard: `${PREFIX}-companyCard`,
+}
 
-const StyledGrid = styled(Grid)((
-  {
-    theme
-  }
-) => ({
+const StyledGrid = styled(Grid)(({ theme }) => ({
   [`& .${classes.companyCard}`]: {
     minHeight: '200px',
     background: theme.palette.background.paper,
     borderRadius: '50px',
     width: '100%',
     padding: theme.spacing(3, 2),
-  }
-}));
+  },
+}))
 
 type CompanyCardType = {
   company: CompanyType
@@ -31,7 +27,6 @@ type CompanyCardType = {
 
 function CompanyCard({ company }: CompanyCardType) {
   const { name, description, link, imageAlt, imageLocation, title } = company
-
 
   return (
     <StyledGrid item xs={12}>
@@ -63,7 +58,7 @@ function CompanyCard({ company }: CompanyCardType) {
         </ButtonBase>
       </Link>
     </StyledGrid>
-  );
+  )
 }
 
 export default CompanyCard

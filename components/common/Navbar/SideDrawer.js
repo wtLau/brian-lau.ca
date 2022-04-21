@@ -1,22 +1,16 @@
-import {
-  Drawer,
-  IconButton,
-  List,
-  ListItem,
-  ListItemText,
-} from '@mui/material'
-import { styled } from '@mui/material/styles';
-import makeStyles from '@mui/styles/makeStyles';
+import { Drawer, IconButton, List, ListItem, ListItemText } from '@mui/material'
+import { styled } from '@mui/material/styles'
+import makeStyles from '@mui/styles/makeStyles'
 import { Menu } from '@mui/icons-material'
 import * as React from 'react'
 import { useState } from 'react'
 import { Link } from '@components/ui'
-const PREFIX = 'SideDrawer';
+const PREFIX = 'SideDrawer'
 
 const classes = {
   list: `${PREFIX}-list`,
-  linkText: `${PREFIX}-linkText`
-};
+  linkText: `${PREFIX}-linkText`,
+}
 
 // TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
 const Root = styled('div')({
@@ -28,7 +22,7 @@ const Root = styled('div')({
     textTransform: `uppercase`,
     color: `black`,
   },
-});
+})
 
 // type Props = {
 //   navLinks: {
@@ -39,14 +33,11 @@ const Root = styled('div')({
 // }
 
 const SideDrawer = ({ navLinks }) => {
-
   const [state, setState] = useState({
     right: false,
   })
 
-  const toggleDrawer = (anchor, open) => (
-    event
-  ) => {
+  const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === 'keydown') {
       return
     }
@@ -62,20 +53,18 @@ const SideDrawer = ({ navLinks }) => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List component='nav'>
-        {navLinks.map(
-          ({ title, path, external }) => (
-            <Link
-              href={path}
-              key={title}
-              target={external ? '_blank' : ''}
-              className={classes.linkText}
-            >
-              <ListItem button>
-                <ListItemText primary={title} />
-              </ListItem>
-            </Link>
-          )
-        )}
+        {navLinks.map(({ title, path, external }) => (
+          <Link
+            href={path}
+            key={title}
+            target={external ? '_blank' : ''}
+            className={classes.linkText}
+          >
+            <ListItem button>
+              <ListItemText primary={title} />
+            </ListItem>
+          </Link>
+        ))}
       </List>
     </div>
   )
@@ -86,7 +75,8 @@ const SideDrawer = ({ navLinks }) => {
         edge='start'
         aria-label='menu'
         onClick={toggleDrawer('right', true)}
-        size="large">
+        size='large'
+      >
         <Menu fontSize='large' color='primary' />
       </IconButton>
 
@@ -99,7 +89,7 @@ const SideDrawer = ({ navLinks }) => {
         {sideDrawerList('right')}
       </Drawer>
     </Root>
-  );
+  )
 }
 
 export default SideDrawer

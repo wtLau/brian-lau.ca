@@ -34,3 +34,5 @@ yarn-error.log*
 
 
 public/sitemap.xml
+pages/profile.tsx
+tsconfig.tsbuildinfo

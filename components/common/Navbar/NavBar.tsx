@@ -1,13 +1,10 @@
 /* eslint-disable react/jsx-no-bind */
-import { GitHub, LinkedIn } from '@mui/icons-material'
-import { styled } from '@mui/material/styles'
+import { Brightness7, Brightness4 } from '@mui/icons-material'
 import {
   AppBar,
   Toolbar,
   Typography,
   IconButton,
-  Avatar,
-  Theme,
   Grid,
   useScrollTrigger,
   List,
@@ -15,22 +12,17 @@ import {
   ListItemText,
   Hidden,
   useTheme,
-  Button,
-  Menu,
-  MenuItem,
   ListItemIcon,
 } from '@mui/material'
-import makeStyles from '@mui/styles/makeStyles'
-import { Brightness7, Brightness4, Person, Eject } from '@mui/icons-material'
-
-import Image from 'next/image'
+import { styled } from '@mui/material/styles'
+import { useSession } from 'next-auth/client'
 // import Link from 'next/link'
 import React from 'react'
+
 import { useChangeTheme } from '@components/common/Theme'
 import { Link } from '@components/ui'
-import SideDrawer from './SideDrawer'
 
-import { signIn, signOut, useSession } from 'next-auth/client'
+import SideDrawer from './SideDrawer'
 
 const PREFIX = 'NavBar'
 

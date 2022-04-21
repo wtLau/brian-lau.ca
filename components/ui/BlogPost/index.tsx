@@ -1,12 +1,8 @@
-import { Link } from '@components/ui'
+import { Typography } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import useSWR from 'swr'
+
+import { Link } from '@components/ui'
 // import format from 'comma-number'
-
-import fetcher from '@lib/fetcher'
-import { Typography, Theme } from '@mui/material';
-
-import makeStyles from '@mui/styles/makeStyles';
 
 const PREFIX = 'BlogPost'
 

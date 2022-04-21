@@ -1,6 +1,6 @@
-import React from 'react'
-import Image from 'next/image'
 import { NextSeo } from 'next-seo'
+import Image from 'next/image'
+import React from 'react'
 
 const NotFound = () => (
   <>
@@ -15,7 +15,7 @@ const NotFound = () => (
         />
       </div>
       <h3 style={{ textAlign: 'center' }}>
-        Sorry, looks like the page you looked for doesn't exist :(
+        Sorry, looks like the page you looked for doesn&#39t exist :(
       </h3>
     </div>
   </>

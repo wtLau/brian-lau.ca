@@ -1,9 +1,5 @@
-import { Card as MaterialCard, Theme } from '@mui/material';
-
-import makeStyles from '@mui/styles/makeStyles';
-
+import { Card as MaterialCard } from '@mui/material'
 import { styled } from '@mui/material/styles'
-
 import React from 'react'
 
 const PREFIX = 'Card'

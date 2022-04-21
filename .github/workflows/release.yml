@@ -35,7 +35,7 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Test
-        run: yarn test-coverage
+        run: yarn test:coverage
 
       - name: Version
         id: version
