@@ -47,7 +47,14 @@ const About = () => {
 
   return (
     <Root>
-      <HeadSeo title='About' description='A little more about Brian Lau' />
+      <HeadSeo
+        title='About'
+        description='
+            Brian Lau is a Front-End Developer at
+            Data.ai, where he helps building data visualization products on the web. Lau is also known as an
+            educator, writer, and mentor.
+          '
+      />
       <Grid container spacing={8}>
         <Grid item className={classes.title}>
           <Image
@@ -61,8 +68,7 @@ const About = () => {
           <Grid item xs={12}>
             <Typography paragraph>
               {session && `Hi, ${userName}.`} My name is Brian, and I am
-              currently living in North Vancouver, Canada, with my beautiful
-              corgi.
+              currently living in North Vancouver, Canada.
             </Typography>
 
             <Typography paragraph>
