@@ -110,10 +110,6 @@ export default function MacroCalculatorPage() {
       />
 
       <Grid item>
-        <Typography variant='h1' gutterBottom>
-          Pour-Over Coffee Tool
-        </Typography>
-
         <Typography variant='body1' paragraph gutterBottom>
           This tool provide a way to make coffee measurement specifically for
           pour overs. Things like brew ratio, water temperature, coffee origin,

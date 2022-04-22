@@ -50,9 +50,6 @@ const About = () => {
       <HeadSeo title='About' description='A little more about Brian Lau' />
       <Grid container spacing={8}>
         <Grid item className={classes.title}>
-          <Typography variant='h1' gutterBottom>
-            About
-          </Typography>
           <Image
             src='/static/images/desktop-section1.png'
             width={584}
