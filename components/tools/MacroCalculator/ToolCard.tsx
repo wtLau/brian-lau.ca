@@ -11,10 +11,6 @@ const classes = {
 }
 
 const Root = styled('div')(({ theme }) => ({
-  [`& .${classes.mainGrid}`]: {
-    marginTop: theme.spacing(6),
-  },
-
   [`& .${classes.text}`]: {
     textTransform: 'capitalize',
   },

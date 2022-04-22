@@ -106,16 +106,10 @@ export default function MacroCalculatorPage() {
     <StyledGrid spacing={10} container>
       <HeadSeo
         title='Pour Over Coffee'
-        description='Pour over coffee tool to measure, record, and track.'
+        description='Pour over coffee tool to measure, record, and track. It provides a way to make coffee measurement specifically for
+        pour overs. Includes feature like brew ratio, water temperature, coffee origin,
+        coffee cupping result, findings etc..'
       />
-
-      <Grid item>
-        <Typography variant='body1' paragraph gutterBottom>
-          This tool provide a way to make coffee measurement specifically for
-          pour overs. Things like brew ratio, water temperature, coffee origin,
-          coffee cupping result, findings etc..
-        </Typography>
-      </Grid>
 
       <Grid item>
         <Card className={classes.card}>
