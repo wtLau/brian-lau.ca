@@ -30,7 +30,7 @@ const Root = styled('article')(({ theme }) => ({
 }))
 
 const editUrl = (slug: string) =>
-  `https://github.com/wtLau/Portfolio-App/edit/development/data/blog/${slug}.mdx`
+  `https://github.com/wtLau/Portfolio-App/edit/production/data/blog/${slug}.mdx`
 
 const discussUrl = (slug: string) =>
   `https://mobile.twitter.com/search?q=${encodeURIComponent(
