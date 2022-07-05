@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles'
 import { FC } from 'react'
 
 import Section1 from '@components/common/Landing/Section1'
-
+import Landingv2 from '@components/common/Landing/Landingv2'
 const PREFIX = 'Index'
 
 const classes = {
@@ -24,7 +24,9 @@ const Index: FC = () => {
       justifyContent='center'
       alignItems='center'
     >
-      <Section1 />
+      <Landingv2 />
+      <h1>HELLO</h1>
+      {/* <Section1 /> */}
       {/* <Section2 /> */}
       {/* <Section3 /> */}
       {/* <Section4 /> */}
