@@ -7,7 +7,7 @@ import { Link } from '@components/ui'
 
 import { CloudDownload as DownloadIcon } from '@material-ui/icons'
 import { signIn, signOut, useSession } from 'next-auth/client'
-import './main_v2.css'
+import './Landingv2.css'
 
 const useStyles = makeStyles((theme) => ({
   root: {
