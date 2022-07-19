@@ -4,12 +4,11 @@ Welcome! This is my personal app where fun things get built~
 
 [Live Website Link: www.brian-lau.ca](https://www.brian-lau.ca)
 
----
 
 [![Labeler](https://github.com/wtLau/Portfolio-App/actions/workflows/labeler.yml/badge.svg)](https://github.com/wtLau/Portfolio-App/actions/workflows/labeler.yml)
 [![Release](https://github.com/wtLau/brian-lau.ca/actions/workflows/release.yml/badge.svg)](https://github.com/wtLau/brian-lau.ca/actions/workflows/release.yml)
-## Getting Started
 
+## Getting Started
 
 ### Installation
 
@@ -39,7 +38,7 @@ yarn dev
 
 Once you've started the development server, open http://localhost:3000 with your browser to see the result.
 
----
+
 
 ## Powered By
 
@@ -54,14 +53,11 @@ Once you've started the development server, open http://localhost:3000 with your
 - [Vercel](https://www.vercel.com/) 
   - Deploy modern static websites with Vercel
 
----
 
 ## Inpirations
 
 - [Lee Robinson](https://leerob.io/) 
 - [Next.js Commerce](https://www.nextjs.org/commerce)
-
----
 
 ## Find Me at
 
