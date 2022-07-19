@@ -1,6 +1,6 @@
 import { Typography, Grid } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import { useSession } from 'next-auth/client'
+import { useSession } from 'next-auth/react'
 import React from 'react'
 
 const PREFIX = 'Section1'
