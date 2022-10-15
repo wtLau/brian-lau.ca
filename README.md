@@ -2,74 +2,12 @@
 
 Welcome! This is my personal app where fun things get built~
 
-[Live Website Link: www.brian-lau.ca](https://www.brian-lau.ca)
+This is a clone of my porfolio [brian-lau.ca](https://github.com/wtLau/brian-lau.ca) to try out what it feels like to add End-to-end typesafe to my web app, as well as how easy is it to use it. The technology I am adopting is [tRPC](https://trpc.io/docs/v10/) as I heard it numerous times from various sources, but in particular Theo.gg
 
+## Goals
 
-[![Labeler](https://github.com/wtLau/Portfolio-App/actions/workflows/labeler.yml/badge.svg)](https://github.com/wtLau/Portfolio-App/actions/workflows/labeler.yml)
-[![Release](https://github.com/wtLau/brian-lau.ca/actions/workflows/release.yml/badge.svg)](https://github.com/wtLau/brian-lau.ca/actions/workflows/release.yml)
+- Successfully adopt and migrate this Next.js app with tRPC
+- Experience the power of end to end type safety
+- How is it like to clone my own app and play around with it :)
 
-## Getting Started
-
-### Installation
-
-You will need `node@14.x` and `npm@6.14.x` installed globally on your machine
-```
-git clone https://github.com/wtLau/Portfolio-App.git
-cd Portfolio-App/
-yarn
-```
-
-### Environment Setup
-
-Add .env file with your own keys
-
-```
-$ mv .env.sample .env
-# rename .env.sample to .env.local
-```
-
-Add your own key
-
-### Start Development Server
-
-```
-yarn dev
-```
-
-Once you've started the development server, open http://localhost:3000 with your browser to see the result.
-
-
-
-## Powered By
-
-- [React](https://facebook.github.io/react/) 
-  - A javaScript library for building user interfaces
-- [Typescript](https://www.typescriptlang.org/) 
-  - TypeScript extends JavaScript by adding types.
-- [NextJs](https://nextjs.org/) 
-  - The React Framework for Production
-- [Material-UI](http://www.material-ui.com/#/) 
-  - A Set of React Components that Implement Google's Material Design
-- [Vercel](https://www.vercel.com/) 
-  - Deploy modern static websites with Vercel
-
-
-## Inpirations
-
-- [Lee Robinson](https://leerob.io/) 
-- [Next.js Commerce](https://www.nextjs.org/commerce)
-
-## Find Me at
-
-Socials:
-- [GitHub](https://github.com/wtLau)
-- [LinkedIn](https://www.linkedin.com/in/brian-lau/)
-- [Twitter](https://twitter.com/brian_wtLau)
-
-Mentorships:
-- [ADPList](https://adplist.org/mentors/brian-lau)
-
-## Contributors
-
-coming soon...
-
+cheers
