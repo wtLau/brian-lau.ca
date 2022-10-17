@@ -1,4 +1,4 @@
-import { Typography, Card } from '@mui/material'
+import { Typography, Card, Paper } from '@mui/material'
 import Grid from '@mui/material/Grid'
 import { styled } from '@mui/material/styles'
 import { Formik, Form, Field, FormikValues } from 'formik'
@@ -9,27 +9,20 @@ import Button from '@components/ui/Button'
 import SelectFormField from '@components/ui/FormFields/SelecFormField'
 import { TextFormField } from '@components/ui/FormFields/TextFormField'
 import { HeadSeo } from '@components/HeadSeo'
+import PageLayout from '@components/layout/PageLayout'
 
 const PREFIX = 'Contact'
 
 const classes = {
-  root: `${PREFIX}-root`,
   card: `${PREFIX}-card`,
   button: `${PREFIX}-button`,
 }
 
 // TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
-const Root = styled('div')(({ theme }) => ({
-  [`& .${classes.root}`]: {
-    flexGrow: 1,
-    margin: theme.spacing(14, 0),
-  },
-
-  [`& .${classes.card}`]: {
-    padding: theme.spacing(5, 2),
-    height: '100%',
-    borderRadius: '50px',
-  },
+const StylePaper = styled(Paper)(({ theme }) => ({
+  padding: theme.spacing(5, 2),
+  height: '100%',
+  borderRadius: '50px',
 
   [`& .${classes.button}`]: {
     marginTop: theme.spacing(4),
@@ -88,81 +81,72 @@ const Contact = () => {
     )
   }
   return (
-    <Root>
-      <HeadSeo
-        title='Contact'
-        description='Let me know if you have any questions!  Send me a message to get in touch. Always happy to receive info
+    <PageLayout
+      title='Contact'
+      description='Let me know if you have any questions!  Send me a message to get in touch. Always happy to receive info
         requests, hear user feedback or provide app support!'
-      />
+    >
+      <Grid item>
+        <StylePaper>
+          <Grid container alignItems='center' direction='column' spacing={2}>
+            <Grid item>
+              <Typography variant='h3' gutterBottom>
+                Send Me a Message!
+              </Typography>
+              <Typography variant='h5' align='center'>
+                Inquiries, Feedback, Support
+              </Typography>
+            </Grid>
 
-      <Grid
-        container
-        className={classes.root}
-        justifyContent='center'
-        alignItems='center'
-      >
-        <Grid
-          item
-          container
-          alignItems='center'
-          direction='column'
-          component={Card}
-          spacing={2}
-          className={classes.card}
-        >
-          <Typography variant='h3' gutterBottom>
-            Send Me a Message!
-          </Typography>
-          <Typography variant='h5'>Inquiries, Feedback, Support</Typography>
-
-          <Grid item xs={10}>
-            <Formik
-              initialValues={formInitValue}
-              validationSchema={schema}
-              onSubmit={handleSubmit}
-            >
-              {({ isSubmitting }) => (
-                <Form>
-                  <Field
-                    id='name'
-                    name='name'
-                    label='Your Name'
-                    component={TextFormField}
-                  />
-                  <Field
-                    id='email'
-                    name='email'
-                    label='Email'
-                    component={TextFormField}
-                  />
-                  <Field
-                    options={dropDownOption}
-                    label='MessageType*'
-                    name='messagetype'
-                    component={SelectFormField}
-                  />
-                  <Field
-                    id='message'
-                    name='message'
-                    label='Message'
-                    component={TextFormField}
-                    multiline
-                    rows={4}
-                  />
-                  <Button
-                    type='submit'
-                    disabled={isSubmitting}
-                    className={classes.button}
-                  >
-                    Submit
-                  </Button>
-                </Form>
-              )}
-            </Formik>
+            <Grid item xs={10}>
+              <Formik
+                initialValues={formInitValue}
+                validationSchema={schema}
+                onSubmit={handleSubmit}
+              >
+                {({ isSubmitting }) => (
+                  <Form>
+                    <Field
+                      id='name'
+                      name='name'
+                      label='Your Name'
+                      component={TextFormField}
+                    />
+                    <Field
+                      id='email'
+                      name='email'
+                      label='Email'
+                      component={TextFormField}
+                    />
+                    <Field
+                      options={dropDownOption}
+                      label='MessageType*'
+                      name='messagetype'
+                      component={SelectFormField}
+                    />
+                    <Field
+                      id='message'
+                      name='message'
+                      label='Message'
+                      component={TextFormField}
+                      multiline
+                      rows={4}
+                    />
+                    <Button
+                      type='submit'
+                      disabled={isSubmitting}
+                      className={classes.button}
+                    >
+                      Submit
+                    </Button>
+                  </Form>
+                )}
+              </Formik>
+            </Grid>
           </Grid>
-        </Grid>
+        </StylePaper>
       </Grid>
-    </Root>
+    </PageLayout>
   )
 }
 

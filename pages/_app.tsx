@@ -8,9 +8,10 @@ import { useRouter } from 'next/dist/client/router'
 import React, { useEffect } from 'react'
 
 import MDXComponents from '@components/blog/BlogContent'
-import { ThemeCustomProvider, Head, Layout } from '@components/common'
+import { ThemeCustomProvider, Head } from '@components/common'
 import themeConfig from '@components/common/Theme/config'
 import * as gtag from '@lib/gtag'
+import AppLayout from '@components/layout/AppLayout'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
@@ -35,11 +36,11 @@ function MyApp({ Component, pageProps }: AppProps) {
       <NextAuthProvider session={pageProps.session}>
         <ThemeCustomProvider theme={theme}>
           <CssBaseline />
-          <Layout>
+          <AppLayout>
             <MDXProvider components={MDXComponents}>
               <Component {...pageProps} />
             </MDXProvider>
-          </Layout>
+          </AppLayout>
         </ThemeCustomProvider>
       </NextAuthProvider>
     </>
