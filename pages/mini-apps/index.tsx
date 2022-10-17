@@ -8,7 +8,7 @@ import React from 'react'
 import ToolCard from '@components/tools/MacroCalculator/ToolCard'
 import { HeadSeo } from '@components/HeadSeo'
 
-export default function Tools({
+export default function MiniApps({
   tools,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
@@ -37,8 +37,7 @@ export default function Tools({
   )
 }
 export async function getStaticProps() {
-  const files = await fs.readdirSync(path.join('pages/tools'))
-
+  const files = await fs.readdirSync(path.join('pages/mini-apps'))
   const tools = await files.reduce(
     (
       allTools: {
