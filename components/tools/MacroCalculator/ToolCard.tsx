@@ -24,7 +24,7 @@ interface IPost {
 const ToolCard = ({ title, slug }: IPost) => {
   return (
     <Root className={classes.mainGrid}>
-      <Link href={`/tools/${slug}`}>
+      <Link href={`/mini-apps/${slug}`}>
         <div>
           <Typography
             variant='h5'
