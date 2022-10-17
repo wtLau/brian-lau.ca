@@ -42,6 +42,10 @@ const linkData = [
     link: '/tools',
   },
   {
+    name: 'Mini Apps',
+    link: '/mini-apps',
+  },
+  {
     name: 'Resume',
     link: '/brian-lau-resume.pdf',
     target: '_blank',
