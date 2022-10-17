@@ -12,13 +12,11 @@ export const HeadSeo = ({
   return (
     <>
       <NextSeo title={`${title}- Brian Lau`} description={description} />
-      <Grid container direction='column'>
-        <Typography variant='h1' gutterBottom>
-          {title}
-        </Typography>
+      <Typography variant='h1' gutterBottom>
+        {title}
+      </Typography>
 
-        <Typography variant='body2'>{description}</Typography>
-      </Grid>
+      <Typography variant='body2'>{description}</Typography>
     </>
   )
 }
