@@ -21,7 +21,8 @@
       "@components/*": ["components/*"],
       "@utils/*": ["utils/*"],
       "@hooks/*": ["lib/hooks/*"],
-      "@data/*": ["data/*"]
+      "@data/*": ["data/*"],
+      "@pages/*": ["pages/*"]
     },
     "incremental": true
   },
