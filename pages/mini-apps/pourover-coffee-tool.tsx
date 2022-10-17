@@ -5,40 +5,17 @@ import {
   TextField,
   InputAdornment,
   Grid,
+  Card,
+  Paper,
+  Container,
 } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import clsx from 'clsx'
 import React, { useState } from 'react'
 
 import { HeadSeo } from '@components/HeadSeo'
-import { Card } from '@components/ui'
 
 const PREFIX = 'pourover-coffee-tool'
-
-const classes = {
-  card: `${PREFIX}-card`,
-  gridMargin: `${PREFIX}-gridMargin`,
-  margin: `${PREFIX}-margin`,
-  textField: `${PREFIX}-textField`,
-}
-
-const StyledGrid = styled(Grid)(({ theme }) => ({
-  [`& .${classes.card}`]: {
-    flexGrow: 1,
-  },
-
-  [`& .${classes.gridMargin}`]: {
-    marginTop: theme.spacing(8),
-  },
-
-  [`& .${classes.margin}`]: {
-    margin: theme.spacing(1, 0),
-  },
-
-  [`& .${classes.textField}`]: {
-    width: '25ch',
-  },
-}))
 
 const brewRatioList = [
   {
@@ -103,89 +80,81 @@ export default function MacroCalculatorPage() {
   // }
 
   return (
-    <StyledGrid spacing={10} container>
-      <HeadSeo
-        title='Pour Over Coffee'
-        description='Pour over coffee tool to measure, record, and track. It provides a way to make coffee measurement specifically for
+    <Grid container direction='column' spacing={4}>
+      <Grid item>
+        <HeadSeo
+          title='Pour Over Coffee'
+          description='Pour over coffee tool to measure, record, and track. It provides a way to make coffee measurement specifically for
         pour overs. Includes feature like brew ratio, water temperature, coffee origin,
         coffee cupping result, findings etc..'
-      />
-
-      <Grid item>
-        <Card className={classes.card}>
-          <CardContent>
-            <Grid container direction='column' spacing={2}>
-              <Grid item>
-                <Typography variant='h3' gutterBottom>
-                  Variables
-                </Typography>
-                <Typography variant='body1' paragraph>
-                  This tool is a variable card. This tool is a variable card.
-                  This This tool is a variable card. tool is a variable card.
-                  This tool is This tool is a variable card. a variable card.
-                </Typography>
+        />
+      </Grid>
+      <Grid item container spacing={2}>
+        <Grid item>
+          <Typography variant='h3' gutterBottom>
+            Variables
+          </Typography>
+          <Typography variant='body1' paragraph>
+            This tool is a variable card. This tool is a variable card. This
+            This tool is a variable card. tool is a variable card. This tool is
+            This tool is a variable card. a variable card.
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Typography variant='h6'>Coffee Ratio</Typography>
+          <Grid container spacing={1}>
+            {brewRatioList.map(({ title, value, id }) => (
+              <Grid item key={id}>
+                <Chip
+                  label={title}
+                  variant={ratio === value ? 'filled' : 'outlined'}
+                  color='primary'
+                  onClick={() => handleCoffeeRatio(value)}
+                />
               </Grid>
-              <Grid item>
-                <Typography variant='h5'>Coffee Ratio</Typography>
-                <Grid container spacing={1}>
-                  {brewRatioList.map(({ title, value, id }) => (
-                    <Grid item key={id}>
-                      <Chip
-                        label={title}
-                        variant={ratio === value ? 'filled' : 'outlined'}
-                        color='primary'
-                        onClick={() => handleCoffeeRatio(value)}
-                      />
-                    </Grid>
-                  ))}
+            ))}
 
-                  <Grid item>
-                    <Chip label='custom' disabled variant='outlined' />
-                  </Grid>
-                </Grid>
-              </Grid>
-
-              <Grid item container spacing={2} direction='column'>
-                <Grid item>
-                  <Typography variant='body1'>Ratio: 1 : {ratio}</Typography>
-                </Grid>
-                <Grid item>
-                  <TextField
-                    id='standard-start-adornment'
-                    value={weight}
-                    label='Coffee Weight'
-                    className={clsx(classes.textField)}
-                    aria-describedby='outlined-weight-helper-text'
-                    InputProps={{
-                      endAdornment: (
-                        <InputAdornment position='end'>g</InputAdornment>
-                      ),
-                    }}
-                    onChange={(e) => handleCoffeeWeight(e.target.value)}
-                  />
-                </Grid>
-                <Grid item>
-                  <Typography variant='body1'>
-                    Water: {ratio * weight}
-                  </Typography>
-                </Grid>
-              </Grid>
+            <Grid item>
+              <Chip label='custom' disabled variant='outlined' />
             </Grid>
-          </CardContent>
-        </Card>
+          </Grid>
+
+          <Grid item container spacing={2} direction='column'>
+            <Grid item>
+              <Typography variant='body1'>Ratio: 1 : {ratio}</Typography>
+            </Grid>
+            <Grid item>
+              <TextField
+                id='standard-start-adornment'
+                value={weight}
+                label='Coffee Weight'
+                aria-describedby='outlined-weight-helper-text'
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position='end'>g</InputAdornment>
+                  ),
+                }}
+                onChange={(e) => handleCoffeeWeight(e.target.value)}
+              />
+            </Grid>
+            <Grid item>
+              <Typography variant='body1'>Water: {ratio * weight}</Typography>
+            </Grid>
+          </Grid>
+        </Grid>
       </Grid>
 
-      <Grid item>
-        <Card className={classes.card}>
-          <CardContent>
-            <Typography component={'h1'} variant='h3' gutterBottom>
-              Methods
-            </Typography>
-            <Typography variant='body1' paragraph>
-              Coming Soon
-            </Typography>
+      <Grid item container spacing={2}>
+        <Grid item>
+          <Typography component={'h1'} variant='h3' gutterBottom>
+            Methods
+          </Typography>
+          <Typography variant='body1' paragraph>
+            Coming Soon
+          </Typography>
+        </Grid>
 
-            {/* {brewRatioList.map(({ title, id }) => (
+        {/* {brewRatioList.map(({ title, id }) => (
               <Chip
                 key={id}
                 label={title}
@@ -266,9 +235,7 @@ export default function MacroCalculatorPage() {
             >
               Add another pour
             </Button> */}
-          </CardContent>
-        </Card>
       </Grid>
-    </StyledGrid>
+    </Grid>
   )
 }
