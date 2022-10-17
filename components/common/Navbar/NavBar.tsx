@@ -117,11 +117,6 @@ const NavBar = () => {
   const theme = useTheme()
   const changeTheme = useChangeTheme()
 
-  const [session] = useSession()
-
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
-  const open = Boolean(anchorEl)
-
   return (
     <Root>
       <ElevationScroll>

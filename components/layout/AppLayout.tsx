@@ -3,7 +3,6 @@ import { styled } from '@mui/material/styles'
 import React, { FC } from 'react'
 
 import { Footer, Navbar } from '@components/common'
-import './Layout.module.css'
 
 const PREFIX = 'Layout'
 
@@ -42,7 +41,7 @@ declare interface LayoutProps {
   children: React.ReactNode
 }
 
-const Layout: FC<LayoutProps> = ({ children }) => {
+const AppLayout: FC<LayoutProps> = ({ children }) => {
   return (
     <StyledGrid container className={classes.root} justifyContent='center'>
       <Grid item xs={12}>
@@ -58,4 +57,4 @@ const Layout: FC<LayoutProps> = ({ children }) => {
   )
 }
 
-export default Layout
+export default AppLayout
