@@ -5,7 +5,7 @@ import MiniApps from '@pages/mini-apps'
 
 describe('<CompanyCard />', () => {
   it('should render default', () => {
-    render(<MiniApps tools={[{ slug: 'slug', title: ' title' }]} />)
+    render(<MiniApps apps={[{ slug: 'slug', title: ' title' }]} />)
 
     expect(screen.getByText('title')).toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'title' })).toHaveAttribute(

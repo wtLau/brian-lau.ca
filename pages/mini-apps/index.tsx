@@ -9,27 +9,27 @@ import ToolCard from '@components/tools/MacroCalculator/ToolCard'
 import { HeadSeo } from '@components/HeadSeo'
 
 export default function MiniApps({
-  tools,
+  apps,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
       <HeadSeo
-        title='Tools'
-        description={`I love building tools that could assist me on various day-to-day task. In total, I've made ${tools.length} published tools on this site.`}
+        title='Mini Apps'
+        description={`I love building apps that could assist me on various day-to-day task. In total, I've made ${apps.length} published tools on this site.`}
       />
       <Typography variant='h2' marginTop={10} gutterBottom>
-        All Tools
+        All Mini Apps
       </Typography>
 
-      {!tools.length && (
+      {!apps.length && (
         <Typography variant='body1'>
-          No tool found. Please let me know if you are interested to learn more
+          No app found. Please let me know if you are interested to learn more
           about it.
         </Typography>
       )}
 
       <Stack spacing={2}>
-        {tools.map(({ title, slug, ...rest }) => (
+        {apps.map(({ title, slug, ...rest }) => (
           <ToolCard key={slug} title={title} slug={slug} {...rest} />
         ))}
       </Stack>
@@ -37,29 +37,29 @@ export default function MiniApps({
   )
 }
 export async function getStaticProps() {
-  const files = await fs.readdirSync(path.join('pages/mini-apps'))
-  const tools = await files.reduce(
+  const appsFile = await fs.readdirSync(path.join('pages/mini-apps'))
+  const apps = await appsFile.reduce(
     (
-      allTools: {
+      allApps: {
         slug: string
         title: string
       }[],
-      toolsSlug
+      appsSlug
     ) => {
-      const slug = toolsSlug.replace('.tsx', '')
+      const slug = appsSlug.replace('.tsx', '')
 
-      if (slug === 'index') return allTools
+      if (slug === 'index') return allApps
 
       return [
         {
           slug: slug.replace('.tsx', ''),
           title: slug.replace(/-/g, ' '),
         },
-        ...allTools,
+        ...allApps,
       ]
     },
     []
   )
 
-  return { props: { tools } }
+  return { props: { apps } }
 }
