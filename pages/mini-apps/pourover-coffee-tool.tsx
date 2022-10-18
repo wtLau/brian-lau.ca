@@ -9,8 +9,6 @@ import React, { useState } from 'react'
 
 import { HeadSeo } from '@components/HeadSeo'
 
-const PREFIX = 'pourover-coffee-tool'
-
 const brewRatioList = [
   {
     id: 1,
@@ -68,10 +66,6 @@ export default function MacroCalculatorPage() {
     const weight = Number(input)
     setWeight(weight)
   }
-
-  // const handleMethodRatio = (title) => {
-  //   console.log(title)
-  // }
 
   return (
     <Grid container direction='column' spacing={4}>

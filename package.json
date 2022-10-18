@@ -85,7 +85,7 @@
     "find:unused": "next-unused",
     "test:coverage": "CI=1 yarn jest --coverage",
     "test": "yarn jest --watch --collectCoverage --silent",
-    "lint": "eslint --fix --ext .js,.ts,.tsx ./ --ignore-path .gitignore",
+    "lint": "next lint --fix --ext .js,.ts,.tsx ./ --ignore-path .gitignore",
     "prettier": "prettier --ignore-path .gitignore --write \"**/*.+(js|json|ts|tsx)\"",
     "format": "yarn run prettier -- --write",
     "check-types": "tsc --project tsconfig.json --pretty --noEmit",

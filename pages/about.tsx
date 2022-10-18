@@ -1,36 +1,13 @@
 import { Typography, Button, Grid } from '@mui/material'
-import { styled } from '@mui/material/styles'
 import { useSession } from 'next-auth/client'
 import Image from 'next/image'
 import React, { useState, useEffect } from 'react'
 
 import CompanyCard from '@components/CompanyCard'
-import { HeadSeo } from '@components/HeadSeo'
+import PageLayout from '@components/layout/PageLayout'
 import { Link } from '@components/ui'
 import { companyData } from '@data/companyData'
 import { skillsData, TSkills } from '@data/skillsData'
-
-const PREFIX = 'About'
-
-const classes = {
-  title: `${PREFIX}-title`,
-  backgroundimage: `${PREFIX}-backgroundimage`,
-}
-
-// TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
-const Root = styled('div')(({ theme }) => ({
-  [`& .${classes.title}`]: {
-    flexGrow: 1,
-    marginTop: theme.spacing(7),
-  },
-
-  [`& .${classes.backgroundimage}`]: {
-    [theme.breakpoints.down('xl')]: {
-      width: '100%',
-      height: '100%',
-    },
-  },
-}))
 
 const About = () => {
   const [session] = useSession()
@@ -42,28 +19,25 @@ const About = () => {
   }, [skills])
 
   const previousCompanies = companyData.filter((company) => !company.current)
-
   const currentCompany = companyData.find((company) => company.current === true)
 
   return (
-    <Root>
-      <HeadSeo
-        title='About'
-        description='
+    <PageLayout
+      title='About'
+      description='
             Brian Lau is a Front-End Developer at
             Data.ai, where he helps building data visualization products on the web. Lau is also known as an
             educator, writer, and mentor.
           '
-      />
+    >
       <Grid container spacing={8}>
-        <Grid item className={classes.title}>
+        <Grid item>
           <Image
             src='/static/images/desktop-section1.png'
             width={584}
             height={484}
             priority={true}
             alt='portrait-image'
-            className={classes.backgroundimage}
           />
           <Grid item xs={12}>
             <Typography paragraph>
@@ -141,7 +115,7 @@ const About = () => {
           </Grid>
         </Grid>
       </Grid>
-    </Root>
+    </PageLayout>
   )
 }
 

@@ -1,7 +1,12 @@
+import { styled } from '@mui/material'
 import Grid from '@mui/material/Grid'
 import React from 'react'
 
 import { HeadSeo } from '@components/HeadSeo'
+
+const StyledGrid = styled(Grid)({
+  minHeight: '85vh',
+})
 
 const PageLayout = ({
   title,
@@ -13,13 +18,13 @@ const PageLayout = ({
   children: React.ReactNode
 }) => {
   return (
-    <Grid container direction='column' spacing={4}>
+    <StyledGrid container direction='column' spacing={4}>
       <Grid item>
         <HeadSeo title={title} description={description} />
       </Grid>
 
-      {children}
-    </Grid>
+      <Grid item>{children}</Grid>
+    </StyledGrid>
   )
 }
 
