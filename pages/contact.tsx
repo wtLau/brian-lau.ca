@@ -85,66 +85,64 @@ const Contact = () => {
       description='Let me know if you have any questions!  Send me a message to get in touch. Always happy to receive info
         requests, hear user feedback or provide app support!'
     >
-      <Grid item>
-        <StylePaper>
-          <Grid container alignItems='center' direction='column' spacing={2}>
-            <Grid item>
-              <Typography variant='h3' gutterBottom>
-                Send Me a Message!
-              </Typography>
-              <Typography variant='h5' align='center'>
-                Inquiries, Feedback, Support
-              </Typography>
-            </Grid>
-
-            <Grid item xs={10}>
-              <Formik
-                initialValues={formInitValue}
-                validationSchema={schema}
-                onSubmit={handleSubmit}
-              >
-                {({ isSubmitting }) => (
-                  <Form>
-                    <Field
-                      id='name'
-                      name='name'
-                      label='Your Name'
-                      component={TextFormField}
-                    />
-                    <Field
-                      id='email'
-                      name='email'
-                      label='Email'
-                      component={TextFormField}
-                    />
-                    <Field
-                      options={dropDownOption}
-                      label='MessageType*'
-                      name='messagetype'
-                      component={SelectFormField}
-                    />
-                    <Field
-                      id='message'
-                      name='message'
-                      label='Message'
-                      component={TextFormField}
-                      multiline
-                      rows={4}
-                    />
-                    <Button
-                      type='submit'
-                      disabled={isSubmitting}
-                      className={classes.button}
-                    >
-                      Submit
-                    </Button>
-                  </Form>
-                )}
-              </Formik>
-            </Grid>
+      <StylePaper>
+        <Grid container alignItems='center' direction='column' spacing={2}>
+          <Grid item>
+            <Typography variant='h3' gutterBottom>
+              Send Me a Message!
+            </Typography>
+            <Typography variant='h5' align='center'>
+              Inquiries, Feedback, Support
+            </Typography>
           </Grid>
-        </StylePaper>
-      </Grid>
+
+          <Grid item xs={10}>
+            <Formik
+              initialValues={formInitValue}
+              validationSchema={schema}
+              onSubmit={handleSubmit}
+            >
+              {({ isSubmitting }) => (
+                <Form>
+                  <Field
+                    id='name'
+                    name='name'
+                    label='Your Name'
+                    component={TextFormField}
+                  />
+                  <Field
+                    id='email'
+                    name='email'
+                    label='Email'
+                    component={TextFormField}
+                  />
+                  <Field
+                    options={dropDownOption}
+                    label='MessageType*'
+                    name='messagetype'
+                    component={SelectFormField}
+                  />
+                  <Field
+                    id='message'
+                    name='message'
+                    label='Message'
+                    component={TextFormField}
+                    multiline
+                    rows={4}
+                  />
+                  <Button
+                    type='submit'
+                    disabled={isSubmitting}
+                    className={classes.button}
+                  >
+                    Submit
+                  </Button>
+                </Form>
+              )}
+            </Formik>
+          </Grid>
+        </Grid>
+      </StylePaper>
     </PageLayout>
   )
 }

@@ -1,32 +1,10 @@
 import { Search } from '@mui/icons-material'
 import { Grid, Typography, TextField, InputAdornment } from '@mui/material'
-import { styled } from '@mui/material/styles'
-import { NextSeo } from 'next-seo'
 import { ChangeEvent, useState } from 'react'
 
+import PageLayout from '@components/layout/PageLayout'
 import { BlogPost } from '@components/ui'
-import { getAllFilesFrontMatter } from '@lib/mdx'
-
-const PREFIX = 'blog'
-
-const classes = {
-  root: `${PREFIX}-root`,
-  gridMargin: `${PREFIX}-gridMargin`,
-  searchField: `${PREFIX}-searchField`,
-}
-
-// TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
-const Root = styled('div')(({ theme }) => ({
-  [`& .${classes.root}`]: {},
-
-  [`& .${classes.gridMargin}`]: {
-    marginTop: theme.spacing(15),
-  },
-
-  [`& .${classes.searchField}`]: {
-    marginTop: theme.spacing(5),
-  },
-}))
+import { BlogFrontMatterType, getAllFilesFrontMatter } from '@lib/mdx'
 
 export default function Blog({ posts }: any) {
   const [searchValue, setSearchValue] = useState('')
@@ -41,38 +19,33 @@ export default function Blog({ posts }: any) {
     )
 
   return (
-    <Root>
-      <NextSeo
-        title='Blog'
-        description='Thoughts on the front-end development, programming, diet, fitness, coffee, and my personal life.'
-      />
-      <Grid container className={classes.root}>
-        <Typography variant='h1' gutterBottom>
-          Blog
-        </Typography>
+    <PageLayout
+      title='Blog'
+      description='Thoughts on the front-end development, programming, diet, fitness, coffee, and my personal life.'
+    >
+      <Grid container spacing={4}>
+        <Grid item>
+          <Typography variant='body1' gutterBottom>
+            {`I care about web development, fitness, photography and personal growth. In total, I've written ${posts.length} articles on this site. Use the search below to filter by title.`}
+          </Typography>
 
-        <Typography variant='body1' gutterBottom>
-          {`I care about web development, fitness, photography and personal growth. In total, I've written ${posts.length} articles on this site. Use the search below to filter by title.`}
-        </Typography>
-
-        <TextField
-          variant='outlined'
-          className={classes.searchField}
-          fullWidth
-          onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            setSearchValue(e.target.value)
-          }
-          placeholder='Search articles'
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position='end'>
-                <Search />
-              </InputAdornment>
-            ),
-          }}
-        />
-      </Grid>
-      {/* {!searchValue && (
+          <TextField
+            variant='outlined'
+            fullWidth
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setSearchValue(e.target.value)
+            }
+            placeholder='Search articles'
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position='end'>
+                  <Search />
+                </InputAdornment>
+              ),
+            }}
+          />
+        </Grid>
+        {/* {!searchValue && (
           <Grid item className={classes.gridMargin}>
             <Typography variant='h3' gutterBottom>
               Featured
@@ -84,29 +57,30 @@ export default function Blog({ posts }: any) {
             />
           </Grid>
         )} */}
-      <Grid container className={classes.gridMargin}>
-        <Grid item>
-          <Typography variant='h2' gutterBottom>
-            All Posts
-          </Typography>
-        </Grid>
-
-        {!filteredBlogPosts.length && (
+        <Grid item container>
           <Grid item>
-            <Typography variant='body1'>
-              No posts found. Please let me know if you are interested to learn
-              more about it.
+            <Typography variant='h2' gutterBottom>
+              All Posts
             </Typography>
           </Grid>
-        )}
 
-        <Grid item>
-          {filteredBlogPosts.map((frontMatter: any) => (
-            <BlogPost key={frontMatter.title} {...frontMatter} />
-          ))}
+          {!filteredBlogPosts.length && (
+            <Grid item>
+              <Typography variant='body1'>
+                No posts found. Please let me know if you are interested to
+                learn more about it.
+              </Typography>
+            </Grid>
+          )}
+
+          <Grid item>
+            {filteredBlogPosts.map((frontMatter: BlogFrontMatterType) => (
+              <BlogPost key={frontMatter.title} {...frontMatter} />
+            ))}
+          </Grid>
         </Grid>
       </Grid>
-    </Root>
+    </PageLayout>
   )
 }
 

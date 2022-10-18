@@ -8,7 +8,7 @@ const Link: React.FC<TLink> = ({ href, passHref, children, ...props }) => {
     <NextLink href={href} passHref>
       <MaterialLink
         color='textPrimary'
-        underline='none'
+        underline='hover'
         rel='noopener noreferrer'
         {...props}
       >

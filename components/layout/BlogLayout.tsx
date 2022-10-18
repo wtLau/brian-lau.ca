@@ -29,7 +29,7 @@ type Props = {
 
 export default function BlogLayout({ children, frontMatter }: Props) {
   return (
-    <PageLayout title={frontMatter.title} description=''>
+    <PageLayout title={frontMatter.title} description={frontMatter.summary}>
       <Grid item container>
         <Grid item container direction='row' columnSpacing={2} xs={9}>
           <Grid item>

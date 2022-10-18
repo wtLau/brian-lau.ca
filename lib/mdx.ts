@@ -13,14 +13,21 @@ const root = process.cwd()
 export async function getFiles(type: string) {
   return fs.readdirSync(path.join(root, 'data', type))
 }
-export type BlogFrontMatterType = {
+
+type BlogMetaData = {
   title: string
-  summary: string | undefined
-  image: string
-  image_alt: string
+  publishedAt: string
+  summary: string
+  image?: string
+  image_alt?: string
+  categories?: string[]
+  meta?: {
+    keywords?: string[]
+  }
+}
+export type BlogFrontMatterType = BlogMetaData & {
   wordCount: number
   readingTime: ReadTimeResults
-  publishedAt: string
   slug: string
 }
 export type MdxSourceType = MdxRemote.Source
@@ -40,6 +47,7 @@ export async function getFileBySlug({
     : fs.readFileSync(path.join(root, 'data', `${type}.mdx`), 'utf8')
 
   const { data, content } = matter(source)
+  // eslint-disable-next-line testing-library/render-result-naming-convention
   const mdxSource = await renderToString(content, {
     components: MDXComponents,
     mdxOptions: {
@@ -58,8 +66,8 @@ export async function getFileBySlug({
       title: data.title,
       summary: data.summary,
       publishedAt: data.publishedAt,
-      image_alt: data.image_alt,
-      image: data.image,
+      image_alt: data.image_alt || '',
+      image: data.image || '',
       wordCount: content.split(/\s+/gu).length,
       readingTime: readingTime(content),
       slug: slug || '',
