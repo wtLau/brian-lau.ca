@@ -13,4 +13,13 @@ describe('<CompanyCard />', () => {
       '/mini-apps/slug'
     )
   })
+  it('should render nothing found', () => {
+    render(<MiniApps apps={[]} />)
+
+    expect(
+      screen.getByText(
+        'No app found. Please let me know if you are interested to learn more about it.'
+      )
+    ).toBeInTheDocument()
+  })
 })

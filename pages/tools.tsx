@@ -42,7 +42,7 @@ const Tools = () => {
         </Grid>
         <Grid container item xs={12} spacing={4}>
           {[...toolsTypeList].map((type) => (
-            <Grid item xs={12}>
+            <Grid item xs={12} key={type}>
               <Typography variant='h3'>{type}</Typography>
               {toolsData.map(
                 (ele) =>

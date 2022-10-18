@@ -1,16 +1,10 @@
 import {
   Typography,
-  CardContent,
   Chip,
   TextField,
   InputAdornment,
   Grid,
-  Card,
-  Paper,
-  Container,
 } from '@mui/material'
-import { styled } from '@mui/material/styles'
-import clsx from 'clsx'
 import React, { useState } from 'react'
 
 import { HeadSeo } from '@components/HeadSeo'

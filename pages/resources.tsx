@@ -1,6 +1,5 @@
 import { Typography, Grid } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import { useSession } from 'next-auth/client'
 import { NextSeo } from 'next-seo'
 import React, { useState, useEffect } from 'react'
 
@@ -36,7 +35,6 @@ const Root = styled('div')(({ theme }) => ({
 }))
 
 const About = () => {
-  const [session] = useSession()
   const [skills, setSkills] = useState<TSkills[]>([])
 
   useEffect(() => {

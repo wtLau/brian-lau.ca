@@ -1,5 +1,4 @@
 import { styled } from '@mui/material/styles'
-import { useSession } from 'next-auth/client'
 import hydrate from 'next-mdx-remote/hydrate'
 import { NextSeo } from 'next-seo'
 import React, { useState, useEffect } from 'react'
@@ -42,7 +41,6 @@ interface Props {
 }
 
 const Mentorship = ({ mdxSource, frontMatter }: Props) => {
-  const [session] = useSession()
   const [skills, setSkills] = useState<TSkills[]>([])
 
   const contents = hydrate(mdxSource, {
@@ -66,8 +64,8 @@ const Mentorship = ({ mdxSource, frontMatter }: Props) => {
 
 export default Mentorship
 
-export async function getStaticProps({ params }: any) {
-  const post = await getFileBySlug('/blog/mentorship')
+export async function getStaticProps() {
+  const post = await getFileBySlug({ type: '/blog/mentorship' })
 
   return { props: post }
 }

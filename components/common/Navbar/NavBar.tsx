@@ -15,7 +15,6 @@ import {
   ListItemIcon,
 } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import { useSession } from 'next-auth/client'
 // import Link from 'next/link'
 import React from 'react'
 
