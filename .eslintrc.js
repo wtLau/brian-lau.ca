@@ -27,7 +27,7 @@ module.exports = {
       },
       extends: [
         'eslint:recommended',
-        'next',
+        // 'next',
         'plugin:import/errors',
         'plugin:import/warnings',
         'plugin:import/typescript',
@@ -74,7 +74,6 @@ module.exports = {
         'import/no-named-as-default': 'off',
         'react/react-in-jsx-scope': 'off',
         'jsx-a11y/anchor-is-valid': 'off',
-
         '@typescript-eslint/no-unused-vars': 'off',
 
         '@typescript-eslint/explicit-function-return-type': ['off'],
@@ -84,7 +83,7 @@ module.exports = {
 
         'prettier/prettier': ['error', {}, { usePrettierrc: true }],
 
-        'no-unused-vars': 'on',
+        'no-unused-vars': 'warn',
         'unused-imports/no-unused-imports': 'error',
         'unused-imports/no-unused-vars': [
           'warn',

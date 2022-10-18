@@ -4,11 +4,16 @@ import React from 'react'
 
 import MDXComponents from '@components/blog/BlogContent'
 import BlogLayout from '@components/layout/BlogLayout'
-import { getFiles, getFileBySlug } from '@lib/mdx'
+import {
+  getFiles,
+  getFileBySlug,
+  BlogFrontMatterType,
+  MdxSourceType,
+} from '@lib/mdx'
 
 type Props = {
-  mdxSource: any
-  frontMatter: any
+  mdxSource: MdxSourceType
+  frontMatter: BlogFrontMatterType
 }
 
 export default function Blog({ mdxSource, frontMatter }: Props) {
@@ -54,7 +59,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }: any) {
-  const post = await getFileBySlug('blog', params.slug)
+  const post = await getFileBySlug({ type: 'blog', slug: params.slug })
 
   return { props: post }
 }

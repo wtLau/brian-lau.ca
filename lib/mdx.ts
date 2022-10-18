@@ -1,18 +1,40 @@
 import fs from 'fs'
-import matter from 'gray-matter'
 import path from 'path'
-import readingTime from 'reading-time'
+
+import matter from 'gray-matter'
 import renderToString from 'next-mdx-remote/render-to-string'
+import { MdxRemote } from 'next-mdx-remote/types'
+import readingTime, { ReadTimeResults } from 'reading-time'
+
 import MDXComponents from '@components/blog/BlogContent'
-import mdxPrism from 'mdx-prism'
 
 const root = process.cwd()
 
-export async function getFiles(type) {
+export async function getFiles(type: string) {
   return fs.readdirSync(path.join(root, 'data', type))
 }
+export type BlogFrontMatterType = {
+  title: string
+  summary: string | undefined
+  image: string
+  image_alt: string
+  wordCount: number
+  readingTime: ReadTimeResults
+  publishedAt: string
+  slug: string
+}
+export type MdxSourceType = MdxRemote.Source
 
-export async function getFileBySlug(type, slug) {
+export async function getFileBySlug({
+  type,
+  slug,
+}: {
+  type: string
+  slug?: string
+}): Promise<{
+  mdxSource: MdxSourceType
+  frontMatter: BlogFrontMatterType
+}> {
   const source = slug
     ? fs.readFileSync(path.join(root, 'data', type, `${slug}.mdx`), 'utf8')
     : fs.readFileSync(path.join(root, 'data', `${type}.mdx`), 'utf8')
@@ -26,25 +48,28 @@ export async function getFileBySlug(type, slug) {
         require('remark-slug'),
         require('remark-code-titles'),
       ],
-      rehypePlugins: [mdxPrism],
+      rehypePlugins: [require('@mapbox/rehype-prism')],
     },
   })
 
   return {
     mdxSource,
     frontMatter: {
-      ...data,
+      title: data.title,
+      summary: data.summary,
+      publishedAt: data.publishedAt,
+      image_alt: data.image_alt,
+      image: data.image,
       wordCount: content.split(/\s+/gu).length,
       readingTime: readingTime(content),
-      slug: slug || null,
+      slug: slug || '',
     },
   }
 }
 
-export async function getAllFilesFrontMatter(type) {
+export async function getAllFilesFrontMatter(type: string) {
   const files = fs.readdirSync(path.join(root, 'data', type))
-
-  return files.reduce((allPosts, postSlug) => {
+  return files.reduce((allPosts: any, postSlug: string) => {
     const source = fs.readFileSync(
       path.join(root, 'data', type, postSlug),
       'utf8'

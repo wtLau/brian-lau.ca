@@ -1,4 +1,4 @@
-import { Grid, Typography } from '@mui/material'
+import { Typography } from '@mui/material'
 import { NextSeo } from 'next-seo'
 import React from 'react'
 

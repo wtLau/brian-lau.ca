@@ -1,15 +1,14 @@
-import { Typography, Card, Paper } from '@mui/material'
+import { Typography, Paper } from '@mui/material'
 import Grid from '@mui/material/Grid'
 import { styled } from '@mui/material/styles'
-import { Formik, Form, Field, FormikValues } from 'formik'
+import { Formik, Form, Field } from 'formik'
 import React from 'react'
 import * as yup from 'yup'
 
+import PageLayout from '@components/layout/PageLayout'
 import Button from '@components/ui/Button'
 import SelectFormField from '@components/ui/FormFields/SelecFormField'
 import { TextFormField } from '@components/ui/FormFields/TextFormField'
-import { HeadSeo } from '@components/HeadSeo'
-import PageLayout from '@components/layout/PageLayout'
 
 const PREFIX = 'Contact'
 

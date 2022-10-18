@@ -5,29 +5,14 @@ import Image from 'next/image'
 import { ReactNode } from 'react'
 
 import { Link } from '@components/ui'
+import { BlogFrontMatterType } from '@lib/mdx'
 
-const PREFIX = 'BlogLayout'
+import PageLayout from './PageLayout'
 
-const classes = {
-  header: `${PREFIX}-header`,
-  profile: `${PREFIX}-profile`,
-  content: `${PREFIX}-content`,
-}
-
-const Root = styled('article')(({ theme }) => ({
-  [`& .${classes.header}`]: {
-    marginBottom: theme.spacing(10),
-  },
-
-  [`& .${classes.profile}`]: {
-    borderRadius: '50%',
-    marginRight: '1rem',
-  },
-
-  [`& .${classes.content}`]: {
-    margin: '2.5rem 0',
-  },
-}))
+const ProfileImageStyled = styled(Image)({
+  borderRadius: '50%',
+  marginRight: '20px',
+})
 
 const editUrl = (slug: string) =>
   `https://github.com/wtLau/Portfolio-App/edit/production/data/blog/${slug}.mdx`
@@ -39,42 +24,37 @@ const discussUrl = (slug: string) =>
 
 type Props = {
   children: ReactNode
-  frontMatter: any
+  frontMatter: BlogFrontMatterType
 }
 
 export default function BlogLayout({ children, frontMatter }: Props) {
   return (
-    <Root>
-      <Grid container className={classes.header}>
-        <Grid item>
-          <Typography variant='h1' gutterBottom>
-            {frontMatter.title}
-          </Typography>
+    <PageLayout title={frontMatter.title} description=''>
+      <Grid item container>
+        <Grid item container direction='row' columnSpacing={2} xs={9}>
+          <Grid item>
+            <ProfileImageStyled
+              alt='Brian Lau'
+              height={35}
+              width={35}
+              src='/static/images/brian_square.jpg'
+            />
+          </Grid>
+          <Grid item>
+            <Typography color='textSecondary' variant='body1'>
+              {`Brian Lau / ${format(
+                parseISO(frontMatter.publishedAt),
+                'MMMM dd, yyyy'
+              )}`}
+            </Typography>
+          </Grid>
         </Grid>
-
-        <Grid item container>
-          <Grid container item xs={9}>
-            <div className={classes.profile}>
-              <Image
-                alt='Brian Lau'
-                height={35}
-                width={35}
-                src='/static/images/brian_square.jpg'
-                className={classes.profile}
-              />
-            </div>
-            <Typography color='textSecondary'>
-              {'Brian Lau / '}
-              {format(parseISO(frontMatter.publishedAt), 'MMMM dd, yyyy')}
-            </Typography>
-          </Grid>
-          <Grid item xs>
-            <Typography color='textSecondary'>
-              {frontMatter.readingTime.text}
-              {/* {` • `} */}
-              {/* <ViewCounter slug={frontMatter.slug} /> */}
-            </Typography>
-          </Grid>
+        <Grid item xs container justifyContent='flex-end'>
+          <Typography color='textSecondary'>
+            {frontMatter.readingTime.text}
+            {/* {` • `} */}
+            {/* <ViewCounter slug={frontMatter.slug} /> */}
+          </Typography>
         </Grid>
 
         {frontMatter.image && (
@@ -87,9 +67,7 @@ export default function BlogLayout({ children, frontMatter }: Props) {
             />
           </Grid>
         )}
-        <Grid item className={classes.content}>
-          {children}
-        </Grid>
+        <Grid item>{children}</Grid>
 
         <Grid item>
           <div>
@@ -116,6 +94,6 @@ export default function BlogLayout({ children, frontMatter }: Props) {
           </Link>
         </Grid>
       </Grid>
-    </Root>
+    </PageLayout>
   )
 }
