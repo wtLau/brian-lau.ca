@@ -65,14 +65,12 @@ const About = () => {
             Interested In
           </Typography>
 
-          <Grid container justifyContent='center' spacing={1}>
+          <Grid container justifyContent='center' spacing={2}>
             {skills &&
               skills.map((data) => (
                 <Grid item key={data.name}>
                   <Link href={data.url ? data.url : '/'} target='_blank'>
-                    <Button variant='text' size='small'>
-                      {data.name}
-                    </Button>
+                    {data.name}
                   </Link>
                 </Grid>
               ))}
