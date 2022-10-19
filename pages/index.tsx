@@ -17,7 +17,7 @@ const Index: FC = () => {
       <Grid container spacing={8} alignContent='center'>
         <Grid item>
           <Typography variant='h2' component={'h1'} gutterBottom>
-            Hey, {userName}! I'm Brian Lau
+            Hey, {userName}! {`I'm Brian Lau`}
           </Typography>
         </Grid>
         <Grid item>
@@ -29,7 +29,7 @@ const Index: FC = () => {
             <Link underline='always' href='/guestbook'>
               guest-book
             </Link>{' '}
-            and let know me you're here!
+            and let know me {`you're`} here!
           </Typography>
         </Grid>
       </Grid>

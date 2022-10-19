@@ -18,7 +18,7 @@ const NotFound = () => (
       />
       <Typography>
         Sorry, looks like the page you looked for doesn&#39t exist. Let me know
-        if you'd like to see that page!
+        if you&apos;d like to see that page!
       </Typography>
     </Grid>
   </PageLayout>

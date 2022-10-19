@@ -87,7 +87,7 @@ export default function Slider({ title, defaultPercentage, kcal }: Props) {
   useEffect(() => {
     macroCalculation(title, calorie)
     calCalculation(kcal, percentage)
-  }, [percentage, calorie, kcal])
+  }, [percentage, title, calorie, kcal])
 
   return (
     <StyledGrid
