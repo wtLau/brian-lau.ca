@@ -44,15 +44,17 @@ declare interface LayoutProps {
 const AppLayout: FC<LayoutProps> = ({ children }) => {
   return (
     <StyledGrid container className={classes.root} justifyContent='center'>
-      <Grid item xs={12}>
+      <Grid item xs={12} component='nav'>
         <Navbar />
       </Grid>
 
-      <Grid item xs={12} className={classes.body}>
+      <Grid item xs={12} className={classes.body} component='main'>
         {children}
       </Grid>
 
-      <Grid item xs={12} className={classes.footer} component={Footer} />
+      <Grid item xs={12} className={classes.footer} component='footer'>
+        <Footer />
+      </Grid>
     </StyledGrid>
   )
 }

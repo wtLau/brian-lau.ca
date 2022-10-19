@@ -54,6 +54,12 @@ Once you've started the development server, open http://localhost:3000 with your
   - Deploy modern static websites with Vercel
 
 
+## Feature
+
+- 97 Web Vital 🥂
+<img width="800" alt="image" src="https://user-images.githubusercontent.com/26396307/196782271-977e4c4d-d9f3-4b99-9282-0ab237f48552.png">
+
+
 ## Inpirations
 
 - [Lee Robinson](https://leerob.io/) 
