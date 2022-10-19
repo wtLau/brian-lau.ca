@@ -57,7 +57,7 @@ export default function Blog({ posts }: any) {
             />
           </Grid>
         )} */}
-        <Grid item container>
+        <Grid item container direction='column'>
           <Grid item>
             <Typography variant='h2' gutterBottom>
               All Posts
@@ -73,9 +73,11 @@ export default function Blog({ posts }: any) {
             </Grid>
           )}
 
-          <Grid item>
+          <Grid item container direction='column'>
             {filteredBlogPosts.map((frontMatter: BlogFrontMatterType) => (
-              <BlogPost key={frontMatter.title} {...frontMatter} />
+              <Grid item key={frontMatter.title}>
+                <BlogPost {...frontMatter} />
+              </Grid>
             ))}
           </Grid>
         </Grid>

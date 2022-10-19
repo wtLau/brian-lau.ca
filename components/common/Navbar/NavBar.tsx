@@ -1,27 +1,23 @@
 /* eslint-disable react/jsx-no-bind */
-import { Brightness7, Brightness4 } from '@mui/icons-material'
 import {
   AppBar,
   Toolbar,
   Typography,
-  IconButton,
-  Grid,
-  useScrollTrigger,
   List,
-  ListItem,
   ListItemText,
   Hidden,
-  useTheme,
   ListItemIcon,
+  ListItemButton,
+  ButtonBase,
 } from '@mui/material'
 import { styled } from '@mui/material/styles'
 // import Link from 'next/link'
 import React from 'react'
 
-import { useChangeTheme } from '@components/common/Theme'
 import { Link } from '@components/ui'
 
 import SideDrawer from './SideDrawer'
+import ThemeButton from './ThemeButton'
 
 const PREFIX = 'NavBar'
 
@@ -37,13 +33,10 @@ const classes = {
 // TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
 const Root = styled('div')(({ theme }) => ({
   [`& .${classes.appBar}`]: {
-    [theme.breakpoints.up('md')]: {
-      height: '100px',
-    },
+    height: '100px',
     display: 'flex',
     justifyContent: 'center',
     flexDirection: 'row',
-    backgroundColor: `${theme.palette.background.default}90`,
   },
 
   [`& .${classes.toolBar}`]: {
@@ -51,12 +44,6 @@ const Root = styled('div')(({ theme }) => ({
     width: '100%',
     display: 'flex',
     justifyContent: 'space-between',
-  },
-
-  [`& .${classes.logo}`]: {
-    marginRight: theme.spacing(1),
-    background: `url('/static/images/profile/profile_placeholder.png')`,
-    backgroundSize: 'contain',
   },
 
   [`& .${classes.navbarDisplayFlex}`]: {
@@ -68,38 +55,11 @@ const Root = styled('div')(({ theme }) => ({
     display: `flex`,
     justifyContent: `space-between`,
   },
-
-  [`& .${classes.linkText}`]: {
-    textDecoration: `none`,
-    color: `white`,
-  },
 }))
-
-interface Props {
-  children: React.ReactElement
-}
-
-function ElevationScroll(props: Props) {
-  const { children } = props
-  const trigger = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 0,
-  })
-
-  return React.cloneElement(children, {
-    elevation: trigger ? 1 : 0,
-  })
-}
 
 const navLinks = [
   { title: `Blog`, path: `/blog` },
-  { title: `Contact`, path: `/contact` },
-  { title: `Tools`, path: `/tools` },
-  {
-    title: `Resume`,
-    path: `/brian-lau-resume.pdf`,
-    external: true,
-  },
+  { title: 'About', path: '/about' },
   {
     title: `Github`,
     path: `https://github.com/wtLau`,
@@ -113,85 +73,47 @@ const navLinks = [
 ]
 
 const NavBar = () => {
-  const theme = useTheme()
-  const changeTheme = useChangeTheme()
-
   return (
     <Root>
-      <ElevationScroll>
-        <AppBar className={classes.appBar} color='transparent'>
-          <Toolbar className={classes.toolBar}>
-            <Link href='/'>
-              <Grid container alignItems='center'>
-                <Typography variant='body1' color='textPrimary' gutterBottom>
-                  Brian Lau
-                </Typography>
-              </Grid>
-            </Link>
+      <AppBar className={classes.appBar} color='transparent'>
+        <Toolbar className={classes.toolBar}>
+          <Link href='/'>
+            <ButtonBase focusRipple>
+              <Typography variant='body1' color='textPrimary' align='center'>
+                Brian Lau
+              </Typography>
+            </ButtonBase>
+          </Link>
 
-            <Hidden lgDown>
-              <List
-                component='nav'
-                aria-labelledby='main navigation'
-                className={classes.navDisplayFlex}
-              >
-                <Link href='/blog' color='textPrimary'>
-                  <ListItem button>
-                    <ListItemText primary={'Blog'} />
-                  </ListItem>
-                </Link>
+          <Hidden mdDown>
+            <List
+              component='nav'
+              aria-labelledby='main navigation'
+              className={classes.navDisplayFlex}
+            >
+              <Link href='/about' color='textPrimary'>
+                <ListItemButton>
+                  <ListItemText primary={'About'} />
+                </ListItemButton>
+              </Link>
 
-                <Link href='/about' color='textPrimary'>
-                  <ListItem button>
-                    <ListItemText primary={'About'} />
-                  </ListItem>
-                </Link>
+              <Link href='/blog' color='textPrimary'>
+                <ListItemButton>
+                  <ListItemText primary={'Blog'} />
+                </ListItemButton>
+              </Link>
 
-                <Link href='/tools' color='textPrimary'>
-                  <ListItem button>
-                    <ListItemText primary={'Tools'} />
-                  </ListItem>
-                </Link>
+              <ListItemIcon>
+                <ThemeButton />
+              </ListItemIcon>
+            </List>
+          </Hidden>
 
-                <Link
-                  href='/brian-lau-resume.pdf'
-                  color='textPrimary'
-                  target='_blank'
-                  download
-                >
-                  <ListItem button>
-                    <ListItemText primary={'Resume'} />
-                  </ListItem>
-                </Link>
-
-                <Link href='/contact' color='textPrimary'>
-                  <ListItem button>
-                    <ListItemText primary={'Contact'} />
-                  </ListItem>
-                </Link>
-
-                <ListItemIcon>
-                  <IconButton
-                    onClick={() => changeTheme()}
-                    title='Toggle light/dark theme'
-                    size='large'
-                  >
-                    {theme.palette.mode === 'dark' ? (
-                      <Brightness7 />
-                    ) : (
-                      <Brightness4 />
-                    )}
-                  </IconButton>
-                </ListItemIcon>
-              </List>
-            </Hidden>
-
-            <Hidden mdUp>
-              <SideDrawer navLinks={navLinks} />
-            </Hidden>
-          </Toolbar>
-        </AppBar>
-      </ElevationScroll>
+          <Hidden mdUp>
+            <SideDrawer navLinks={navLinks} />
+          </Hidden>
+        </Toolbar>
+      </AppBar>
       <Toolbar />
     </Root>
   )

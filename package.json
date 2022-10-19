@@ -44,8 +44,10 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^12.1.5",
+    "@testing-library/dom": "^8.19.0",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^14.4.3",
     "@types/jest": "^26.0.20",
     "@types/mdx-js__react": "^1.5.3",
     "@types/next-auth": "^3.7.1",

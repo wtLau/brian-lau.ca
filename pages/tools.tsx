@@ -1,36 +1,20 @@
 import { Typography, Grid } from '@mui/material'
-import { styled } from '@mui/material/styles'
 import Image from 'next/image'
 import React from 'react'
 
-import { HeadSeo } from '@components/HeadSeo'
+import PageLayout from '@components/layout/PageLayout'
 import toolsData from '@data/toolsData'
-
-const PREFIX = 'About'
-
-const classes = {
-  title: `${PREFIX}-title`,
-  backgroundimage: `${PREFIX}-backgroundimage`,
-}
-
-const Root = styled('div')(({ theme }) => ({
-  [`& .${classes.title}`]: {
-    flexGrow: 1,
-    marginTop: theme.spacing(7),
-  },
-}))
 
 const Tools = () => {
   const toolsTypeList = new Set(toolsData.map((ele) => ele.type))
 
   return (
-    <Root>
-      <HeadSeo
-        title='Tools'
-        description="Here's a list of tools I am currently using for coding, writing and learning. They often get marginal upgrades based on my wish list!"
-      />
+    <PageLayout
+      title='Tools'
+      description="Here's a list of tools I am currently using for coding, writing and learning. They often get marginal upgrades based on my wish list!"
+    >
       <Grid container spacing={8}>
-        <Grid item className={classes.title}>
+        <Grid item>
           <Image
             src='/static/images/desk.jpeg'
             width={1706}
@@ -52,7 +36,7 @@ const Tools = () => {
           ))}
         </Grid>
       </Grid>
-    </Root>
+    </PageLayout>
   )
 }
 

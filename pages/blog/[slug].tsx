@@ -32,7 +32,7 @@ export default function Blog({ mdxSource, frontMatter }: Props) {
           description: frontMatter.summary,
           images: [
             {
-              url: frontMatter.image,
+              url: frontMatter.image || '',
               width: 800,
               height: 600,
               alt: frontMatter.title,

@@ -1,38 +1,10 @@
-import { Typography, Grid } from '@mui/material'
-import { styled } from '@mui/material/styles'
-import { NextSeo } from 'next-seo'
+import { Grid } from '@mui/material'
 import React, { useState, useEffect } from 'react'
 
+import PageLayout from '@components/layout/PageLayout'
 import { Link, ColumnListItem } from '@components/ui'
 import { resources } from '@data/resources'
 import { skillsData, TSkills } from '@data/skillsData'
-
-const PREFIX = 'About'
-
-const classes = {
-  title: `${PREFIX}-title`,
-  backgroundimage: `${PREFIX}-backgroundimage`,
-  container: `${PREFIX}-container`,
-}
-
-// TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
-const Root = styled('div')(({ theme }) => ({
-  [`& .${classes.title}`]: {
-    flexGrow: 1,
-    marginTop: theme.spacing(17),
-  },
-
-  [`& .${classes.backgroundimage}`]: {
-    [theme.breakpoints.down('xl')]: {
-      width: '100%',
-      height: '100%',
-    },
-  },
-
-  [`& .${classes.container}`]: {
-    margin: theme.spacing(10, 0),
-  },
-}))
 
 const About = () => {
   const [skills, setSkills] = useState<TSkills[]>([])
@@ -42,24 +14,18 @@ const About = () => {
   }, [skills])
 
   return (
-    <Root>
-      <NextSeo
-        title='Resources'
-        description='A little library of my knowledge collections.'
-      />
-      <Grid container className={classes.title}>
-        <Typography variant='h1' gutterBottom>
-          Resources
-        </Typography>
-      </Grid>
-      <Grid item xs={12} className={classes.container}>
+    <PageLayout
+      title='Resources'
+      description='A little library of my knowledge collections.'
+    >
+      <Grid item xs={12}>
         {resources.map((resource) => (
           <Link href={resource.url} key={resource.id}>
             <ColumnListItem title={resource.title} />
           </Link>
         ))}
       </Grid>
-    </Root>
+    </PageLayout>
   )
 }
 
