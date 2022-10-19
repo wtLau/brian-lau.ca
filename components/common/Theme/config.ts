@@ -4,10 +4,10 @@ import { ThemeOptions } from '@mui/material'
 const themeConfig: ThemeOptions = {
   palette: {
     primary: {
-      main: '#347d39',
+      main: '#f9f9f9',
     },
     secondary: {
-      main: 'rgb(173, 186, 199)',
+      main: '#424242',
     },
   },
   typography: {
