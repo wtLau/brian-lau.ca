@@ -43,7 +43,7 @@ MyDocument.getInitialProps = async (ctx) => {
 
   // Render app and page and get the context of the page with collected side effects.
   const sheets = new ServerStyleSheets()
-  // eslint-disable-next-line testing-library/render-result-naming-convention
+
   const originalRenderPage = ctx.renderPage
 
   ctx.renderPage = () =>

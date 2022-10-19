@@ -47,7 +47,7 @@ export async function getFileBySlug({
     : fs.readFileSync(path.join(root, 'data', `${type}.mdx`), 'utf8')
 
   const { data, content } = matter(source)
-  // eslint-disable-next-line testing-library/render-result-naming-convention
+
   const mdxSource = await renderToString(content, {
     components: MDXComponents,
     mdxOptions: {

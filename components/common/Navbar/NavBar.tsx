@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-bind */
 import {
   AppBar,
   Toolbar,
@@ -11,9 +10,7 @@ import {
   ButtonBase,
 } from '@mui/material'
 import { styled } from '@mui/material/styles'
-// import Link from 'next/link'
 import React from 'react'
-
 import { Link } from '@components/ui'
 
 import SideDrawer from './SideDrawer'
