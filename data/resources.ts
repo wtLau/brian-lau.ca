@@ -45,8 +45,7 @@ export const resources: resourceType[] = [
     title: "Don't Call Yourself A Programmer, And Other Career Advice",
     author: 'Patrick McKenzie',
     type: 'article',
-    url:
-      'https://www.kalzumeus.com/2011/10/28/dont-call-yourself-a-programmer/',
+    url: 'https://www.kalzumeus.com/2011/10/28/dont-call-yourself-a-programmer/',
   },
 
   {
@@ -54,8 +53,7 @@ export const resources: resourceType[] = [
     title: 'How to apply SOLID principles in React applications',
     author: 'Tomas Gold',
     type: 'article',
-    url:
-      'https://medium.com/@tomgold_48918/how-to-apply-solid-principles-in-react-applications-6c964091a982',
+    url: 'https://medium.com/@tomgold_48918/how-to-apply-solid-principles-in-react-applications-6c964091a982',
   },
   {
     id: 2,

@@ -1,7 +1,6 @@
+import { Grid, Typography, CircularProgress } from '@mui/material'
 import { useSession } from 'next-auth/client'
 import React, { useEffect, useState } from 'react'
-
-import { Grid, Typography, CircularProgress } from '@material-ui/core'
 
 const Profile = () => {
   const [content, setContent] = useState()
@@ -31,7 +30,7 @@ const Profile = () => {
   return (
     <Grid>
       <h1>Protected Page</h1>
-      <p>You're sign in as</p>
+      <p>{`You're sign in as`}</p>
 
       <strong>{userName || '\u00a0'}</strong>
       <br />

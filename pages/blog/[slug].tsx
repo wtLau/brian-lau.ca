@@ -1,13 +1,19 @@
-import { getFiles, getFileBySlug } from '@lib/mdx'
-import BlogLayout from '@components/layout/BlogLayout'
-import MDXComponents from '@components/blog/BlogContent'
 import hydrate from 'next-mdx-remote/hydrate'
-import React from 'react'
 import { NextSeo } from 'next-seo'
+import React from 'react'
+
+import MDXComponents from '@components/blog/BlogContent'
+import BlogLayout from '@components/layout/BlogLayout'
+import {
+  getFiles,
+  getFileBySlug,
+  BlogFrontMatterType,
+  MdxSourceType,
+} from '@lib/mdx'
 
 type Props = {
-  mdxSource: any
-  frontMatter: any
+  mdxSource: MdxSourceType
+  frontMatter: BlogFrontMatterType
 }
 
 export default function Blog({ mdxSource, frontMatter }: Props) {
@@ -26,7 +32,7 @@ export default function Blog({ mdxSource, frontMatter }: Props) {
           description: frontMatter.summary,
           images: [
             {
-              url: frontMatter.image,
+              url: frontMatter.image || '',
               width: 800,
               height: 600,
               alt: frontMatter.title,
@@ -53,7 +59,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }: any) {
-  const post = await getFileBySlug('blog', params.slug)
+  const post = await getFileBySlug({ type: 'blog', slug: params.slug })
 
   return { props: post }
 }

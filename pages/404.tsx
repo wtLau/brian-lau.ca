@@ -1,24 +1,27 @@
-import React from 'react'
+import { Grid, Typography } from '@mui/material'
 import Image from 'next/image'
-import { NextSeo } from 'next-seo'
+import React from 'react'
+
+import PageLayout from '@components/layout/PageLayout'
 
 const NotFound = () => (
-  <>
-    <NextSeo title='404' description='Looks like you are on the wrong page' />
-    <div className='error-404'>
-      <div>
-        <Image
-          src='/static/images/404.svg'
-          alt='error404'
-          width={500}
-          height={500}
-        />
-      </div>
-      <h3 style={{ textAlign: 'center' }}>
-        Sorry, looks like the page you looked for doesn't exist :(
-      </h3>
-    </div>
-  </>
+  <PageLayout
+    title='Wrong page 🙈'
+    description='Looks like you might be finding something hidden, nice try tho :)'
+  >
+    <Grid container>
+      <Image
+        src='/static/images/404.svg'
+        alt='error404'
+        width={500}
+        height={500}
+      />
+      <Typography>
+        Sorry, looks like the page you looked for doesn&#39t exist. Let me know
+        if you&apos;d like to see that page!
+      </Typography>
+    </Grid>
+  </PageLayout>
 )
 
 export default NotFound

@@ -1,36 +1,12 @@
+import { Grid } from '@mui/material'
 import React, { useState, useEffect } from 'react'
 
-import { makeStyles } from '@material-ui/core/styles'
-import { Typography, Button, Grid } from '@material-ui/core'
-import Image from 'next/image'
-import { Link } from '@components/ui'
-
-import { skillsData, TSkills } from '@data/skillsData'
-import { signIn, signOut, useSession } from 'next-auth/client'
-import { NextSeo } from 'next-seo'
-import Section5 from '@components/common/Landing/Section5'
+import PageLayout from '@components/layout/PageLayout'
+import { Link, ColumnListItem } from '@components/ui'
 import { resources } from '@data/resources'
-import { ColumnListItem } from '@components/ui'
-
-const useStyles = makeStyles((theme) => ({
-  title: {
-    flexGrow: 1,
-    marginTop: theme.spacing(17),
-  },
-  backgroundimage: {
-    [theme.breakpoints.down('md')]: {
-      width: '100%',
-      height: '100%',
-    },
-  },
-  container: {
-    margin: theme.spacing(10, 0),
-  },
-}))
+import { skillsData, TSkills } from '@data/skillsData'
 
 const About = () => {
-  const classes = useStyles()
-  const [session] = useSession()
   const [skills, setSkills] = useState<TSkills[]>([])
 
   useEffect(() => {
@@ -38,26 +14,18 @@ const About = () => {
   }, [skills])
 
   return (
-    <>
-      <NextSeo
-        title='Resources'
-        description='A little library of my knowledge collections.'
-      />
-
-      <Grid container className={classes.title}>
-        <Typography variant='h1' gutterBottom>
-          Resources
-        </Typography>
-      </Grid>
-
-      <Grid item xs={12} className={classes.container}>
+    <PageLayout
+      title='Resources'
+      description='A little library of my knowledge collections.'
+    >
+      <Grid item xs={12}>
         {resources.map((resource) => (
-          <Link href={resource.url}>
+          <Link href={resource.url} key={resource.id}>
             <ColumnListItem title={resource.title} />
           </Link>
         ))}
       </Grid>
-    </>
+    </PageLayout>
   )
 }
 

@@ -1,13 +1,21 @@
-import Image from 'next/image'
+import { Typography, Grid } from '@mui/material'
+import { styled } from '@mui/material/styles'
 import { parseISO, format } from 'date-fns'
-
-import BlogContent from '../blog/BlogContent'
-import { Typography, makeStyles, Theme, Grid } from '@material-ui/core'
-import { Link } from '@components/ui'
+import Image from 'next/image'
 import { ReactNode } from 'react'
 
+import { Link } from '@components/ui'
+import { BlogFrontMatterType } from '@lib/mdx'
+
+import PageLayout from './PageLayout'
+
+const ProfileImageStyled = styled(Image)({
+  borderRadius: '50%',
+  marginRight: '20px',
+})
+
 const editUrl = (slug: string) =>
-  `https://github.com/wtLau/Portfolio-App/edit/development/data/blog/${slug}.mdx`
+  `https://github.com/wtLau/Portfolio-App/edit/production/data/blog/${slug}.mdx`
 
 const discussUrl = (slug: string) =>
   `https://mobile.twitter.com/search?q=${encodeURIComponent(
@@ -16,56 +24,37 @@ const discussUrl = (slug: string) =>
 
 type Props = {
   children: ReactNode
-  frontMatter: any
+  frontMatter: BlogFrontMatterType
 }
 
-const useStyles = makeStyles((theme: Theme) => ({
-  header: {
-    marginBottom: theme.spacing(10),
-  },
-  profile: {
-    borderRadius: '50%',
-    marginRight: '1rem',
-  },
-  content: {
-    margin: '2.5rem 0',
-  },
-}))
-
 export default function BlogLayout({ children, frontMatter }: Props) {
-  const classes = useStyles()
   return (
-    <article>
-      <Grid container className={classes.header}>
-        <Grid item>
-          <Typography variant='h1' gutterBottom>
-            {frontMatter.title}
-          </Typography>
+    <PageLayout title={frontMatter.title} description={frontMatter.summary}>
+      <Grid item container>
+        <Grid item container direction='row' columnSpacing={2} xs={9}>
+          <Grid item>
+            <ProfileImageStyled
+              alt='Brian Lau'
+              height={35}
+              width={35}
+              src='/static/images/brian_square.jpg'
+            />
+          </Grid>
+          <Grid item>
+            <Typography color='textSecondary' variant='body1'>
+              {`Brian Lau / ${format(
+                parseISO(frontMatter.publishedAt),
+                'MMMM dd, yyyy'
+              )}`}
+            </Typography>
+          </Grid>
         </Grid>
-
-        <Grid item container>
-          <Grid container item xs={9}>
-            <div className={classes.profile}>
-              <Image
-                alt='Brian Lau'
-                height={35}
-                width={35}
-                src='/static/images/brian_square.jpg'
-                className={classes.profile}
-              />
-            </div>
-            <Typography color='textSecondary'>
-              {'Brian Lau / '}
-              {format(parseISO(frontMatter.publishedAt), 'MMMM dd, yyyy')}
-            </Typography>
-          </Grid>
-          <Grid item xs>
-            <Typography color='textSecondary'>
-              {frontMatter.readingTime.text}
-              {/* {` • `} */}
-              {/* <ViewCounter slug={frontMatter.slug} /> */}
-            </Typography>
-          </Grid>
+        <Grid item xs container justifyContent='flex-end'>
+          <Typography color='textSecondary'>
+            {frontMatter.readingTime.text}
+            {/* {` • `} */}
+            {/* <ViewCounter slug={frontMatter.slug} /> */}
+          </Typography>
         </Grid>
 
         {frontMatter.image && (
@@ -78,9 +67,7 @@ export default function BlogLayout({ children, frontMatter }: Props) {
             />
           </Grid>
         )}
-        <Grid item className={classes.content}>
-          {children}
-        </Grid>
+        <Grid item>{children}</Grid>
 
         <Grid item>
           <div>
@@ -107,6 +94,6 @@ export default function BlogLayout({ children, frontMatter }: Props) {
           </Link>
         </Grid>
       </Grid>
-    </article>
+    </PageLayout>
   )
 }

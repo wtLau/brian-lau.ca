@@ -6,7 +6,7 @@ import {
   Select,
   MenuItem,
   FormHelperText,
-} from '@material-ui/core'
+} from '@mui/material'
 
 const SelectFormField = ({ field, form, label, options, ...props }) => {
   const errorText =
@@ -14,7 +14,7 @@ const SelectFormField = ({ field, form, label, options, ...props }) => {
   return (
     <FormControl fullWidth error={!!errorText}>
       {label && <InputLabel>{label}</InputLabel>}
-      <Select fullWidth {...field} {...props}>
+      <Select fullWidth {...field} {...props} label={label}>
         {options.map((op) => (
           <MenuItem key={op.value} value={op.value}>
             {op.label}

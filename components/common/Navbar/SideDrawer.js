@@ -1,20 +1,23 @@
-import {
-  Drawer,
-  IconButton,
-  List,
-  ListItem,
-  ListItemText,
-} from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles'
-import { Menu } from '@material-ui/icons'
+import { Drawer, IconButton, List, ListItem, ListItemText } from '@mui/material'
+import { styled } from '@mui/material/styles'
+import makeStyles from '@mui/styles/makeStyles'
+import { Menu } from '@mui/icons-material'
 import * as React from 'react'
 import { useState } from 'react'
 import { Link } from '@components/ui'
-const useStyles = makeStyles({
-  list: {
+const PREFIX = 'SideDrawer'
+
+const classes = {
+  list: `${PREFIX}-list`,
+  linkText: `${PREFIX}-linkText`,
+}
+
+// TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
+const Root = styled('div')({
+  [`& .${classes.list}`]: {
     width: 250,
   },
-  linkText: {
+  [`& .${classes.linkText}`]: {
     textDecoration: `none`,
     textTransform: `uppercase`,
     color: `black`,
@@ -30,14 +33,11 @@ const useStyles = makeStyles({
 // }
 
 const SideDrawer = ({ navLinks }) => {
-  const classes = useStyles()
   const [state, setState] = useState({
     right: false,
   })
 
-  const toggleDrawer = (anchor, open) => (
-    event
-  ) => {
+  const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === 'keydown') {
       return
     }
@@ -53,30 +53,29 @@ const SideDrawer = ({ navLinks }) => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List component='nav'>
-        {navLinks.map(
-          ({ title, path, external }) => (
-            <Link
-              href={path}
-              key={title}
-              target={external ? '_blank' : ''}
-              className={classes.linkText}
-            >
-              <ListItem button>
-                <ListItemText primary={title} />
-              </ListItem>
-            </Link>
-          )
-        )}
+        {navLinks.map(({ title, path, external }) => (
+          <Link
+            href={path}
+            key={title}
+            target={external ? '_blank' : ''}
+            className={classes.linkText}
+          >
+            <ListItem button>
+              <ListItemText primary={title} />
+            </ListItem>
+          </Link>
+        ))}
       </List>
     </div>
   )
 
   return (
-    <React.Fragment>
+    <Root>
       <IconButton
         edge='start'
         aria-label='menu'
         onClick={toggleDrawer('right', true)}
+        size='large'
       >
         <Menu fontSize='large' color='primary' />
       </IconButton>
@@ -89,7 +88,7 @@ const SideDrawer = ({ navLinks }) => {
       >
         {sideDrawerList('right')}
       </Drawer>
-    </React.Fragment>
+    </Root>
   )
 }
 

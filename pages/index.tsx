@@ -1,39 +1,39 @@
+import { Typography } from '@mui/material'
+import Grid from '@mui/material/Grid'
+import { styled } from '@mui/material/styles'
+import { useSession } from 'next-auth/client'
 import { FC } from 'react'
 
-import { createStyles, makeStyles } from '@material-ui/core/styles'
-import Grid from '@material-ui/core/Grid'
-
-import Section1 from '@components/common/Landing/Section1'
-import Section2 from '@components/common/Landing/Section2'
-import Section3 from '@components/common/Landing/Section3'
-import Section4 from '@components/common/Landing/Section4'
-import Section5 from '@components/common/Landing/Section5'
-import { Typography } from '@material-ui/core'
-
-const useStyles = makeStyles((theme) =>
-  createStyles({
-    root: {
-      flexGrow: 1,
-    },
-  })
-)
+import { Link } from '@components/ui'
+const StyledGrid = styled(Grid)({
+  minHeight: '85vh',
+})
 
 const Index: FC = () => {
-  const classes = useStyles()
-
+  const [session] = useSession()
+  const userName = session?.user?.name || 'stranger'
   return (
-    <Grid
-      container
-      className={classes.root}
-      justify='center'
-      alignItems='center'
-    >
-      <Section1 />
-      {/* <Section2 /> */}
-      {/* <Section3 /> */}
-      {/* <Section4 /> */}
-      {/* <Section5 /> */}
-    </Grid>
+    <StyledGrid container justifyContent='center' alignItems='center'>
+      <Grid container spacing={8} alignContent='center'>
+        <Grid item>
+          <Typography variant='h2' component={'h1'} gutterBottom>
+            Hey, {userName}! {`I'm Brian Lau`}
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Typography variant='body1' gutterBottom>
+            You’ve strangely found my little corner of the internet!
+          </Typography>
+          <Typography>
+            Sign my{' '}
+            <Link underline='always' href='/guestbook'>
+              guest-book
+            </Link>{' '}
+            and let know me {`you're`} here!
+          </Typography>
+        </Grid>
+      </Grid>
+    </StyledGrid>
   )
 }
 
