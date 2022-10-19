@@ -1,8 +1,7 @@
 import { Typography, CardContent, CardActions } from '@mui/material'
-import { styled } from '@mui/material/styles'
-import { NextSeo } from 'next-seo'
 import React from 'react'
 
+import PageLayout from '@components/layout/PageLayout'
 import MacroCalculator from '@components/tools/MacroCalculator/MacroCalculator'
 import { Card } from '@components/ui'
 
@@ -13,21 +12,9 @@ const classes = {
   gridMargin: `${PREFIX}-gridMargin`,
 }
 
-// TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
-const Root = styled('div')(({ theme }) => ({
-  [`& .${classes.root}`]: {
-    flexGrow: 1,
-  },
-
-  [`& .${classes.gridMargin}`]: {
-    marginTop: theme.spacing(8),
-  },
-}))
-
 export default function MacroCalculatorPage() {
   return (
-    <Root>
-      <NextSeo title='Tools' description='Tools that you might find useful' />
+    <PageLayout title='Tools' description='Tools that you might find useful'>
       <Card className={classes.root}>
         <CardContent>
           <Typography component={'h1'} variant='h3' gutterBottom>
@@ -54,6 +41,6 @@ export default function MacroCalculatorPage() {
           </CardActions>
         </CardContent>
       </Card>
-    </Root>
+    </PageLayout>
   )
 }

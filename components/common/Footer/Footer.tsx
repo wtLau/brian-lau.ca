@@ -51,6 +51,7 @@ const linkData = [
     target: '_blank',
   },
   { name: 'Mentorship', link: '/mentorship' },
+  { name: 'Resources', link: '/resources' },
 ]
 
 const Footer: FC = () => {

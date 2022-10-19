@@ -7,7 +7,7 @@ import {
 } from '@mui/material'
 import React, { useState } from 'react'
 
-import { HeadSeo } from '@components/HeadSeo'
+import PageLayout from '@components/layout/PageLayout'
 
 const brewRatioList = [
   {
@@ -37,25 +37,6 @@ const brewRatioList = [
   },
 ]
 
-const brewMethodsList = [
-  {
-    id: 1,
-    title: '4:6',
-  },
-  {
-    id: 2,
-    title: 'Hoffman',
-  },
-  {
-    id: 3,
-    title: 'V60',
-  },
-  {
-    id: 4,
-    title: 'Kalista',
-  },
-]
-
 export default function MacroCalculatorPage() {
   const [ratio, setRatio] = useState(16)
   const [weight, setWeight] = useState(25)
@@ -68,15 +49,12 @@ export default function MacroCalculatorPage() {
   }
 
   return (
-    <Grid container direction='column' spacing={4}>
-      <Grid item>
-        <HeadSeo
-          title='Pour Over Coffee'
-          description='Pour over coffee tool to measure, record, and track. It provides a way to make coffee measurement specifically for
+    <PageLayout
+      title='Pour Over Coffee'
+      description='Pour over coffee tool to measure, record, and track. It provides a way to make coffee measurement specifically for
         pour overs. Includes feature like brew ratio, water temperature, coffee origin,
         coffee cupping result, findings etc..'
-        />
-      </Grid>
+    >
       <Grid item container spacing={2}>
         <Grid item>
           <Typography variant='h3' gutterBottom>
@@ -224,6 +202,6 @@ export default function MacroCalculatorPage() {
               Add another pour
             </Button> */}
       </Grid>
-    </Grid>
+    </PageLayout>
   )
 }
