@@ -11,7 +11,7 @@ function ThemeButton() {
 
   const isDarkMode = theme.palette.mode === 'dark'
   return (
-    <Tooltip title={`Toggle ${isDarkMode ? 'light' : 'dark'} mode`}>
+    <Tooltip title={`Toggle theme`}>
       <IconButton onClick={changeTheme} size='large'>
         <Condition condition={isDarkMode} fallback={<Brightness4 />}>
           <Brightness7 />
