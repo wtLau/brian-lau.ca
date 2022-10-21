@@ -67,6 +67,7 @@ import {
   ListItemIcon,
   ListItemText,
   Slide,
+  Tooltip,
   useTheme,
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
@@ -126,7 +127,7 @@ function ScrollTop({ children }: Props) {
   return (
     <Fade in={trigger}>
       <Box
-        onClick={handleClick}
+        onClick={(e) => handleClick(e)}
         role='presentation'
         sx={{ position: 'fixed', bottom: 16, right: 16 }}
       >
@@ -258,9 +259,11 @@ const NavBar = () => {
       <Toolbar id='back-to-top-anchor' />
 
       <ScrollTop>
-        <Fab size='small' aria-label='scroll back to top'>
-          <KeyboardArrowUpIcon />
-        </Fab>
+        <Tooltip title='Scroll to top'>
+          <Fab size='small' aria-label='scroll back to top'>
+            <KeyboardArrowUpIcon />
+          </Fab>
+        </Tooltip>
       </ScrollTop>
     </>
   )
