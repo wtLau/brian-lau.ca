@@ -5,13 +5,13 @@ import React from 'react'
 import PageLayout from '@components/layout/PageLayout'
 import toolsData from '@data/toolsData'
 
-const Tools = () => {
+const Gears = () => {
   const toolsTypeList = new Set(toolsData.map((ele) => ele.type))
 
   return (
     <PageLayout
-      title='Tools'
-      description="Here's a list of tools I am currently using for coding, writing and learning. They often get marginal upgrades based on my wish list!"
+      title='Gears'
+      description="Here's a list of gears I am currently using for coding, writing and learning. They often get marginal upgrades based on my wish list!"
     >
       <Grid container spacing={8}>
         <Grid item>
@@ -27,7 +27,9 @@ const Tools = () => {
         <Grid container item xs={12} spacing={4}>
           {[...toolsTypeList].map((type) => (
             <Grid item xs={12} key={type}>
-              <Typography variant='h3'>{type}</Typography>
+              <Typography variant='h5' component={'h4'}>
+                {type}
+              </Typography>
               {toolsData.map(
                 (ele) =>
                   ele.type === type && <Typography>‧ {ele.name}</Typography>
@@ -40,4 +42,4 @@ const Tools = () => {
   )
 }
 
-export default Tools
+export default Gears

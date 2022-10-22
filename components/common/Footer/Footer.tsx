@@ -38,8 +38,8 @@ const linkData = [
     link: '/blog',
   },
   {
-    name: 'Tools',
-    link: '/tools',
+    name: 'Gears',
+    link: '/gears',
   },
   {
     name: 'Mini Apps',

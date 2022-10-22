@@ -3,8 +3,8 @@ import { Grid, Typography, TextField, InputAdornment } from '@mui/material'
 import { ChangeEvent, useState } from 'react'
 
 import PageLayout from '@components/layout/PageLayout'
-import { BlogPost } from '@components/ui'
 import { BlogFrontMatterType, getAllFilesFrontMatter } from '@lib/mdx'
+import PostList from '@components/PostList'
 
 export default function Blog({ posts }: any) {
   const [searchValue, setSearchValue] = useState('')
@@ -76,7 +76,11 @@ export default function Blog({ posts }: any) {
           <Grid item container direction='column'>
             {filteredBlogPosts.map((frontMatter: BlogFrontMatterType) => (
               <Grid item key={frontMatter.title}>
-                <BlogPost {...frontMatter} />
+                <PostList
+                  title={frontMatter.title}
+                  summary={frontMatter.summary}
+                  href={`/blog/${frontMatter.slug}`}
+                />
               </Grid>
             ))}
           </Grid>
