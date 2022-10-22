@@ -7,6 +7,8 @@ describe('<404 />', () => {
   it('should render default', () => {
     render(<NotFound />)
 
-    expect(screen.getByText('Wrong page')).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: 'Wrong page 🙈' })
+    ).toBeInTheDocument()
   })
 })
