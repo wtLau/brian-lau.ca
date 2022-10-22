@@ -5,13 +5,13 @@ import { Link } from '@components/ui'
 interface IPost {
   title: string
   summary: string
-  slug: string
+  href: string
 }
 
-const BlogPost = ({ title, summary, slug }: IPost) => {
+const PostList = ({ title, summary, href }: IPost) => {
   return (
     <>
-      <Link href={`/blog/${slug}`}>
+      <Link href={href}>
         <Typography variant='h5' component={'h4'}>
           {title}
         </Typography>
@@ -24,4 +24,4 @@ const BlogPost = ({ title, summary, slug }: IPost) => {
   )
 }
 
-export default BlogPost
+export default PostList
