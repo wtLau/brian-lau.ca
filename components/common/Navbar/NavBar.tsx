@@ -1,51 +1,3 @@
-// const NavBar = () => {
-//   return (
-//     <Root>
-//       <AppBar className={classes.appBar} color='transparent'>
-//         <Toolbar className={classes.toolBar}>
-//           <Link href='/'>
-//             <ButtonBase focusRipple>
-//               <Typography variant='body1' color='textPrimary' align='center'>
-//                 Brian Lau
-//               </Typography>
-//             </ButtonBase>
-//           </Link>
-
-//           <Hidden mdDown>
-//             <List
-//               component='nav'
-//               aria-labelledby='main navigation'
-//               className={classes.navDisplayFlex}
-//             >
-//               <Link href='/about' color='textPrimary'>
-//                 <ListItemButton>
-//                   <ListItemText primary={'About'} />
-//                 </ListItemButton>
-//               </Link>
-
-//               <Link href='/blog' color='textPrimary'>
-//                 <ListItemButton>
-//                   <ListItemText primary={'Blog'} />
-//                 </ListItemButton>
-//               </Link>
-
-//               <ListItemIcon>
-//                 <ThemeButton />
-//               </ListItemIcon>
-//             </List>
-//           </Hidden>
-
-//           <Hidden mdUp>
-//             <SideDrawer navLinks={navLinks} />
-//           </Hidden>
-//         </Toolbar>
-//       </AppBar>
-//       <Toolbar />
-//     </Root>
-//   )
-// }
-// export default NavBar
-
 import * as React from 'react'
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
@@ -53,25 +5,24 @@ import Typography from '@mui/material/Typography'
 import useScrollTrigger from '@mui/material/useScrollTrigger'
 import Box from '@mui/material/Box'
 import Fab from '@mui/material/Fab'
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import Fade from '@mui/material/Fade'
 import {
-  Button,
-  Container,
+  ButtonBase,
   Divider,
   Drawer,
+  Grid,
   IconButton,
   List,
   ListItem,
-  ListItemButton,
   ListItemIcon,
-  ListItemText,
   Slide,
   Tooltip,
   useTheme,
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import ThemeButton from './ThemeButton'
+import { Link } from '@components/ui'
+import ScrollTop from './ScrollTop'
 const drawerWidth = 240
 const navTile = 'Brian Lau'
 
@@ -106,37 +57,6 @@ function HideOnScroll({ children }: Props) {
   )
 }
 
-function ScrollTop({ children }: Props) {
-  const trigger = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 100,
-  })
-
-  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
-    const anchor = (
-      (event.target as HTMLDivElement).ownerDocument || document
-    ).querySelector('#back-to-top-anchor')
-
-    if (anchor) {
-      anchor.scrollIntoView({
-        block: 'center',
-      })
-    }
-  }
-
-  return (
-    <Fade in={trigger}>
-      <Box
-        onClick={(e) => handleClick(e)}
-        role='presentation'
-        sx={{ position: 'fixed', bottom: 16, right: 16 }}
-      >
-        {children}
-      </Box>
-    </Fade>
-  )
-}
-
 const NavBar = () => {
   const [mobileOpen, setMobileOpen] = React.useState(false)
   const theme = useTheme()
@@ -146,11 +66,19 @@ const NavBar = () => {
   }
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+    <Box
+      onClick={handleDrawerToggle}
+      sx={{
+        textAlign: 'center',
+        height: '100%',
+        backgroundImage: 'none',
+        backgroundColor: theme.palette.background.default,
+      }}
+    >
       <Typography
         variant='h6'
         noWrap
-        component='a'
+        component={Link}
         href='/'
         sx={{
           my: 6,
@@ -168,15 +96,19 @@ const NavBar = () => {
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item.title} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item.title} />
-            </ListItemButton>
+          <ListItem key={item.title}>
+            <ButtonBase
+              LinkComponent={Link}
+              href={item.path}
+              sx={{ width: '100%', py: 1 }}
+            >
+              {item.title}
+            </ButtonBase>
           </ListItem>
         ))}
       </List>
       <Divider />
-      <ListItemIcon>
+      <ListItemIcon sx={{ py: 1 }}>
         <ThemeButton />
       </ListItemIcon>
     </Box>
@@ -198,11 +130,11 @@ const NavBar = () => {
               width: '100%',
             }}
           >
-            <Box sx={{ flexGrow: 1, display: { sm: 'flex' } }}>
+            <Box sx={{ flexGrow: 1, display: { sm: 'block' } }}>
               <Typography
                 variant='h6'
                 noWrap
-                component='a'
+                component={Link}
                 href='/'
                 sx={{
                   mr: 2,
@@ -216,30 +148,44 @@ const NavBar = () => {
                 {navTile}
               </Typography>
             </Box>
-            <IconButton
-              aria-label='open drawer'
-              edge='end'
-              onClick={handleDrawerToggle}
-              sx={{ display: { sm: 'none' } }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-              {navItems.map((item) => (
-                <Button key={item.title} sx={{ color: 'inherit' }}>
-                  {item.title}
-                </Button>
-              ))}
+            <Box>
+              <IconButton
+                aria-label='open drawer'
+                edge='end'
+                onClick={handleDrawerToggle}
+                sx={{ display: { sm: 'none' } }}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Grid
+                container
+                direction='row'
+                spacing={4}
+                alignItems='center'
+                sx={{ display: { xs: 'none', sm: 'flex' } }}
+              >
+                {navItems.map((item) => (
+                  <Grid item key={item.title}>
+                    <Link href={item.path} sx={{ color: 'inherit' }}>
+                      {item.title}
+                    </Link>
+                  </Grid>
+                ))}
+
+                <Grid item>
+                  <ListItemIcon>
+                    <ThemeButton />
+                  </ListItemIcon>
+                </Grid>
+              </Grid>
             </Box>
-            <ListItemIcon sx={{ display: { xs: 'none', sm: 'flex' } }}>
-              <ThemeButton />
-            </ListItemIcon>
           </Toolbar>
         </AppBar>
       </HideOnScroll>
       <Box component='nav'>
         <Drawer
           variant='temporary'
+          anchor='right'
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
@@ -258,13 +204,7 @@ const NavBar = () => {
       </Box>
       <Toolbar id='back-to-top-anchor' />
 
-      <ScrollTop>
-        <Tooltip title='Scroll to top'>
-          <Fab size='small' aria-label='scroll back to top'>
-            <KeyboardArrowUpIcon />
-          </Fab>
-        </Tooltip>
-      </ScrollTop>
+      <ScrollTop />
     </>
   )
 }

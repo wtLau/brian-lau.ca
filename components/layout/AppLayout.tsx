@@ -13,21 +13,19 @@ const classes = {
 }
 
 const StyledGrid = styled(Grid)(({ theme }) => ({
-  [`&.${classes.root}`]: {
-    flexGrow: 1,
-    minHeight: '100vh',
-    maxWidth: theme.breakpoints.values.lg,
-    margin: '0 auto',
-    [theme.breakpoints.down('xl')]: {
-      overflow: 'hidden',
-    },
+  flexGrow: 1,
+  minHeight: '100vh',
+  maxWidth: theme.breakpoints.values.lg,
+  margin: '0 auto',
+  [theme.breakpoints.down('xl')]: {
+    overflow: 'hidden',
   },
 
   [`& .${classes.body}`]: {
     [theme.breakpoints.up('md')]: {
-      margin: theme.spacing(12, 2),
+      margin: theme.spacing(10, 2),
     },
-    margin: theme.spacing(0, 3),
+    margin: theme.spacing(8, 2),
   },
 
   [`& .${classes.footer}`]: {
@@ -43,7 +41,7 @@ declare interface LayoutProps {
 
 const AppLayout: FC<LayoutProps> = ({ children }) => {
   return (
-    <StyledGrid container className={classes.root} justifyContent='center'>
+    <StyledGrid container justifyContent='center'>
       <Grid item xs={12} component='nav'>
         <Navbar />
       </Grid>
