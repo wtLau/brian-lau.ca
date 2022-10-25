@@ -88,27 +88,26 @@ const About = () => {
             title='travel map'
           />
         </Grid>
-        <Grid item xs={12}>
-          {currentCompany ? (
-            <>
-              <Typography variant='h3' component='h2' gutterBottom>
-                Currently At
-              </Typography>
+        {currentCompany ? (
+          <Grid item xs={12}>
+            <Typography variant='h2' gutterBottom>
+              Currently At
+            </Typography>
 
-              <CompanyCard company={currentCompany} />
-            </>
-          ) : null}
-        </Grid>
+            <CompanyCard company={currentCompany} />
+          </Grid>
+        ) : null}
+
         <Grid item xs={12}>
-          <Typography variant='h3' component='h2' gutterBottom>
+          <Typography variant='h2' gutterBottom>
             Previous Experiences
           </Typography>
+
           <Grid spacing={4} container>
             {previousCompanies.map((previousCompany) => (
-              <CompanyCard
-                company={previousCompany}
-                key={previousCompany.name}
-              />
+              <Grid item key={previousCompany.name}>
+                <CompanyCard company={previousCompany} />
+              </Grid>
             ))}
           </Grid>
         </Grid>
