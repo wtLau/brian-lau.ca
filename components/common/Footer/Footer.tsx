@@ -91,10 +91,7 @@ const Footer: FC = () => {
         </Grid>
 
         <Grid item>
-          <Link
-            target='_blank'
-            href='https://www.instagram.com/user_____undefined/'
-          >
+          <Link target='_blank' href='https://www.instagram.com/wtlau.raw/'>
             <IconButton size='large'>
               <Instagram />
             </IconButton>
