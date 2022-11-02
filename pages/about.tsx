@@ -100,7 +100,7 @@ const About = () => {
 
         <Grid item xs={12}>
           <Typography variant='h2' gutterBottom>
-            Previous Experiences
+            Previously At
           </Typography>
 
           <Grid spacing={4} container>
