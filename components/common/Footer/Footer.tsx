@@ -81,27 +81,21 @@ const Footer: FC = () => {
           ))}
       </Grid>
 
-      <Grid container item justifyContent='center' spacing={1}>
+      <Grid container item justifyContent='center' spacing={4}>
         <Grid item>
           <Link target='_blank' href='https://www.linkedin.com/in/brian-lau/'>
-            <IconButton size='large'>
-              <LinkedIn />
-            </IconButton>
+            <LinkedIn />
           </Link>
         </Grid>
 
         <Grid item>
           <Link target='_blank' href='https://www.instagram.com/wtlau.raw/'>
-            <IconButton size='large'>
-              <Instagram />
-            </IconButton>
+            <Instagram />
           </Link>
         </Grid>
         <Grid item>
           <Link target='_blank' href='https://www.github.com/wtlau'>
-            <IconButton size='large'>
-              <GitHub />
-            </IconButton>
+            <GitHub />
           </Link>
         </Grid>
       </Grid>
