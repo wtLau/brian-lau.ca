@@ -18,7 +18,7 @@ const PageLayout = ({
   children: React.ReactNode
 }) => {
   return (
-    <StyledGrid container direction='column' spacing={4}>
+    <StyledGrid container direction='column' spacing={6}>
       <Grid item>
         <HeadSeo title={title} description={description} />
       </Grid>
