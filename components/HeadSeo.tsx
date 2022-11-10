@@ -16,7 +16,7 @@ export const HeadSeo = ({
         {title}
       </Typography>
 
-      <Typography variant='body2'>{description}</Typography>
+      <Typography variant='body1'>{description}</Typography>
     </>
   )
 }
