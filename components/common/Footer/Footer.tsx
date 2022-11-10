@@ -1,28 +1,16 @@
-import { GitHub, Instagram, LinkedIn } from '@mui/icons-material'
-import { Grid, Typography, IconButton } from '@mui/material'
-import { styled } from '@mui/material/styles'
+import {
+  Grid,
+  Typography,
+  IconButton,
+  useTheme,
+  Icon,
+  Container,
+} from '@mui/material'
 import React, { FC } from 'react'
-
+import GitHubIcon from '@mui/icons-material/GitHub'
+import LinkedInIcon from '@mui/icons-material/LinkedIn'
+import InstagramIcon from '@mui/icons-material/Instagram'
 import { Link } from '@components/ui'
-
-const PREFIX = 'Footer'
-
-const classes = {
-  root: `${PREFIX}-root`,
-  copyright: `${PREFIX}-copyright`,
-}
-
-const StyledGrid = styled(Grid)(({ theme }) => ({
-  [`&.${classes.root}`]: {
-    flexGrow: 1,
-    padding: theme.spacing(6, 0),
-    borderTop: `1px solid ${theme.palette.divider}`,
-  },
-
-  [`& .${classes.copyright}`]: {
-    marginTop: theme.spacing(3),
-  },
-}))
 
 const linkData = [
   {
@@ -55,58 +43,53 @@ const linkData = [
 ]
 
 const Footer: FC = () => {
+  const theme = useTheme()
   return (
-    <StyledGrid
+    <Grid
+      py={2}
       container
-      className={classes.root}
+      sx={{
+        borderTop: `1px solid ${theme.palette.divider}`,
+      }}
       justifyContent='center'
       spacing={4}
     >
-      <Grid container item justifyContent='center' spacing={5}>
-        {linkData &&
-          linkData.map((e, i) => (
-            <Grid item key={i}>
-              <Link href={e.link} target={e.target ? e.target : ''}>
-                <Typography
-                  gutterBottom
-                  variant='body2'
-                  component='p'
-                  color='textSecondary'
-                  align='center'
-                >
-                  {e.name}
-                </Typography>
-              </Link>
-            </Grid>
-          ))}
+      <Grid item container justifyContent='center' spacing={2}>
+        {linkData.map((e, i) => (
+          <Grid item key={i} component={Link} href={e.link}>
+            <Typography color='textSecondary'>{e.name}</Typography>
+          </Grid>
+        ))}
       </Grid>
 
-      <Grid container item justifyContent='center' spacing={4}>
-        <Grid item>
-          <Link target='_blank' href='https://www.linkedin.com/in/brian-lau/'>
-            <LinkedIn />
-          </Link>
-        </Grid>
+      <Grid item xs={12} container justifyContent='center'>
+        <Link
+          href='https://www.linkedin.com/in/brian-lau/'
+          mx={1}
+          target='_blank'
+        >
+          <LinkedInIcon />
+        </Link>
 
-        <Grid item>
-          <Link target='_blank' href='https://www.instagram.com/wtlau.raw/'>
-            <Instagram />
-          </Link>
-        </Grid>
-        <Grid item>
-          <Link target='_blank' href='https://www.github.com/wtlau'>
-            <GitHub />
-          </Link>
-        </Grid>
+        <Link
+          target='_blank'
+          mx={1}
+          href='https://www.instagram.com/wtlau.raw/'
+        >
+          <InstagramIcon />
+        </Link>
+
+        <Link target='_blank' mx={1} href='https://www.github.com/wtlau'>
+          <GitHubIcon />
+        </Link>
       </Grid>
 
-      {/* 
-      <Grid item xs={12} className={classes.copyright}>
-        <Typography variant='subtitle2' color='textSecondary' align='center'>
+      <Grid item>
+        <Typography variant='subtitle2' color='textSecondary'>
           © {new Date().getFullYear()} Brian Lau
         </Typography>
-      </Grid> */}
-    </StyledGrid>
+      </Grid>
+    </Grid>
   )
 }
 
