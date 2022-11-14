@@ -16,6 +16,15 @@ export type resourceType = {
 
 export const resources: resourceType[] = [
   {
+    id: 9,
+    title: 'nemil',
+    summary: 'Tech. Career. Crypto.',
+    author: 'nemil',
+    type: 'blog',
+    tags: 'software career',
+    url: 'https://nemil.com/tags/notes-to-a-young-software-engineer/',
+  },
+  {
     id: 8,
     title: 'Not Only Code',
     summary: 'Tech. Career. Leadership.',
