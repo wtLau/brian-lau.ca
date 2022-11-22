@@ -36,7 +36,11 @@ const toolsData: toolsType[] = [
   { type: 'Software', name: 'Raycast - Productivity Supercharged' },
   { type: 'Work Station', name: '16" Macbook Pro - M1 Max' },
   { type: 'Work Station', name: '31.5" LG UltraFine 32UN650W' },
-  { type: 'Work Station', name: 'Moonlander Ergo Keyboard' },
+  {
+    type: 'Work Station',
+    name: 'Moonlander Ergo Keyboard',
+    link: 'https://configure.zsa.io/moonlander/layouts/7VvEw/latest/0',
+  },
   { type: 'Work Station', name: 'C920s PRO HD WEBCAM' },
   { type: 'Work Station', name: 'G305 Wireless Mouse' },
   { type: 'Work Station', name: 'Presonus C3.5 BT Channel Studio Monitor' },

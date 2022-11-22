@@ -4,6 +4,8 @@ import React from 'react'
 
 import PageLayout from '@components/layout/PageLayout'
 import toolsData from '@data/toolsData'
+import { Link } from '@components/ui'
+import Condition from '@components/common/Condition'
 
 const Gears = () => {
   const toolsTypeList = new Set(toolsData.map((ele) => ele.type))
@@ -30,9 +32,20 @@ const Gears = () => {
               <Typography variant='h5' component={'h4'}>
                 {type}
               </Typography>
+
               {toolsData.map(
                 (ele) =>
-                  ele.type === type && <Typography>‧ {ele.name}</Typography>
+                  ele.type === type && (
+                    <Typography>
+                      ‧ {ele.name}
+                      <Condition condition={!!ele.link}>
+                        {'  -  '}
+                        <Link underline='always' href={ele.link as string}>
+                          Link to goodies
+                        </Link>
+                      </Condition>
+                    </Typography>
+                  )
               )}
             </Grid>
           ))}
