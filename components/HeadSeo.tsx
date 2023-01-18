@@ -11,7 +11,7 @@ export const HeadSeo = ({
 }) => {
   return (
     <>
-      <NextSeo title={`${title}- Brian Lau`} description={description} />
+      <NextSeo title={`${title}`} description={description} />
       <Typography variant='h1' gutterBottom>
         {title}
       </Typography>
