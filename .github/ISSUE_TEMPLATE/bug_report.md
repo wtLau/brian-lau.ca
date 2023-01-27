@@ -1,32 +1,24 @@
 ---
 name: Bug Report
-about: Create a report to help us improve
+about: Create a report to help Brian improve
 title: 'bug: '
 labels: 'bug'
 assignees: 'wtLau'
 
 ---
 
-## Estimated Time (Hours): 
+<!-- S | M | L | XL | ♾️ -->
+## Effort: 
 
+<!-- Provide high-level explanation on why this is a bug. What might've caused it. How to fix -->
 ## Describe the bug 🐛
-
-### Issue:
-
 - 
 
+<!-- For more annoying bug, plz provide steps or video to reproduce -->
 ### Steps To Reproduce
 
 1. 
 
-### Expected behavior
 
-- [ ] 
-
----
-
-### Addtional Screenshots
-
-
-### Additional context
+## Additional context
 
