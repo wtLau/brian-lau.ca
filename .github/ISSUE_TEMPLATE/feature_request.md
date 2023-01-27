@@ -7,26 +7,28 @@ assignees: 'wtLau'
 projects: 'Kanban'
 
 ---
-### Estimated T-shirt size (Small | Medium | Large | XL): 
-### Estimated Time (Hours): 
+<!-- Small | Medium | Large | XL | ♾️ -->
+### Effort: 
+
 
 ---
-
+<!-- Explains the why -->
 ### Abstract:
+  - 
 
+<!-- Explains the hows -->
+### Detail Implementation:
+  - 
 
-
----
-
+<!-- Explains the what -->
 ### Expected Features:
 
-- [ ] 
+  - [ ] 
 
-### Prerequisite
-
-
-### Detail steps of implementation
-
-
-### Additional Context
+<!-- List blockers if any -->
+### Prerequisite:
+  - [ ] 
+---
+<!-- Any other comments -->
+#### Others:
 
