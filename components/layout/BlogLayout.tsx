@@ -8,19 +8,22 @@ import { Link } from '@components/ui'
 import { BlogFrontMatterType } from '@lib/mdx'
 
 import PageLayout from './PageLayout'
+import { useRouter } from 'next/router'
 
 const ProfileImageStyled = styled(Image)({
   borderRadius: '50%',
   marginRight: '20px',
 })
 
+const HOST = 'https://brian-lau.ca'
 const editUrl = (slug: string) =>
   `https://github.com/wtLau/Portfolio-App/edit/production/data/blog/${slug}.mdx`
 
-const discussUrl = (slug: string) =>
-  `https://mobile.twitter.com/search?q=${encodeURIComponent(
-    `https://brian-lau.ca/blog/${slug}`
-  )}`
+const getTweetUrl = (pageUrl: string): string =>
+  `https://twitter.com/compose/tweet?&url=${encodeURIComponent(
+    pageUrl
+  )}&via=brian_wtlau
+`
 
 type Props = {
   children: ReactNode
@@ -28,6 +31,9 @@ type Props = {
 }
 
 export default function BlogLayout({ children, frontMatter }: Props) {
+  const { asPath } = useRouter()
+  const currentUrl = `${HOST}${asPath}`
+  console.log(currentUrl)
   return (
     <PageLayout title={frontMatter.title} description={frontMatter.summary}>
       <Grid item container>
@@ -78,7 +84,7 @@ export default function BlogLayout({ children, frontMatter }: Props) {
             </Typography>
           </div>
           <Link
-            href={discussUrl(frontMatter.slug)}
+            href={getTweetUrl(currentUrl)}
             target='_blank'
             rel='noopener noreferrer'
           >
