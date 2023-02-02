@@ -36,9 +36,4 @@ export const SocialData: SocialData[] = [
     link: 'https://www.youtube.com/channel/UC2wP2VVjty2IaQYx8GYizeQ',
     description: 'Where I share my talks and pour-over videos',
   },
-  {
-    name: 'YouTube (coming soon)',
-    link: 'https://www.youtube.com/channel/UC2wP2VVjty2IaQYx8GYizeQ',
-    description: 'Where I share my talks and pour-over videos',
-  },
 ]
