@@ -11,6 +11,7 @@ import GitHubIcon from '@mui/icons-material/GitHub'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import { Link } from '@components/ui'
+import { SocialData } from '@data/SocialData'
 
 const linkData = [
   {
@@ -64,9 +65,12 @@ const Footer: FC = () => {
 
       <Grid item xs={12} container justifyContent='center'>
         <Link
-          href='https://www.linkedin.com/in/brian-lau/'
+          href={SocialData.filter((item) => item.name === 'LinkedIn')[0].link}
           mx={1}
           target='_blank'
+          aria-label={
+            SocialData.filter((item) => item.name === 'LinkedIn')[0].name
+          }
         >
           <LinkedInIcon />
         </Link>
@@ -74,12 +78,22 @@ const Footer: FC = () => {
         <Link
           target='_blank'
           mx={1}
-          href='https://www.instagram.com/wtlau.raw/'
+          href={SocialData.filter((item) => item.name === 'Instagram')[0].link}
+          aria-label={
+            SocialData.filter((item) => item.name === 'Instagram')[0].name
+          }
         >
           <InstagramIcon />
         </Link>
 
-        <Link target='_blank' mx={1} href='https://www.github.com/wtlau'>
+        <Link
+          target='_blank'
+          mx={1}
+          href={SocialData.filter((item) => item.name === 'GitHub')[0].link}
+          aria-label={
+            SocialData.filter((item) => item.name === 'GitHub')[0].name
+          }
+        >
           <GitHubIcon />
         </Link>
       </Grid>
