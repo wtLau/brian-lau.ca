@@ -32,8 +32,15 @@ export const SocialData: SocialData[] = [
     description: 'Book a session with me! Free and accessible mentorship.',
   },
   {
-    name: 'YouTube (coming soon)',
+    name: 'YouTube',
     link: 'https://www.youtube.com/channel/UC2wP2VVjty2IaQYx8GYizeQ',
     description: 'Where I share my talks and pour-over videos',
+  },
+
+  {
+    name: 'Book a time ',
+    link: 'https://cal.com/wtlau',
+    description:
+      'Schudule a time with me to chat for 15min or 30min. Via cal.com ',
   },
 ]
