@@ -113,13 +113,10 @@ const ResponsiveImage = ({ src, className, alt }: ImageProps) => (
     <Image
       layout='responsive'
       src={src}
-      height={1000}
-      width={1000}
+      height={300}
+      width={800}
+      objectFit='contain'
       alt={alt}
-      style={{
-        maxWidth: '100%',
-        height: 'auto',
-      }}
     />
   </div>
 )
