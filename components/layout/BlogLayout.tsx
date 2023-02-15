@@ -60,7 +60,7 @@ export default function BlogLayout({ children, frontMatter }: Props) {
         {frontMatter.image && (
           <Grid item>
             <Image
-              alt={frontMatter.image_alt}
+              alt={frontMatter.image_alt || ''}
               height={1620}
               width={2160}
               src={frontMatter.image}

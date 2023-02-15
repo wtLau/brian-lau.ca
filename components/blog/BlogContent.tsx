@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography'
-import Image from 'next/image'
+import Image, { ImageProps } from 'next/image'
 import React, { ReactNode } from 'react'
 
 import { Link } from '@components/ui'
@@ -108,8 +108,21 @@ const mdxLink = ({ href, children }: Props) => {
   )
 }
 
+const ResponsiveImage = ({ src, className, alt }: ImageProps) => (
+  <div className={className}>
+    <Image
+      layout='responsive'
+      src={src}
+      height={300}
+      width={800}
+      objectFit='contain'
+      alt={alt}
+    />
+  </div>
+)
+
 const MDXComponents = {
-  Image,
+  img: ResponsiveImage,
   a: mdxLink,
   h1: H1,
   h2: H2,
