@@ -8,7 +8,6 @@ import { Link } from '@components/ui'
 import { BlogFrontMatterType } from '@lib/mdx'
 
 import PageLayout from './PageLayout'
-import { useRouter } from 'next/router'
 
 const ProfileImageStyled = styled(Image)({
   borderRadius: '50%',
@@ -31,9 +30,8 @@ type Props = {
 }
 
 export default function BlogLayout({ children, frontMatter }: Props) {
-  const { asPath } = useRouter()
-  const currentUrl = `${HOST}${asPath}`
-  console.log(currentUrl)
+  const currentUrl = `${HOST}${window.location.pathname}`
+
   return (
     <PageLayout title={frontMatter.title} description={frontMatter.summary}>
       <Grid item container>
