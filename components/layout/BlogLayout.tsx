@@ -8,6 +8,7 @@ import { Link } from '@components/ui'
 import { BlogFrontMatterType } from '@lib/mdx'
 
 import PageLayout from './PageLayout'
+import { HOST } from '@lib/constants'
 
 const ProfileImageStyled = styled(Image)({
   borderRadius: '50%',
@@ -28,6 +29,10 @@ type Props = {
 }
 
 export default function BlogLayout({ children, frontMatter }: Props) {
+  let currentUrl = HOST
+  if (typeof window !== 'undefined')
+    currentUrl = `${HOST}${window.location.pathname}`
+
   return (
     <PageLayout title={frontMatter.title} description={frontMatter.summary}>
       <Grid item container>
@@ -69,14 +74,13 @@ export default function BlogLayout({ children, frontMatter }: Props) {
         )}
         <Grid item>{children}</Grid>
 
-        <Grid item>
-          <div>
+        <Grid item marginTop={10}>
+          <Grid item>
             <Typography variant='caption' gutterBottom>
-              I am still learning how to interact on the internet. If you find
-              any problem or issue regarding this post, feel free to tweet me or
+              If you find any bugs regarding this post, feel free to tweet me or
               make pull request!
             </Typography>
-          </div>
+          </Grid>
           <Link
             href={discussUrl(frontMatter.slug)}
             target='_blank'
