@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-undef */
 import { Typography, Grid } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import { parseISO, format } from 'date-fns'
@@ -9,6 +10,7 @@ import { BlogFrontMatterType } from '@lib/mdx'
 
 import PageLayout from './PageLayout'
 import { HOST } from '@lib/constants'
+import Condition from '@components/common/Condition'
 
 const ProfileImageStyled = styled(Image)({
   borderRadius: '50%',
@@ -36,7 +38,7 @@ export default function BlogLayout({ children, frontMatter }: Props) {
   return (
     <PageLayout title={frontMatter.title} description={frontMatter.summary}>
       <Grid item container>
-        <Grid item container direction='row' columnSpacing={2} xs={9}>
+        <Grid container direction='row' columnSpacing={2} xs={9}>
           <Grid item>
             <ProfileImageStyled
               alt='Brian Lau'
@@ -54,49 +56,49 @@ export default function BlogLayout({ children, frontMatter }: Props) {
             </Typography>
           </Grid>
         </Grid>
-        <Grid item xs container justifyContent='flex-end'>
+        <Grid item xs={2}>
           <Typography color='textSecondary'>
             {frontMatter.readingTime.text}
             {/* {` • `} */}
             {/* <ViewCounter slug={frontMatter.slug} /> */}
           </Typography>
         </Grid>
-
-        {frontMatter.image && (
+        <Condition condition={Boolean(frontMatter.image)}>
           <Grid item>
             <Image
               alt={frontMatter.image_alt || ''}
               height={1620}
               width={2160}
-              src={frontMatter.image}
+              src={frontMatter.image || ''}
             />
           </Grid>
-        )}
-        <Grid item>{children}</Grid>
+        </Condition>
+      </Grid>
 
-        <Grid item marginTop={10}>
-          <Grid item>
-            <Typography variant='caption' gutterBottom>
-              If you find any bugs regarding this post, feel free to tweet me or
-              make pull request!
-            </Typography>
-          </Grid>
-          <Link
-            href={discussUrl(frontMatter.slug)}
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            {'Discuss on Twitter'}
-          </Link>
-          {` • `}
-          <Link
-            href={editUrl(frontMatter.slug)}
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            {'Edit on GitHub'}
-          </Link>
+      <Grid item>{children}</Grid>
+
+      <Grid item marginTop={10}>
+        <Grid item>
+          <Typography variant='caption' gutterBottom>
+            If you find any bugs regarding this post, feel free to tweet me or
+            make pull request!
+          </Typography>
         </Grid>
+        <Link
+          href={discussUrl(frontMatter.slug)}
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          {'Discuss on Twitter'}
+        </Link>
+        {` • `}
+        <Link
+          href={editUrl(frontMatter.slug)}
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          {'Edit on GitHub'}
+        </Link>
       </Grid>
     </PageLayout>
   )
