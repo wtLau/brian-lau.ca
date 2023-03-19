@@ -27,6 +27,10 @@ const linkData = [
     link: '/blog',
   },
   {
+    name: 'Snippets',
+    link: '/snippets',
+  },
+  {
     name: 'Gears',
     link: '/gears',
   },

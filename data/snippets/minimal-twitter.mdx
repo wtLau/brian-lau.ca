@@ -1,0 +1,44 @@
+---
+title: 'Minimalist Twitter UI'
+publishedAt: '2023-03-19'
+summary: 'A hack to enable a customized minimalistic look in Twitter via AdBlocker Ultimate'
+---
+
+## Ever find Twitter UI noisy?
+
+Try the minimalistic look of my @Twitter UI
+
+## Steps
+1. Install AdBlocker Ultimate Extension https://addons.mozilla.org/en-US/firefox/addon/adblocker-ultimate/
+2. Go to the extension Setting page
+3. Go to "Custom Rules"
+4. Copy code from www.brian-lau.ca/snippets/minimal-twitter
+5. Paste it in "Custom Rules"
+
+## Snippet
+
+```ts
+// Remove "Who to follow" section
+twitter.com###react-root > div.css-1dbjc4n.r-13awgt0.r-12vffkv > div.css-1dbjc4n.r-13awgt0.r-12vffkv > div.css-1dbjc4n.r-18u37iz.r-13qz1uu.r-417010:last-child > main.css-1dbjc4n.r-1habvwh.r-16y2uox.r-1wbh5a2:last-child > div.css-1dbjc4n.r-150rngu.r-16y2uox.r-1wbh5a2.r-rthrr5 > div.css-1dbjc4n.r-aqfbo4.r-16y2uox > div.css-1dbjc4n.r-1oszu61.r-1niwhzg.r-18u37iz.r-16y2uox.r-1wtj0ep.r-2llsf.r-13qz1uu > div.css-1dbjc4n.r-aqfbo4.r-zso239.r-1udh08x.r-1hycxz:last-child > div.css-1dbjc4n.r-1pi2tsx > div.css-1dbjc4n.r-1xcajam.r-ipm5af.r-1hycxz:last-child > div.css-1dbjc4n.r-1adg3ll > div.css-1dbjc4n > div.css-1dbjc4n.r-vacyoi.r-ttdzmv > div.css-1dbjc4n.r-g6ijar.r-74htps.r-1867qdf.r-1phboty.r-rs99b7.r-1ifxtd0.r-1udh08x:nth-child(4)
+// Remove "What’s happening" section
+twitter.com###react-root > div.css-1dbjc4n.r-13awgt0.r-12vffkv > div.css-1dbjc4n.r-13awgt0.r-12vffkv > div.css-1dbjc4n.r-18u37iz.r-13qz1uu.r-417010:last-child > main.css-1dbjc4n.r-1habvwh.r-16y2uox.r-1wbh5a2:last-child > div.css-1dbjc4n.r-150rngu.r-16y2uox.r-1wbh5a2.r-rthrr5 > div.css-1dbjc4n.r-aqfbo4.r-16y2uox > div.css-1dbjc4n.r-1oszu61.r-1niwhzg.r-18u37iz.r-16y2uox.r-1wtj0ep.r-2llsf.r-13qz1uu > div.css-1dbjc4n.r-aqfbo4.r-zso239.r-1udh08x.r-1hycxz:last-child > div.css-1dbjc4n.r-1pi2tsx > div.css-1dbjc4n.r-1xcajam.r-ipm5af.r-1hycxz:last-child > div.css-1dbjc4n.r-1adg3ll > div.css-1dbjc4n > div.css-1dbjc4n.r-vacyoi.r-ttdzmv > div.css-1dbjc4n.r-g6ijar.r-74htps.r-1867qdf.r-1phboty.r-rs99b7.r-1ifxtd0.r-1udh08x:nth-child(3)
+// Remove Site Footer
+twitter.com###react-root > div.css-1dbjc4n.r-13awgt0.r-12vffkv > div.css-1dbjc4n.r-13awgt0.r-12vffkv > div.css-1dbjc4n.r-18u37iz.r-13qz1uu.r-417010:last-child > main.css-1dbjc4n.r-1habvwh.r-16y2uox.r-1wbh5a2:last-child > div.css-1dbjc4n.r-150rngu.r-16y2uox.r-1wbh5a2.r-rthrr5 > div.css-1dbjc4n.r-aqfbo4.r-16y2uox > div.css-1dbjc4n.r-1oszu61.r-1niwhzg.r-18u37iz.r-16y2uox.r-1wtj0ep.r-2llsf.r-13qz1uu > div.css-1dbjc4n.r-aqfbo4.r-zso239.r-1udh08x.r-1hycxz:last-child > div.css-1dbjc4n.r-1pi2tsx > div.css-1dbjc4n.r-1xcajam.r-ipm5af.r-1hycxz:last-child > div.css-1dbjc4n.r-1adg3ll > div.css-1dbjc4n > div.css-1dbjc4n.r-vacyoi.r-ttdzmv > div.css-1dbjc4n.r-1niwhzg.r-18bvks7.r-1867qdf.r-1phboty.r-1yadl64.r-1ifxtd0.r-1udh08x:last-child > nav.css-1dbjc4n.r-18u37iz.r-1w6e6rj.r-ymttw5
+// Remove Profile in Tweet Card
+twitter.com##div.css-1dbjc4n.r-1hwvwag
+// Remove Small Profile in Sub-Tweet Card
+twitter.com##div.css-1dbjc4n.r-1d4mawv
+// Remove Twitter Account ID and post time
+twitter.com##div.css-1dbjc4n.r-18u37iz.r-1wbh5a2.r-13hce6t
+// Remove Twitter Logo
+twitter.com###react-root > div.css-1dbjc4n.r-13awgt0.r-12vffkv > div.css-1dbjc4n.r-13awgt0.r-12vffkv > div.css-1dbjc4n.r-18u37iz.r-13qz1uu.r-417010:last-child > header.css-1dbjc4n.r-obd0qt.r-16y2uox.r-lrvibr.r-1g40b8q:nth-child(3) > div.css-1dbjc4n.r-o96wvk > div.css-1dbjc4n.r-aqfbo4.r-1pi2tsx.r-1xcajam.r-ipm5af > div.css-1dbjc4n.r-1pi2tsx.r-1wtj0ep.r-1rnoaur.r-1pn2ns4.r-o96wvk > div.css-1dbjc4n.r-1habvwh:first-child > div.css-1dbjc4n.r-dnmrzs.r-1vvnge1:first-child > h1.css-4rbku5.css-1dbjc4n.r-1awozwy.r-1pz39u2.r-1loqt21.r-6koalj.r-16y2uox.r-1777fci.r-4wgw6l
+// Remove Load More Button
+twitter.com##div.css-1dbjc4n.r-633pao.r-u8s1d
+// Remove Post Input field in Feed
+twitter.com###react-root > div.css-1dbjc4n.r-13awgt0.r-12vffkv > div.css-1dbjc4n.r-13awgt0.r-12vffkv > div.css-1dbjc4n.r-18u37iz.r-13qz1uu.r-417010:last-child > main.css-1dbjc4n.r-1habvwh.r-16y2uox.r-1wbh5a2:last-child > div.css-1dbjc4n.r-150rngu.r-16y2uox.r-1wbh5a2.r-rthrr5 > div.css-1dbjc4n.r-aqfbo4.r-16y2uox > div.css-1dbjc4n.r-1oszu61.r-1niwhzg.r-18u37iz.r-16y2uox.r-1wtj0ep.r-2llsf.r-13qz1uu > div.css-1dbjc4n.r-yfoy6g.r-18bvks7.r-1ljd8xs.r-13l2t4g.r-1phboty.r-16y2uox.r-1jgb5lz.r-11wrixw.r-61z16t.r-1ye8kvj.r-13qz1uu.r-184en5c:first-child > div.css-1dbjc4n > div.css-1dbjc4n.r-yfoy6g.r-184en5c:nth-child(3) > div.css-1dbjc4n.r-iphfwy
+// Remove List row in Feed
+twitter.com###react-root > div.css-1dbjc4n.r-13awgt0.r-12vffkv > div.css-1dbjc4n.r-13awgt0.r-12vffkv > div.css-1dbjc4n.r-18u37iz.r-13qz1uu.r-417010:last-child > main.css-1dbjc4n.r-1habvwh.r-16y2uox.r-1wbh5a2:last-child > div.css-1dbjc4n.r-150rngu.r-16y2uox.r-1wbh5a2.r-rthrr5 > div.css-1dbjc4n.r-aqfbo4.r-16y2uox > div.css-1dbjc4n.r-1oszu61.r-1niwhzg.r-18u37iz.r-16y2uox.r-1wtj0ep.r-2llsf.r-13qz1uu > div.css-1dbjc4n.r-yfoy6g.r-18bvks7.r-1ljd8xs.r-13l2t4g.r-1phboty.r-16y2uox.r-1jgb5lz.r-11wrixw.r-61z16t.r-1ye8kvj.r-13qz1uu.r-184en5c:first-child > div.css-1dbjc4n > div.css-1dbjc4n.r-aqfbo4.r-gtdqiz.r-1gn8etr.r-1g40b8q:first-child > div.css-1dbjc4n.r-1e5uvyk.r-ii8lfi:first-child > div.css-1dbjc4n:last-child > nav.css-1dbjc4n.r-1awozwy.r-1ila09b.r-rull8r.r-qklmqi.r-18u37iz
+```
+
+Cheers,
+Brian
