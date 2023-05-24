@@ -3,12 +3,23 @@ import Image from 'next/image'
 import React from 'react'
 
 import PageLayout from '@components/layout/PageLayout'
-import toolsData from '@data/toolsData'
+import toolsData, { toolsType } from '@data/toolsData'
 import { Link } from '@components/ui'
 import Condition from '@components/common/Condition'
+import useSWR from 'swr'
+
+const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
 const Gears = () => {
-  const toolsTypeList = new Set(toolsData.map((ele) => ele.type))
+  const {
+    data: toolsData,
+    isLoading,
+    error,
+  } = useSWR<toolsType[]>('/api/gear', fetcher)
+
+  if (isLoading) return <h1>loading</h1>
+
+  const toolsTypeList = [...new Set(toolsData?.map((item) => item.type))]
 
   return (
     <PageLayout
@@ -27,26 +38,28 @@ const Gears = () => {
           />
         </Grid>
         <Grid container item xs={12} spacing={4}>
-          {[...toolsTypeList].map((type) => (
+          {error && error}
+          {toolsTypeList?.map((type) => (
             <Grid item xs={12} key={type}>
               <Typography variant='h5' component={'h4'}>
                 {type}
               </Typography>
 
-              {toolsData.map(
-                (ele) =>
-                  ele.type === type && (
-                    <Typography>
-                      ‧ {ele.name}
-                      <Condition condition={!!ele.link}>
-                        {'  -  '}
-                        <Link underline='always' href={ele.link as string}>
-                          Link to goodies
-                        </Link>
-                      </Condition>
-                    </Typography>
-                  )
-              )}
+              {toolsData &&
+                toolsData.map(
+                  (ele) =>
+                    ele.type === type && (
+                      <Typography>
+                        ‧ {ele.name}
+                        <Condition condition={!!ele.link}>
+                          {'  -  '}
+                          <Link underline='always' href={ele.link as string}>
+                            Link to goodies
+                          </Link>
+                        </Condition>
+                      </Typography>
+                    )
+                )}
             </Grid>
           ))}
         </Grid>
