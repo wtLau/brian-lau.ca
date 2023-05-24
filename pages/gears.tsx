@@ -3,7 +3,7 @@ import Image from 'next/image'
 import React from 'react'
 
 import PageLayout from '@components/layout/PageLayout'
-import toolsData, { toolsType } from '@data/toolsData'
+import { toolsType } from '@data/toolsData'
 import { Link } from '@components/ui'
 import Condition from '@components/common/Condition'
 import useSWR from 'swr'
