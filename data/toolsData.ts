@@ -1,13 +1,13 @@
 import { URL } from 'url'
 
-type toolsType = {
+export interface GearType {
   type: 'Coding' | 'Software' | 'Work Station' | 'Audio' | 'Misc'
   name: string
   link?: string | URL
   legacy?: boolean
 }
 
-const toolsData: toolsType[] = [
+const toolsData: GearType[] = [
   {
     type: 'Coding',
     name: 'VS Code - Code Editor',

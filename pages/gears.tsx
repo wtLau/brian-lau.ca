@@ -6,7 +6,7 @@ import PageLayout from '@components/layout/PageLayout'
 import { Link } from '@components/ui'
 import Condition from '@components/common/Condition'
 import useSWR from 'swr'
-import { toolsType } from '@data/toolsData'
+import { GearType } from '@data/toolsData'
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
@@ -15,7 +15,7 @@ const Gears = () => {
     data: toolsData,
     isLoading,
     error,
-  } = useSWR<toolsType[]>('/api/gear', fetcher)
+  } = useSWR<GearType[]>('/api/gear', fetcher)
 
   if (isLoading) return <h1>loading</h1>
 
