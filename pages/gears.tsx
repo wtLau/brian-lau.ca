@@ -3,10 +3,10 @@ import Image from 'next/image'
 import React from 'react'
 
 import PageLayout from '@components/layout/PageLayout'
-import { toolsType } from '@data/toolsData'
 import { Link } from '@components/ui'
 import Condition from '@components/common/Condition'
 import useSWR from 'swr'
+import { toolsType } from '@data/toolsData'
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
