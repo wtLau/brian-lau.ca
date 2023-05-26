@@ -7,7 +7,7 @@ export interface GearType {
   legacy?: boolean
 }
 
-const toolsData: GearType[] = [
+const gearsData: GearType[] = [
   {
     type: 'Coding',
     name: 'VS Code - Code Editor',
@@ -54,4 +54,4 @@ const toolsData: GearType[] = [
   { type: 'Misc', name: 'Huawei P30 Pro' },
 ]
 
-export default toolsData
+export default gearsData
