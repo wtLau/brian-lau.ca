@@ -80,8 +80,8 @@ export default function BlogLayout({ children, frontMatter }: Props) {
       <Grid item marginTop={10}>
         <Grid item>
           <Typography variant='caption' gutterBottom>
-            If you find any bugs regarding this post, feel free to tweet me or
-            make pull request!
+            If you find any issue regarding this post, please send me a DM or
+            open a pull request!
           </Typography>
         </Grid>
         <Link
