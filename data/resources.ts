@@ -30,9 +30,23 @@ export type resourceType = {
 //   type: '',
 //   tags: '',
 //   url: '',
+//   collection: false,
+//   recommended: false,
 // },
 
 export const resources: resourceType[] = [
+  {
+    id: 12,
+    title: 'A Life Engineered',
+    summary:
+      'The mission of A Life Engineered is to help software and other knowledge workers achieve their career and lifestyle goals by taking a strategic approach to their careers.  Software engineers have the unique opportunity to reach financial freedom in a short amount of time within the safety of a corporate environment.  All it takes is a structured approach.',
+    author: 'Steve Huynh',
+    type: 'video',
+    tags: 'software career',
+    url: 'https://www.youtube.com/@ALifeEngineered',
+    collection: true,
+    recommended: false,
+  },
   {
     id: 11,
     title: 'The Deliverate Engineer',
