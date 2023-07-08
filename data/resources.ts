@@ -1,4 +1,4 @@
-type mediaType = 'blog' | 'book' | 'video' | 'tweet'
+type mediaType = 'podcast' | 'blog' | 'book' | 'video' | 'tweet'
 
 type tagsType =
   | 'front-end development'
@@ -8,6 +8,7 @@ type tagsType =
   | 'software career'
   | 'imposter syndrome'
   | 'software industry'
+  | 'engineering management'
 
 export type resourceType = {
   id: number
@@ -35,6 +36,37 @@ export type resourceType = {
 // },
 
 export const resources: resourceType[] = [
+  {
+    id: 15,
+    title: 'Front End Happy Hour',
+    summary:
+      'A software engineering podcast featuring a panel of Software Engineers from Netflix, Twitch, & Atlassian talking over drinks about Frontend, JavaScript, and career development.',
+    author: [
+      'Ryan Burgess',
+      'Jem Young',
+      'Stacy London',
+      'Augustus Yuan',
+      'Mars Jullian',
+      'Shirley Wu',
+    ],
+    type: 'podcast',
+    tags: 'front-end development',
+    url: 'https://www.frontendhappyhour.com/',
+    collection: true,
+    recommended: false,
+  },
+  {
+    id: 14,
+    title: 'Managing Up',
+    summary:
+      'Management tips, stories, and interviews to help navigate the challenges of managing creative and technical teams.',
+    author: ['Travis Swicegood', 'Brandon Hays', 'Nickolas Means'],
+    type: 'podcast',
+    tags: 'engineering management',
+    url: 'https://www.managingup.show/',
+    collection: true,
+    recommended: false,
+  },
   {
     id: 13,
     title: 'NDC Conferences',
