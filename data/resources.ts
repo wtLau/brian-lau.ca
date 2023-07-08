@@ -6,7 +6,7 @@ type tagsType =
   | 'system designs'
   | 'productivity'
   | 'software career'
-  | 'imposter syndrome'
+  | 'emotional health'
   | 'software industry'
   | 'engineering management'
 
@@ -82,7 +82,8 @@ export const resources: resourceType[] = [
   {
     id: 13,
     title: 'NDC Conferences',
-    summary: 'Europe’s one of largest conferences for software development.',
+    summary:
+      'NDC is Europe’s one of largest software conferences. I really enjoy the quality of the talks presented here',
     author: 'NDC Conference',
     type: 'video',
     tags: 'software development',
@@ -104,10 +105,10 @@ export const resources: resourceType[] = [
   },
   {
     id: 11,
-    title: 'The Deliverate Engineer',
+    title: 'The Deliberate Engineer',
     summary:
-      "Good engineering careers don't just happen by accident. It takes a deliberate approach. He spent the last 30 years working as a programmer and manager at bit tech and many other places. Fifteen of those years were as a principal engineer, thirteen as a manager.",
-    author: 'Jogn L. Miller',
+      'Another phonomenal engineer sharing his experiences and careers. Please watch a few videos from John, its worth the time!',
+    author: 'John L. Miller',
     type: 'video',
     collection: true,
     tags: 'software career',
@@ -118,16 +119,17 @@ export const resources: resourceType[] = [
     title:
       'Imposter Syndrome: Overcoming Self-Doubt in Success - Heather Downing - NDC Oslo 2023',
     summary:
-      "Impostor Syndrome almost killed my tech career. I've discovered a lot about what triggers me and the fallout from letting it take over your working life.I'll tell you my story, and the lessons I learned in order to overcome it. Think you aren't good enough? Let's talk about it.",
+      'Everyone has impostor syndrome and it is real. Know about it. Learn to work with it. And if you can, help others to deal with it. This hour long talk is insightful to know that I am not the only imposter out there!',
     author: ['Heather Downing', 'NDC Conference'],
     type: 'video',
-    tags: 'imposter syndrome',
+    tags: 'emotional health',
     url: 'https://www.youtube.com/watch?v=atYHKU0VJQE',
   },
   {
     id: 9,
     title: 'nemil',
-    summary: 'Tech. Career. Crypto.',
+    summary:
+      "I really liked the 'notes to a young software engineer' series. I am sure you'll learn a few things reading them.",
     author: 'nemil',
     type: 'blog',
     tags: 'software career',
@@ -137,7 +139,8 @@ export const resources: resourceType[] = [
   {
     id: 8,
     title: 'Not Only Code',
-    summary: 'Tech. Career. Leadership.',
+    summary:
+      'Gregory gives valueable and actionable long-term not-only-code advices. I reach out to him for occasional mentorship and coaching. Highly recommended to check out his thoughts on growing professionally in the software space',
     author: 'Gregory',
     type: 'blog',
     tags: 'software career',
@@ -148,28 +151,31 @@ export const resources: resourceType[] = [
   {
     id: 7,
     title: 'Kent C. Dodds',
-    summary: 'One stop shop for everything you need to build JavaScript apps.',
+    summary:
+      'Big avocates on Remix, React and testing. He has a lot of great advice on how to build JavaScript apps.',
     author: 'Kent C. Dodds',
     type: 'blog',
     tags: 'front-end development',
-    url: 'https://kentcdodds.com/',
+    url: 'https://kentcdodds.com/blog',
     recommended: true,
     collection: true,
   },
   {
     id: 6,
-    title: 'Lee Robinson – Developer, writer, creator.',
-    summary: '',
+    title: 'Lee Robinson',
+    summary:
+      'Developer, writer, creator. Lee is VP of DX at Vercel. He inspired me to build my own website using Next.js because it is really cool.',
     author: 'Lee Robinson',
     type: 'blog',
     tags: 'front-end development',
-    url: 'https://leerob.io/',
+    url: 'https://leerob.io/blog',
     collection: true,
   },
   {
     id: 5,
-    title: 'Overreacted — A blog by Dan Abramov',
-    summary: '',
+    title: 'Dan Abramov',
+    summary:
+      'Dan is one of the core contributor to the frontend library - React. Great content with fabulous writing style',
     author: 'Dan Abramov',
     type: 'blog',
     tags: 'front-end development',
@@ -179,17 +185,17 @@ export const resources: resourceType[] = [
   {
     id: 4,
     title: "Don't Call Yourself A Programmer, And Other Career Advice",
-    summary: '',
+    summary:
+      'This blog outline the tradeoffs between work life balance. Design your career with intentions.',
     author: 'Patrick McKenzie',
     type: 'blog',
     url: 'https://www.kalzumeus.com/2011/10/28/dont-call-yourself-a-programmer/',
     tags: 'software career',
   },
-
   {
     id: 3,
     title: 'How to apply SOLID principles in React applications',
-    summary: '',
+    summary: 'Applying a software engineering concept in React code',
     author: 'Tomas Gold',
     type: 'blog',
     url: 'https://medium.com/@tomgold_48918/how-to-apply-solid-principles-in-react-applications-6c964091a982',
@@ -198,7 +204,7 @@ export const resources: resourceType[] = [
   {
     id: 2,
     title: 'The Pragmatic Programmer',
-    summary: 'The #1 newsletter for engineering managers and senior engineers',
+    summary: 'The newsletter for engineering managers and senior engineers',
     author: 'Gergely Orosz',
     type: 'blog',
     tags: 'software industry',
@@ -209,7 +215,7 @@ export const resources: resourceType[] = [
   {
     id: 1,
     title: 'Eloquent JavaScript',
-    summary: '',
+    summary: 'The book you must read if you use JavaScript on a regular basis',
     author: 'Marijin Haverbeke',
     type: 'book',
     url: 'https://eloquentjavascript.net/Eloquent_JavaScript.pdf',
