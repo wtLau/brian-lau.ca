@@ -37,6 +37,18 @@ export type resourceType = {
 
 export const resources: resourceType[] = [
   {
+    id: 16,
+    title: 'Kun the Engineer',
+    summary:
+      "Kun a partner level software engineer at Microsoft; ex-Meta. He've gathered interesting learnings as he navigated his career in the tech industry and he'd love to share them with us in case they can be helpful.",
+    author: 'Kun Chen',
+    type: 'video',
+    tags: 'software career',
+    url: 'https://www.youtube.com/@kunchenxyz/videos',
+    collection: true,
+    recommended: false,
+  },
+  {
     id: 15,
     title: 'Front End Happy Hour',
     summary:
