@@ -1,20 +1,57 @@
+type mediaType = 'blog' | 'talk' | 'book' | 'video' | 'tweet' | 'collection'
+
+type tagsType =
+  | 'front end development'
+  | 'software development'
+  | 'system designs'
+  | 'productivity'
+  | 'software career'
+  | 'imposter syndrome'
+
 export type resourceType = {
   id: number
   title: string
   url: string
   author: string | string[]
   summary: string
-  type: 'blog' | 'article' | 'book' | 'video' | 'tweet' | 'people'
-  tags?:
-    | 'front end development'
-    | 'software development'
-    | 'system designs'
-    | 'productivity'
-    | 'software career'
+  type: mediaType
+  tags?: tagsType
   recommended?: boolean
 }
 
+/* Copy this template for new entries */
+// {
+//   id:,
+//   title: '',
+//   summary: "",
+//   author: "",
+//   type: '',
+//   tags: '',
+//   url: '',
+// },
+
 export const resources: resourceType[] = [
+  {
+    id: 11,
+    title: 'The Deliverate Engineer',
+    summary:
+      "Good engineering careers don't just happen by accident. It takes a deliberate approach. He spent the last 30 years working as a programmer and manager at bit tech and many other places. Fifteen of those years were as a principal engineer, thirteen as a manager.",
+    author: 'Jogn L. Miller',
+    type: 'collection',
+    tags: 'software career',
+    url: 'https://www.youtube.com/@TheDeliberateEngineer/',
+  },
+  {
+    id: 10,
+    title:
+      'Imposter Syndrome: Overcoming Self-Doubt in Success - Heather Downing - NDC Oslo 2023',
+    summary:
+      "Impostor Syndrome almost killed my tech career. I've discovered a lot about what triggers me and the fallout from letting it take over your working life.I'll tell you my story, and the lessons I learned in order to overcome it. Think you aren't good enough? Let's talk about it.",
+    author: ['Heather Downing', 'NDC Conference'],
+    type: 'talk',
+    tags: 'imposter syndrome',
+    url: 'https://www.youtube.com/watch?v=atYHKU0VJQE',
+  },
   {
     id: 9,
     title: 'nemil',
@@ -67,7 +104,7 @@ export const resources: resourceType[] = [
     title: "Don't Call Yourself A Programmer, And Other Career Advice",
     summary: '',
     author: 'Patrick McKenzie',
-    type: 'article',
+    type: 'blog',
     url: 'https://www.kalzumeus.com/2011/10/28/dont-call-yourself-a-programmer/',
   },
 
@@ -76,7 +113,7 @@ export const resources: resourceType[] = [
     title: 'How to apply SOLID principles in React applications',
     summary: '',
     author: 'Tomas Gold',
-    type: 'article',
+    type: 'blog',
     url: 'https://medium.com/@tomgold_48918/how-to-apply-solid-principles-in-react-applications-6c964091a982',
   },
   {
