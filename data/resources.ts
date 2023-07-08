@@ -1,4 +1,4 @@
-type mediaType = 'blog' | 'talk' | 'book' | 'video' | 'tweet'
+type mediaType = 'blog' | 'book' | 'video' | 'tweet'
 
 type tagsType =
   | 'front-end development'
@@ -36,6 +36,17 @@ export type resourceType = {
 
 export const resources: resourceType[] = [
   {
+    id: 13,
+    title: 'NDC Conferences',
+    summary: 'Europe’s one of largest conferences for software development.',
+    author: 'NDC Conference',
+    type: 'video',
+    tags: 'software development',
+    url: 'https://www.youtube.com/@NDC',
+    collection: true,
+    recommended: false,
+  },
+  {
     id: 12,
     title: 'A Life Engineered',
     summary:
@@ -65,7 +76,7 @@ export const resources: resourceType[] = [
     summary:
       "Impostor Syndrome almost killed my tech career. I've discovered a lot about what triggers me and the fallout from letting it take over your working life.I'll tell you my story, and the lessons I learned in order to overcome it. Think you aren't good enough? Let's talk about it.",
     author: ['Heather Downing', 'NDC Conference'],
-    type: 'talk',
+    type: 'video',
     tags: 'imposter syndrome',
     url: 'https://www.youtube.com/watch?v=atYHKU0VJQE',
   },
