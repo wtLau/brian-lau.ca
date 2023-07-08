@@ -1,12 +1,13 @@
-type mediaType = 'blog' | 'talk' | 'book' | 'video' | 'tweet' | 'collection'
+type mediaType = 'blog' | 'talk' | 'book' | 'video' | 'tweet'
 
 type tagsType =
-  | 'front end development'
-  | 'software development'
+  | 'front-end development'
+  | 'software development' // Anything the goes beyond frontend development
   | 'system designs'
   | 'productivity'
   | 'software career'
   | 'imposter syndrome'
+  | 'software industry'
 
 export type resourceType = {
   id: number
@@ -15,8 +16,9 @@ export type resourceType = {
   author: string | string[]
   summary: string
   type: mediaType
-  tags?: tagsType
+  tags: tagsType
   recommended?: boolean
+  collection?: boolean // if this is an collection of mediaType
 }
 
 /* Copy this template for new entries */
@@ -37,7 +39,8 @@ export const resources: resourceType[] = [
     summary:
       "Good engineering careers don't just happen by accident. It takes a deliberate approach. He spent the last 30 years working as a programmer and manager at bit tech and many other places. Fifteen of those years were as a principal engineer, thirteen as a manager.",
     author: 'Jogn L. Miller',
-    type: 'collection',
+    type: 'video',
+    collection: true,
     tags: 'software career',
     url: 'https://www.youtube.com/@TheDeliberateEngineer/',
   },
@@ -60,6 +63,7 @@ export const resources: resourceType[] = [
     type: 'blog',
     tags: 'software career',
     url: 'https://nemil.com/tags/notes-to-a-young-software-engineer/',
+    collection: true,
   },
   {
     id: 8,
@@ -70,6 +74,7 @@ export const resources: resourceType[] = [
     tags: 'software career',
     url: 'https://www.notonlycode.org/',
     recommended: true,
+    collection: true,
   },
   {
     id: 7,
@@ -80,6 +85,7 @@ export const resources: resourceType[] = [
     tags: 'front end development',
     url: 'https://kentcdodds.com/',
     recommended: true,
+    collection: true,
   },
   {
     id: 6,
@@ -89,6 +95,7 @@ export const resources: resourceType[] = [
     type: 'blog',
     tags: 'front end development',
     url: 'https://leerob.io/',
+    collection: true,
   },
   {
     id: 5,
@@ -98,6 +105,7 @@ export const resources: resourceType[] = [
     type: 'blog',
     tags: 'front end development',
     url: 'https://overreacted.io/',
+    collection: true,
   },
   {
     id: 4,
@@ -106,6 +114,7 @@ export const resources: resourceType[] = [
     author: 'Patrick McKenzie',
     type: 'blog',
     url: 'https://www.kalzumeus.com/2011/10/28/dont-call-yourself-a-programmer/',
+    tags: 'software career',
   },
 
   {
@@ -115,6 +124,7 @@ export const resources: resourceType[] = [
     author: 'Tomas Gold',
     type: 'blog',
     url: 'https://medium.com/@tomgold_48918/how-to-apply-solid-principles-in-react-applications-6c964091a982',
+    tags: 'front end development',
   },
   {
     id: 2,
@@ -122,8 +132,10 @@ export const resources: resourceType[] = [
     summary: 'The #1 newsletter for engineering managers and senior engineers',
     author: 'Gergely Orosz',
     type: 'blog',
+    tags: 'software industry',
     url: 'https://blog.pragmaticengineer.com/',
     recommended: true,
+    collection: true,
   },
   {
     id: 1,
@@ -132,5 +144,6 @@ export const resources: resourceType[] = [
     author: 'Marijin Haverbeke',
     type: 'book',
     url: 'https://eloquentjavascript.net/Eloquent_JavaScript.pdf',
+    tags: 'front end development',
   },
 ]
