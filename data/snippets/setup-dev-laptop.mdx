@@ -1,0 +1,123 @@
+---
+title: 'One-click to Setting Up a Dev Environment'
+publishedAt: '2023-07-28'
+summary: 'A script to install most of the dependencies required to develop software'
+---
+
+## To Run
+
+Copy the whole snippet below and paste it in terminal. 
+
+Feel free to take out things that you don't find useful.
+
+ps. It should run automactically but not verified 🙃
+
+## The Snippet 
+
+```
+### NEOVIM ENVIRONMENT ###
+# NeoVim
+brew install neovim
+# AstroVim
+git clone https://github.com/wtlau/nvim_config ~/.config/nvim/lua/user
+#LazyGit
+brew install lazygit
+
+### FONTS ###
+# Comic Shanns mono nerd-font
+brew tap homebrew/cask-fonts && brew install --cask font-comic-shanns-mono-nerd-font
+
+### DEV TOOLS ###
+# Ripgrep: a blazing fast grep tool
+brew install ripgrep
+# GDU
+brew install -f gdu
+brew link --overwrite gdu  # if you have coreutils installed as well
+# GitHub Cli
+brew install gh
+# Bitwarden Cli
+brew install bitwarden-cli
+# Bat: alternative to cat
+brew install bat
+# Exa: an alternative to ls
+brew install exa
+# tokei: alternative to cloc
+brew install tokei
+# git-delta: a pager for git, diff and grep
+brew install git-delta
+# broot: alternative to tree
+brew install broot
+# jq: JSON processor
+brew install jq
+# Taskworrior todo list 
+brew install task
+
+### JavaScript ###
+# Typescipt
+brew install typescript
+# Volta 
+curl https://get.volta.sh | bash
+# pnpm
+brew install pnpm
+
+### Python ###
+# Pyenv Build environment
+brew install openssl readline sqlite3 xz zlib tcl-tk
+# Python Env
+brew install pyenv
+# Python 3.6
+pyenv install 3.6
+# Shell env for pyenv
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+
+### EMULATOR ENVIRONMENT ###
+# oh-my-zsh (plugin manager)
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# zsh-syntax-highlighting
+brew install zsh-syntax-highlighting
+# zsh-autosuggestions
+brew install zsh-autosuggestions
+# zsh vim
+brew install zsh-vi-mode
+source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
+### APPLICATIONS ###
+# FireFox
+brew install --cask firefox
+# Chrome
+brew install --cask google-chrome
+# Iterm2
+brew install --cask iterm2
+# Google Chrome
+brew install --cask google-chrome
+# Raycast
+brew install --cask raycast
+# Notion
+brew install --cask notion
+# WeChat
+brew install --cask wechat
+# WhatsApp
+brew install --cask whatsapp
+# Figma
+brew install --cask figma
+# Tidal
+brew install --cask tidal
+# Slack
+brew install --cask slack
+# Cron Calendar
+brew install --cask cron
+# VSCode
+brew install --cask visual-studio-code
+# OBS
+brew install --cask obs 
+# Zoom
+brew install --cask zoom
+# Steam
+brew install --cask steam
+```
+
+## Misc
+
+[Iterm2 Theme](https://github.com/mbadolato/iTerm2-Color-Schemes/tarball/master)
