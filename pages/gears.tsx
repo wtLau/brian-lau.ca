@@ -5,21 +5,10 @@ import React from 'react'
 import PageLayout from '@components/layout/PageLayout'
 import { Link } from '@components/ui'
 import Condition from '@components/common/Condition'
-import useSWR from 'swr'
-import { GearType } from '@data/toolsData'
-
-const fetcher = (url: string) => fetch(url).then((res) => res.json())
+import gearsData from '@data/toolsData'
 
 const Gears = () => {
-  const {
-    data: toolsData,
-    isLoading,
-    error,
-  } = useSWR<GearType[]>('/api/gear', fetcher)
-
-  if (isLoading) return <h1>loading</h1>
-
-  const toolsTypeList = [...new Set(toolsData?.map((item) => item.type))]
+  const gearCategory = [...new Set(gearsData?.map((item) => item.type))]
 
   return (
     <PageLayout
@@ -38,28 +27,26 @@ const Gears = () => {
           />
         </Grid>
         <Grid container item xs={12} spacing={4}>
-          {error && error}
-          {toolsTypeList?.map((type) => (
+          {gearCategory?.map((type) => (
             <Grid item xs={12} key={type}>
               <Typography variant='h5' component={'h4'}>
                 {type}
               </Typography>
 
-              {toolsData &&
-                toolsData.map(
-                  (ele) =>
-                    ele.type === type && (
-                      <Typography>
-                        ‧ {ele.name}
-                        <Condition condition={!!ele.link}>
-                          {'  -  '}
-                          <Link underline='always' href={ele.link as string}>
-                            Link to goodies
-                          </Link>
-                        </Condition>
-                      </Typography>
-                    )
-                )}
+              {gearsData.map(
+                (ele) =>
+                  ele.type === type && (
+                    <Typography>
+                      ‧ {ele.name}
+                      <Condition condition={!!ele.link}>
+                        {'  -  '}
+                        <Link underline='always' href={ele.link as string}>
+                          Link to goodies
+                        </Link>
+                      </Condition>
+                    </Typography>
+                  )
+              )}
             </Grid>
           ))}
         </Grid>

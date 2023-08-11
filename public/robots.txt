@@ -1,2 +1,5 @@
 User-agent: *
 Sitemap: https://brian-lau.ca/sitemap.xml
+
+User-agent: GPTBot
+Disallow: /
